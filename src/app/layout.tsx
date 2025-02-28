@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// import "react-multi-carousel/lib/styles.css";
+// import "bootstrap/dist/js/bootstrap.js";
+// import "aos/dist/aos.css";
+// import "aos/dist/aos.js";
+import "../assets/css/style.css";
+import "../assets/css/countdown.css";
+import "../assets/css/bootstrap.css";
+import "../assets/fontawesome/css/all.css";
+// import "./App.css";
+import { ToastContainer } from "react-toastify";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={` antialiased`}>
+        <ToastContainer />
+
         {children}
+        <Footer />
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/bootstrap.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       </body>
     </html>
   );
