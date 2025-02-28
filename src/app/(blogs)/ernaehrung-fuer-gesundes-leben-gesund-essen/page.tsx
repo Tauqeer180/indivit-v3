@@ -4,7 +4,7 @@ import BlogsHero from "../components/BlogsHero";
 import { BlogCard } from "@/components/Cards";
 
 export default async function Page() {
-  let res = await fetcher("blogs", { cache: true });
+  let res = await fetcher("blogs&limit=12", { cache: true });
   res = JSON.parse(JSON.stringify(res));
   return (
     <div>

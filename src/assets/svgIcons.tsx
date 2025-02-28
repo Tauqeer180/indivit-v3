@@ -188,7 +188,6 @@ export const DiamondIcon = ({ filled }) => {
       x="0px"
       y="0px"
       viewBox="0 0 512 512"
-      style="enable-background:new 0 0 512 512;"
     >
       <g>
         <g>
