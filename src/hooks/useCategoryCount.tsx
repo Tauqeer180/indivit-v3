@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useCategoryCount(selectedData, data, isSelected) {
   const [rawData, setRawData] = useState([]);
-  const [limitText, setLimitText] = useState();
+  const [limitText, setLimitText] = useState<any>();
   const [limitDisable, setLimitDisable] = useState(false);
 
   useEffect(() => {

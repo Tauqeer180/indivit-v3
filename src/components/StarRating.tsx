@@ -10,7 +10,8 @@ export default function StarRating({ value, onChange, color }) {
       onClick={onClick}
       className={`fs-1 tw-text-[#ffc107] ${!onChange && "pe-none"} ${color}`}
       style={{ cursor: "pointer" }}
-      disabled={true}
+      // disabled={true}
+      // as="button"
       aria-disabled={true}
     >
       {isFilled ? "★" : "☆"}

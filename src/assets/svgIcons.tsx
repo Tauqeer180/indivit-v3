@@ -424,7 +424,7 @@ export function QuoteUpIcon({}) {
   );
 }
 
-export function ArrowOutIcon({ fill, ...props }) {
+export function ArrowOutIcon({ fill, ...props }: any) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -469,7 +469,6 @@ export function PlayIcon(props) {
   );
 }
 
- 
 export function RightIcon(props) {
   return (
     <svg

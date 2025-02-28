@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import imgIcon from "../assets/icon/img-icon.png";
 
-import {
-  addWishlistBox,
-  addWishlistIngredient,
-  addWishlistSmoothie,
-} from "../services/Wishlist";
-import { useSelector } from "react-redux";
+// import {
+//   addWishlistBox,
+//   addWishlistIngredient,
+//   addWishlistSmoothie,
+// } from "../services/Wishlist";
+// import { useSelector } from "react-redux";
 import {
   ArrowOutIcon,
   CrossBoxIcon,
@@ -18,9 +18,9 @@ import {
 // import { IsWishlist } from "./common/utils";
 import useIngredientType from "@/hooks/useIngredientType";
 import useIngredientStatus from "@/hooks/useIngredientStatus";
-import ConfirmWishModal from "./Modal/ConfirmWishModal";
-import useAddWishlist from "@/hooks/useAddWishlist";
-import ModalContainer from "./Modal/ModalContainer";
+// import ConfirmWishModal from "./Modal/ConfirmWishModal";
+// import useAddWishlist from "@/hooks/useAddWishlist";
+// import ModalContainer from "./Modal/ModalContainer";
 // import useCategoryCount from "@/hooks/useCategoryCount";
 import RangeSteps from "./RangeSteps";
 import useCategoryShare from "@/hooks/useCategoryShare";
@@ -733,7 +733,7 @@ export function SkeltonCard({ profileStyle = false }) {
         </p>
         <a
           href="#"
-          tabIndex="-1"
+          // tabIndex="-1"
           className="btn btn-solid-success disabled placeholder col-6"
         ></a>
       </div>
