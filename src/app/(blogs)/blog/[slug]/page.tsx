@@ -3,6 +3,7 @@ import React from "react";
 import BlogContent from "../../components/BlogContent";
 import TOC from "../../components/TOC";
 import moment from "moment";
+import Image from "next/image";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -13,12 +14,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <div className="tw-mx-auto tw-max-w-[1440px] ">
         <div className="tw-flex tw-flex-col  tw-mx-auto tw-overflow-hidden tw-rounded">
-          <img
+          <Image
             src={
               baseURL + "blogs/" + blogData?.image ||
               "https://source.unsplash.com/random/480x360"
             }
-            alt=""
+            alt={blogData?.title}
             className="tw-w-full tw-h-auto tw-max-w-6xl tw-mx-auto lg:tw-rounded-xl lg:tw-mt-36 md:tw-mt-32 tw-mt-28"
           />
           <div className=" tw-mx-auto tw-space-y-6 sm:tw-px-10 sm:tw-mx-12 md:tw-px-16 tw-px-5 ">
