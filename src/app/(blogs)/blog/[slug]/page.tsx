@@ -19,6 +19,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
               baseURL + "blogs/" + blogData?.image ||
               "https://source.unsplash.com/random/480x360"
             }
+            width={1920}
+            height={1080}
             alt={blogData?.title}
             className="tw-w-full tw-h-auto tw-max-w-6xl tw-mx-auto lg:tw-rounded-xl lg:tw-mt-36 md:tw-mt-32 tw-mt-28"
           />
