@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` antialiased`}>
         <ToastContainer />
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
         <Footer />
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
