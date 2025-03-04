@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             {blogData?.author_name && (
               <div className="tw-bg-white tw-rounded-lg tw-border tw-border-solid tw-border-gray-200 tw-flex tw-items-center tw-justify-between 2xl:tw-p-4 tw-p-3">
                 <div className="tw-flex tw-items-center tw-gap-1">
-                  <img
+                  <Image
                     src={
                       blogData?.icon
                         ? baseURL + "blogs/" + blogData?.icon
@@ -48,6 +48,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     }
                     alt={blogData?.author_name}
                     className="tw-rounded-full tw-w-12 tw-h-12"
+                    width={48}
+                    height={48}
                   />
                   <p className="text-xs dark:text-gray-600 mb-0 tw-font-bold">
                     {blogData?.author_name}

@@ -4,6 +4,7 @@ import FooterTop from "./FooterTop";
 
 import { fetcher } from "@/lib/fetcher";
 import Link from "next/link";
+import Image from "next/image";
 // import { useSelector } from "react-redux";
 export default async function Footer() {
   const data = await fetcher(`box_categorys`, { cache: true });
@@ -29,10 +30,11 @@ export default async function Footer() {
         <div className="container">
           <div className="row d-flex pb-5 pb-md-0">
             <div className=" d-none d-lg-block pb-5 ps-sm-1">
-              <img
+              <Image
                 className=" img-fluid"
                 src={"/assets/icon/logo1.png"}
-                width="80px"
+                width={80}
+                height={80}
                 alt="Indivit"
               />
             </div>

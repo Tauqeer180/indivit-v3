@@ -33,6 +33,7 @@ import { IsWishlist } from "@/utils/IsWishlist";
 import useCategoryCount from "@/hooks/useCategoryCount";
 import { baseURL } from "@/lib/fetcher";
 import Link from "next/link";
+import Image from "next/image";
 let profileIconStyle =
   "lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white";
 // export function BoxCard({ data }) {
@@ -770,7 +771,9 @@ export function BlogCard({ data }) {
     <>
       <figure className="tw-rounded-xl tw-shadow md:tw-p-0 tw-rounded-b-xl max-sm:tw-max-w-[90vw]">
         <Link href={`/blog/${data?.slug}`}>
-          <img
+          <Image
+            width={405}
+            height={225}
             className="tw-mx-auto tw-aspect-video tw-h-auto  tw-rounded-t-xl tw-w-full "
             src={
               baseURL + "blogs/" + data?.image ||
