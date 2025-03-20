@@ -1,6 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { logoutAction } from "./account";
-import { getWishlistIds } from "@/services/Wishlist";
+import session from "@/services/session";
+import { fetcher } from "@/lib/fetcher";
 
 const initialState = { count: 0 };
 export const fetchWishlist = createAsyncThunk(
@@ -9,7 +10,7 @@ export const fetchWishlist = createAsyncThunk(
     const { dispatch } = thunkAPI;
     // const dispatch = useDispatch();
     // const navigate = useNavigate();
-    const response = await getWishlistIds();
+    const response = await fetcher('get_wishlist',{token:session.get("token")});
     if (
       response?.response?.status == 401 ||
       response?.response?.status == 403

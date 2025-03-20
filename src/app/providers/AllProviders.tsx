@@ -1,4 +1,6 @@
 "use client";
+import "bootstrap/dist/js/bootstrap.js";
+import "aos/dist/aos.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import AOS from "aos";
@@ -44,14 +46,14 @@ export default function AllProviders({ children }) {
   }, []);
   return (
     <div>
-      <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
           <CartProvider>
             {children}
             <SpeedInsights />
           </CartProvider>
-        </Provider>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </Provider>
     </div>
   );
 }

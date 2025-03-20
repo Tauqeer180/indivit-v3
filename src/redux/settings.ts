@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import session from "../services/session";
+import session from "@/services/session";
 import { baseURL } from "@/lib/fetcher";
+
 
 const initialState = {
   settings: session.get("settings"),
