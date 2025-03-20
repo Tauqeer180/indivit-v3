@@ -8,7 +8,6 @@ import { CartProvider } from "react-use-cart";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Provider } from "react-redux";
 import store from "@/redux/store";
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

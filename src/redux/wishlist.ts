@@ -3,7 +3,6 @@ import { logoutAction } from "./account";
 import session from "@/services/session";
 import { fetcher } from "@/lib/fetcher";
 
-
 const initialState = { count: 0 };
 export const fetchWishlist = createAsyncThunk(
   "wishlist/fetchWishlist",
