@@ -11,8 +11,7 @@ import "../assets/fontawesome/css/all.css";
 // import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/components/layout/Footer";
-
-import Navbar from "@/components/layout/Navbar";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,8 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` antialiased`}>
         <ToastContainer />
-        {/* <Navbar /> */}
-        {children}
+        <ReactQueryProvider>{children}</ReactQueryProvider>
         <Footer />
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
