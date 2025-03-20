@@ -1,6 +1,6 @@
 "use client";
-import "bootstrap/dist/js/bootstrap.js";
-import "aos/dist/aos.js";
+// import "bootstrap/dist/js/bootstrap.js";
+// import "aos/dist/aos.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import AOS from "aos";
@@ -19,8 +19,10 @@ const queryClient = new QueryClient({
 
 export default function AllProviders({ children }) {
   useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.js");
+    import("aos/dist/aos.js").then((AOS) => AOS.init());
     if (AOS) {
-      AOS.init();
+      //   AOS.init();
       AOS.refresh();
     }
     let lastScrollY = window.scrollY;

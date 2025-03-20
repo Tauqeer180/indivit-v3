@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 // import { useSelector } from "react-redux";
 export default async function Footer() {
-  const data = await fetcher(`box_categorys`, { cache: true });
+  const data = await fetcher(`box_category`, { cache: true });
 
   // const {
   //   isLoading: boxLoading,
@@ -25,7 +25,7 @@ export default async function Footer() {
     <div>
       {/* <!-- footer start --> */}
       {/* <FooterTop /> */}
-      {JSON.stringify(categories)}
+      {/* {JSON.stringify(categories)} */}
       <footer id="flx-footer">
         <div className="container">
           <div className="row d-flex pb-5 pb-md-0">
