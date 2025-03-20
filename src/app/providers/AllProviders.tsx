@@ -1,11 +1,14 @@
 "use client";
+import "bootstrap/dist/js/bootstrap.js";
+import "aos/dist/aos.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import { CartProvider } from "react-use-cart";
-import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import Cookies from "@/components/CookiesBanner/Cookies";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -44,12 +47,14 @@ export default function AllProviders({ children }) {
   }, []);
   return (
     <div>
-      <QueryClientProvider client={queryClient}>
-        <CartProvider>
-          {children}
-          <SpeedInsights />
-        </CartProvider>
-      </QueryClientProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <CartProvider>
+            {children}
+            <SpeedInsights />
+          </CartProvider>
+        </QueryClientProvider>
+      </Provider>
     </div>
   );
 }

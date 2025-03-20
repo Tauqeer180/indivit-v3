@@ -4786,9 +4786,9 @@ button.accordion-button.collapsed {
   font-weight: bold !important;
 
 }
-.offcanvas-end {
+/* .offcanvas-end {
   transform: translateX(150%) !important;
-}
+} */
 .show.offcanvas-end{
   transform: none !important;
 }

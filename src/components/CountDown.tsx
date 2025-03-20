@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import RadialProgressBar from "./common/RadialProgressBar";
 import { useQuery } from "@tanstack/react-query";
 // import { getProdCycle } from "../services/ProductionCycle";
-import { ProdCycleIcon } from "@/assets/svgIcons.tsx";
+import { ProdCycleIcon } from "@/assets/svgIcons";
 import { fetcher } from "@/lib/fetcher";
 
 export default function CountDown() {
@@ -51,7 +51,7 @@ export default function CountDown() {
     queryKey: ["productionCycle"],
     queryFn: () => fetcher("production"),
   });
-  let productionTime = data?.data;
+  let productionTime = data;
   useEffect(() => {
     if (productionTime?.status == 0) {
       setInterval(() => {
@@ -63,6 +63,7 @@ export default function CountDown() {
 
   return (
     <>
+      {/* {JSON.stringify(data)} */}
       {productionTime?.status == 0 && (
         <>
           <div className="nav-item d-flex align-items-center prod-cycle">

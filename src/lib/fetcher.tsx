@@ -58,16 +58,12 @@ export const fetcher = async (
       !url.includes("register")
     ) {
       // logout()
-      Cookies.remove("token");
-      Cookies.remove("user");
-      // replace('/signin')
-      // let res = await response?.json()
-      // console.log('Res ==>>> ', res)
-      // throw new Error(res?.message)
-      if (typeof window !== "undefined") {
-        toast.error("Please Login to proceed");
-        window.location.href = "/signin";
-      }
+      // Cookies.remove("token");
+      // Cookies.remove("user");
+      //      if (typeof window !== "undefined") {
+      //   toast.error("Please Login to proceed");
+      //   window.location.href = "/signin";
+      // }
     }
 
     let res = await response?.json();

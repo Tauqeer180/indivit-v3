@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import session from "../services/utils/session";
-import { baseURL } from "../services/Adapter/customAxios";
+import session from "@/services/session";
+import { baseURL } from "@/lib/fetcher";
+// import { baseURL } from "@/services/Adapter/customAxios";
 
 const initialState = {
   settings: session.get("settings"),

@@ -11,7 +11,7 @@ import { setCommonImgs, setSiteSettings } from "../../redux/settings";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import WaveSvg from "@/assets/WaveSvg";
-import { baseURL } from "@/lib/fetcher";
+import { baseURL, fetcher } from "@/lib/fetcher";
 
 // import waveSvg from "../../assets/svg/wave.svg";
 export default function Navbar() {
@@ -70,7 +70,7 @@ export default function Navbar() {
     data: boxCategories,
   } = useQuery({
     queryKey: ["limitedboxCategories"],
-    queryFn: () => fetcher("limit_box_category", { cache: true }),
+    queryFn: () => fetcher("limit_box_category"),
   });
   const {
     isLoading: settingsLoading,
@@ -171,7 +171,7 @@ export default function Navbar() {
             {/* {JSON.stringify(boxCategories)} */}
             <div className="offcanvas-header d-lg-none">
               <div className="flx-logo">
-                <Link className="navbar-brand " to="/">
+                <Link className="navbar-brand " href="/">
                   <img
                     width="50px"
                     src={"/assets/icon/logo1.png"}
@@ -207,7 +207,8 @@ export default function Navbar() {
                     >
                       <div className="containe">
                         <div className="row mx-0">
-                          {boxCategories?.data?.data
+                          {/* {JSON.stringify(boxCategories)} */}
+                          {boxCategories?.data
                             ?.slice(0, 4)
                             .map((cat, index) => {
                               return (
@@ -224,7 +225,7 @@ export default function Navbar() {
                                   <div className="pt-2">
                                     <div className="text-center">
                                       <Link
-                                        to={`/category/${
+                                        href={`/category/${
                                           cat?.name + "_" + cat?.id
                                         }`}
                                       >
@@ -246,7 +247,7 @@ export default function Navbar() {
                                     </div>
                                     <div className="text-center bg-wave position-relative py-md-5 py-3">
                                       <Link
-                                        to={`/category/${
+                                        href={`/category/${
                                           cat?.name + "_" + cat?.id
                                         }`}
                                         className={`btn btn-secondary  z-index-10  !tw-px-5 !tw-py-2 !tw-border-none`}
@@ -263,7 +264,7 @@ export default function Navbar() {
                           {/* <div className={`col-6 col-lg-3 p-0 box-bg-3 `}>
                             <div className="pt-4">
                               <div className="text-center">
-                                <Link to={`/boxes`}>
+                                <Link href={`/boxes`}>
                                   <img
                                     src={commonImgs?.boxImg || ourbox}
                                     className=""
@@ -275,7 +276,7 @@ export default function Navbar() {
                               </div>
                               <div className="text-center bg-wave position-relative py-md-5 py-3">
                                 <Link
-                                  to={`/boxes`}
+                                  href={`/boxes`}
                                   className={`btn btn-secondary hsn-box-btn z-index-10 box-btn-bg-3`}
                                 >
                                   Alle Boxen ansehen
@@ -311,34 +312,34 @@ export default function Navbar() {
                       aria-labelledby="defaultDropdown"
                     >
                       <li>
-                        <Link to="/rightrecipes" className="dropdown-item ">
+                        <Link href="/rightrecipes" className="dropdown-item ">
                           Smoothie Rezepte
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link to="/smoothiemixer" className="dropdown-item ">
+                        <Link href="/smoothiemixer" className="dropdown-item ">
                           Online Smoothie Mixer
                         </Link>
                         <hr className="m-0" />
                       </li>
 
                       <li>
-                        <Link to="/ingredients" className="dropdown-item ">
+                        <Link href="/ingredients" className="dropdown-item ">
                           Zutaten
                         </Link>
                         <hr className="m-0" />
                       </li>
 
                       <li>
-                        <Link to="/custombox" className="dropdown-item ">
+                        <Link href="/custombox" className="dropdown-item ">
                           Eigene Box erstellen
                         </Link>
                         <hr className="m-0" />
                       </li>
 
                       {/* <li>
-                      <Link to="/recipedetail" className="dropdown-item ">
+                      <Link href="/recipedetail" className="dropdown-item ">
                         Recipes Detailed
                       </Link>
                     </li> */}
@@ -367,25 +368,25 @@ export default function Navbar() {
                       aria-labelledby="defaultDropdown"
                     >
                       <li>
-                        <Link to="/about" className="dropdown-item ">
+                        <Link href="/about" className="dropdown-item ">
                           Über uns
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link to="/faqs" className="dropdown-item ">
+                        <Link href="/faqs" className="dropdown-item ">
                           FAQs
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link to="/whyindivit" className="dropdown-item ">
+                        <Link href="/whyindivit" className="dropdown-item ">
                           Warum indivit?
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link to="/sustainability" className="dropdown-item ">
+                        <Link href="/sustainability" className="dropdown-item ">
                           Nachhaltigkeit
                         </Link>
                         <hr className="m-0" />
@@ -398,7 +399,7 @@ export default function Navbar() {
           </div>
           {/* <!-- Dropdown menu discover end--> */}
           <div className="col-lg-2 col-2 text-lg-center tw-relative">
-            <Link className="navbar-brand flx-navbar-logo " to="/">
+            <Link className="navbar-brand flx-navbar-logo " href="/">
               <img
                 width="100px"
                 src={"/assets/icon/logo1.png"}
@@ -440,7 +441,7 @@ export default function Navbar() {
                     <>
                       <li>
                         <Link
-                          to={isAuthenticated ? "/profile" : "/login"}
+                          href={isAuthenticated ? "/profile" : "/login"}
                           className="dropdown-item "
                         >
                           Profil
@@ -449,7 +450,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          to={isAuthenticated ? "/orders" : "/login"}
+                          href={isAuthenticated ? "/orders" : "/login"}
                           className="dropdown-item "
                         >
                           Bestellungen
@@ -458,7 +459,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          to={isAuthenticated ? "/subscriptions" : "/login"}
+                          href={isAuthenticated ? "/subscriptions" : "/login"}
                           className="dropdown-item "
                         >
                           Abo
@@ -467,7 +468,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          to={isAuthenticated ? "/my-creations" : "/login"}
+                          href={isAuthenticated ? "/my-creations" : "/login"}
                           className="dropdown-item "
                         >
                           Meine Kreationen
@@ -500,9 +501,9 @@ export default function Navbar() {
                 </ul>
                 {/* </li> */}
 
-                {/* <Link to={isAuthenticated ? "/profile" : "/login"}>
+                {/* <Link href={isAuthenticated ? "/profile" : "/login"}>
             </Link> */}
-                <Link to="/wishlist" className="position-relative hsn-border">
+                <Link href="/wishlist" className="position-relative hsn-border">
                   <img
                     className="mx-xl-3 mx-2"
                     src={"/assets/svg/heart-svgrepo-com.svg"}
@@ -514,7 +515,7 @@ export default function Navbar() {
                     {wishlistCount}
                   </span>
                 </Link>
-                <Link to="/cart" className="position-relative hsn-border">
+                <Link href="/cart" className="position-relative hsn-border">
                   <img
                     className="mx-xl-3 mx-2"
                     src={"/assets/svg/cart-4-svgrepo-com.svg"}

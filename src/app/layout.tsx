@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 // import "react-multi-carousel/lib/styles.css";
 // import "bootstrap/dist/js/bootstrap.js";
-// import "aos/dist/aos.css";
+import "aos/dist/aos.css";
 // import "aos/dist/aos.js";
 import "../assets/css/style.css";
 import "../assets/css/countdown.css";
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={` antialiased`}>
         <AllProviders>
           <ToastContainer />
-          {/* <Navbar /> */}
+          <Navbar />
           <CookiesComponent />
           {children}
           <Analytics />
