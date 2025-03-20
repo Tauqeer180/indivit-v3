@@ -1,8 +1,37 @@
 "use client";
+import { forgotPassword } from "@/services/Account";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    setLoading(true);
+    forgotPassword(data)
+      .then((res) => {
+        if (res?.status == 200) {
+          toast.success(res?.data?.message);
+          router.push("/getreset");
+        } else {
+          toast.error(res?.response?.data?.message);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("Error ", err);
+        toast.error(err?.data?.message);
+        setLoading(false);
+      });
+  };
 
   return (
     <div>
@@ -11,7 +40,7 @@ export default function ForgotPassword() {
           <div className="col-12 col-md-8 col-lg-6 col-xl-6">
             <div className="card" style={{ borderRadius: "3rem" }}>
               <div className="card-body p-5">
-                <form onSubmit={() => console.log("")}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-md-5">
                     <h3 className="mb-2 text-center">
                       Passwort zurücksetzen
@@ -39,17 +68,17 @@ export default function ForgotPassword() {
                         placeholder="Gib hier deine E-Mail Adresse ein"
                         aria-label="Search"
                         aria-describedby="search-addon"
-                        //   {...register("email", {
-                        //     required: "Must be Valid Email",
-                        //     pattern:
-                        //       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        //   })}
+                        {...register("email", {
+                          required: "Must be Valid Email",
+                          pattern:
+                            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        })}
                       />
-                      {/* {errors.email && (
-                          <p className="text-danger my-1">
-                            {errors.email.message}
-                          </p>
-                        )} */}
+                      {errors.email && (
+                        <p className="text-danger my-1">
+                          {String(errors.email.message)}
+                        </p>
+                      )}
                     </div>
                     <button
                       disabled={loading}

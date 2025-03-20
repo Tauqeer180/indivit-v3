@@ -3,9 +3,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import { CartProvider } from "react-use-cart";
-import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import Cookies from "@/components/cookies/Cookies";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -45,11 +45,12 @@ export default function AllProviders({ children }) {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <CartProvider>
-          
-          {children}
-          <SpeedInsights />
-        </CartProvider>
+        <Provider store={store}>
+          <CartProvider>
+            {children}
+            <SpeedInsights />
+          </CartProvider>
+        </Provider>
       </QueryClientProvider>
     </div>
   );

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import session from "../services/utils/session";
-import { baseURL } from "../services/Adapter/customAxios";
+import session from "../services/session";
+import { baseURL } from "@/lib/fetcher";
 
 const initialState = {
   settings: session.get("settings"),
@@ -13,12 +13,12 @@ export const settingsReducer = createSlice({
   initialState,
   reducers: {
     setSiteSettings: (state, action) => {
-      let tempState = { ...state?.settings, ...action?.payload };
+      const tempState = { ...state?.settings, ...action?.payload };
       state.settings = tempState;
       session.set("settings", tempState);
     },
     setCommonImgs: (state, action) => {
-      let tempState = {
+      const tempState = {
         ...state,
         smoothieImg:
           baseURL + "/custom/smoothie/" + action?.payload?.smoothieImg,

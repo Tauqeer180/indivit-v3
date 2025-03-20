@@ -1,8 +1,6 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { getWishlistIds } from "../services/Wishlist";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { logoutAction } from "./account";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { getWishlistIds } from "@/services/Wishlist";
 
 const initialState = { count: 0 };
 export const fetchWishlist = createAsyncThunk(

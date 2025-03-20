@@ -48,7 +48,7 @@ export const fetcher = async (
     reqOptions.next = { revalidate: 3600 };
   }
   try {
-    let response = await fetch(`${baseURL}api/client/${url}`, reqOptions);
+    const response = await fetch(`${baseURL}api/client/${url}`, reqOptions);
     console.log("From Fetcher ===>>>", url, "=>", response?.status);
     // console.log("fetcher ",res)
 
@@ -70,7 +70,7 @@ export const fetcher = async (
       }
     }
 
-    let res = await response?.json();
+    const res = await response?.json();
 
     return res;
   } catch (error) {
