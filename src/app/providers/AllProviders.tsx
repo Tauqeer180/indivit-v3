@@ -5,7 +5,7 @@ import AOS from "aos";
 import { CartProvider } from "react-use-cart";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import Cookies from "@/components/cookies/Cookies";
+import Cookies from "@/components/CookiesBanner/Cookies";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -46,7 +46,6 @@ export default function AllProviders({ children }) {
     <div>
       <QueryClientProvider client={queryClient}>
         <CartProvider>
-          
           {children}
           <SpeedInsights />
         </CartProvider>
