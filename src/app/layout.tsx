@@ -11,7 +11,6 @@ import "../assets/fontawesome/css/all.css";
 // import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/components/layout/Footer";
-
 import Navbar from "@/components/layout/Navbar";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
