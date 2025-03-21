@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import imgIcon from "../assets/icon/img-icon.png";
+'use client'
+import React, { useEffect, useState } from 'react'
+import imgIcon from '../assets/icon/img-icon.png'
 
 // import {
 //   addWishlistBox,
@@ -8,34 +8,28 @@ import imgIcon from "../assets/icon/img-icon.png";
 //   addWishlistSmoothie,
 // } from "../services/Wishlist";
 // import { useSelector } from "react-redux";
-import {
-  ArrowOutIcon,
-  CrossBoxIcon,
-  Heart,
-  PlusBoxIcon,
-  QuoteUpIcon,
-} from "@/assets/svgIcons";
+import { ArrowOutIcon, CrossBoxIcon, Heart, PlusBoxIcon, QuoteUpIcon } from '@/assets/svgIcons'
 // import { IsWishlist } from "./common/utils";
-import useIngredientType from "@/hooks/useIngredientType";
-import useIngredientStatus from "@/hooks/useIngredientStatus";
+import useIngredientType from '@/hooks/useIngredientType'
+import useIngredientStatus from '@/hooks/useIngredientStatus'
 // import ConfirmWishModal from "./Modal/ConfirmWishModal";
 // import useAddWishlist from "@/hooks/useAddWishlist";
 // import ModalContainer from "./Modal/ModalContainer";
 // import useCategoryCount from "@/hooks/useCategoryCount";
-import RangeSteps from "./RangeSteps";
-import useCategoryShare from "@/hooks/useCategoryShare";
-import useCheckStock from "@/hooks/useCheckStock";
-import { formatToGerman, formatToGerman1 } from "@/utils/germanFormat";
-import moment from "moment";
-import useReadingTime from "@/hooks/useReadingTime";
-import StarRating from "./StarRating";
-import { IsWishlist } from "@/utils/IsWishlist";
-import useCategoryCount from "@/hooks/useCategoryCount";
-import { baseURL } from "@/lib/fetcher";
-import Link from "next/link";
-import Image from "next/image";
+import RangeSteps from './RangeSteps'
+import useCategoryShare from '@/hooks/useCategoryShare'
+import useCheckStock from '@/hooks/useCheckStock'
+import { formatToGerman, formatToGerman1 } from '@/utils/germanFormat'
+import moment from 'moment'
+import useReadingTime from '@/hooks/useReadingTime'
+import StarRating from './StarRating'
+import { IsWishlist } from '@/utils/IsWishlist'
+import useCategoryCount from '@/hooks/useCategoryCount'
+import { baseURL } from '@/lib/fetcher'
+import Link from 'next/link'
+import Image from 'next/image'
 let profileIconStyle =
-  "lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white";
+  'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
 // export function BoxCard({ data }) {
 //   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistBox);
 //   const [modalVisible, setModalVisible] = useState(false);
@@ -701,21 +695,18 @@ let profileIconStyle =
 
 export function SkeltonCard({ profileStyle = false }) {
   return (
-    <div
-      className="card border-0 shadow-sm rounded-8 text-center tw-relative"
-      aria-hidden="true"
-    >
+    <div className="card border-0 shadow-sm rounded-8 text-center tw-relative" aria-hidden="true">
       <span
         data-aos="fade-up"
         data-aos-duration="2000"
         className={
           profileStyle
-            ? profileIconStyle + " tw-mx-auto tw-bg-white tw-shadow-lg"
-            : "md:tw-h-48 tw-h-40 md:tw-w-48 tw-w-40 tw-mx-auto"
+            ? profileIconStyle + ' tw-mx-auto tw-bg-white tw-shadow-lg'
+            : 'md:tw-h-48 tw-h-40 md:tw-w-48 tw-w-40 tw-mx-auto'
         }
       >
         <img
-          src={"/assets/icon/img-icon.png"}
+          src={'/assets/icon/img-icon.png'}
           width=""
           className="w-100 my- mx-auto img-fluid"
           alt="..."
@@ -739,7 +730,7 @@ export function SkeltonCard({ profileStyle = false }) {
         ></a>
       </div>
     </div>
-  );
+  )
 }
 
 export function HeroSkelton() {
@@ -760,12 +751,12 @@ export function HeroSkelton() {
 
       <div className="tw-w-40 tw-h-40 lg:tw-w-96 lg:tw-h-96 tw-bg-gray-300 tw-animate-pulse tw-rounded-lg"></div>
     </div>
-  );
+  )
 }
 
 export function BlogCard({ data }) {
-  const { checkReadingTime } = useReadingTime();
-  let title_slug = data?.title?.split(" ")?.join("-");
+  const { checkReadingTime } = useReadingTime()
+  let title_slug = data?.title?.split(' ')?.join('-')
   // let slug = title_slug?.concat(`_${data?.id}`);
   return (
     <>
@@ -776,8 +767,8 @@ export function BlogCard({ data }) {
             height={225}
             className="tw-mx-auto tw-aspect-video tw-h-auto  tw-rounded-t-xl tw-w-full "
             src={
-              baseURL + "blogs/" + data?.image ||
-              "https://www.cleverelements.com/wp-content/uploads/2024/04/Top-EMailMarketingLoesungen-fuer-Ihr-Unternehmen.png"
+              baseURL + 'blogs/' + data?.image ||
+              'https://www.cleverelements.com/wp-content/uploads/2024/04/Top-EMailMarketingLoesungen-fuer-Ihr-Unternehmen.png'
             }
             alt={data?.title}
           />
@@ -793,10 +784,7 @@ export function BlogCard({ data }) {
             </div>
           </figcaption> */}
           <blockquote>
-            <Link
-              href={`/blog/${data?.slug}`}
-              className=" tw-decoration-transparent "
-            >
+            <Link href={`/blog/${data?.slug}`} className=" tw-decoration-transparent ">
               <h1
                 title={data?.title}
                 className="  lg:!tw-text-xl md:!tw-text-lg sm:!tw-text-base xxs:tw-text-sm tw-text-xs tw-font-extrabold tw-decoration-transparent tw-text-black hover:tw-text-theme tw-duration-300"
@@ -804,10 +792,7 @@ export function BlogCard({ data }) {
                 {data?.title}
               </h1>
             </Link>
-            <p
-              title={data?.short_text}
-              className="sm:tw-text-sm tw-text-xs tw-text-gray-500 "
-            >
+            <p title={data?.short_text} className="sm:tw-text-sm tw-text-xs tw-text-gray-500 ">
               {data?.short_text || data?.title}
             </p>
           </blockquote>
@@ -829,7 +814,7 @@ export function BlogCard({ data }) {
         </div>
       </figure>
     </>
-  );
+  )
 }
 
 // export function TestimonialCard({ data }) {
@@ -886,48 +871,48 @@ export function BlogCard({ data }) {
 //   );
 // }
 
-// export function WhyIndivitSkelton() {
-//   return (
-//     <div className="tw-space-y-6 tw-p-6  tw-rounded-lg ">
-//       <div className="tw-w-3/4 tw-h-6 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+export function WhyIndivitSkelton() {
+  return (
+    <div className="tw-space-y-6 tw-p-6  tw-rounded-lg ">
+      <div className="tw-w-3/4 tw-h-6 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
 
-//       <div className="tw-w-full tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//       <div className="tw-w-5/6 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//       <div className="tw-w-4/5 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+      <div className="tw-w-full tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+      <div className="tw-w-5/6 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+      <div className="tw-w-4/5 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
 
-//       <div className="tw-space-y-4">
-//         <div className="tw-flex tw-items-start tw-gap-4">
-//           <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//           <div className="tw-flex-1">
-//             <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//             <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
-//           </div>
-//         </div>
+      <div className="tw-space-y-4">
+        <div className="tw-flex tw-items-start tw-gap-4">
+          <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+          <div className="tw-flex-1">
+            <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+            <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
+          </div>
+        </div>
 
-//         <div className="tw-flex tw-items-start tw-gap-4">
-//           <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//           <div className="tw-flex-1">
-//             <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//             <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
-//           </div>
-//         </div>
+        <div className="tw-flex tw-items-start tw-gap-4">
+          <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+          <div className="tw-flex-1">
+            <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+            <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
+          </div>
+        </div>
 
-//         <div className="tw-flex tw-items-start tw-gap-4">
-//           <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//           <div className="tw-flex-1">
-//             <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//             <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
-//           </div>
-//         </div>
+        <div className="tw-flex tw-items-start tw-gap-4">
+          <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+          <div className="tw-flex-1">
+            <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+            <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
+          </div>
+        </div>
 
-//         <div className="tw-flex tw-items-start tw-gap-4">
-//           <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//           <div className="tw-flex-1">
-//             <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
-//             <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+        <div className="tw-flex tw-items-start tw-gap-4">
+          <div className="tw-w-12 tw-h-12 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+          <div className="tw-flex-1">
+            <div className="tw-w-1/2 tw-h-4 tw-bg-gray-300 tw-animate-pulse tw-rounded"></div>
+            <div className="tw-w-3/4 tw-h-3 tw-bg-gray-300 tw-animate-pulse tw-rounded tw-mt-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

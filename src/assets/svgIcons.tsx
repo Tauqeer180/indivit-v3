@@ -13,7 +13,7 @@ export const Heart = ({ filled }) => {
         data-name="Path 21013"
         d="M2.016-7.808s5.1-8.451,14.438-4.379S13.136,8.371,13.136,8.371c0,.99-6.58,9.2-11.12,8.708s-23.149-21-14.723-28.37S1.025-7.808,2.016-7.808Z"
         transform="translate(16.729 15.241)"
-        fill={filled ? "var(--green)" : "transparent"}
+        fill={filled ? 'var(--green)' : 'transparent'}
       />
       <g id="heart-line" transform="translate(0 0)">
         <path
@@ -21,12 +21,12 @@ export const Heart = ({ filled }) => {
           data-name="Path 20847"
           d="M21.793,39.257a1.2,1.2,0,0,1-.729-.251c-6.646-5.164-11.224-9.611-14.428-14C2.547,19.4,1.615,14.227,3.862,9.625c1.6-3.287,6.2-5.977,11.583-4.411A11.8,11.8,0,0,1,21.793,9.72,11.8,11.8,0,0,1,28.14,5.214c5.367-1.542,9.981,1.124,11.583,4.411,2.247,4.6,1.315,9.778-2.773,15.384-3.2,4.387-7.782,8.834-14.428,14A1.2,1.2,0,0,1,21.793,39.257Zm-9.407-32.1a7.053,7.053,0,0,0-6.371,3.5C4.161,14.466,5,18.7,8.572,23.586A68.29,68.29,0,0,0,21.793,36.544,68.291,68.291,0,0,0,35.013,23.6c3.586-4.9,4.411-9.132,2.558-12.922-1.2-2.391-4.781-4.291-8.774-3.168a9.563,9.563,0,0,0-5.905,5.02,1.2,1.2,0,0,1-2.211,0,9.479,9.479,0,0,0-5.905-5.02,8.738,8.738,0,0,0-2.391-.347Z"
           transform="translate(-2.67 -4.756)"
-          fill={filled ? `white` : "black"}
+          fill={filled ? `white` : 'black'}
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
 export const BgSmoothieMixer = ({ filled }) => {
   return (
@@ -44,8 +44,8 @@ export const BgSmoothieMixer = ({ filled }) => {
         fill="var(--green)"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const HeroBgSVG = ({ filled }) => {
   return (
@@ -176,8 +176,8 @@ M1339.070068,1197.152100
 z"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const DiamondIcon = ({ filled }) => {
   return (
@@ -256,8 +256,8 @@ export const DiamondIcon = ({ filled }) => {
         </g>
       </g>
     </svg>
-  );
-};
+  )
+}
 
 export const ProdCycleIcon = () => {
   return (
@@ -270,15 +270,11 @@ export const ProdCycleIcon = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-        <g
-          id="SVGRepo_tracerCarrier"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        ></g>
+        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
         <g id="SVGRepo_iconCarrier">
-          {" "}
+          {' '}
           <g clipPath="url(#clip0_1276_7761)">
-            {" "}
+            {' '}
             <path
               d="M19.7285 10.9288C20.4413 13.5978 19.7507 16.5635 17.6569 18.6573C15.1798 21.1344 11.4826 21.6475 8.5 20.1966M18.364 8.05071L17.6569 7.3436C14.5327 4.21941 9.46736 4.21941 6.34316 7.3436C3.42964 10.2571 3.23318 14.8588 5.75376 18M18.364 8.05071H14.1213M18.364 8.05071V3.80807"
               stroke="#1C274C"
@@ -286,20 +282,20 @@ export const ProdCycleIcon = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               fill="white"
-            ></path>{" "}
-          </g>{" "}
+            ></path>{' '}
+          </g>{' '}
           <defs>
-            {" "}
+            {' '}
             <clipPath id="clip0_1276_7761">
-              {" "}
-              <rect width="24" height="24" fill="white"></rect>{" "}
-            </clipPath>{" "}
-          </defs>{" "}
+              {' '}
+              <rect width="24" height="24" fill="white"></rect>{' '}
+            </clipPath>{' '}
+          </defs>{' '}
         </g>
       </svg>
     </>
-  );
-};
+  )
+}
 
 export const MasterCardIcon = () => {
   return (
@@ -323,8 +319,8 @@ export const MasterCardIcon = () => {
         />
       </svg>
     </>
-  );
-};
+  )
+}
 export const VisaIcon = () => {
   return (
     <>
@@ -336,13 +332,7 @@ export const VisaIcon = () => {
         className="tw-h-full tw-w-full"
       >
         <defs>
-          <linearGradient
-            id="logosVisa0"
-            x1="45.974%"
-            x2="54.877%"
-            y1="-2.006%"
-            y2="100%"
-          >
+          <linearGradient id="logosVisa0" x1="45.974%" x2="54.877%" y1="-2.006%" y2="100%">
             <stop offset="0%" stop-color="#222357" />
             <stop offset="100%" stop-color="#254AA5" />
           </linearGradient>
@@ -354,8 +344,8 @@ export const VisaIcon = () => {
         />
       </svg>
     </>
-  );
-};
+  )
+}
 
 export const KlarnaIcon = () => {
   return (
@@ -374,18 +364,18 @@ export const KlarnaIcon = () => {
         ></path>
       </svg>
     </>
-  );
-};
+  )
+}
 
 export function PlusBoxIcon({ fill, ...rest }) {
   return (
     <svg className="tw-rounded-md" viewBox="3 3 18 18" {...rest}>
       <path
-        fill={fill || "var(--green)"}
+        fill={fill || 'var(--green)'}
         d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4zm-6 4q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21z"
       ></path>
     </svg>
-  );
+  )
 }
 
 export function CrossBoxIcon({ fill, ...rest }) {
@@ -398,7 +388,7 @@ export function CrossBoxIcon({ fill, ...rest }) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 
 export function QuoteUpIcon({}) {
@@ -421,24 +411,18 @@ export function QuoteUpIcon({}) {
         />
       </g>
     </svg>
-  );
+  )
 }
 
 export function ArrowOutIcon({ fill, ...props }: any) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         d="M6 7c0 .55.45 1 1 1h7.59l-8.88 8.88a.996.996 0 1 0 1.41 1.41L16 9.41V17c0 .55.45 1 1 1s1-.45 1-1V7c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1"
       ></path>
     </svg>
-  );
+  )
 }
 
 export function ShareIcon({ fill, ...props }) {
@@ -455,7 +439,7 @@ export function ShareIcon({ fill, ...props }) {
         d="M18 22q-1.25 0-2.125-.875T15 19q0-.175.025-.363t.075-.337l-7.05-4.1q-.425.375-.95.588T6 15q-1.25 0-2.125-.875T3 12t.875-2.125T6 9q.575 0 1.1.213t.95.587l7.05-4.1q-.05-.15-.075-.337T15 5q0-1.25.875-2.125T18 2t2.125.875T21 5t-.875 2.125T18 8q-.575 0-1.1-.212t-.95-.588L8.9 11.3q.05.15.075.338T9 12t-.025.363t-.075.337l7.05 4.1q.425-.375.95-.587T18 16q1.25 0 2.125.875T21 19t-.875 2.125T18 22m0-16q.425 0 .713-.287T19 5t-.288-.712T18 4t-.712.288T17 5t.288.713T18 6M6 13q.425 0 .713-.288T7 12t-.288-.712T6 11t-.712.288T5 12t.288.713T6 13m12 7q.425 0 .713-.288T19 19t-.288-.712T18 18t-.712.288T17 19t.288.713T18 20m0-1"
       ></path>
     </svg>
-  );
+  )
 }
 
 export function PlayIcon(props) {
@@ -466,7 +450,7 @@ export function PlayIcon(props) {
         d="M9 15.714V8.287q0-.368.242-.588t.566-.22q.106 0 .214.028q.109.027.215.083l5.842 3.733q.186.13.28.298q.093.167.093.379t-.093.379t-.28.298l-5.843 3.733q-.105.055-.214.083q-.108.028-.214.028q-.323 0-.566-.22T9 15.714m1-.364L15.289 12L10 8.65z"
       ></path>
     </svg>
-  );
+  )
 }
 
 export function RightIcon(props) {
@@ -482,5 +466,30 @@ export function RightIcon(props) {
         d="M16.15 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z"
       ></path>
     </svg>
-  );
+  )
+}
+import React from 'react'
+
+export function CheckIcon({ className }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="15.422"
+      height="11.568"
+      viewBox="0 0 15.422 11.568"
+      className={className}
+    >
+      <g id="check" transform="translate(-50.744)">
+        <g id="Group_1000001281" data-name="Group 1000001281" transform="translate(50.744)">
+          <path
+            id="Path_42592"
+            data-name="Path 42592"
+            d="M56.528,69.767l-3.856-3.855L50.744,67.84l5.784,5.784,9.638-9.639-1.926-1.929Z"
+            transform="translate(-50.744 -62.056)"
+            fill="currentColor"
+          />
+        </g>
+      </g>
+    </svg>
+  )
 }
