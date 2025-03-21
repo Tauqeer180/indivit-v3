@@ -1,0 +1,20 @@
+
+. "$(dirname "$0")/common.sh"
+
+# npx lint-staged
+# LINT_EXIT_CODE=$?
+
+npm run build
+BUILD_EXIT_CODE=$?
+
+
+# Check if either linting or build failed
+if [ $LINT_EXIT_CODE -ne 0 ]; then
+  echo "Linting failed, commit aborted."
+  exit 1
+fi
+
+if [ $BUILD_EXIT_CODE -ne 0 ]; then
+  echo "Build failed, commit aborted."
+  exit 1
+fi

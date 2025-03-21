@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
@@ -37,8 +38,20 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "14.2.16",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "postcss": "^8",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   }
 }

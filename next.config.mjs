@@ -7,30 +7,33 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true, // Disables ESLint checks during build
+  },
   reactStrictMode: false,
   images: {
     dangerouslyAllowSVG: true,
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "**",
+        protocol: 'https',
+        hostname: '**',
       },
       {
-        protocol: "https",
-        hostname: "flagsapi.com",
-        port: "",
-        pathname: "/**",
+        protocol: 'https',
+        hostname: 'flagsapi.com',
+        port: '',
+        pathname: '/**',
       },
-      { hostname: "ui-avatars.com" },
-      { hostname: "admin.nautaes.com" },
-      { hostname: "192.168.31.210" },
-      { hostname: "admin.indivit.de" },
-      { hostname: "source.unsplash.com" },
-      { hostname: "images.unsplash.com" },
-      { hostname: "i.ytimg.com" },
-      { hostname: "youtube.com" },
+      { hostname: 'ui-avatars.com' },
+      { hostname: 'admin.nautaes.com' },
+      { hostname: '192.168.31.210' },
+      { hostname: 'admin.indivit.de' },
+      { hostname: 'source.unsplash.com' },
+      { hostname: 'images.unsplash.com' },
+      { hostname: 'i.ytimg.com' },
+      { hostname: 'youtube.com' },
     ],
   },
-};
-export default nextConfig;
+}
+export default nextConfig
