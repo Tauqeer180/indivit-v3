@@ -20,7 +20,7 @@ export default async function Home() {
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
       <div>
-        {/* <Testimonials data={testimonialsData} /> */}
+        <Testimonials data={testimonialsData} />
       </div>
     </div>
   )
