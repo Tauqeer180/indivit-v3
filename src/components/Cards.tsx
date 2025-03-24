@@ -13,7 +13,7 @@ import { ArrowOutIcon, CrossBoxIcon, Heart, PlusBoxIcon, QuoteUpIcon } from '@/a
 import useIngredientType from '@/hooks/useIngredientType'
 import useIngredientStatus from '@/hooks/useIngredientStatus'
 // import ConfirmWishModal from "./Modal/ConfirmWishModal";
-// import useAddWishlist from "@/hooks/useAddWishlist";
+import useAddWishlist from '@/hooks/useAddWishlist'
 // import ModalContainer from "./Modal/ModalContainer";
 // import useCategoryCount from "@/hooks/useCategoryCount";
 import RangeSteps from './RangeSteps'
@@ -25,105 +25,95 @@ import useReadingTime from '@/hooks/useReadingTime'
 import StarRating from './StarRating'
 import { IsWishlist } from '@/utils/IsWishlist'
 import useCategoryCount from '@/hooks/useCategoryCount'
-import { baseURL } from '@/lib/fetcher'
+import { baseURL, fetcher } from '@/lib/fetcher'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import ModalContainer from './Modal/ModalContainer'
+import ConfirmWishModal from './Modal/ConfirmWishModal'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
-// export function BoxCard({ data }) {
-//   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistBox);
-//   const [modalVisible, setModalVisible] = useState(false);
-//   const wishlist = useSelector((state) => state?.wishlist);
-//   const commonImg = useSelector((state) => state.settings?.boxImg);
+export function BoxCard({ data }) {
+  const token = useSelector((state) => state?.account?.token)
 
-//   const handleWishlistBox = (id) => {
-//     IsWishlist(1, data?.id, wishlist)
-//       ? setModalVisible(true)
-//       : addWishlist({ box_id: id });
-//   };
-//   useEffect(() => {
-//     if (isDone) {
-//       setModalVisible(false);
-//     }
-//   }, [isDone]);
+  let addWishlistBox=(d) => fetcher('wishlist_smoothie_box', { token, method: 'POST', data:d })
+  const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistBox)
+  const [modalVisible, setModalVisible] = useState(false)
+  const wishlist = useSelector((state) => state?.wishlist)
+  const commonImg = useSelector((state) => state.settings?.boxImg)
 
-//   // const filterData = IsWishlist()
-//   let boxData =
-//     data?.smoothie_box_descriptions.length > 0
-//       ? data?.smoothie_box_descriptions[0]
-//       : {};
-//   let boxImages = data?.smoothie_image;
+  const handleWishlistBox = (id) => {
+    IsWishlist(1, data?.id, wishlist) ? setModalVisible(true) : addWishlist({ box_id: id })
+  }
+  useEffect(() => {
+    if (isDone) {
+      setModalVisible(false)
+    }
+  }, [isDone])
 
-//   return (
-//     <>
-//       <ModalContainer
-//         isOpen={modalVisible}
-//         closeModal={() => setModalVisible(false)}
-//       >
-//         <ConfirmWishModal
-//           setModalVisible={setModalVisible}
-//           fun={() => addWishlist({ box_id: data?.unique_id })}
-//           isLoading={isLoading}
-//           innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
-//           okLabel="Klingt gut"
-//         />
-//       </ModalContainer>
-//       {/* {modalVisible && <ConfirmWishModal setModalVisible={setModalVisible} />} */}
-//       <div className="box-card">
-//         {boxData?.created_by == 1 && (
-//           <span
-//             className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}
-//           >
-//             Customized
-//           </span>
-//         )}
-//         <button
-//           type="button"
-//           className="btn btn-light box-wish shadow"
-//           onClick={() => handleWishlistBox(data?.unique_id)}
-//         >
-//           {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-//           {isLoading ? (
-//             <img
-//               width="50px"
-//               src={"/assets/icon/loader.gif"}
-//               className="img-fluid"
-//               loading="lazy"
-//             />
-//           ) : (
-//             <Heart filled={IsWishlist(1, data?.id, wishlist)} />
-//           )}
-//         </button>
-//         <div className="text-center">
-//           <Link to={`/b/${data?.unique_id}`}>
-//             <img
-//               src={
-//                 boxImages?.length > 0
-//                   ? baseURL + "smoothie_box/" + boxImages[0]?.images
-//                   : commonImg
-//               }
-//               className="img-fluid w-100 max-h-350"
-//               loading="lazy"
-//             />
-//           </Link>
+  // const filterData = IsWishlist()
+  let boxData = data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
+  let boxImages = data?.smoothie_image
 
-//           <h4 className="flx-hide-title">{data?.name}</h4>
-//           <p className="p5 flx-hide-paragh">
-//             {data?.smoothie_box_descriptions[0]?.short_detail}
-//           </p>
-//         </div>
-//         <div className="flx-overlay-container">
-//           <Link
-//             to={`/b/${data?.unique_id}`}
-//             className="btn btn-secondary hsn-box-btn"
-//           >
-//             Box öffnen
-//           </Link>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
+  return (
+    <>
+      {/* {JSON.stringify(token)} */}
+      <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
+        <ConfirmWishModal
+          setModalVisible={setModalVisible}
+          fun={() => addWishlist({ box_id: data?.unique_id })}
+          isLoading={isLoading}
+          innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
+          okLabel="Klingt gut"
+        />
+      </ModalContainer>
+      {/* {modalVisible && <ConfirmWishModal setModalVisible={setModalVisible} />} */}
+      <div className="box-card">
+        {boxData?.created_by == 1 && (
+          <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
+            Customized
+          </span>
+        )}
+        <button
+          type="button"
+          className="btn btn-light box-wish shadow"
+          onClick={() => handleWishlistBox(data?.unique_id)}
+        >
+          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+          {isLoading ? (
+            <img
+              width="50px"
+              src={'/assets/icon/loader.gif'}
+              className="img-fluid"
+              loading="lazy"
+            />
+          ) : (
+            <Heart filled={IsWishlist(1, data?.id, wishlist)} />
+          )}
+        </button>
+        <div className="text-center">
+          <Link href={`/b/${data?.unique_id}`}>
+            <img
+              src={
+                boxImages?.length > 0 ? baseURL + 'smoothie_box/' + boxImages[0]?.images : commonImg
+              }
+              className="img-fluid w-100 max-h-350"
+              loading="lazy"
+            />
+          </Link>
+
+          <h4 className="flx-hide-title">{data?.name}</h4>
+          <p className="p5 flx-hide-paragh">{data?.smoothie_box_descriptions[0]?.short_detail}</p>
+        </div>
+        <div className="flx-overlay-container">
+          <Link href={`/b/${data?.unique_id}`} className="btn btn-secondary hsn-box-btn">
+            Box öffnen
+          </Link>
+        </div>
+      </div>
+    </>
+  )
+}
 // export function ProductCard() {
 //   const commonImg = useSelector((state) => state.settings?.smoothieImg);
 

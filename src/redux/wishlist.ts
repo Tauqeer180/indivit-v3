@@ -18,7 +18,7 @@ export const fetchWishlist = createAsyncThunk(
       dispatch(logoutAction());
       // navigate("/login");
     }
-    return response.data.data;
+    return response.data;
   }
 );
 export const wishlistReducer = createSlice({
