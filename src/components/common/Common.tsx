@@ -1,44 +1,43 @@
-import React from "react";
+'use client'
+import React from 'react'
 
 export function TextSkelton() {
   return (
     <span class=" placeholder-glow d-inline-flex py-1 ">
       <span class="placeholder w-200px"></span>
     </span>
-  );
+  )
 }
 export function ScrollIntoview(divId, duration = 1000) {
-  const element = document.getElementById(divId);
+  const element = document.getElementById(divId)
   if (!element) {
-    console.warn(`Element with ID ${divId} not found.`);
-    return;
+    console.warn(`Element with ID ${divId} not found.`)
+    return
   }
   element.scrollIntoView({
-    behavior: "smooth",
-    block: "center",
-
-  });
+    behavior: 'smooth',
+    block: 'center',
+  })
 }
 export function ScrollToDiv(divId, offset = 50, duration = 1000) {
-  const element = document.getElementById(divId);
-  console.log("Div ID:", divId);
+  const element = document.getElementById(divId)
+  console.log('Div ID:', divId)
 
   if (!element) {
-    console.warn(`Element with ID ${divId} not found.`);
-    return;
+    console.warn(`Element with ID ${divId} not found.`)
+    return
   }
   // Get the top position of the element relative to the document
-  const elementTop = element.getBoundingClientRect().top + window.scrollY;
+  const elementTop = element.getBoundingClientRect().top + window.scrollY
 
   // Calculate the scroll position with the offset
-  const scrollToPosition = elementTop - offset;
+  const scrollToPosition = elementTop - offset
   // Smooth scroll to the position
   window.scrollTo({
     top: scrollToPosition,
-    behavior: "smooth",
-  });
+    behavior: 'smooth',
+  })
 }
-
 
 export function ShowMoreBtn({ show, setShow, list }) {
   return (
@@ -51,12 +50,12 @@ export function ShowMoreBtn({ show, setShow, list }) {
           >
             {
               show
-                ? "Weniger Anzeigen" // See Less
-                : list?.length > 3 && list?.length - 3 + " Weitere Zutaten" // More Ingredients
+                ? 'Weniger Anzeigen' // See Less
+                : list?.length > 3 && list?.length - 3 + ' Weitere Zutaten' // More Ingredients
             }
           </button>
         </div>
       )}
     </>
-  );
+  )
 }

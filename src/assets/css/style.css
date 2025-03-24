@@ -4786,9 +4786,18 @@ button.accordion-button.collapsed {
   font-weight: bold !important;
 
 }
-/* .offcanvas-end {
-  transform: translateX(150%) !important;
-} */
+@media screen and (max-width: 991px) {
+  .offcanvas-end {
+    transform: translateX(150%) !important;
+  }
+  
+}
 .show.offcanvas-end{
   transform: none !important;
+}
+/* ======================= AFTER SSR ======================= */
+#faq-accordion .accordion-button::after {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-size: 0.75rem;
 }
