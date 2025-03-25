@@ -1,0 +1,20 @@
+{
+  "indivit": {
+    "title": "Warum indivit?",
+    "description": "",
+    "list": [
+      {
+        "title": "indivit ist individuell",
+        "description": "Einen Smoothie nach individuellen Wünschen frei zu konfigurieren, kann bisher nur durch den selbst hergestellte Smoothie zu Hause erreicht werden. Der indivit Smoothie bietet genau dieses Ergebnis für dich. Aus bis zu 56 verschiedenen Zutaten kann eine nahezu unbegrenzte Anzahl an Kreationen erstellt werden - genau wie zu Hause. Empfohlene Rezepte können dazu ausgewählt und auch angepasst werden. Ein begrenztes Sortiment, ohne eine Möglichkeit der Anpassung war gestern. Der indivit Online Smoothie Mixer erlaubt eine individuelle Konfiguration - je nach Geschmack - und bietet automatisches Feedback zur Zusammenstellung an."
+      },
+      {
+        "title": "indivit ist vital",
+        "description": "Der indivit Smoothie erlaubt es dir, z.B. den Saftanteil im Produkt auf Null zu senken und den Gemüseanteil auf bis zu 100% zu erhöhen. Zudem wird der Fructosegehalt jeder Zutat transparent kommuniziert. Dies führt, falls gewünscht, insgesamt zu einem geringeren Zuckergehalt im Produkt. Die Zutaten werden in ihrer natürlichen Form als ganze Früchte püriert und über ein schonendes Hochdruckverfahren haltbar gemacht. Dabei werden 100% der Bakterien, Keime und Pilze zerstört und es bleiben über 90% der Vitamine erhalten. Alternative Produkte erreichen ihre Haltbarkeit meist durch Methoden, die deutlich mehr Vitalstoffe zerstören, z.B. durch Pasteurisation (Erhitzen) oder Pulverisierung (Gefriertrocknen). Alle Zutaten im indivit Smoothie haben natürlich Bio-Qualität."
+      },
+      {
+        "title": "indivit ist nachhaltig",
+        "description": "Jeder einzelne Smoothie wird ausschließlich auf Bestellung produziert. Das bedeutet eine Reduzierung von Verschwendung, da kein indivit Smoothie im Regal verderben wird, sondern direkt auf Kundenwunsch hergestellt und geliefert wird. Dies ist eine absolute Neuerung am Markt. Die Abfüllung erfolgt in Flaschen aus recyceltem PET, welches lediglich ca. 10% der Energie für die Herstellung benötigt im Vergleich zu herkömmlichem PET. Zudem werden die Flaschen über das Pfandsystem wieder gesammelt und können weiter recycelt werden. Wir informieren zudem transparent über die Regionalität und den CO2-Fußabdruck jeder einzelnen Zutat. Damit fördern wir die Auswahl von möglichst nachhaltigen Zutaten."
+      }
+    ]
+  }
+}
