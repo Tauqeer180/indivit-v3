@@ -51,7 +51,8 @@ export default function ProductCategory({ data = [] }) {
                   <div
                     className="tw-text-gray-600 tw-text-sm tw-mb-6 tw-text-center tw-line-clamp-[8]"
                     dangerouslySetInnerHTML={{
-                      __html: cat.detail_landing_page,
+                      __html:
+                        typeof cat.detail_landing_page === 'string' ? cat.detail_landing_page : '',
                     }}
                   >
                     {/* {cat.detail_landing_page} */}
