@@ -6,14 +6,13 @@ import RecipeBanner from './RecipeBanner'
 import VisionRecipeSection from '@/components/section/VisionRecipeSection'
 import { fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
-import WithSuspense from '@/providers/SuspenseLoader'
 
 async function getWhyIndivitData() {
   const data = await fetcher('why_indivit')
   return data?.data?.length > 0 ? data.data[0] : {}
 }
 
-async function WhyIndivitContent() {
+export default async function WhyIndivit() {
   const res = await getWhyIndivitData()
 
   return (
@@ -50,8 +49,4 @@ async function WhyIndivitContent() {
       <VisionRecipeSection />
     </div>
   )
-}
-
-export default async function WhyIndivit() {
-  return <WithSuspense fetchFunction={getWhyIndivitData} ContentComponent={WhyIndivitContent} />
 }

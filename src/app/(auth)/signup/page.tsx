@@ -1,6 +1,6 @@
 'use client'
 import Loader from '@/components/common/Loader'
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import session from '@/services/session'
@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
 import { fetcher } from '@/lib/fetcher'
 
-function Page() {
+export default function Page() {
   const [loading, setLoading] = useState(false)
   const [isVisibile, setIsVisibile] = useState(false)
   const router = useRouter()
@@ -225,13 +225,5 @@ function Page() {
         </div>
       </div>
     </div>
-  )
-}
-
-export default function SignUpPageContact() {
-  return (
-    <Suspense fallback={<Loader />}>
-      <Page />
-    </Suspense>
   )
 }

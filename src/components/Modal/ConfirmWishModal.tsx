@@ -1,8 +1,17 @@
-import React, { useState, createContext, useContext } from "react";
+
+import React, { useState, createContext, useContext } from 'react'
 
 // Create a context to hold the showToast function
-const ModalContext = createContext();
+const ModalContext = createContext()
 
+interface ConfirmWishModalProps {
+  fun: () => void
+  isLoading: boolean
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+  innerHtml: string
+  title?: string
+  okLabel: string
+}
 export default function ConfirmWishModal({
   fun,
   isLoading,
@@ -10,37 +19,33 @@ export default function ConfirmWishModal({
   innerHtml,
   title,
   okLabel,
-}) {
-  const [visible, setVisible] = useState(true);
+}: ConfirmWishModalProps) {
+  const [visible, setVisible] = useState(true)
 
   const openModal = (message) => {
-    setVisible(true);
-  };
-
-  const closeModal = (id) => {
-    setVisible(false);
-  };
+    setVisible(true)
+  }
 
   return (
     <ModalContext.Provider value={openModal}>
       <div className="overlay">
         <div>
           {visible && (
-            <div class="modal fade show d-block">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">{title || "Wirklich?"}</h5>
+            <div className="modal fade show d-block">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">{title || 'Wirklich?'}</h5>
                     {/* Confirm */}
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       onClick={() => setModalVisible(false)}
 
                       //    ref={closeRef}
                     ></button>
                   </div>
-                  <div class="modal-body">
+                  <div className="modal-body">
                     <div
                       dangerouslySetInnerHTML={{
                         __html: innerHtml,
@@ -48,31 +53,27 @@ export default function ConfirmWishModal({
                     ></div>
                     {}
                   </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn"
-                      onClick={() => setModalVisible(false)}
-                    >
+                  <div className="modal-footer">
+                    <button type="button" className="btn" onClick={() => setModalVisible(false)}>
                       Abbrechen
                     </button>
                     <button
                       id="confirmAction"
                       type="button"
-                      class="btn btn-danger shadow-none"
+                      className="btn btn-danger shadow-none"
                       onClick={fun}
                     >
                       {isLoading ? (
                         <>
                           <span
-                            class="spinner-border spinner-border-sm me-2"
+                            className="spinner-border spinner-border-sm me-2"
                             role="status"
                             aria-hidden="true"
                           ></span>
                           Entfernen...
                         </>
                       ) : (
-                        okLabel || "Ja, weiter zum Online Smoothie Mixer"
+                        okLabel || 'Ja, weiter zum Online Smoothie Mixer'
                       )}
                     </button>
                   </div>
@@ -83,7 +84,7 @@ export default function ConfirmWishModal({
         </div>
       </div>
     </ModalContext.Provider>
-  );
+  )
 }
 
 // export const useModal = () => useContext(ModalContext);
