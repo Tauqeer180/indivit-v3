@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import imgIcon from '../assets/icon/img-icon.png'
+import { useAppSelector } from '@/redux/hooks'
 
 // import {
 //   addWishlistBox,
@@ -36,7 +37,7 @@ let profileIconStyle =
 export function BoxCard({ data }) {
   const token = useSelector((state) => state?.account?.token)
 
-  let addWishlistBox=(d) => fetcher('wishlist_smoothie_box', { token, method: 'POST', data:d })
+  let addWishlistBox = (d) => fetcher('wishlist_smoothie_box', { token, method: 'POST', data: d })
   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistBox)
   const [modalVisible, setModalVisible] = useState(false)
   const wishlist = useSelector((state) => state?.wishlist)
@@ -133,122 +134,110 @@ export function BoxCard({ data }) {
 //   );
 // }
 
-// export function RecipeCard({
-//   isButton,
-//   data,
-//   hideWishIcon,
-//   action,
-//   actionTitle,
-// }) {
-//   const { isLoading, addWishlist, isDone } =
-//     useAddWishlist(addWishlistSmoothie);
-//   const [modalVisible, setModalVisible] = useState(false);
-//   const wishlist = useSelector((state) => state?.wishlist);
-//   const { isOutofStock, checkStock } = useCheckStock();
-//   const commonImg = useSelector((state) => state.settings?.smoothieImg);
+export function RecipeCard({ isButton, data, hideWishIcon, action, actionTitle }) {
+  let token = useAppSelector((state) => state?.account?.token)
 
-//   // const { isOutofStock, checkStock } = useCheckStock();
-//   const handleWishlistRecipe = (id) => {
-//     IsWishlist(0, data?.id, wishlist)
-//       ? setModalVisible(true)
-//       : addWishlist({ smoothie_id: id });
-//   };
-//   useEffect(() => {
-//     if (isDone) {
-//       setModalVisible(false);
-//     }
-//   }, [isDone]);
-//   useEffect(() => {
-//     if (data) {
-//       let tempIng = data?.smoothie_ingredient?.map((ing) => {
-//         return { ...ing, ...ing?.ingredient };
-//       });
-//       checkStock(tempIng);
-//     }
-//   }, [data]);
+  const addWishlistSmoothie = (data) => fetcher(`wishlist_smoothie`, { data, token })
 
-//   return (
-//     <>
-//       <ModalContainer
-//         isOpen={modalVisible}
-//         closeModal={() => setModalVisible(false)}
-//       >
-//         <ConfirmWishModal
-//           setModalVisible={setModalVisible}
-//           fun={() => addWishlist({ smoothie_id: data?.unique_id })}
-//           isLoading={isLoading}
-//           innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
-//           okLabel="Klingt gut"
-//         />
-//       </ModalContainer>
-//       <div>
-//         {data?.created_by == 1 && (
-//           <span
-//             className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}
-//           >
-//             Customized
-//           </span>
-//         )}
-//         <button
-//           // type="button"
-//           disabled={isLoading}
-//           hidden={hideWishIcon}
-//           className="btn btn-light flx-heart-wishlist shadow"
-//           onClick={() => handleWishlistRecipe(data?.unique_id)}
-//         >
-//           {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-//           {isLoading ? (
-//             <img
-//               width="50px"
-//               src={"/assets/icon/loader.gif"}
-//               className="img-fluid"
-//               loading="lazy"
-//             />
-//           ) : (
-//             <Heart filled={IsWishlist(0, data?.id, wishlist)} />
-//           )}
-//           {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
-//         </button>
-//         <div className="text-center">
-//           <Link to={action}>
-//             <div className="position-relative">
-//               <img
-//                 src={
-//                   data?.smoothie_picture?.picture
-//                     ? baseURL + "smoothie/" + data?.smoothie_picture?.picture
-//                     : commonImg
-//                 }
-//                 className="img-fluid flx-hover-effect max-h-410 w-100"
-//                 loading="lazy"
-//               />
-//               {isOutofStock && (
-//                 <div className="position-absolute bottom-0 start-0 end-0">
-//                   <span
-//                     className={`badge rounded-pill text-uppercase bg-danger mb-2`}
-//                   >
-//                     derzeit nicht verfügbar
-//                   </span>
-//                 </div>
-//               )}
-//             </div>
-//           </Link>
+  const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistSmoothie)
+  const [modalVisible, setModalVisible] = useState(false)
+  const wishlist = useSelector((state) => state?.wishlist)
+  const { isOutofStock, checkStock } = useCheckStock()
+  const commonImg = useSelector((state) => state.settings?.smoothieImg)
 
-//           <h4>{data?.name}</h4>
-//           <p className="p5 text-truncate">{data?.headline}</p>
-//           {isButton && (
-//             <Link
-//               to={action}
-//               type="button"
-//               className="btn btn-secondary hsn-box-btn text-capitalize"
-//             >
-//               {actionTitle}
-//             </Link>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
+  // const { isOutofStock, checkStock } = useCheckStock();
+  const handleWishlistRecipe = (id) => {
+    IsWishlist(0, data?.id, wishlist) ? setModalVisible(true) : addWishlist({ smoothie_id: id })
+  }
+  useEffect(() => {
+    if (isDone) {
+      setModalVisible(false)
+    }
+  }, [isDone])
+  useEffect(() => {
+    if (data) {
+      let tempIng = data?.smoothie_ingredient?.map((ing) => {
+        return { ...ing, ...ing?.ingredient }
+      })
+      checkStock(tempIng)
+    }
+  }, [data])
+
+  return (
+    <>
+      <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
+        <ConfirmWishModal
+          setModalVisible={setModalVisible}
+          fun={() => addWishlist({ smoothie_id: data?.unique_id })}
+          isLoading={isLoading}
+          innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
+          okLabel="Klingt gut"
+        />
+      </ModalContainer>
+      <div>
+        {data?.created_by == 1 && (
+          <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
+            Customized
+          </span>
+        )}
+        <button
+          // type="button"
+          disabled={isLoading}
+          hidden={hideWishIcon}
+          className="btn btn-light flx-heart-wishlist shadow"
+          onClick={() => handleWishlistRecipe(data?.unique_id)}
+        >
+          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+          {isLoading ? (
+            <img
+              width="50px"
+              src={'/assets/icon/loader.gif'}
+              className="img-fluid"
+              loading="lazy"
+            />
+          ) : (
+            <Heart filled={IsWishlist(0, data?.id, wishlist)} />
+          )}
+          {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
+        </button>
+        <div className="text-center">
+          <button onClick={action}>
+            <div className="position-relative">
+              <img
+                src={
+                  data?.smoothie_picture?.picture
+                    ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
+                    : commonImg
+                }
+                className="img-fluid flx-hover-effect max-h-410 w-100"
+                loading="lazy"
+              />
+              {isOutofStock && (
+                <div className="position-absolute bottom-0 start-0 end-0">
+                  <span className={`badge rounded-pill text-uppercase bg-danger mb-2`}>
+                    derzeit nicht verfügbar
+                  </span>
+                </div>
+              )}
+            </div>
+          </button>
+
+          <h4>{data?.name}</h4>
+          <p className="p5 text-truncate">{data?.headline}</p>
+          {isButton && (
+            <Link
+              href={action}
+              type="button"
+              className="btn btn-secondary hsn-box-btn text-capitalize"
+            >
+              {actionTitle}
+            </Link>
+          )}
+        </div>
+      </div>
+    </>
+  )
+}
 // export function IngredientCard({ data, ingred_suggestions }) {
 //   const wishlist = useSelector((state) => state?.wishlist);
 //   const { isLoading, addWishlist, isDone } = useAddWishlist(

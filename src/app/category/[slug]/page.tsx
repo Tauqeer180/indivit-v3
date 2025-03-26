@@ -82,70 +82,34 @@ export default async function page({ params }: any) {
               </div>
               {/* <!------Our boxes end------> */}
             </div>
-            {/* <!-- All tabs setting end --> */}
-            {/* <!-- fruit tabs setting --> */}
-            {/* {categories?.map((categ, index) => {
-              return (
-                <div
-                  className="tab-pane fade"
-                  id={`pills-smoothies-${categ.id}`}
-                  role="tabpanel"
-                  //   aria-labelledby="pills-fruit-tab"
-                  tabIndex={categ.id}
-                >
-                  <div className="row g-4">
-                    {smoothies
-                      ?.filter((obj) =>
-                        obj.smoothie_categories.some(
-                          (categSub) => categSub.category_id == categ.id
-                        )
-                      )
-                      .map((smooth, index) => {
-                        return (
-                          <div
-                            className="col-12 col-md-4"
-                            data-aos="fade-up"
-                            data-aos-duration="1000"
-                          >
-                            <RecipeCard
-                              data={smooth}
-                              isButton={true}
-                              actionTitle="Mehr anzeigen"
-                              action={`/recipedetail/${smooth?.id}`}
-                            />
-                          </div>
-                        );
-                      })}
-                  </div>
-                </div>
-              );
-            })} */}
 
             {/* <!--Caffeine tabs setting end --> */}
           </div>
         </div>
-        {/* <div className="d-flex justify-content-center mt-5">
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel={<i className="fa-solid fa-greater-than"></i>}
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
-            pageCount={smoothies?.last_page}
-            previousLabel={<i className="fa-solid fa-less-than"></i>}
-            renderOnZeroPageCount={null}
-            containerClassName="pagination"
-            activeClassName="active"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item"
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            breakClassName="page-item"
-            breakLinkClassName="page-link"
-          />
-        </div> */}
       </section>
+      <div className="flx-hero-about !tw-h-auto max-md:tw-px-4 !tw-py-4">
+        <p className="text-center pb-2">{data?.description}</p>
+      </div>
+
+      <div className="tw-bg-theme-orange lg:tw-py-24  tw-py-16 tw-text-white">
+        <div className="container">
+          <div className=" tw-max-w-3xl tw-mx-auto tw-space-y-4">
+            {keySection?.length > 0 &&
+              keySection?.map((b, i) => {
+                return (
+                  <div key={i} className="tw-flex tw-items-center lg:tw-gap-8 tw-gap-5">
+                    {/* {JSON.stringify(b)} */}
+                    <img className="tw-h-10 tw-w-10" src={baseURL + b?.icon} />
+                    {/* <div>
+                      <hr className="md:tw-w-10 tw-w-6  tw-opacity-100 tw-rounded-full max-xxs:tw-hidden" />
+                    </div> */}
+                    <p className="tw-mb-0 tw-text-2xl tw-font-bold">{b?.detail}</p>
+                  </div>
+                )
+              })}
+          </div>
+        </div>
+      </div>
 
       {/* {params.slug}
       {JSON.stringify(data)} */}

@@ -2,7 +2,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addWishlistBox } from '../services/Wishlist'
 import { fetchWishlist } from '../redux/wishlist'
 import { toast } from 'react-toastify'
 
