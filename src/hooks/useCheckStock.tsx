@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
-export default function useCheckStock(selectedData) {
-  const [isOutofStock, setIsOutofStock] = useState(false);
-  const [stockData, checkStock] = useState([]);
+export default function useCheckStock(selectedData?: any) {
+  const [isOutofStock, setIsOutofStock] = useState(false)
+  const [stockData, checkStock] = useState([])
 
   useEffect(() => {
     if (selectedData) {
-      checkStock(selectedData);
+      checkStock(selectedData)
     }
-  }, [selectedData]);
+  }, [selectedData])
 
   useEffect(() => {
     if (stockData) {
       // console.log("Stock Data -<>-", stockData);
       // debugger;
-      var tempState = stockData?.some(function (element) {
-        return parseInt(element?.ingredient_status) != 0;
-      });
+      const tempState = stockData?.some(function (element) {
+        return parseInt(element?.ingredient_status) != 0
+      })
 
-      setIsOutofStock(tempState);
+      setIsOutofStock(tempState)
     }
-  }, [stockData]);
+  }, [stockData])
 
   return {
     checkStock,
     isOutofStock,
-  };
+  }
 }

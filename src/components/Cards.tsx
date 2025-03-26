@@ -18,7 +18,6 @@ import useIngredientStatus from '@/hooks/useIngredientStatus'
 // import useCategoryCount from "@/hooks/useCategoryCount";
 import RangeSteps from './RangeSteps'
 import useCategoryShare from '@/hooks/useCategoryShare'
-import useCheckStock from '@/hooks/useCheckStock'
 import { formatToGerman, formatToGerman1 } from '@/utils/germanFormat'
 import moment from 'moment'
 import useReadingTime from '@/hooks/useReadingTime'
@@ -28,6 +27,12 @@ import useCategoryCount from '@/hooks/useCategoryCount'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import useAddWishlist from '@/hooks/useAddWishlist'
+import ModalContainer from './Modal/ModalContainer'
+import ConfirmWishModal from './Modal/ConfirmWishModal'
+import { addWishlistIngredient, addWishlistSmoothie } from '@/services/Wishlist'
+import useCheckStock from '@/hooks/useCheckStock'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
 // export function BoxCard({ data }) {
@@ -143,224 +148,211 @@ let profileIconStyle =
 //   );
 // }
 
-// export function RecipeCard({
-//   isButton,
-//   data,
-//   hideWishIcon,
-//   action,
-//   actionTitle,
-// }) {
-//   const { isLoading, addWishlist, isDone } =
-//     useAddWishlist(addWishlistSmoothie);
-//   const [modalVisible, setModalVisible] = useState(false);
-//   const wishlist = useSelector((state) => state?.wishlist);
-//   const { isOutofStock, checkStock } = useCheckStock();
-//   const commonImg = useSelector((state) => state.settings?.smoothieImg);
+export function RecipeCard({
+  isButton,
+  data,
+  hideWishIcon,
+  action,
+  actionTitle,
+}: {
+  hideWishIcon?: any
+  isButton: boolean
+  data?: any
+  actionTitle: string
+  action: string
+}) {
+  const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistSmoothie)
+  const [modalVisible, setModalVisible] = useState(false)
+  const wishlist = useSelector((state) => state?.wishlist)
+  const { isOutofStock, checkStock } = useCheckStock()
+  const commonImg = useSelector((state) => state.settings?.smoothieImg)
 
-//   // const { isOutofStock, checkStock } = useCheckStock();
-//   const handleWishlistRecipe = (id) => {
-//     IsWishlist(0, data?.id, wishlist)
-//       ? setModalVisible(true)
-//       : addWishlist({ smoothie_id: id });
-//   };
-//   useEffect(() => {
-//     if (isDone) {
-//       setModalVisible(false);
-//     }
-//   }, [isDone]);
-//   useEffect(() => {
-//     if (data) {
-//       let tempIng = data?.smoothie_ingredient?.map((ing) => {
-//         return { ...ing, ...ing?.ingredient };
-//       });
-//       checkStock(tempIng);
-//     }
-//   }, [data]);
+  // const { isOutofStock, checkStock } = useCheckStock();
+  const handleWishlistRecipe = (id) => {
+    if (IsWishlist(0, data?.id, wishlist)) {
+      setModalVisible(true)
+    } else {
+      addWishlist({ smoothie_id: id })
+    }
+  }
+  useEffect(() => {
+    if (isDone) {
+      setModalVisible(false)
+    }
+  }, [isDone])
+  useEffect(() => {
+    if (data) {
+      const tempIng = data?.smoothie_ingredient?.map((ing) => {
+        return { ...ing, ...ing?.ingredient }
+      })
+      checkStock(tempIng)
+    }
+  }, [data])
 
-//   return (
-//     <>
-//       <ModalContainer
-//         isOpen={modalVisible}
-//         closeModal={() => setModalVisible(false)}
-//       >
-//         <ConfirmWishModal
-//           setModalVisible={setModalVisible}
-//           fun={() => addWishlist({ smoothie_id: data?.unique_id })}
-//           isLoading={isLoading}
-//           innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
-//           okLabel="Klingt gut"
-//         />
-//       </ModalContainer>
-//       <div>
-//         {data?.created_by == 1 && (
-//           <span
-//             className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}
-//           >
-//             Customized
-//           </span>
-//         )}
-//         <button
-//           // type="button"
-//           disabled={isLoading}
-//           hidden={hideWishIcon}
-//           className="btn btn-light flx-heart-wishlist shadow"
-//           onClick={() => handleWishlistRecipe(data?.unique_id)}
-//         >
-//           {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-//           {isLoading ? (
-//             <img
-//               width="50px"
-//               src={"/assets/icon/loader.gif"}
-//               className="img-fluid"
-//               loading="lazy"
-//             />
-//           ) : (
-//             <Heart filled={IsWishlist(0, data?.id, wishlist)} />
-//           )}
-//           {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
-//         </button>
-//         <div className="text-center">
-//           <Link to={action}>
-//             <div className="position-relative">
-//               <img
-//                 src={
-//                   data?.smoothie_picture?.picture
-//                     ? baseURL + "smoothie/" + data?.smoothie_picture?.picture
-//                     : commonImg
-//                 }
-//                 className="img-fluid flx-hover-effect max-h-410 w-100"
-//                 loading="lazy"
-//               />
-//               {isOutofStock && (
-//                 <div className="position-absolute bottom-0 start-0 end-0">
-//                   <span
-//                     className={`badge rounded-pill text-uppercase bg-danger mb-2`}
-//                   >
-//                     derzeit nicht verfügbar
-//                   </span>
-//                 </div>
-//               )}
-//             </div>
-//           </Link>
+  return (
+    <>
+      <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
+        <ConfirmWishModal
+          setModalVisible={setModalVisible}
+          fun={() => addWishlist({ smoothie_id: data?.unique_id })}
+          isLoading={isLoading}
+          innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
+          okLabel="Klingt gut"
+        />
+      </ModalContainer>
+      <div>
+        {data?.created_by == 1 && (
+          <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
+            Customized
+          </span>
+        )}
+        <button
+          // type="button"
+          disabled={isLoading}
+          hidden={hideWishIcon}
+          className="btn btn-light flx-heart-wishlist shadow"
+          onClick={() => handleWishlistRecipe(data?.unique_id)}
+        >
+          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+          {isLoading ? (
+            <img
+              width="50px"
+              src={'/assets/icon/loader.gif'}
+              className="img-fluid"
+              loading="lazy"
+            />
+          ) : (
+            <Heart filled={IsWishlist(0, data?.id, wishlist)} />
+          )}
+          {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
+        </button>
+        <div className="text-center">
+          <Link href={action}>
+            <div className="position-relative">
+              <img
+                src={
+                  data?.smoothie_picture?.picture
+                    ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
+                    : commonImg
+                }
+                className="img-fluid flx-hover-effect max-h-410 w-100"
+                loading="lazy"
+              />
+              {isOutofStock && (
+                <div className="position-absolute bottom-0 start-0 end-0">
+                  <span className={`badge rounded-pill text-uppercase bg-danger mb-2`}>
+                    derzeit nicht verfügbar
+                  </span>
+                </div>
+              )}
+            </div>
+          </Link>
 
-//           <h4>{data?.name}</h4>
-//           <p className="p5 text-truncate">{data?.headline}</p>
-//           {isButton && (
-//             <Link
-//               to={action}
-//               type="button"
-//               className="btn btn-secondary hsn-box-btn text-capitalize"
-//             >
-//               {actionTitle}
-//             </Link>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-// export function IngredientCard({ data, ingred_suggestions }) {
-//   const wishlist = useSelector((state) => state?.wishlist);
-//   const { isLoading, addWishlist, isDone } = useAddWishlist(
-//     addWishlistIngredient
-//   );
-//   const [modalVisible, setModalVisible] = useState(false);
-//   const commonImg = useSelector((state) => state.settings?.smoothieImg);
+          <h4>{data?.name}</h4>
+          <p className="p5 text-truncate">{data?.headline}</p>
+          {isButton && (
+            <Link
+              href={action}
+              type="button"
+              className="btn btn-secondary hsn-box-btn text-capitalize"
+            >
+              {actionTitle}
+            </Link>
+          )}
+        </div>
+      </div>
+    </>
+  )
+}
+export function IngredientCard({ data }: { data: any }) {
+  const wishlist = useSelector((state) => state?.wishlist)
+  const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistIngredient)
+  const [modalVisible, setModalVisible] = useState(false)
+  const commonImg = useSelector((state) => state.settings?.smoothieImg)
 
-//   const { badgeLabel, badgeColor } = useIngredientType(
-//     data?.ingredient_filling_types_id
-//   );
-//   const { statusLabel, statusColor } = useIngredientStatus(
-//     data?.ingredient_status
-//   );
+  const { badgeLabel, badgeColor } = useIngredientType(data?.ingredient_filling_types_id)
+  const { statusLabel, statusColor } = useIngredientStatus(data?.ingredient_status)
 
-//   const handleWishlistIngredient = (id) => {
-//     IsWishlist(2, data?.id, wishlist)
-//       ? setModalVisible(true)
-//       : addWishlist({ ingredient_id: id });
-//   };
-//   useEffect(() => {
-//     if (isDone) {
-//       setModalVisible(false);
-//     }
-//   }, [isDone]);
-//   return (
-//     <>
-//       <ModalContainer
-//         isOpen={modalVisible}
-//         closeModal={() => setModalVisible(false)}
-//       >
-//         <ConfirmWishModal
-//           setModalVisible={setModalVisible}
-//           fun={() => addWishlist({ ingredient_id: data?.unique_id })}
-//           isLoading={isLoading}
-//           innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
-//           okLabel="Klingt gut"
-//         />
-//       </ModalContainer>
-//       <div className="card box-card text-center p-4 shadow-sm border-0 hsn-box-bg">
-//         {badgeLabel && (
-//           <div className="ribbon">
-//             <span className={`ribbon__content  ${badgeColor} `}>
-//               {badgeLabel}
-//             </span>
-//           </div>
-//         )}
-//         {statusLabel && (
-//           <span
-//             className={`badge rounded-pill text-uppercase ${statusColor} position-absolute end-22px`}
-//           >
-//             {statusLabel}
-//           </span>
-//         )}
-//         <button
-//           className="btn btn-light box-wish shadow"
-//           onClick={() => handleWishlistIngredient(data?.unique_id)}
-//         >
-//           {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-//           {isLoading ? (
-//             <img
-//               width="50px"
-//               src={"/assets/icon/loader.gif"}
-//               className="img-fluid"
-//               loading="lazy"
-//             />
-//           ) : (
-//             <Heart filled={IsWishlist(2, data?.id, wishlist)} />
-//           )}
-//         </button>
-//         <Link
-//           to={`/ingredientdetail/${data?.unique_id}`}
-//           state={{ ingred_suggestions: ingred_suggestions }}
-//         >
-//           <img
-//             src={
-//               data?.picture
-//                 ? baseURL + "integredient/" + data?.picture
-//                 : commonImg
-//             }
-//             className="card-img-top img-fluid"
-//             alt={data?.name}
-//             loading="lazy"
-//             height="300px"
-//           />
-//         </Link>
-//         <div className="card-body">
-//           <h5 className="card-title">{data?.name}</h5>
-//           <p className="card-text">{data?.taste_description}</p>
-//           <Link
-//             to={`/ingredientdetail/${data?.unique_id}`}
-//             state={{ ingred_suggestions: ingred_suggestions }}
-//             type="button"
-//             className="btn btn-primary btn-outline-success"
-//           >
-//             Mehr erfahren
-//           </Link>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
+  const handleWishlistIngredient = (id) => {
+    if (IsWishlist(2, data?.id, wishlist)) {
+      setModalVisible(true)
+    } else {
+      addWishlist({ ingredient_id: id })
+    }
+  }
+
+  useEffect(() => {
+    if (isDone) {
+      setModalVisible(false)
+    }
+  }, [isDone])
+  return (
+    <>
+      <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
+        <ConfirmWishModal
+          setModalVisible={setModalVisible}
+          fun={() => addWishlist({ ingredient_id: data?.unique_id })}
+          isLoading={isLoading}
+          innerHtml="Du entfernst das Element gerade von deinem Merkzettel"
+          okLabel="Klingt gut"
+        />
+      </ModalContainer>
+      <div className="card box-card text-center p-4 shadow-sm border-0 hsn-box-bg">
+        {badgeLabel && (
+          <div className="ribbon">
+            <span className={`ribbon__content  ${badgeColor} `}>{badgeLabel}</span>
+          </div>
+        )}
+        {statusLabel && (
+          <span
+            className={`badge rounded-pill text-uppercase ${statusColor} position-absolute end-22px`}
+          >
+            {statusLabel}
+          </span>
+        )}
+        <button
+          className="btn btn-light box-wish shadow"
+          onClick={() => handleWishlistIngredient(data?.unique_id)}
+        >
+          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+          {isLoading ? (
+            <Image
+              width={50}
+              height={50}
+              alt=""
+              src={'/assets/icon/loader.gif'}
+              className="img-fluid"
+              loading="lazy"
+            />
+          ) : (
+            <Heart filled={IsWishlist(2, data?.id, wishlist)} />
+          )}
+        </button>
+        <Link href={`/beste/ernaehrung/${data?.unique_id}`}>
+          <Image
+            src={data?.picture ? baseURL + 'integredient/' + data?.picture : commonImg}
+            className="card-img-top img-fluid"
+            alt={data?.name}
+            loading="lazy"
+            height={300}
+            width={300}
+          />
+        </Link>
+        <div className="card-body">
+          <h5 className="card-title">{data?.name}</h5>
+          <p className="card-text">{data?.taste_description}</p>
+          <Link
+            href={`/beste/ernaehrung/${data?.unique_id}`}
+            type="button"
+            className="btn btn-primary btn-outline-success"
+          >
+            Mehr erfahren
+          </Link>
+        </div>
+      </div>
+    </>
+  )
+}
 
 // export function SelectListCard({
 //   data,

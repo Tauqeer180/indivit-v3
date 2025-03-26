@@ -2,14 +2,13 @@ import React from 'react'
 import { fetcher } from '@/lib/fetcher'
 import HeroBanner from '@/components/common/HeroBanner'
 import ImprintDetails from './ImprintDetails'
-import WithSuspense from '@/providers/SuspenseLoader'
 
 async function getImprintData() {
   const data = await fetcher('imprint')
   return data?.data?.length > 0 ? data.data[0] : {}
 }
 
-async function ImprintContent() {
+export default async function Imprint() {
   const res = await getImprintData()
 
   return (
@@ -28,8 +27,4 @@ async function ImprintContent() {
       />
     </div>
   )
-}
-
-export default function Imprint() {
-  return <WithSuspense fetchFunction={getImprintData} ContentComponent={ImprintContent} />
 }
