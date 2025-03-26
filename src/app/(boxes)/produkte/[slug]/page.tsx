@@ -8,11 +8,11 @@ import StarRating from '@/components/StarRating'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { AvailabilityBadge, BoxForm, PriceSection, WishlistButton } from '../components/ui'
 import ShareButtons from '@/components/common/ShareButtons'
-// import ProductCarousel from '../components/ProductCarousel'
-import dynamic from "next/dynamic";
+import ProductCarousel from '../components/ProductCarousel'
+import dynamic from 'next/dynamic'
+import SmoothiesCarousel from '../components/SmoothiesCarousel'
 
-const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
-
+// const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 
 export default async function page({ params }: any) {
   const id = params?.slug?.split('_').pop()
@@ -199,6 +199,9 @@ export default async function page({ params }: any) {
         isHeading={true}
       />
       {/* Banner Section END */}
+
+      {/* Smoothie Carousel */}
+      <SmoothiesCarousel />
     </div>
   )
 }

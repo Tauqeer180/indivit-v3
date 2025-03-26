@@ -157,7 +157,6 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
     setSubscription,
     subscription,
     perLitterPrice,
-    handleSubscriptionDiscount,
   } = useBoxDetail()
   const {
     register,
@@ -197,6 +196,30 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
     })
     toast.success('Deine Box liegt jetzt im Warenkorb')
     // Added to Cart Successfuly
+  }
+  const handleSubscriptionDiscount = (val, plan) => {
+    if (!plan) {
+      setSubscriptionPlan(false)
+    }
+    let objSubscription = subscriptionData?.find((d) => d.duration == val)
+    // debugger;
+    // setSubscription(objSubscription?.id);
+    if (objSubscription && subscriptionPlan) {
+      setDiscount(
+        (!selectedBoxData?.price || selectedBoxData?.price == 0
+          ? selectedBoxData?.smoothie_box_size?.price
+          : selectedBoxData?.price) -
+          (!selectedBoxData?.price || selectedBoxData?.price == 0
+            ? selectedBoxData?.smoothie_box_size?.price
+            : selectedBoxData?.price) *
+            (objSubscription.discount / 100)
+      )
+    } else {
+      setDiscount(null)
+      // setSubscription(null);
+      // setSubscriptionPlan(false);
+    }
+    // setDiscount(objSubscription?.discount);
   }
   return (
     <>

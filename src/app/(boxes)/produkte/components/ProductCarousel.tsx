@@ -68,6 +68,7 @@ export default function ProductCarousel({ boxImage }) {
         renderButtonGroupOutside={true}
         customButtonGroup={<ButtonGroup />}
         infinite={true}
+        ssr
       >
         {boxImage && boxImage?.length > 0 ? (
           boxImage?.map((e, i) => {

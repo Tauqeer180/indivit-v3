@@ -141,9 +141,9 @@ export function RecipeCard({ isButton, data, hideWishIcon, action, actionTitle }
 
   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistSmoothie)
   const [modalVisible, setModalVisible] = useState(false)
-  const wishlist = useSelector((state) => state?.wishlist)
+  const wishlist = useAppSelector((state) => state?.wishlist)
   const { isOutofStock, checkStock } = useCheckStock()
-  const commonImg = useSelector((state) => state.settings?.smoothieImg)
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
 
   // const { isOutofStock, checkStock } = useCheckStock();
   const handleWishlistRecipe = (id) => {
@@ -201,9 +201,12 @@ export function RecipeCard({ isButton, data, hideWishIcon, action, actionTitle }
           {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
         </button>
         <div className="text-center">
-          <button onClick={action}>
+          <button onClick={action} className="tw-border-none tw-bg-transparent tw-cursor-pointer">
             <div className="position-relative">
-              <img
+              <Image
+                alt={data?.name}
+                width={768}
+                height={768}
                 src={
                   data?.smoothie_picture?.picture
                     ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
