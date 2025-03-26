@@ -21,7 +21,7 @@ export default async function page({ params }: any) {
 
   let subscriptionRes = await fetcher(`subscription/period`, {
     token,
-    cache: true,
+    // cache: true,
     revalidate: 86400,
   })
   let subscriptionData = subscriptionRes?.data
@@ -29,7 +29,7 @@ export default async function page({ params }: any) {
   //   let smoothieres = await fetcher(`get_smoothie`, { token, cache: true, revalidate: 86400 })
   //   let smoothieData = smoothieres?.data
 
-  let benefitsData = await fetcher(`benefits`, { token, cache: true, revalidate: 86400 })
+  // let benefitsData = await fetcher(`benefits`, { token, cache: true, revalidate: 86400 })
   //   let smoothieData = smoothieres?.data
 
   //   Box By ID
@@ -192,7 +192,7 @@ export default async function page({ params }: any) {
       {/* Banner Section Start */}
       {/* {JSON.stringify(boxCategoryBenefits)} */}
       <BoxUiBanner
-        data={benefitsData?.data?.data}
+        // data={benefitsData?.data}
         benefits={boxCategoryBenefits?.benefits && JSON.parse(boxCategoryBenefits?.benefits)}
         heading={boxCategoryBenefits?.heading}
         description={boxCategoryBenefits?.description}

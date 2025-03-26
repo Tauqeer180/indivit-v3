@@ -47,6 +47,7 @@ export default function BoxUiBanner({
                         className="col-xs-12 col-sm-6 col-md-4 col-lg-4 flx-textcol-center py-2"
                         data-aos="fade-up"
                         data-aos-duration="1000"
+                        key={i}
                       >
                         <div className=" text-white">
                           <img
