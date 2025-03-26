@@ -94,7 +94,7 @@ export function BoxCard({ data }) {
           )}
         </button>
         <div className="text-center">
-          <Link href={`/b/${data?.unique_id}`}>
+          <Link href={`/produkte/${data?.unique_id}`}>
             <img
               src={
                 boxImages?.length > 0 ? baseURL + 'smoothie_box/' + boxImages[0]?.images : commonImg
@@ -108,7 +108,7 @@ export function BoxCard({ data }) {
           <p className="p5 flx-hide-paragh">{data?.smoothie_box_descriptions[0]?.short_detail}</p>
         </div>
         <div className="flx-overlay-container">
-          <Link href={`/b/${data?.unique_id}`} className="btn btn-secondary hsn-box-btn">
+          <Link href={`/produkte/${data?.unique_id}`} className="btn btn-secondary hsn-box-btn">
             Box öffnen
           </Link>
         </div>
@@ -252,7 +252,7 @@ export function IngredientCard({ data }: { data: any }) {
   const { statusLabel, statusColor } = useIngredientStatus(data?.ingredient_status)
 
   const handleWishlistIngredient = (id) => {
-    IsWishlist(2, data?.id, wishlist)? setModalVisible(true): addWishlist({ ingredient_id: id })
+    IsWishlist(2, data?.id, wishlist) ? setModalVisible(true) : addWishlist({ ingredient_id: id })
   }
 
   useEffect(() => {
