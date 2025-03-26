@@ -4,6 +4,8 @@ import session from "../services/session";
 const initialState = {
   isAuthenticated: session.get("token") ? true : false,
   user: session.get("user"),
+  token: session.get("token"),
+
 };
 
 export const accountReducer = createSlice({

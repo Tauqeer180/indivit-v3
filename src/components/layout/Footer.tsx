@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 // import { Link, useNavigate } from "react-router-dom";
-import FooterTop from "./FooterTop";
+import FooterTop from './FooterTop'
 
-import { fetcher } from "@/lib/fetcher";
-import Link from "next/link";
-import Image from "next/image";
+import { fetcher } from '@/lib/fetcher'
+import Link from 'next/link'
+import Image from 'next/image'
 // import { useSelector } from "react-redux";
 export default async function Footer() {
-  const data = await fetcher(`box_category`, { cache: true });
+  const data = await fetcher(`box_category`, { cache: true })
 
   // const {
   //   isLoading: boxLoading,
@@ -17,7 +17,7 @@ export default async function Footer() {
   //   queryKey: ["boxCategories"],
   //   queryFn: getAllBoxCategories,
   // });
-  const categories = data?.data;
+  const categories = data?.data
   // const settings = useSelector((state) => state?.settings?.settings);
 
   // console.log("Site Setings ", settings);
@@ -32,7 +32,7 @@ export default async function Footer() {
             <div className=" d-none d-lg-block pb-5 ps-sm-1">
               <Image
                 className=" img-fluid"
-                src={"/assets/icon/logo1.png"}
+                src={'/assets/icon/logo1.png'}
                 width={80}
                 height={80}
                 alt="Indivit"
@@ -47,13 +47,13 @@ export default async function Footer() {
                   return (
                     <li key={index} className="lh-lg" aria-current="true">
                       <Link
-                        href={`/category/${box?.name + "_" + box?.id}`}
+                        href={`/category/${box?.name + '_' + box?.id}`}
                         className="text-decoration-none text-reset"
                       >
                         {box?.name}
                       </Link>
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </div>
@@ -64,34 +64,22 @@ export default async function Footer() {
               <h6 className="text-uppercase fw-bold">Smoothies</h6>
               <ul className="list-group list-unstyled">
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/rightrecipes"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/rightrecipes">
                     Smoothie Rezepte
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/smoothiemixer"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/smoothiemixer">
                     Online Smoothie Mixer
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/ingredients"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/ingredients">
                     Zutaten
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/custombox"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/custombox">
                     Eigene Box erstellen
                   </Link>
                 </li>
@@ -129,26 +117,17 @@ export default async function Footer() {
                   </Link>
                 </li> */}
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/about"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/about">
                     Über uns
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/whyindivit"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/whyindivit">
                     Warum indivit
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/Sustainability"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/Sustainability">
                     Nachhaltigkeit
                   </Link>
                 </li>
@@ -161,7 +140,8 @@ export default async function Footer() {
                 <li className="lh-lg" aria-current="true">
                   <Link
                     className="text-decoration-none text-reset"
-                    href="/smoothie-wissen"
+                    href="/ernaehrung-fuer-gesundes-leben-gesund-essen"
+                    // smoothie-wissen
                   >
                     Smoothie Wissen
                   </Link>
@@ -216,26 +196,17 @@ export default async function Footer() {
               <h6 className="text-uppercase fw-bold">Kundenservice</h6>
               <ul className="list-group list-unstyled">
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/faqs"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/faqs">
                     FAQs
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/contact"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/contact">
                     Kontaktiere uns
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link
-                    className="text-decoration-none text-reset"
-                    href="/delivery"
-                  >
+                  <Link className="text-decoration-none text-reset" href="/delivery">
                     Lieferung
                   </Link>
                 </li>
@@ -271,34 +242,22 @@ export default async function Footer() {
             {/* Smoothie Ninja GmbH, 2023 */}
           </div>
           <div className="col-6 col-lg-auto order-lg-1 order-0">
-            <Link
-              className="text-decoration-none text-muted"
-              href="/terms-conditions"
-            >
+            <Link className="text-decoration-none text-muted" href="/terms-conditions">
               <small>AGB</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-2 order-1">
-            <Link
-              href="/privacy-statement"
-              className="text-decoration-none text-muted"
-            >
+            <Link href="/privacy-statement" className="text-decoration-none text-muted">
               <small>Datenschutzerklärung</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-3 order-2">
-            <Link
-              href="/zahlungsmöglichkeiten"
-              className="text-decoration-none text-muted"
-            >
+            <Link href="/zahlungsmöglichkeiten" className="text-decoration-none text-muted">
               <small>Zahlungsmöglichkeiten</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-4 order-3">
-            <Link
-              href="/cancellation_policy"
-              className="text-decoration-none text-muted"
-            >
+            <Link href="/cancellation_policy" className="text-decoration-none text-muted">
               <small>Widerrufsbelehrung</small>
             </Link>
           </div>
@@ -311,5 +270,5 @@ export default async function Footer() {
       </div>
       {/*  <!-- footer end --> */}
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import Cookies from "js-cookie";
-import { toast } from "react-toastify";
+import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
 // import { toast } from "sonner";
 // import { useRouter } from 'next/navigation'
-export const baseURL = `${process.env.NEXT_PUBLIC_URL}`;
+export const baseURL = `${process.env.NEXT_PUBLIC_URL}`
 // export const domain = `${process.env.NEXT_PUBLIC_DOMAIN}`;
 // interface urlType {
 //   url: string
@@ -12,51 +12,42 @@ export const baseURL = `${process.env.NEXT_PUBLIC_URL}`;
 export const fetcher = async (
   url: string,
   options?: {
-    method?: "GET" | "POST" | "PUT" | "DELETE";
-    data?: any;
-    token?: string | null;
-    formData?: any;
-    cache?: boolean;
+    method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
+    data?: any
+    token?: string | null
+    formData?: any
+    cache?: boolean
+    revalidate?: number
   }
 ) => {
   // const { replace } = useRouter()
-  const {
-    method = "GET",
-    data,
-    token,
-    formData,
-    cache = false,
-  } = options || {};
+  const { method = 'GET', data, token, formData, cache=false, revalidate=3600 } = options || {}
   const reqOptions: RequestInit | any = {
     method,
     headers: {
       // 'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
-      Accept: "application/json",
+      Accept: 'application/json',
     } as any,
-    cache: cache ? "force-cache" : "no-store",
-  };
+    cache: cache ? 'force-cache' : 'no-store',
+  }
 
   if (formData) {
-    reqOptions.body = formData;
+    reqOptions.body = formData
     // No need to set Content-Type for FormData, the browser will set it automatically
   } else if (data) {
-    reqOptions.headers["Content-Type"] = "application/json";
-    reqOptions.body = JSON.stringify(data);
+    reqOptions.headers['Content-Type'] = 'application/json'
+    reqOptions.body = JSON.stringify(data)
   }
   if (cache) {
-    reqOptions.next = { revalidate: 3600 };
+    reqOptions.next = { revalidate }
   }
   try {
-    const response = await fetch(`${baseURL}api/client/${url}`, reqOptions);
-    console.log("From Fetcher ===>>>", url, "=>", response?.status);
+    const response = await fetch(`${baseURL}api/client/${url}`, reqOptions)
+    console.log('From Fetcher ===>>>', url, '=>', response?.status)
     // console.log("fetcher ",res)
 
-    if (
-      response?.status === 401 &&
-      !url.includes("login") &&
-      !url.includes("register")
-    ) {
+    if (response?.status === 401 && !url.includes('login') && !url.includes('register')) {
       // logout()
       // Cookies.remove("token");
       // Cookies.remove("user");
@@ -66,10 +57,10 @@ export const fetcher = async (
       // }
     }
 
-    const res = await response?.json();
+    const res = await response?.json()
 
-    return res;
+    return res
   } catch (error) {
-    return { error };
+    return { error }
   }
-};
+}
