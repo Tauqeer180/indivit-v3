@@ -64,12 +64,15 @@ export default async function Footer() {
               <h6 className="text-uppercase fw-bold">Smoothies</h6>
               <ul className="list-group list-unstyled">
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/rightrecipes">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/gesunde-smoothies-rezepte-selber-machen"
+                  >
                     Smoothie Rezepte
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/smoothiemixer">
+                  <Link className="text-decoration-none text-reset" href="/smoothie-mixen-ideen">
                     Online Smoothie Mixer
                   </Link>
                 </li>
