@@ -135,8 +135,20 @@ export function BoxCard({ data }) {
 //   );
 // }
 
-export function RecipeCard({ isButton, data, hideWishIcon, action, actionTitle }) {
-  let token = useAppSelector((state) => state?.account?.token)
+export function RecipeCard({
+  isButton,
+  data,
+  hideWishIcon,
+  action,
+  actionTitle,
+}: {
+  isButton: boolean
+  data: any
+  hideWishIcon?: boolean
+  action: any
+  actionTitle: any
+}) {
+  const token = useAppSelector((state) => state?.account?.token)
 
   const addWishlistSmoothie = (data) => fetcher(`wishlist_smoothie`, { data, token })
 
@@ -629,35 +641,31 @@ export function IngredientCard({ data }: { data: any }) {
 //   );
 // }
 
-// export function IngrListforReci({ data, suggestions }) {
-//   const { setStatusId, statusColor, statusLabel } = useIngredientStatus();
-//   useEffect(() => {
-//     setStatusId(data?.ingredient_status);
-//   }, [data]);
-//   return (
-//     <div className="d-flex align-items-center">
-//       <p>
-//         <Link
-//           to={`/ingredientdetail/${data?.ingredient?.unique_id}`}
-//           state={{
-//             ingred_suggestions: suggestions,
-//           }}
-//           className="text-dark text-decoration-none hover-green"
-//         >
-//           {data?.ingredient?.name} &nbsp;
-//           {formatToGerman1(data?.value_in_percentage)}%
-//         </Link>
-//         {statusLabel && parseInt(data?.ingredient_status) != 0 && (
-//           <span
-//             className={`badge rounded-pill text-uppercase ms-3 fs-10 ${statusColor} `}
-//           >
-//             {statusLabel}
-//           </span>
-//         )}
-//       </p>
-//     </div>
-//   );
-// }
+export function IngrListforReci({ data }) {
+  const { setStatusId, statusColor, statusLabel } = useIngredientStatus()
+
+  useEffect(() => {
+    setStatusId(data?.ingredient_status)
+  }, [data])
+  return (
+    <div className="d-flex align-items-center">
+      <p>
+        <Link
+          href={`/ingredientdetail/${data?.ingredient?.unique_id}`}
+          className="text-dark text-decoration-none hover-green"
+        >
+          {data?.ingredient?.name} &nbsp;
+          {formatToGerman1(data?.value_in_percentage)}%
+        </Link>
+        {statusLabel && parseInt(data?.ingredient_status) != 0 && (
+          <span className={`badge rounded-pill text-uppercase ms-3 fs-10 ${statusColor} `}>
+            {statusLabel}
+          </span>
+        )}
+      </p>
+    </div>
+  )
+}
 
 export function SkeltonCard({ profileStyle = false }) {
   return (

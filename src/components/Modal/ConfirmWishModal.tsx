@@ -1,4 +1,3 @@
-
 import React, { useState, createContext, useContext } from 'react'
 
 // Create a context to hold the showToast function
@@ -6,7 +5,7 @@ const ModalContext = createContext()
 
 interface ConfirmWishModalProps {
   fun: () => void
-  isLoading: boolean
+  isLoading?: boolean
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>
   innerHtml: string
   title?: string
