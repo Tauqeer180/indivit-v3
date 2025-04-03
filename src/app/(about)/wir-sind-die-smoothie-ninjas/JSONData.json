@@ -1,0 +1,28 @@
+{
+  "about": {
+    "title": "Was für uns am wichtigsten ist",
+    "description": "Mit allem was wir tun gestalten wir auch die Umwelt um uns herum. Daher steht indivit für die folgenden Werte:",
+    "list": [
+      {
+        "icon": "icon1",
+        "title": "Ehrlich und transparent",
+        "description": "Unsere Smoothies sind nicht auf Kosten hin optimiert, sondern auf maximalen Nutzen. Wir möchten unsere Kunden entlang wissenschaftlicher Erkenntnisse mit genügend Informationen versorgen, sodass die maximale Transparenz über enthaltene Inhaltstoffe von Zutaten und Rezepten herrscht. Bei uns siehst du nicht nur, was in deinem Smoothie landet – sondern du bestimmst es ganz einfach selbst."
+      },
+      {
+        "icon": "icon2",
+        "title": "Natürlich und naturnah",
+        "description": "Jede Zutat, die in einem unserer Smoothies landet wird so schonend wie möglich erzeugt und verarbeitet. Das bedeutet z.B. die Verwendung von 100% Bio-Zutaten. Zusätzlich verzichten wir vollständig auf jegliche Art von Zusatzstoffen, denn unsere Smoothies sollen so natürlich wie möglich sein. Um den Smoothie haltbar zu machen und trotzdem einen hohen Vitalstoffgehalt zu sichern verzichten wir vollständig auf Erhitzen sondern setzen ein schonendes Hochdruckverfahren ein (HPP)."
+      },
+      {
+        "icon": "icon3",
+        "title": "Ausgewählt und wertvoll",
+        "description": "Wir bereiten unsere Smoothies exakt nach persönlichen Kundenwünschen in der höchstmöglichen Frische zu. Somit streben wir stets nach der höchsten Qualität für unser Produkt. Darüber hinaus liegt unser Fokus, bei allem was wir tun, auf der Schaffung von Wert für unsere Kunden, Mitarbeiter und Partner."
+      },
+      {
+        "icon": "icon4",
+        "title": "Nachhaltig und beständig",
+        "description": "Vieles von dem, was wir täglich umsetzen, möchten wir auch in den nächsten Jahren weiterführen. Daher liegt uns ein nachhaltiges Handeln sehr nahe. Das bedeutet für uns ganz konkret, wir positionieren uns für einen umfassenden Umweltschutz, ein vollständiges Recycling, einen sinnvollen Ressourceneinsatz und minimale Verschwendung."
+      }
+    ]
+  }
+}
