@@ -271,7 +271,7 @@ export default function Page() {
                 <div className="mt-3">
                   {!isOutofStock && (
                     <Link
-                      href={`/custombox`}
+                      href={`/meine-smoothie-box`}
                       className="btn !tw-bg-theme !tw-text-white !tw-font-bold tw-decoration-transparent tw-w-fit !tw-py-[10px] !tw-px-8"
                     >
                       <span>Pack mich in eine Box!</span>

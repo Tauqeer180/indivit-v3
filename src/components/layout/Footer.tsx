@@ -85,7 +85,7 @@ export default async function Footer() {
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/custombox">
+                  <Link className="text-decoration-none text-reset" href="/meine-smoothie-box">
                     Eigene Box erstellen
                   </Link>
                 </li>
@@ -110,36 +110,45 @@ export default async function Footer() {
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/hpp">
+                  <Link className="text-decoration-none text-reset" href="/haltbarkeit-smoothie-und-saft">
                     HPP Procedure
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
                   <Link
                     className="text-decoration-none text-reset"
-                    href="/imprint"
+                    href="/impressum"
                   >
                     Imprint
                   </Link>
                 </li> */}
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/about">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/wir-sind-die-smoothie-ninjas"
+                  >
                     Über uns
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/whyindivit">
+                  <Link className="text-decoration-none text-reset" href="/warum-indivit">
                     Warum indivit
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/nachhaltige-bio-lebensmittel-essen">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/nachhaltige-bio-lebensmittel-essen"
+                  >
                     Nachhaltigkeit
                   </Link>
                 </li>
 
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/hpp">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/haltbarkeit-smoothie-und-saft"
+                  >
                     HPP Prozess
                   </Link>
                 </li>
@@ -202,24 +211,27 @@ export default async function Footer() {
               <h6 className="text-uppercase fw-bold">Kundenservice</h6>
               <ul className="list-group list-unstyled">
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/faqs">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/haeufig-gestellte-fragen"
+                  >
                     FAQs
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/contact">
+                  <Link className="text-decoration-none text-reset" href="/kontakt">
                     Kontaktiere uns
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/delivery">
+                  <Link className="text-decoration-none text-reset" href="/lieferung">
                     Lieferung
                   </Link>
                 </li>
                 {/* <li className="lh-lg" aria-current="true">
                   <Link
                     className="text-decoration-none text-reset"
-                    href="/terms-conditions"
+                    href="/agb"
                   >
                     Terms & Conditions
                   </Link>
@@ -227,7 +239,7 @@ export default async function Footer() {
                 {/* <li className="lh-lg" aria-current="true">
                   <Link
                     className="text-decoration-none text-reset"
-                    href="/privacy-statement"
+                    href="/datenschutz"
                   >
                     Privacy Policy
                   </Link>
@@ -248,27 +260,27 @@ export default async function Footer() {
             {/* Smoothie Ninja GmbH, 2023 */}
           </div>
           <div className="col-6 col-lg-auto order-lg-1 order-0">
-            <Link className="text-decoration-none text-muted" href="/terms-conditions">
+            <Link className="text-decoration-none text-muted" href="/agb">
               <small>AGB</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-2 order-1">
-            <Link href="/privacy-statement" className="text-decoration-none text-muted">
+            <Link href="/datenschutz" className="text-decoration-none text-muted">
               <small>Datenschutzerklärung</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-3 order-2">
-            <Link href="/zahlungsmöglichkeiten" className="text-decoration-none text-muted">
+            <Link href="/zahlung" className="text-decoration-none text-muted">
               <small>Zahlungsmöglichkeiten</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-4 order-3">
-            <Link href="/cancellation_policy" className="text-decoration-none text-muted">
+            <Link href="/widerrruf" className="text-decoration-none text-muted">
               <small>Widerrufsbelehrung</small>
             </Link>
           </div>
           <div className="col-6 col-lg-auto order-lg-5 order-4">
-            <Link href="/imprint" className="text-decoration-none text-muted">
+            <Link href="/impressum" className="text-decoration-none text-muted">
               <small>Impressum</small>
             </Link>
           </div>

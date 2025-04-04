@@ -137,7 +137,7 @@ export default function FAQSection({ data }) {
       </div>
       <div className="tw-text-center tw-mt-16">
         <Link
-          href="/faqs"
+          href="/haeufig-gestellte-fragen"
           // target="_blank"
           className="tw-bg-[#81CA00] tw-capitalize tw-border-none tw-text-white tw-px-8 tw-py-3 tw-rounded-lg hover:tw-bg-[#81CA00] tw-transition-colors tw-decoration-transparent hover:tw-text-white"
         >

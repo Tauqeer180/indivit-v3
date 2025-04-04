@@ -11,16 +11,16 @@ export default function FooterTop() {
       {pathName == '/login' ||
       pathName == '/signup' ||
       pathName == '/' ||
-      pathName == '/forgotpassword' ? (
+      pathName == '/passwort-vergessen' ? (
         <></>
       ) : (
         <section
           id="flx-top-footer"
           className={`
-         ${(pathName == '/cart' || pathName == '/checkout') && 'bg-white '} 
-         ${pathName == '/profile' && ' bg-transparent'}
-        ${pathName == '/orders' && ' flx-customcol-bg'}`}
-          // className={pathName === "/profile" ? "flx-customcol-bg" : ""}
+         ${(pathName == '/warenkorb' || pathName == '/kasse') && 'bg-white '} 
+         ${pathName == '/mein-profil' && ' bg-transparent'}
+        ${pathName == '/meine-bestellung' && ' flx-customcol-bg'}`}
+          // className={pathName === "/mein-profil" ? "flx-customcol-bg" : ""}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 252">
             <path

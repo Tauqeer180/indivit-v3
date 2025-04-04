@@ -312,7 +312,7 @@ export default function Navbar() {
                       </li>
 
                       <li>
-                        <Link href="/custombox" className="dropdown-item ">
+                        <Link href="/meine-smoothie-box" className="dropdown-item ">
                           Eigene Box erstellen
                         </Link>
                         <hr className="m-0" />
@@ -345,19 +345,19 @@ export default function Navbar() {
                     </a>
                     <ul className="dropdown-menu border-0 shadow" aria-labelledby="defaultDropdown">
                       <li>
-                        <Link href="/about" className="dropdown-item ">
+                        <Link href="/wir-sind-die-smoothie-ninjas" className="dropdown-item ">
                           Über uns
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link href="/faqs" className="dropdown-item ">
+                        <Link href="/haeufig-gestellte-fragen" className="dropdown-item ">
                           FAQs
                         </Link>
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link href="/whyindivit" className="dropdown-item ">
+                        <Link href="/warum-indivit" className="dropdown-item ">
                           Warum indivit?
                         </Link>
                         <hr className="m-0" />
@@ -418,7 +418,7 @@ export default function Navbar() {
                     <>
                       <li>
                         <Link
-                          href={isAuthenticated ? '/profile' : '/login'}
+                          href={isAuthenticated ? '/mein-profil' : '/login'}
                           className="dropdown-item "
                         >
                           Profil
@@ -427,7 +427,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          href={isAuthenticated ? '/orders' : '/login'}
+                          href={isAuthenticated ? '/meine-bestellung' : '/login'}
                           className="dropdown-item "
                         >
                           Bestellungen
@@ -436,7 +436,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          href={isAuthenticated ? '/subscriptions' : '/login'}
+                          href={isAuthenticated ? '/mein-abonnement' : '/login'}
                           className="dropdown-item "
                         >
                           Abo
@@ -445,7 +445,7 @@ export default function Navbar() {
                       </li>
                       <li>
                         <Link
-                          href={isAuthenticated ? '/my-creations' : '/login'}
+                          href={isAuthenticated ? '/meine-kreationen' : '/login'}
                           className="dropdown-item "
                         >
                           Meine Kreationen
@@ -474,9 +474,9 @@ export default function Navbar() {
                 </ul>
                 {/* </li> */}
 
-                {/* <Link href={isAuthenticated ? "/profile" : "/login"}>
+                {/* <Link href={isAuthenticated ? "/mein-profil" : "/login"}>
             </Link> */}
-                <Link href="/wishlist" className="position-relative hsn-border">
+                <Link href="/meine-wunschliste" className="position-relative hsn-border">
                   <img
                     className="mx-xl-3 mx-2"
                     src={'/assets/svg/heart-svgrepo-com.svg'}
@@ -488,7 +488,7 @@ export default function Navbar() {
                     {wishlistCount}
                   </span>
                 </Link>
-                <Link href="/cart" className="position-relative hsn-border">
+                <Link href="/warenkorb" className="position-relative hsn-border">
                   <img
                     className="mx-xl-3 mx-2"
                     src={'/assets/svg/cart-4-svgrepo-com.svg'}
