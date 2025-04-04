@@ -54,8 +54,11 @@ export function BoxCard({ data }) {
   }, [isDone])
 
   // const filterData = IsWishlist()
-  let boxData = data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
-  let boxImages = data?.smoothie_image
+  const boxData =
+    data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
+  const boxImages = data?.smoothie_image
+
+  console.log('boxImages::', data)
 
   return (
     <>
