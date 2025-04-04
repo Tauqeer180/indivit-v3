@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 // import productImage from "../../assets/img/products-popup.png";
 
 // import ModalContainer from "../../components/Modal/ModalContainer";
 // import ConfirmWishModal from "../../components/Modal/ConfirmWishModal";
-import { useRouter } from "next/navigation";
-import ModalContainer from "@/components/Modal/ModalContainer";
-import ConfirmWishModal from "@/components/Modal/ConfirmWishModal";
-import { baseURL } from "@/lib/fetcher";
-import { useAppSelector } from "@/redux/hooks";
+import { useRouter } from 'next/navigation'
+import ModalContainer from '@/components/Modal/ModalContainer'
+import ConfirmWishModal from '@/components/Modal/ConfirmWishModal'
+import { baseURL } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 
 export default function CustomBoxCard({
   data,
@@ -17,32 +17,26 @@ export default function CustomBoxCard({
   selectedBoxSize,
   quantity,
 }) {
-  const [modalVisible, setModalVisible] = useState(false);
-  const {push} = useRouter();
+  const [modalVisible, setModalVisible] = useState(false)
+  const { push } = useRouter()
   // console.log("Data from Box Card ", data);
-  const commonImg = useAppSelector((state) => state.settings?.smoothieImg);
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
 
   return (
     <>
-      <ModalContainer
-        isOpen={modalVisible}
-        closeModal={() => setModalVisible(false)}
-      >
+      <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
         <ConfirmWishModal
           title="Box Baukasten verlassen?"
           setModalVisible={setModalVisible}
-          fun={() => push(`/smoothiemixer/${data?.unique_id}`)}
+          fun={() => push(`/smoothie-mixen-ideen/${data?.unique_id}`)}
           innerHtml="Du verlässt den Boxbaukasten, um dein ausgewähltes Rezept mit dem Online Smoothie Mixer zu konfigurieren. Deine Box wird nicht gespeichert."
         />
       </ModalContainer>
-      <div
-        id={`box-mixer-card-${data?.id}`}
-        className="text-center flx-customdetailed-box"
-      >
+      <div id={`box-mixer-card-${data?.id}`} className="text-center flx-customdetailed-box">
         <img
           src={
             data?.smoothie_picture?.picture
-              ? baseURL + "/smoothie/" + data?.smoothie_picture?.picture
+              ? baseURL + '/smoothie/' + data?.smoothie_picture?.picture
               : commonImg
           }
           className="img-fluid w-75 pb-3"
@@ -50,7 +44,7 @@ export default function CustomBoxCard({
         <h4>{data?.name}</h4>
         <p className="p5 text-truncate">{data?.headline}</p>
         <button
-          // to={`/smoothiemixer/${data?.id}`}
+          // to={`/smoothie-mixen-ideen/${data?.id}`}
           onClick={() => setModalVisible(true)}
           type="button"
           className="btn btn-primary btn-outline-success"
@@ -97,5 +91,5 @@ export default function CustomBoxCard({
         </div>
       </div>
     </>
-  );
+  )
 }

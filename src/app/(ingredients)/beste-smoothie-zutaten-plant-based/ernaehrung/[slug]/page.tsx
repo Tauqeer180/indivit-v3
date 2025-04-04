@@ -32,7 +32,7 @@ export default async function Page({ params }) {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <Link href="/ingredients">Ingredients</Link>
+                  <Link href="/beste-smoothie-zutaten-plant-based">Ingredients</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {data ? data?.name : <TextSkelton />}
@@ -133,7 +133,7 @@ export default async function Page({ params }) {
                       isButton={true}
                       data={smooth?.smoothie}
                       actionTitle="Mehr anzeigen"
-                      action={`/recipedetail/${smooth?.smoothie_id}`}
+                      action={`/rezepte/${smooth?.smoothie_id}`}
                     />
                   </div>
                 )

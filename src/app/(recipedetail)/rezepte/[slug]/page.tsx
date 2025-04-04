@@ -140,7 +140,7 @@ export default function Page() {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <Link href="/rightrecipes">Smoothie</Link>
+                  <Link href="/gesunde-smoothies-rezepte-selber-machen">Smoothie</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {smoothieByIdLoading ? <TextSkelton /> : data?.name}
@@ -254,7 +254,7 @@ export default function Page() {
                 </div>
                 <div className="mt-3">
                   <Link
-                    href={`/smoothiemixer/${data?.unique_id}`}
+                    href={`/smoothie-mixen-ideen/${data?.unique_id}`}
                     className="btn btn-outline-success"
                   >
                     Customize

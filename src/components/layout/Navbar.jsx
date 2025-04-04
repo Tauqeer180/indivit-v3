@@ -305,7 +305,7 @@ export default function Navbar() {
                       </li>
 
                       <li>
-                        <Link href="/ingredients" className="dropdown-item ">
+                        <Link href="/beste-smoothie-zutaten-plant-based" className="dropdown-item ">
                           Zutaten
                         </Link>
                         <hr className="m-0" />
@@ -319,7 +319,7 @@ export default function Navbar() {
                       </li>
 
                       {/* <li>
-                      <Link href="/recipedetail" className="dropdown-item ">
+                      <Link href="/rezepte" className="dropdown-item ">
                         Recipes Detailed
                       </Link>
                     </li> */}
@@ -363,7 +363,7 @@ export default function Navbar() {
                         <hr className="m-0" />
                       </li>
                       <li>
-                        <Link href="/sustainability" className="dropdown-item ">
+                        <Link href="/nachhaltige-bio-lebensmittel-essen" className="dropdown-item ">
                           Nachhaltigkeit
                         </Link>
                         <hr className="m-0" />

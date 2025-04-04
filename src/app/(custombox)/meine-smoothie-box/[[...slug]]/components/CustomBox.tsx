@@ -53,7 +53,7 @@ export default function CustomBox({ boxSize, filtSmoothies, wishlistSmoothies, m
       } else if (res?.status == 200) {
         queryClient.invalidateQueries(['boxListing', 'limitedboxListing'])
         toast.success(res.data.message)
-        push(`/b/${res?.data?.data}`)
+        push(`/produkte/${res?.data?.data}`)
       } else {
         toast?.error(
           'Upps, da ist wohl etwas schief gelaufen. Bitte versuch es noch einmal. Vielleicht musst du es auch mit einem anderen Browser probieren.'

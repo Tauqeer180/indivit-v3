@@ -77,7 +77,10 @@ export default async function Footer() {
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/ingredients">
+                  <Link
+                    className="text-decoration-none text-reset"
+                    href="/beste-smoothie-zutaten-plant-based"
+                  >
                     Zutaten
                   </Link>
                 </li>
@@ -101,7 +104,7 @@ export default async function Footer() {
                 <li className="lh-lg" aria-current="true">
                   <Link
                     className="text-decoration-none text-reset"
-                    href="/sustainability"
+                    href="/nachhaltige-bio-lebensmittel-essen"
                   >
                     Sustainability
                   </Link>
@@ -130,7 +133,7 @@ export default async function Footer() {
                   </Link>
                 </li>
                 <li className="lh-lg" aria-current="true">
-                  <Link className="text-decoration-none text-reset" href="/Sustainability">
+                  <Link className="text-decoration-none text-reset" href="/nachhaltige-bio-lebensmittel-essen">
                     Nachhaltigkeit
                   </Link>
                 </li>

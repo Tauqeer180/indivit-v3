@@ -54,7 +54,8 @@ export function BoxCard({ data }) {
   }, [isDone])
 
   // const filterData = IsWishlist()
-  let boxData = data?.smoothie_box_descriptions?.length > 0 ? data?.smoothie_box_descriptions[0] : {}
+  let boxData =
+    data?.smoothie_box_descriptions?.length > 0 ? data?.smoothie_box_descriptions[0] : {}
   let boxImages = data?.smoothie_image
 
   return (
@@ -651,7 +652,7 @@ export function IngrListforReci({ data }) {
     <div className="d-flex align-items-center">
       <p>
         <Link
-          href={`/ingredientdetail/${data?.ingredient?.unique_id}`}
+          href={`/ernaehrung/${data?.ingredient?.unique_id}`}
           className="text-dark text-decoration-none hover-green"
         >
           {data?.ingredient?.name} &nbsp;
