@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 export default class session {
   static set(key, value, options = {}) {
-    Cookies.set(key, JSON.stringify(value), options)
+    Cookies.set(key, typeof value === 'string' ? value : JSON.stringify(value), options)
   }
 
   static get(key) {

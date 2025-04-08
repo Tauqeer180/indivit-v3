@@ -9,9 +9,9 @@ import './components/custombox-anim.css'
 export default async function page({ params }) {
   const { slug } = params
   // can be 2 parameters
+  let [id, size] = slug
   // slug[0] = smoothie box id
   // slug[1] = smoothie box size
-
   const cookieStore = cookies()
   const token = cookieStore.get('token')?.value || ''
 
@@ -25,19 +25,20 @@ export default async function page({ params }) {
     cache: true,
     revalidate: 86400,
   })
-  let data = await fetcher(`smoothie_box_description/${slug?.length > 0 && slug[0]}`, { token })
+  // BoxByID
+  let data = await fetcher(`smoothie_box_description/${id}`, { token })
+  const boxData = data?.data
+  const boxDescription = boxData?.smoothie_box_descriptions
 
   // Data Calculations
   let filtSmoothies = customSmoothiesData?.smoothies?.filter(
-    (d) => parseInt(d.smoothie_status) == '0' && d?.created_by == '0'
+    (d) => parseInt(d.smoothie_status) == 0 && d?.created_by == '0'
     // Only instock Data and Created By Admin
   )
   let wishlistSmoothies = filtSmoothies?.filter((item1) => {
     return wishlistIds?.some((item2) => parseInt(item2.smoothie_id) == item1.id)
   })
-  let mineSmoothies = customSmoothiesData?.smoothies?.filter(
-    (d) => d.created_by == "1"
-  );
+  let mineSmoothies = customSmoothiesData?.smoothies?.filter((d) => d.created_by == '1')
   return (
     <div>
       <HeroBanner
@@ -50,9 +51,23 @@ export default async function page({ params }) {
         }}
       />
 
-      <CustomBox boxSize={boxSizeData?.data} wishlistSmoothies={wishlistSmoothies} filtSmoothies={filtSmoothies} mineSmoothies={mineSmoothies} />
-      {/* Custom Box,
-      {JSON.stringify(slug)} */}
+      <CustomBox
+        boxSize={boxSizeData?.data}
+        wishlistSmoothies={wishlistSmoothies}
+        filtSmoothies={filtSmoothies}
+        mineSmoothies={mineSmoothies}
+        boxDescription={boxDescription}
+        boxData={boxData}
+        id={id}
+        size={Number(size)}
+      />
+      {JSON.stringify(id)}
+      <br />
+      {JSON.stringify(size)}
+      <br />
+      {JSON.stringify(slug)}
+      <br />
+      {/* Custom Box,*/}
       {JSON.stringify(filtSmoothies[0])}
     </div>
   )

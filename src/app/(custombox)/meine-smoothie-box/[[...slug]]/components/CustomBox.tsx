@@ -13,7 +13,15 @@ import CustomBoxCard from './CustomBoxCard'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import LoginCard from '@/app/(auth)/components/LoginCard'
 
-export default function CustomBox({ boxSize, filtSmoothies, wishlistSmoothies, mineSmoothies }) {
+export default function CustomBox({
+  boxSize,
+  filtSmoothies,
+  wishlistSmoothies,
+  mineSmoothies,
+  boxDescription,
+  boxData,
+  size,
+}) {
   const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
   const { animate } = useAnimate()
 
@@ -37,7 +45,7 @@ export default function CustomBox({ boxSize, filtSmoothies, wishlistSmoothies, m
   } = useForm()
 
   let addBox = (d) =>
-    fetcher('`smoothie_box_description`', {
+    fetcher('smoothie_box_description', {
       token,
       method: 'POST',
       data: d,
@@ -47,24 +55,29 @@ export default function CustomBox({ boxSize, filtSmoothies, wishlistSmoothies, m
     onSuccess: (res) => {
       // Invalidate and refetch
       console.log('Res from Box ', res)
-      if (res?.response?.status == 401) {
-        setModalVisible(true)
-        toast.error('Please Login to Proceed')
-      } else if (res?.status == 200) {
+      // if (res?.response?.status == 401) {
+      //   setModalVisible(true)
+      //   toast.error('Please Login to Proceed')
+      // } else if (res?.status == 200) {
+      if (res?.status) {
         queryClient.invalidateQueries(['boxListing', 'limitedboxListing'])
-        toast.success(res.data.message)
-        push(`/produkte/${res?.data?.data}`)
+        toast.success(res.message)
+        push(`/produkte/${res?.data}`)
       } else {
-        toast?.error(
-          'Upps, da ist wohl etwas schief gelaufen. Bitte versuch es noch einmal. Vielleicht musst du es auch mit einem anderen Browser probieren.'
-        )
+        toast.error(res.message)
       }
+      // } else {
+      //   toast?.error(
+      //     'Upps, da ist wohl etwas schief gelaufen. Bitte versuch es noch einmal. Vielleicht musst du es auch mit einem anderen Browser probieren.'
+      //   )
+      // }
       setLoading(false)
     },
     onError: (err) => {
-      toast.error(
-        err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
-      )
+      console.log('Error ', err)
+      // toast.error(
+      //   err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
+      // )
       setLoading(false)
     },
   })
@@ -110,13 +123,39 @@ export default function CustomBox({ boxSize, filtSmoothies, wishlistSmoothies, m
         : setSelectedSmoothie([...selectedSmoothie, { ...data, quantity: 1 }])
     }
   }
+  useEffect(() => {
+    if (boxDescription) {
+      setValue('name', boxData?.name)
+      setValue('short_detail', boxDescription[0]?.short_detail)
+      setValue('detail', boxDescription[0]?.detail)
+
+      // IF user selected Size not found exaclty the find & select next closest number
+      let closestSize = boxSize
+        ?.sort((a, b) => parseInt(a?.size) - parseInt(b?.size))
+        ?.filter((b) => Number(b.for_custom_box) == 0)
+        ?.find((item) => item?.size >= size)
+      if (closestSize) {
+        setSelectedBoxSize(closestSize?.size)
+      }
+
+      let tempSelected = boxDescription
+        ?.find((d, i) => size == d?.smoothie_box_size?.size)
+        ?.smoothie_box.map((d) => {
+          return { quantity: parseInt(d.qty), ...d?.smoothie }
+        })
+      // tempSelected?
+      if (tempSelected !== selectedSmoothie) {
+        setSelectedSmoothie(tempSelected || [])
+      }
+    }
+  }, [boxDescription])
 
   return (
     <div>
       {modalData && (
         <CustomSmoothieDetailPopup data={modalData} ingredients={modalData?.smoothie_ingredient} />
       )}
-       <ModalContainer
+      <ModalContainer
         isOpen={modalVisible && !isAuthenticated}
         closeModal={() => setModalVisible(false)}
       >

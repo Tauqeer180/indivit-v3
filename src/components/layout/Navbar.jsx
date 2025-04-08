@@ -48,7 +48,7 @@ export default function Navbar() {
     queryFn: () => fetcher('custom_image', { cache: true }),
   })
 
-  const commonImg = commonImgData?.data?.data
+  const commonImg = commonImgData?.data
   useEffect(() => {
     if (commonImg) {
       dispatch(
@@ -76,7 +76,7 @@ export default function Navbar() {
     queryKey: ['webSettings'],
     queryFn: () => fetcher('setting', { cache: true }),
   })
-  const settings = settingsData?.data?.data && settingsData?.data?.data[0]
+  const settings = settingsData?.data && settingsData?.data[0]
 
   useEffect(() => {
     dispatch(setSiteSettings(settings))
