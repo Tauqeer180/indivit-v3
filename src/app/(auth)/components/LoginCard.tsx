@@ -49,21 +49,25 @@ export default function LoginCard({
     onSuccess: (res) => {
       console.log('Success response:', res)
 
-      if (res?.status == 200) {
-        toast.success('Du bist jetzt angemeldet')
-        // Success
-        dispatch(loginAction(res?.data))
-        dispatch(fetchWishlist())
-        session.set('token', res?.data?.token)
-        session.set('user', res?.data)
-        // Invalidate and refetch
-        queryKeys.forEach((key) => {
-          queryClient.invalidateQueries({ queryKey: [key] })
-        })
-        if (redirect) router.back()
-      } else {
-        toast.error(res)
-      }
+      // if (res?.status == 200) {
+      toast.success('Du bist jetzt angemeldet')
+      // Success
+      dispatch(loginAction(res?.data))
+      dispatch(fetchWishlist())
+      session.set('token', res?.token)
+      session.set('user', res)
+      queryClient.invalidateQueries([
+        'wishListing',
+        'smoothieListing',
+        'boxListing',
+        'customSmoothieListing',
+      ])
+      // Invalidate and refetch
+
+      if (redirect) router.back()
+      // } else {
+      //   toast.error(res)
+      // }
       setLoading(false)
     },
     onError: (err) => {
