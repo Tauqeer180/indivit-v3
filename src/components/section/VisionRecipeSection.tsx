@@ -20,7 +20,7 @@ export default function VisionRecipeSection() {
                   Smoothies sind nicht nur unser Produkt, sondern unsere große Leidenschaft
                 </p>
                 <Link
-                  href="/about"
+                  href="/wir-sind-die-smoothie-ninjas"
                   className="btn btn-primary btn-solid-success"
                   data-aos="fade-up"
                   data-aos-duration="2000"
@@ -63,7 +63,7 @@ export default function VisionRecipeSection() {
                   Mixer zusätzliche Freiheit für eine ganz persönliche Gestaltung deines Smoothies
                 </p>
                 <Link
-                  href="/rightrecipes"
+                  href="/gesunde-smoothies-rezepte-selber-machen"
                   className="btn btn-solid-success"
                   data-aos="fade-up"
                   data-aos-duration="2500"

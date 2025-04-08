@@ -163,7 +163,7 @@ export default function LoginCard({
                   </div>
 
                   <p className="text-end">
-                    <Link href="/forgotpassword" className=" text-dark text-decoration-none">
+                    <Link href="/passwort-vergessen" className=" text-dark text-decoration-none">
                       {/* Forgot Password */}
                       Passwort vergessen?
                     </Link>

@@ -140,7 +140,7 @@ export default function Page() {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <Link href="/rightrecipes">Smoothie</Link>
+                  <Link href="/gesunde-smoothies-rezepte-selber-machen">Smoothie</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {smoothieByIdLoading ? <TextSkelton /> : data?.name}
@@ -254,7 +254,7 @@ export default function Page() {
                 </div>
                 <div className="mt-3">
                   <Link
-                    href={`/smoothiemixer/${data?.unique_id}`}
+                    href={`/smoothie-mixen-ideen/${data?.unique_id}`}
                     className="btn btn-outline-success"
                   >
                     Customize
@@ -271,7 +271,7 @@ export default function Page() {
                 <div className="mt-3">
                   {!isOutofStock && (
                     <Link
-                      href={`/custombox`}
+                      href={`/meine-smoothie-box`}
                       className="btn !tw-bg-theme !tw-text-white !tw-font-bold tw-decoration-transparent tw-w-fit !tw-py-[10px] !tw-px-8"
                     >
                       <span>Pack mich in eine Box!</span>

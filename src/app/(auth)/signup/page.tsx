@@ -34,7 +34,7 @@ export default function Page() {
         )
         setTimeout(() => {
           if (isFromMixer === 'true') {
-            router.push('/congratulations')
+            router.push('/erfolgreich-registriert')
           } else {
             router.push('/login')
           }

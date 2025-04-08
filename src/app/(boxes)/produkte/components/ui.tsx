@@ -273,8 +273,8 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
               selectedBoxData?.box_status !== null
                 ? ''
                 : selectedSize
-                  ? `/custombox/${boxData?.unique_id}/${selectedBoxData?.smoothie_box_size?.size}`
-                  : `/custombox/${boxData?.unique_id}`
+                  ? `/meine-smoothie-box/${boxData?.unique_id}/${selectedBoxData?.smoothie_box_size?.size}`
+                  : `/meine-smoothie-box/${boxData?.unique_id}`
             }
             className={`ms-2 btn flx-selectbox-btncustomize ${
               selectedBoxData &&

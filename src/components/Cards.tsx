@@ -36,13 +36,13 @@ import useCheckStock from '@/hooks/useCheckStock'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
 export function BoxCard({ data }) {
-  const token = useSelector((state) => state?.account?.token)
+  const token = useAppSelector((state) => state?.account?.token)
 
   let addWishlistBox = (d) => fetcher('wishlist_smoothie_box', { token, method: 'POST', data: d })
   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistBox)
   const [modalVisible, setModalVisible] = useState(false)
-  const wishlist = useSelector((state) => state?.wishlist)
-  const commonImg = useSelector((state) => state.settings?.boxImg)
+  const wishlist = useAppSelector((state) => state?.wishlist)
+  const commonImg = useAppSelector((state) => state.settings?.boxImg)
 
   const handleWishlistBox = (id) => {
     IsWishlist(1, data?.id, wishlist) ? setModalVisible(true) : addWishlist({ box_id: id })
@@ -54,11 +54,12 @@ export function BoxCard({ data }) {
   }, [isDone])
 
   // const filterData = IsWishlist()
+
   const boxData =
     data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
   const boxImages = data?.smoothie_image
 
-  console.log('boxImages::', data)
+ 
 
   return (
     <>
@@ -472,49 +473,49 @@ export function IngredientCard({ data }: { data: any }) {
 //   );
 // }
 
-// export function BoxListCard({ data, handleModal, handleAdd, isDisable }) {
-//   const commonImg = useSelector((state) => state.settings?.smoothieImg);
-//   return (
-//     <div className="d-flex justify-content-between pb-3 page-wrapper">
-//       <div
-//         className="d-flex justify-content-between  align-items-center bg-transprent p-2 rounded-3 border border-dark w-100 me-2"
-//         role="button"
-//         data-bs-toggle="modal"
-//         data-bs-target="#exampleModal"
-//         data-bs-whatever="@getbootstrap"
-//         onClick={handleModal}
-//       >
-//         <div className=" d-flex align-items-center">
-//           <img
-//             height="56px"
-//             width="50px"
-//             src={
-//               data?.smoothie_picture?.picture
-//                 ? baseURL + "/smoothie/" + data?.smoothie_picture?.picture
-//                 : commonImg
-//             }
-//             alt={data?.name}
-//             className="img-fluid"
-//             loading="lazy"
-//           />
-//           &nbsp;&nbsp;&nbsp;
-//           <p className="m-0"> {data?.name} </p>
-//         </div>
-//         <span>&#10095;</span>
-//       </div>
-//       <button
-//         id={`box-mixer-list-${data?.id}`}
-//         disabled={isDisable}
-//         type="button"
-//         className="btn flx-custom-btn"
-//         onClick={handleAdd}
-//       >
-//         Zur Box zufügen
-//         {/* <span className="cart-item-anim"></span> */}
-//       </button>
-//     </div>
-//   );
-// }
+export function BoxListCard({ data, handleModal, handleAdd, isDisable }) {
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
+  return (
+    <div className="d-flex justify-content-between pb-3 page-wrapper">
+      <div
+        className="d-flex justify-content-between  align-items-center bg-transprent p-2 rounded-3 border border-dark w-100 me-2"
+        role="button"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        data-bs-whatever="@getbootstrap"
+        onClick={handleModal}
+      >
+        <div className=" d-flex align-items-center">
+          <img
+            height="56px"
+            width="50px"
+            src={
+              data?.smoothie_picture?.picture
+                ? baseURL + '/smoothie/' + data?.smoothie_picture?.picture
+                : commonImg
+            }
+            alt={data?.name}
+            className="img-fluid"
+            loading="lazy"
+          />
+          &nbsp;&nbsp;&nbsp;
+          <p className="m-0"> {data?.name} </p>
+        </div>
+        <span>&#10095;</span>
+      </div>
+      <button
+        id={`box-mixer-list-${data?.id}`}
+        disabled={isDisable}
+        type="button"
+        className="btn flx-custom-btn"
+        onClick={handleAdd}
+      >
+        Zur Box zufügen
+        {/* <span className="cart-item-anim"></span> */}
+      </button>
+    </div>
+  )
+}
 
 // export function SmoothieSelectListCard({ data }) {
 //   const commonImg = useSelector((state) => state.settings?.smoothieImg);
@@ -537,7 +538,7 @@ export function IngredientCard({ data }: { data: any }) {
 //       </div>
 //       <div className="col-2 align-items-center text-end">
 //         <Link
-//           to={`/smoothiemixer/${data?.unique_id}`}
+//           to={`/smoothie-mixen-ideen/${data?.unique_id}`}
 //           className="btn px-0 shadow-none"
 //         >
 //           <PlusBoxIcon width="24px" />
@@ -654,7 +655,7 @@ export function IngrListforReci({ data }) {
     <div className="d-flex align-items-center">
       <p>
         <Link
-          href={`/ingredientdetail/${data?.ingredient?.unique_id}`}
+          href={`/ernaehrung/${data?.ingredient?.unique_id}`}
           className="text-dark text-decoration-none hover-green"
         >
           {data?.ingredient?.name} &nbsp;

@@ -64,7 +64,7 @@ export default function CustomSmoothieDetailPopup({ data, ingredients }) {
   }
   const handleNavigate = () => {
     // closeRef.current.click()
-    push(`/smoothiemixer/${data?.unique_id}`)
+    push(`/smoothie-mixen-ideen/${data?.unique_id}`)
   }
   const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
   return (
@@ -173,7 +173,7 @@ export default function CustomSmoothieDetailPopup({ data, ingredients }) {
             })} */}
                   </div>
                   <button
-                    // to={`/smoothiemixer/${data?.id}`}
+                    // to={`/smoothie-mixen-ideen/${data?.id}`}
                     type="button"
                     className="btn  flx-box-btn text-white"
                     // onClick={handleNavigate}

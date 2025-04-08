@@ -95,7 +95,7 @@ export default function CartSidebar({ data }) {
         <hr />
 
         <div className=" d-flex justify-content-center">
-          <Link href="/checkout" className="btn btn-primary btn-solid-success w-75 mt-3">
+          <Link href="/kasse" className="btn btn-primary btn-solid-success w-75 mt-3">
             Weiter zur Kasse
           </Link>
           {/* Proceed to Checkout */}

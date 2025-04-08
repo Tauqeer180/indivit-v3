@@ -1,24 +1,26 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React from 'react'
+// import { Link, useLocation } from 'react-router-dom'
 
 export default function FooterTop() {
-  const location = useLocation();
-  let pathName = location?.pathname;
+  const router = useRouter()
+  const pathName = router.pathname
   return (
     <>
-      {pathName == "/login" ||
-      pathName == "/signup" ||
-      pathName == "/" ||
-      pathName == "/forgotpassword" ? (
+      {pathName == '/login' ||
+      pathName == '/signup' ||
+      pathName == '/' ||
+      pathName == '/passwort-vergessen' ? (
         <></>
       ) : (
         <section
           id="flx-top-footer"
           className={`
-         ${(pathName == "/cart" || pathName == "/checkout") && "bg-white "} 
-         ${pathName == "/profile" && " bg-transparent"}
-        ${pathName == "/orders" && " flx-customcol-bg"}`}
-          // className={pathName === "/profile" ? "flx-customcol-bg" : ""}
+         ${(pathName == '/warenkorb' || pathName == '/kasse') && 'bg-white '} 
+         ${pathName == '/mein-profil' && ' bg-transparent'}
+        ${pathName == '/meine-bestellung' && ' flx-customcol-bg'}`}
+          // className={pathName === "/mein-profil" ? "flx-customcol-bg" : ""}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 252">
             <path
@@ -35,17 +37,12 @@ export default function FooterTop() {
                     Mix nicht einfach einen Smoothie. <br />
                     Mix dir DEINEN <span className="text-white">Smoothie.</span>
                   </h2>
-                  <p
-                    className="text-white"
-                    data-aos="fade-up"
-                    data-aos-duration="2000"
-                  >
-                    Mit über 78 Milliarden möglichen Variationen müsste in
-                    unserem Online <br />
+                  <p className="text-white" data-aos="fade-up" data-aos-duration="2000">
+                    Mit über 78 Milliarden möglichen Variationen müsste in unserem Online <br />
                     Smoothie Mixer doch das passende für dich dabei sein
                   </p>
                   <Link
-                    to="/smoothiemixer"
+                    href="/smoothie-mixen-ideen"
                     className="btn btn-outline-light"
                     data-aos="fade-up"
                     data-aos-duration="2500"
@@ -59,5 +56,5 @@ export default function FooterTop() {
         </section>
       )}
     </>
-  );
+  )
 }
