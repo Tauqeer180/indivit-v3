@@ -1,0 +1,39 @@
+{
+  "ingrCategoryIntro": [
+    {
+      "id": 1,
+      "name": "Obst",
+      "text": "Wir sind der Meinung, dass jeder gute Smoothie eine fruchtig, obstige Basis braucht. Dazu wählst du hier aus einer breite Variation an saftig reifen Früchten. Such dir etwas aus – du kannst nur richtig liegen!"
+    },
+    {
+      "id": 2,
+      "name": "Gemüse",
+      "text": "Häh, Gemüse soll in meinen Smoothie? Auf jeden Fall! Denn unsere Auswahl an herzhaften Gemüsesorten bietet dir nicht nur willkommene Abwechslung im Geschmack, sondern auch eine Vielzahl an gesunden Mineral- und Vitalstoffen."
+    },
+    {
+      "id": 3,
+      "name": "Blattgemüse",
+      "text": "Grünen Smoothie gefällig? Dann mix dir eine oder mehrere Sorten unserer gesunden Blattgemüse in deinen Drink. Am besten tastest du dich langsam an einen höheren Anteil an grünen Zutaten heran. Denn, die Zutaten in dieser Kategorie sind zwar schön gesund, aber in großer Menge auch etwas bitter. Das ist nicht jedermanns Sache. Wähle daher eine kleinere Menge, wenn du die gesunden Nährstoffe quasi inkognito konsumieren möchtest. Du wirst das Grüne gar nicht schmecken – versprochen."
+    },
+    {
+      "id": 4,
+      "name": "Zitrus",
+      "text": "Ein Schuss Zitrus verleiht deinem Smoothie eine schöne Frische – das passt perfekt z.B. in Kombination mit süßem Obst. Die Höchstmenge an Zitrusfrüchten haben wir begrenzt, damit du einen schönen ausgewogenen Smoothie bekommst. Kleiner Profi-Tipp, falls du es gerne so richtig sauer magst: Schaue doch einmal bei den Extras. Da warten zusätzlich noch einige saure Leckerbissen auf dich."
+    },
+    {
+      "id": 5,
+      "name": "Kräuter",
+      "text": "Am besten wählst du nur eine Zutat pro Smoothie aus dieser Kategorie. Jede der Zutaten hat nämlich einen leckeren aber auch intensiven Geschmack. Viele Smoothiegenießer mögen eine Kombination mehrerer Kräuter eher nicht. Viele Kräuter machen deinen Smoothie außerdem recht bitter. Damit du immer einen genießbaren Smoothie erhältst, haben wir hier die Höchstmenge begrenzt. Wie immer ist alles natürlich reine Geschmackssache – daher kannst du im Online Smoothie Mixer bis zu 2 verschiedene Kräuter in deinen Smoothie mixen."
+    },
+    {
+      "id": 6,
+      "name": "Extras",
+      "text": "Unsere Extra-Zutaten sind richtige Superfoods. Sie sind allerdings nicht nur super lecker und super gesund, sondern auch super anspruchsvoll in der Zubereitung – daher gibt es sie nur in begrenzter Menge. Ein Extra soll ja schließlich ein Extra bleiben – und nicht zur Hauptzutat werden. Das bedeutet: Du kannst maximal 2 Extras in deinen Smoothie mixen. Ganz ehrlich, das wird dich nicht davon abhalten fantastische Kreationen zu zaubern – wir haben es ausprobiert."
+    },
+    {
+      "id": 7,
+      "name": "Liquids",
+      "text": "Wir persönlich lieben fertig trinkbare Smoothies mit einer leckeren flüssigen Basis. Daher empfehlen wir dir in jeder Kreation mindestens einen unserer Liquids zu verwenden. Du löffelst alternativ gerne Fruchtmus oder willst deinen Smoothie zu Hause mit weiteren Liquids strecken? Auch ok, wir wollen hier niemanden etwas aufzwingen. Profi-Tipp: Wenn du keine Zutat aus den Kategorien Obst und Gemüse wählst, dann kannst du deinen gewählten Liquid zur Hauptzutat machen – perfekt für z.B. Zitronenwasser oder Kokoswasser mit Minze."
+    }
+  ]
+}

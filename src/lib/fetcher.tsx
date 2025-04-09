@@ -18,10 +18,19 @@ export const fetcher = async (
     formData?: any
     cache?: boolean
     revalidate?: number
+    tags?: any[]
   }
 ) => {
   // const { replace } = useRouter()
-  const { method = 'GET', data, token, formData, cache=false, revalidate=3600 } = options || {}
+  const {
+    method = 'GET',
+    data,
+    token,
+    formData,
+    cache = false,
+    revalidate = 3600,
+    tags = [],
+  } = options || {}
   const reqOptions: RequestInit | any = {
     method,
     headers: {
@@ -40,11 +49,11 @@ export const fetcher = async (
     reqOptions.body = JSON.stringify(data)
   }
   if (cache) {
-    reqOptions.next = { revalidate }
+    reqOptions.next = { revalidate, tags }
   }
   try {
     const response = await fetch(`${baseURL}api/client/${url}`, reqOptions)
-    console.log('From Fetcher ===>>>', url, '=>', response?.status)
+    // console.log('From Fetcher ===>>>', url, '=>', response?.status)
     // console.log("fetcher ",res)
 
     if (response?.status === 401 && !url.includes('login') && !url.includes('register')) {

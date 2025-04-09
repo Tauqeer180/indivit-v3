@@ -13,12 +13,12 @@ import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 
 interface LoginCardProps {
-  redirect: boolean
+  redirect?: boolean
   title: string
   isCloseBtn?: boolean
   onClose?: () => void
   newTab?: boolean
-  fromMixer?: string
+  fromMixer?: boolean
 }
 
 const queryKeys = ['wishListing', 'smoothieListing', 'boxListing', 'customSmoothieListing']

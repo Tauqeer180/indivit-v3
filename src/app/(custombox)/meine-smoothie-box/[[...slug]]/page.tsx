@@ -7,7 +7,7 @@ import './components/custombox-anim.css'
 
 // Custom Box
 export default async function page({ params }) {
-  const { slug } = params
+  const { slug = [] } = params
   // can be 2 parameters
   let [id, size] = slug
   // slug[0] = smoothie box id
@@ -26,7 +26,7 @@ export default async function page({ params }) {
     revalidate: 86400,
   })
   // BoxByID
-  let data = await fetcher(`smoothie_box_description/${id}`, { token })
+  let data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
   const boxData = data?.data
   const boxDescription = boxData?.smoothie_box_descriptions
 
@@ -61,14 +61,14 @@ export default async function page({ params }) {
         id={id}
         size={Number(size)}
       />
-      {JSON.stringify(id)}
+      {/* {JSON.stringify(id)}
       <br />
       {JSON.stringify(size)}
       <br />
       {JSON.stringify(slug)}
       <br />
+      {JSON.stringify(filtSmoothies[0])} */}
       {/* Custom Box,*/}
-      {JSON.stringify(filtSmoothies[0])}
     </div>
   )
 }

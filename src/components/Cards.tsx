@@ -59,8 +59,6 @@ export function BoxCard({ data }) {
     data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
   const boxImages = data?.smoothie_image
 
- 
-
   return (
     <>
       {/* {JSON.stringify(token)} */}
@@ -344,134 +342,128 @@ export function IngredientCard({ data }: { data: any }) {
   )
 }
 
-// export function SelectListCard({
-//   data,
-//   list,
-//   handleAdd,
-//   handleIngredientView,
-//   suggest,
-//   modelView,
-//   catCount,
-// }) {
-//   const { setStatusId, statusLabel, statusColor } = useIngredientStatus(
-//     parseInt(data?.ingredient_status)
-//   );
-//   useEffect(() => {
-//     setStatusId(parseInt(data?.ingredient_status));
-//   }, [data]);
+export function SelectListCard({
+  data,
+  list,
+  handleAdd,
+  handleIngredientView,
+  suggest,
+  modelView,
+  catCount,
+}) {
+  const { setStatusId, statusLabel, statusColor } = useIngredientStatus(
+    parseInt(data?.ingredient_status)
+  )
+  useEffect(() => {
+    setStatusId(parseInt(data?.ingredient_status))
+  }, [data])
 
-//   let isSelected = list?.some((x) => x?.id == data?.id);
-//   const { limitText, limitDisable } = useCategoryCount(list, data, isSelected);
+  let isSelected = list?.some((x) => x?.id == data?.id)
+  const { limitText, limitDisable } = useCategoryCount(list, data, isSelected)
 
-//   return (
-//     <div className="pb-4">
-//       <div className="d-flex align-items-center">
-//         <div className="me-1 me-md-2 align-items-center ">
-//           <img
-//             src={
-//               data?.picture
-//                 ? baseURL + "integredient/" + data.picture
-//                 : "/assets/icon/logo1.png"
-//             }
-//             alt={data?.name}
-//             className=" img-fluid "
-//             width="40px"
-//             loading="lazy"
-//           />
-//         </div>
-//         <div className="w-100 ">
-//           <div className=" d-flex justify-content-between align-items-center text-center">
-//             <div className="d-flex gap-1">
-//               <span>
-//                 <h6 className="mb-0 text-truncate">{data?.name}</h6>
-//                 {/* {(
-//                   data?.ingredient_category?.name == "Liquids" ||
-//                   data?.ingredient_category?.name == "Zitrus" ||
-//                   data?.ingredient_category?.name == "Extras"
-//                   || data?.ingredient_category?.name == "Blattgemüse"
-//                   ) && (
-//                   <span className="fs-10">
-//                     {data?.ingredient_category?.name}
-//                   </span>
-//                 )} */}
-//               </span>
-//               {modelView ? (
-//                 <button
-//                   className="btn p-0 shadow-none"
-//                   onClick={handleIngredientView}
-//                   data-bs-toggle="modal"
-//                   data-bs-target="#ingredientDetailPopup"
-//                   data-bs-whatever="@getbootstrap"
-//                 >
-//                   <img
-//                     src={"/assets/icon/allingredientsinfo.png"}
-//                     alt=""
-//                     className="img-fluid"
-//                     width="20"
-//                     loading="lazy"
-//                   />
-//                 </button>
-//               ) : (
-//                 ""
-//               )}
-//             </div>
+  return (
+    <div className="pb-4">
+      <div className="d-flex align-items-center">
+        <div className="me-1 me-md-2 align-items-center ">
+          <img
+            src={
+              data?.picture ? baseURL + 'integredient/' + data.picture : '/assets/icon/logo1.png'
+            }
+            alt={data?.name}
+            className=" img-fluid "
+            width="40px"
+            loading="lazy"
+          />
+        </div>
+        <div className="w-100 ">
+          <div className=" d-flex justify-content-between align-items-center text-center">
+            <div className="d-flex gap-1">
+              <span>
+                <h6 className="mb-0 text-truncate">{data?.name}</h6>
+                {/* {(
+                  data?.ingredient_category?.name == "Liquids" ||
+                  data?.ingredient_category?.name == "Zitrus" ||
+                  data?.ingredient_category?.name == "Extras"
+                  || data?.ingredient_category?.name == "Blattgemüse"
+                  ) && (
+                  <span className="fs-10">
+                    {data?.ingredient_category?.name}
+                  </span>
+                )} */}
+              </span>
+              {modelView ? (
+                <button
+                  className="btn p-0 shadow-none"
+                  onClick={handleIngredientView}
+                  data-bs-toggle="modal"
+                  data-bs-target="#ingredientDetailPopup"
+                  data-bs-whatever="@getbootstrap"
+                >
+                  <img
+                    src={'/assets/icon/allingredientsinfo.png'}
+                    alt=""
+                    className="img-fluid"
+                    width="20"
+                    loading="lazy"
+                  />
+                </button>
+              ) : (
+                ''
+              )}
+            </div>
 
-//             {parseInt(data?.ingredient_status) == 0 ? (
-//               <button
-//                 className={
-//                   "btn p-0 shadow-none tw-w-6 tw-h-6" +
-//                   (data?.ingredient_status == 0 ? "" : "disabled")
-//                 }
-//                 onClick={() => handleAdd({ ...data, filling_index: 2 })}
-//                 disabled={limitDisable}
-//               >
-//                 {isSelected ? <CrossBoxIcon /> : <PlusBoxIcon />}
-//               </button>
-//             ) : (
-//               <>
-//                 {statusLabel && (
-//                   <span
-//                     className={`badge rounded-pill text-uppercase fs-10 ${statusColor} `}
-//                   >
-//                     {statusLabel}
-//                   </span>
-//                 )}
-//               </>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//       {limitText && (
-//         <p className="fs-12 lh-1 mb-0 mt-1 text-center text-danger ">
-//           <span>*</span>
-//           {limitText}
-//         </p>
-//       )}
-//     </div>
-//   );
-// }
-// export function Badge({ data, list, handleAdd, handleNavigate }) {
-//   let isSelected = list?.some((x) => x.id == data?.id);
-//   return (
-//     <div>
-//       <span
-//         type="button"
-//         className={`m-1 badge rounded-pill ${
-//           isSelected ? "bg-dark" : "bg-theme-success"
-//         }`}
-//         // onClick={() => handleAdd({ ...data, filling_index: 2 })}
-//         onClick={() => handleNavigate(data?.id)}
-//       >
-//         {data?.name}
-//         {isSelected ? (
-//           <span className="ms-2"> &#10006; </span>
-//         ) : (
-//           <span className="ms-2">&#10010;</span>
-//         )}
-//       </span>
-//     </div>
-//   );
-// }
+            {parseInt(data?.ingredient_status) == 0 ? (
+              <button
+                className={
+                  'btn p-0 shadow-none tw-w-6 tw-h-6' +
+                  (data?.ingredient_status == 0 ? '' : 'disabled')
+                }
+                onClick={() => handleAdd({ ...data, filling_index: 2 })}
+                disabled={limitDisable}
+              >
+                {isSelected ? <CrossBoxIcon /> : <PlusBoxIcon />}
+              </button>
+            ) : (
+              <>
+                {statusLabel && (
+                  <span className={`badge rounded-pill text-uppercase fs-10 ${statusColor} `}>
+                    {statusLabel}
+                  </span>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+      {limitText && (
+        <p className="fs-12 lh-1 mb-0 mt-1 text-center text-danger ">
+          <span>*</span>
+          {limitText}
+        </p>
+      )}
+    </div>
+  )
+}
+export function Badge({ data, list, handleAdd, handleNavigate }) {
+  let isSelected = list?.some((x) => x.id == data?.id)
+  return (
+    <div>
+      <span
+        type="button"
+        className={`m-1 badge rounded-pill ${isSelected ? 'bg-dark' : 'bg-theme-success'}`}
+        // onClick={() => handleAdd({ ...data, filling_index: 2 })}
+        onClick={() => handleNavigate(data?.id)}
+      >
+        {data?.name}
+        {isSelected ? (
+          <span className="ms-2"> &#10006; </span>
+        ) : (
+          <span className="ms-2">&#10010;</span>
+        )}
+      </span>
+    </div>
+  )
+}
 
 export function BoxListCard({ data, handleModal, handleAdd, isDisable }) {
   const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
@@ -517,133 +509,117 @@ export function BoxListCard({ data, handleModal, handleAdd, isDisable }) {
   )
 }
 
-// export function SmoothieSelectListCard({ data }) {
-//   const commonImg = useSelector((state) => state.settings?.smoothieImg);
-//   // Smoothie Selection in Smoothie Mixer
-//   return (
-//     <div className="d-flex justify-content-between pb-4">
-//       <div className="  d-flex align-items-center gap-2">
-//         <img
-//           src={
-//             data?.smoothie_picture?.picture
-//               ? baseURL + "smoothie/" + data?.smoothie_picture?.picture
-//               : commonImg
-//           }
-//           alt={data?.name}
-//           className=" img-fluid "
-//           width="40px"
-//           loading="lazy"
-//         />
-//         <h6 className="m-0">{data?.name}</h6>
-//       </div>
-//       <div className="col-2 align-items-center text-end">
-//         <Link
-//           to={`/smoothie-mixen-ideen/${data?.unique_id}`}
-//           className="btn px-0 shadow-none"
-//         >
-//           <PlusBoxIcon width="24px" />
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// }
-// export function MixerSelectedListCard({
-//   index,
-//   data,
-//   handleIngredientView,
-//   handleSelectedData,
-//   handleRangeChange,
-//   selectedData,
-// }) {
-//   // Selected Ingredient List in Smoothie Mixer
-//   const { limitText, limitDisable } = useCategoryShare(selectedData, data);
-//   const { setStatusId, statusLabel, statusColor } = useIngredientStatus(
-//     parseInt(data?.ingredient_status)
-//   );
+export function SmoothieSelectListCard({ data }) {
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
+  // Smoothie Selection in Smoothie Mixer
+  return (
+    <div className="d-flex justify-content-between pb-4">
+      <div className="  d-flex align-items-center gap-2">
+        <img
+          src={
+            data?.smoothie_picture?.picture
+              ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
+              : commonImg
+          }
+          alt={data?.name}
+          className=" img-fluid "
+          width="40px"
+          loading="lazy"
+        />
+        <h6 className="m-0">{data?.name}</h6>
+      </div>
+      <div className="col-2 align-items-center text-end">
+        <Link href={`/smoothie-mixen-ideen/${data?.unique_id}`} className="btn px-0 shadow-none">
+          <PlusBoxIcon width="24px" />
+        </Link>
+      </div>
+    </div>
+  )
+}
+export function MixerSelectedListCard({
+  index,
+  data,
+  handleIngredientView,
+  handleSelectedData,
+  handleRangeChange,
+  selectedData,
+}) {
+  // Selected Ingredient List in Smoothie Mixer
+  const { limitText, limitDisable } = useCategoryShare(selectedData, data)
+  const { setStatusId, statusLabel, statusColor } = useIngredientStatus(
+    parseInt(data?.ingredient_status)
+  )
 
-//   useEffect(() => {
-//     if (parseInt(data?.ingredient_status) != 0) {
-//       setStatusId(parseInt(data?.ingredient_status));
-//     }
-//   }, [data]);
-//   return (
-//     <div className="row min-h-105 align-items-center" key={index}>
-//       <div className="col-2">
-//         <img
-//           src={
-//             data?.picture
-//               ? baseURL + "integredient/" + data?.picture
-//               : "/assets/icon/logo1.png"
-//           }
-//           alt=""
-//           height="87px"
-//           width="87px"
-//           className=" img-fluid "
-//         />
-//       </div>
-//       <div className="col-8">
-//         <div className="text-start">
-//           <div className="d-flex justify-content-start align-items-center">
-//             <label
-//               htmlFor="customRange1"
-//               className="form-label fw-bold mt-3 me-3 fs-18mb-0"
-//             >
-//               <span
-//               //  className="notranslate"
-//               >
-//                 {data?.name} ({formatToGerman1(data?.value_in_percentage)}
-//                 %)
-//               </span>
-//             </label>
-//             <button
-//               className="btn p-0 shadow-none"
-//               onClick={handleIngredientView}
-//               data-bs-toggle="modal"
-//               data-bs-target="#ingredientDetailPopup"
-//               data-bs-whatever="@getbootstrap"
-//             >
-//               <img
-//                 src={infoIcon}
-//                 alt=""
-//                 className="img-fluid"
-//                 width="18"
-//                 loading="lazy"
-//               />
-//             </button>
-//             {statusLabel && parseInt(data?.ingredient_status) != 0 && (
-//               <span
-//                 className={`badge rounded-pill text-uppercase mt-2 ms-3 fs-10 ${statusColor} `}
-//               >
-//                 {statusLabel}
-//               </span>
-//             )}
-//           </div>
-//           <RangeSteps
-//             key={index}
-//             value={data?.filling_index}
-//             data={{ mlValue: data?.value_in_ml, name: data?.name }}
-//             // filling={d?.ingredient_filling}
-//             onChange={handleRangeChange}
-//           />
-//           {limitText && (
-//             <p className="fs-12 lh-1 mb-0 mt-1 text-center text-danger ">
-//               <span className="">*</span> {limitText}
-//             </p>
-//           )}
-//         </div>
-//       </div>
-//       <div className="col-2">
-//         <button className="btn p-0" onClick={handleSelectedData}>
-//           <img
-//             src={"./assets/icon/Recycle-Bin.png"}
-//             width="30px"
-//             className="img-fluid"
-//           />
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
+  useEffect(() => {
+    if (parseInt(data?.ingredient_status) != 0) {
+      setStatusId(parseInt(data?.ingredient_status))
+    }
+  }, [data])
+  return (
+    <div className="row min-h-105 align-items-center" key={index}>
+      <div className="col-2">
+        <img
+          src={data?.picture ? baseURL + 'integredient/' + data?.picture : '/assets/icon/logo1.png'}
+          alt=""
+          height="87px"
+          width="87px"
+          className=" img-fluid "
+        />
+      </div>
+      <div className="col-8">
+        <div className="text-start">
+          <div className="d-flex justify-content-start align-items-center">
+            <label htmlFor="customRange1" className="form-label fw-bold mt-3 me-3 fs-18mb-0">
+              <span
+              //  className="notranslate"
+              >
+                {data?.name} ({formatToGerman1(data?.value_in_percentage)}
+                %)
+              </span>
+            </label>
+            <button
+              className="btn p-0 shadow-none"
+              onClick={handleIngredientView}
+              data-bs-toggle="modal"
+              data-bs-target="#ingredientDetailPopup"
+              data-bs-whatever="@getbootstrap"
+            >
+              <img
+                src={'/assets/icon/allingredientsinfo.png'}
+                alt=""
+                className="img-fluid"
+                width="18"
+                loading="lazy"
+              />
+            </button>
+            {statusLabel && parseInt(data?.ingredient_status) != 0 && (
+              <span className={`badge rounded-pill text-uppercase mt-2 ms-3 fs-10 ${statusColor} `}>
+                {statusLabel}
+              </span>
+            )}
+          </div>
+          <RangeSteps
+            key={index}
+            value={data?.filling_index}
+            data={{ mlValue: data?.value_in_ml, name: data?.name }}
+            // filling={d?.ingredient_filling}
+            onChange={handleRangeChange}
+          />
+          {limitText && (
+            <p className="fs-12 lh-1 mb-0 mt-1 text-center text-danger ">
+              <span className="">*</span> {limitText}
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="col-2">
+        <button className="btn p-0" onClick={handleSelectedData}>
+          <img src={'/assets/icon/Recycle-Bin.png'} width="30px" className="img-fluid" />
+        </button>
+      </div>
+    </div>
+  )
+}
 
 export function IngrListforReci({ data }) {
   const { setStatusId, statusColor, statusLabel } = useIngredientStatus()

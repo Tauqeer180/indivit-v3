@@ -5,7 +5,7 @@ import Link from 'next/link'
 import AllNutrientsPopup from './AllNutrientsPopup'
 import IngredientBasicInfoSection from './IngredientBasicInfoSection'
 import NutrientsSection from './NutrientsSection'
-import TasteSection from './TasetSection'
+import TasteSection from './TasteSection'
 
 async function getIngredientById(slug: string): Promise<any> {
   const data = await fetcher(`get_ingredient/${slug}`)

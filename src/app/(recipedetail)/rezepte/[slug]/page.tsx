@@ -1,7 +1,7 @@
 'use client'
 import BoxUiBanner from '@/app/(boxes)/produkte/components/BoxUiBanner'
 import AllNutrientsPopup from '@/app/(ingredients)/beste-smoothie-zutaten-plant-based/ernaehrung/[slug]/AllNutrientsPopup'
-import TasteSection from '@/app/(ingredients)/beste-smoothie-zutaten-plant-based/ernaehrung/[slug]/TasetSection'
+import TasteSection from '@/app/(ingredients)/beste-smoothie-zutaten-plant-based/ernaehrung/[slug]/TasteSection'
 import { BgSmoothieMixer, Heart } from '@/assets/svgIcons'
 import { BoxCard, IngrListforReci, RecipeCard, SkeltonCard } from '@/components/Cards'
 import { TextSkelton } from '@/components/common/Common'

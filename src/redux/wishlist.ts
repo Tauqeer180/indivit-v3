@@ -32,9 +32,9 @@ export const wishlistReducer = createSlice({
       // Add user to the state array
       let tempCount = state.count
       tempCount =
-        payload?.wishlist_smoothie.length +
-        payload?.wishlist_smoothie_box.length +
-        payload?.wishlist_ingredient.length
+        payload?.wishlist_smoothie?.length +
+        payload?.wishlist_smoothie_box?.length +
+        payload?.wishlist_ingredient?.length
       state.count = tempCount
       state.wishlist_smoothie = payload.wishlist_smoothie
       state.wishlist_smoothie_box = payload.wishlist_smoothie_box

@@ -18,10 +18,10 @@ const config = {
         around: "0 0 25px -5px rgba(0, 0, 0, 0.1)", // Customize as needed
       },
       backgroundImage: {
-        mixer: "url('/src/assets/img/Ingredients-hero-2.png')",
-        faq: "url('/src/assets/img/hero-faqs-2.png')",
-        contact: "url('/src/assets/img/contact-banner-bg-2.png')",
-        about: "url('/src/assets/img/about-banner-bg-2.png')",
+        mixer: "url('/assets/img/Ingredients-hero-2.png')",
+        faq: "url('/assets/img/hero-faqs-2.png')",
+        contact: "url('/assets/img/contact-banner-bg-2.png')",
+        about: "url('/assets/img/about-banner-bg-2.png')",
       },
     },
   },
