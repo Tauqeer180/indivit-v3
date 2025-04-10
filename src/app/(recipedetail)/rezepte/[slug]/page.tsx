@@ -153,7 +153,7 @@ export default function Page() {
             <div className="row d-flex pt-0 pt-md-5">
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="text-center  position-relative min-h-blender">
-                  <div className="w-100 position-absolute">
+                  <div className="w-100">
                     <BgSmoothieMixer />
                     <div className="z-index-10 position-absolute top-0 start-0 end-0 ">
                       <Image
