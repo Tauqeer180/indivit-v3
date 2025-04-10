@@ -64,7 +64,7 @@ export default function LoginCard({
       ])
       // Invalidate and refetch
 
-      if (redirect) router.back()
+      redirect && router.back()
       // } else {
       //   toast.error(res)
       // }

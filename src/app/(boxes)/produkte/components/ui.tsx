@@ -14,11 +14,12 @@ import Link from 'next/link'
 import { IsInCart } from '@/components/common/utils'
 import { useCart } from 'react-use-cart'
 import { toast } from 'react-toastify'
+import { useAppSelector } from '@/redux/hooks'
 
 export function WishlistButton({ boxData }) {
-  const token = useSelector((state) => state?.account?.token)
+  const token = useAppSelector((state) => state?.account?.token)
   const addWishlistBox = (d) => fetcher('wishlist_smoothie_box', { data: d, token })
-  const wishlist = useSelector((state) => state?.wishlist)
+  const wishlist = useAppSelector((state) => state?.wishlist)
 
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistBox)
 

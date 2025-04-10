@@ -28,6 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link rel="stylesheet" href="../src/assets/fontawesome/css/all.css" /> */}
+        <script
+          src="https://x.klarnacdn.net/kp/lib/v1/api.js"
+          async
+          crossorigin="anonymous"
+        ></script>
+      </head>
       <body className={` antialiased bg-light`}>
         <AllProviders>
           <ToastContainer />

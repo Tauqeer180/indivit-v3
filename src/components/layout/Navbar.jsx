@@ -17,7 +17,7 @@ import { baseURL, fetcher } from '@/lib/fetcher'
 export default function Navbar() {
   const closeRef = useRef()
   const [loading, setLoading] = useState(false)
-  const { replace } = useRouter()
+  const { replace, push } = useRouter()
   const dispatch = useDispatch()
   const { slug } = useParams()
   const queryClient = useQueryClient()
@@ -36,7 +36,7 @@ export default function Navbar() {
     dispatch(wishlistResetAction())
     setLoading(false)
     queryClient.invalidateQueries(['wishListing', 'smoothieListing', 'boxListing'])
-    replace('/login')
+    push('/login')
   }
 
   const {
