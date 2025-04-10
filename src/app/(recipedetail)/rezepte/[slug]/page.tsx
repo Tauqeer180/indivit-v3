@@ -132,167 +132,169 @@ export default function Page() {
           />
         </ModalContainer>
         {(loading || smoothieLoading || smoothieByIdLoading) && <Loader />}
-        <div className="container">
-          <div className="">
-            <nav aria-label="breadcrumb" className="px-0">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="breadcrumb-item">
-                  <Link href="/gesunde-smoothies-rezepte-selber-machen">Smoothie</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  {smoothieByIdLoading ? <TextSkelton /> : data?.name}
-                </li>
-              </ol>
-            </nav>
-          </div>
+        <section id="flx-hero-rdetailed">
+          <div className="container">
+            <div className="">
+              <nav aria-label="breadcrumb" className="px-0">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <Link href="/">Home</Link>
+                  </li>
+                  <li className="breadcrumb-item">
+                    <Link href="/gesunde-smoothies-rezepte-selber-machen">Smoothie</Link>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    {smoothieByIdLoading ? <TextSkelton /> : data?.name}
+                  </li>
+                </ol>
+              </nav>
+            </div>
 
-          <div className="row d-flex pt-0 pt-md-5">
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <div className="text-center  position-relative min-h-blender">
-                <div className="w-100 position-absolute">
-                  <BgSmoothieMixer />
-                  <div className="z-index-10 position-absolute top-0 start-0 end-0 ">
-                    <Image
-                      src={
-                        data?.smoothie_picture?.picture
-                          ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
-                          : commonImg
-                      }
-                      width={500}
-                      height={500}
-                      className="img-fluid flx-rdetailed-animation max-h- w-100 !tw-duration-500"
-                      alt=""
-                    />
+            <div className="row d-flex pt-0 pt-md-5">
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div className="text-center  position-relative min-h-blender">
+                  <div className="w-100 position-absolute">
+                    <BgSmoothieMixer />
+                    <div className="z-index-10 position-absolute top-0 start-0 end-0 ">
+                      <Image
+                        src={
+                          data?.smoothie_picture?.picture
+                            ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
+                            : commonImg
+                        }
+                        width={500}
+                        height={500}
+                        className="img-fluid flx-rdetailed-animation max-h- w-100 !tw-duration-500"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flx-rdetailed-leave">
-              <div className="text-left">
-                <div className="d-flex align-items-center ">
-                  <h1 className="fw-bold fs-2">
-                    {smoothieByIdLoading ? <TextSkelton /> : data?.name}
-                  </h1>
-                  {data?.created_by == 1 && (
-                    <span className={`badge rounded-pill   text-uppercase bg-info ms-2`}>
-                      Customized
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 flx-rdetailed-leave">
+                <div className="text-left">
+                  <div className="d-flex align-items-center ">
+                    <h1 className="fw-bold fs-2">
+                      {smoothieByIdLoading ? <TextSkelton /> : data?.name}
+                    </h1>
+                    {data?.created_by == 1 && (
+                      <span className={`badge rounded-pill   text-uppercase bg-info ms-2`}>
+                        Customized
+                      </span>
+                    )}
+                  </div>
+                  {data?.counts > 0 && (
+                    <h6 className="d-flex">
+                      <StarRating value={data?.ratings} />
+                      &nbsp;
+                      {formatToGerman1(data?.ratings)} / 5,0&nbsp;(
+                      {data?.counts}&nbsp;Bewertungen)
+                    </h6>
+                  )}
+                  {/* Rating Here END */}
+                  {isOutofStock && (
+                    <span className={`badge rounded-pill text-uppercase bg-danger mb-2`}>
+                      derzeit nicht verfügbar
                     </span>
                   )}
-                </div>
-                {data?.counts > 0 && (
-                  <h6 className="d-flex">
-                    <StarRating value={data?.ratings} />
-                    &nbsp;
-                    {formatToGerman1(data?.ratings)} / 5,0&nbsp;(
-                    {data?.counts}&nbsp;Bewertungen)
-                  </h6>
-                )}
-                {/* Rating Here END */}
-                {isOutofStock && (
-                  <span className={`badge rounded-pill text-uppercase bg-danger mb-2`}>
-                    derzeit nicht verfügbar
-                  </span>
-                )}
-                <p>{data?.headline}</p>
-                <button
-                  className="btn btn-outline-success shadow-none rounded-pill"
-                  onClick={() => handleWishlist(data?.unique_id)}
-                >
-                  {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-                  {isLoading ? (
-                    <span
-                      className="spinner-border spinner-border-sm me-2"
-                      role="status"
-                      aria-hidden="true"
-                    ></span>
-                  ) : (
-                    <span className="me-2">
-                      <Heart filled={IsWishlist(0, data?.id, wishlist)} />
-                    </span>
-                  )}
-                  {IsWishlist(0, data?.id, wishlist)
-                    ? 'Zur Wunschliste hinzugefügt'
-                    : 'Auf den Merkzettel'}
-                </button>
-                <div className="d-flex">
-                  <h5 className="pt-4 hsn-smoothies">Zutaten</h5>
-
+                  <p>{data?.headline}</p>
                   <button
-                    type="button"
-                    className="btn btn-link btn-solid-success-color mt-3 fs-14 ms-md-3 ms-0"
-                    data-bs-toggle="modal"
-                    data-bs-target="#nutrientsModal"
-                    data-bs-whatever="@getbootstrap"
+                    className="btn btn-outline-success shadow-none rounded-pill"
+                    onClick={() => handleWishlist(data?.unique_id)}
                   >
-                    Durchschnittliche Nährwerte
+                    {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+                    {isLoading ? (
+                      <span
+                        className="spinner-border spinner-border-sm me-2"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                    ) : (
+                      <span className="me-2">
+                        <Heart filled={IsWishlist(0, data?.id, wishlist)} />
+                      </span>
+                    )}
+                    {IsWishlist(0, data?.id, wishlist)
+                      ? 'Zur Wunschliste hinzugefügt'
+                      : 'Auf den Merkzettel'}
                   </button>
-                </div>
-                <div className="custom-scroll max-h-410 overflow-auto">
-                  {smoothieByIdLoading ? (
-                    <>
-                      <TextSkelton /> <br />
-                      <TextSkelton /> <br />
-                      <TextSkelton />
-                    </>
-                  ) : (
-                    data?.smoothie_ingredient
-                      ?.sort(
-                        (a, b) =>
-                          parseFloat(b.value_in_percentage) - parseFloat(a.value_in_percentage)
-                      )
-                      ?.map((ing, index) => {
-                        return (
-                          <div key={index}>
-                            <IngrListforReci data={ing} />
-                          </div>
-                        )
-                      })
-                  )}
-                </div>
-                <div className="mt-3">
-                  <Link
-                    href={`/smoothie-mixen-ideen/${data?.unique_id}`}
-                    className="btn btn-outline-success"
-                  >
-                    Customize
-                  </Link>
-                  {data?.created_by == '1' && (
-                    <ConfirmModal
-                      action={() => handleDelete(data?.id)}
-                      closeRef={closeRef}
-                      isLoading={loading}
-                      innerHtml="Bist du dir sicher, dass du dein Rezept löschen möchtest?"
-                    />
-                  )}
-                </div>
-                <div className="mt-3">
-                  {!isOutofStock && (
-                    <Link
-                      href={`/meine-smoothie-box`}
-                      className="btn !tw-bg-theme !tw-text-white !tw-font-bold tw-decoration-transparent tw-w-fit !tw-py-[10px] !tw-px-8"
+                  <div className="d-flex">
+                    <h5 className="pt-4 hsn-smoothies">Zutaten</h5>
+
+                    <button
+                      type="button"
+                      className="btn btn-link btn-solid-success-color mt-3 fs-14 ms-md-3 ms-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#nutrientsModal"
+                      data-bs-whatever="@getbootstrap"
                     >
-                      <span>Pack mich in eine Box!</span>
+                      Durchschnittliche Nährwerte
+                    </button>
+                  </div>
+                  <div className="custom-scroll max-h-410 overflow-auto">
+                    {smoothieByIdLoading ? (
+                      <>
+                        <TextSkelton /> <br />
+                        <TextSkelton /> <br />
+                        <TextSkelton />
+                      </>
+                    ) : (
+                      data?.smoothie_ingredient
+                        ?.sort(
+                          (a, b) =>
+                            parseFloat(b.value_in_percentage) - parseFloat(a.value_in_percentage)
+                        )
+                        ?.map((ing, index) => {
+                          return (
+                            <div key={index}>
+                              <IngrListforReci data={ing} />
+                            </div>
+                          )
+                        })
+                    )}
+                  </div>
+                  <div className="mt-3">
+                    <Link
+                      href={`/smoothie-mixen-ideen/${data?.unique_id}`}
+                      className="btn btn-outline-success"
+                    >
+                      Customize
                     </Link>
-                  )}
+                    {data?.created_by == '1' && (
+                      <ConfirmModal
+                        action={() => handleDelete(data?.id)}
+                        closeRef={closeRef}
+                        isLoading={loading}
+                        innerHtml="Bist du dir sicher, dass du dein Rezept löschen möchtest?"
+                      />
+                    )}
+                  </div>
+                  <div className="mt-3">
+                    {!isOutofStock && (
+                      <Link
+                        href={`/meine-smoothie-box`}
+                        className="btn !tw-bg-theme !tw-text-white !tw-font-bold tw-decoration-transparent tw-w-fit !tw-py-[10px] !tw-px-8"
+                      >
+                        <span>Pack mich in eine Box!</span>
+                      </Link>
+                    )}
+                  </div>
+                  {data?.created_by == '0' && <ShareButtons />}
                 </div>
-                {data?.created_by == '0' && <ShareButtons />}
               </div>
+              {data?.created_by != 1 && (
+                <div className="col-12 text-center my-4 tw-pt-14">
+                  <h5> {data?.headline} </h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data?.smoothie_recipe_text?.recipe_text,
+                    }}
+                  ></div>
+                </div>
+              )}
             </div>
-            {data?.created_by != 1 && (
-              <div className="col-12 text-center my-4 tw-pt-14">
-                <h5> {data?.headline} </h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data?.smoothie_recipe_text?.recipe_text,
-                  }}
-                ></div>
-              </div>
-            )}
           </div>
-        </div>
+        </section>
         <BoxUiBanner
           // data={benefitsData?.data?.data}
           benefits={benefitsData?.data?.benefits && JSON.parse(benefitsData?.data?.benefits)}
