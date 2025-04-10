@@ -8,7 +8,7 @@ import HowItWorks from './components/HowItWorks'
 import FAQSection from './components/FAQsSection'
 
 export default async function Home() {
-  let res = await fetcher('homePage', { cache: true })
+  let res = await fetcher('homePage', { cache: true, revalidate: 86400 })
   let sliderData = res?.data?.sliders || []
   let whyIndivitData = res?.data?.whyIndivitSection || []
   let boxCategories = res?.data?.categories || []
@@ -34,11 +34,9 @@ export default async function Home() {
           ></path>
         </svg>
       </div>
-      <div className=" tw-py-14">
-        {faqsData?.faqs && <FAQSection data={faqsData} />}
-      </div>
-       {/* Footer Top */}
-       <div className=" tw-bg-theme lg:tw-py-8 md:tw-py-7 sm:tw-py-6 tw-py-4">
+      <div className=" tw-py-14">{faqsData?.faqs && <FAQSection data={faqsData} />}</div>
+      {/* Footer Top */}
+      <div className=" tw-bg-theme lg:tw-py-8 md:tw-py-7 sm:tw-py-6 tw-py-4">
         <Link
           href="/category/Smoothie%20Fastenkuren_1"
           className=" tw-flex tw-items-center tw-justify-center tw-no-underline tw-group"

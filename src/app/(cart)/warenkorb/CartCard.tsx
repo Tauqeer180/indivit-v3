@@ -26,7 +26,7 @@ export default function CartCard({ box, subscriptionPlan }) {
     setModalVisible(false)
     removeItem(box?.id)
   }
-  const boxSize = boxSizeData?.data?.data?.find((d, i) => d.id == box?.box_size)
+  const boxSize = boxSizeData?.data?.find((d, i) => d.id == box?.box_size)
   // console.log(
   //   subscriptionPlan,
   //   subscriptionPlan?.find((d) => d.id == box?.subscription_id)

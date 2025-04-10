@@ -80,8 +80,8 @@ export default function Page() {
                 title="Du hast bisher keinen Smoothie auf deinem Merkzettel"
                 label1="Smoothie Rezepte entdecken"
                 label2="Zum Online Smoothie Mixer"
-                link1="/rightrecipes"
-                link2="/smoothiemixer"
+                link1="/gesunde-smoothies-rezepte-selber-machen"
+                link2="/smoothie-mixen-ideen"
               />
             ) : (
               <>
@@ -93,8 +93,8 @@ export default function Page() {
                       title="Du hast bisher keinen Smoothie auf deinem Merkzettel"
                       label1="Smoothie Rezepte entdecken"
                       label2="Zum Online Smoothie Mixer"
-                      link1="/rightrecipes"
-                      link2="/smoothiemixer"
+                      link1="/gesunde-smoothies-rezepte-selber-machen"
+                      link2="/smoothie-mixen-ideen"
                     />
                   ))}
                 {selectedTab === 1 &&

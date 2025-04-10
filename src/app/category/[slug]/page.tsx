@@ -9,7 +9,7 @@ export default async function page({ params }: any) {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value || ''
 
-  let res = await fetcher(`smoothieBoxByCategory/${id}`, { token })
+  let res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: true })
   const data = res?.data || {}
   let keySection =
     data?.box_category_key_sections?.length > 0 &&

@@ -349,12 +349,12 @@ export default function SmoothieMixer({
       // setTempSelected(tempArr);
     }
   }
-  let smoothieFeedback = async (data) => fetcher('feedbackComment', { data })
+  let smoothieFeedback = async (data) => fetcher('feedbackComment', { data, method: 'POST' })
 
   const feedbackMutation = useMutation({
     mutationFn: smoothieFeedback,
     onSuccess: (res) => {
-      setFeedback(res?.data?.data)
+      setFeedback(res?.data)
       setFeedBackVisible(true)
       setFeedbackLoading(false)
     },

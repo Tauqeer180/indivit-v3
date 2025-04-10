@@ -12,7 +12,7 @@ export default function CartSidebar({ data }) {
     queryKey: ['getBoxSize'],
     queryFn: () => fetcher('get_smoothie_box_size'),
   })
-  const boxSize = boxSizeData?.data?.data
+  const boxSize = boxSizeData?.data
 
   const { updateCartMetadata } = useCart()
   let deposit = 0

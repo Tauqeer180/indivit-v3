@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { useCart } from 'react-use-cart'
 import CartCard from './CartCard'
+import CartSidebar from './CartSidebar'
 // Cart Page
 export default function Page() {
   const { isEmpty, items: cartItems, clearCartMetadata } = useCart()
