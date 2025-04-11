@@ -42,48 +42,77 @@ export default function LoginCard({
     formState: { errors },
   } = useForm()
 
-  const loginMutation = useMutation({
-    mutationFn: (data) => {
-      return fetcher('login', { method: 'POST', data: data })
-    },
-    onSuccess: (res) => {
-      console.log('Success response:', res)
+  let loginMutation = () => fetcher('login', { method: 'POST', data: data })
+  // const loginMutation = useMutation({
+  //   mutationFn: (data) => {
+  //     return fetcher('login', { method: 'POST', data: data })
+  //   },
+  //   onSuccess: (res) => {
+  //     console.log('Success response:', res)
 
-      // if (res?.status == 200) {
-      toast.success('Du bist jetzt angemeldet')
-      // Success
-      dispatch(loginAction(res?.data))
-      dispatch(fetchWishlist())
-      session.set('token', res?.token)
-      session.set('user', res)
-      queryClient.invalidateQueries([
-        'wishListing',
-        'smoothieListing',
-        'boxListing',
-        'customSmoothieListing',
-      ])
-      // Invalidate and refetch
+  //     // if (res?.status == 200) {
+  //     toast.success('Du bist jetzt angemeldet')
+  //     // Success
+  //     dispatch(loginAction(res?.data))
+  //     dispatch(fetchWishlist())
+  //     session.set('token', res?.token)
+  //     session.set('user', res)
+  //     queryClient.invalidateQueries([
+  //       'wishListing',
+  //       'smoothieListing',
+  //       'boxListing',
+  //       'customSmoothieListing',
+  //     ])
+  //     // Invalidate and refetch
 
-      redirect && router.back()
-      // } else {
-      //   toast.error(res)
-      // }
-      setLoading(false)
-    },
-    onError: (err) => {
-      console.error('Error occurred during login:', err)
-      console.log('Error ', err)
-      session.clear()
-      toast.error(err)
-      setLoading(false)
-    },
-  })
+  //     redirect && router.back()
+  //     // } else {
+  //     //   toast.error(res)
+  //     // }
+  //     setLoading(false)
+  //   },
+  //   onError: (err) => {
+  //     console.error('Error occurred during login:', err)
+  //     console.log('Error ', err)
+  //     session.clear()
+  //     toast.error(err)
+  //     setLoading(false)
+  //   },
+  // })
 
   const onSubmit = (data) => {
     setLoading(true)
-    loginMutation.mutate(data)
+    // loginMutation.mutate(data)
+    fetcher('login', { method: 'POST', data: data })
+      .then((res) => {
+        console.log('Success response:', res)
+        if (res?.token) {
+          toast.success('Du bist jetzt angemeldet')
+          // Success
+          dispatch(loginAction(res))
+          dispatch(fetchWishlist())
+          session.set('token', res?.token)
+          session.set('user', res)
+          queryClient.invalidateQueries([
+            'wishListing',
+            'smoothieListing',
+            'boxListing',
+            'customSmoothieListing',
+          ]) // Invalidate and refetch
+          redirect && router.back()
+        } else {
+          toast.error(res)
+        }
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.error('Error occurred during login:', err)
+        console.log('Error ', err)
+        session.clear()
+        toast.error(err)
+        setLoading(false)
+      })
   }
-
   return (
     <div className="container">
       <div className="row d-flex justify-content-center align-items-center h-100">
