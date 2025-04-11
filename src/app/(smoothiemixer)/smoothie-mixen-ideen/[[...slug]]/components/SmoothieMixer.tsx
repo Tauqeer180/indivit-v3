@@ -17,11 +17,12 @@ import useTasteCalculator from '@/hooks/useTasteCalculator'
 import { fetcher } from '@/lib/fetcher'
 import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman1 } from '@/utils/germanFormat'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { ScrollIntoview } from '@/components/common/Common'
+import { useRouter } from 'next/navigation'
 let boxShadowClass =
   'tw-bg-white tw-p-2 tw-rounded-xl tw-border tw-border-solid tw-border-gray-100 hover:tw-shadow-around hover:tw-border-transparent'
 
@@ -35,7 +36,7 @@ export default function SmoothieMixer({
 }) {
   let containerRef = React.useRef()
   const token = useAppSelector((state) => state?.account?.token)
-
+  const { push } = useRouter()
   const [modalVisible, setModalVisible] = useState(false)
   const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
   const [selectedData, setSelectedData] = useState([])
@@ -63,6 +64,7 @@ export default function SmoothieMixer({
   const { isOutofStock, checkStock } = useCheckStock()
   const { highlight } = useHighlight()
   const { tasteData, setRawTaste } = useTasteCalculator()
+  let queryClient = useQueryClient()
 
   const {
     isBlattgemüseOverloaded,
@@ -117,7 +119,29 @@ export default function SmoothieMixer({
 
     if (isAuthenticated) {
       setLoading(true)
-      addSmoothieMutation.mutate(postData)
+      // addSmoothieMutation.mutate(postData)
+      fetcher('smoothies', { method: 'POST', data: postData, token }).then((res) => {
+        console.log('resss ', res)
+        if (res?.status === 'success') {
+          queryClient.invalidateQueries([
+            'customSmoothieListing',
+            'smoothieListing',
+            'limitedSmoothieListing',
+          ])
+          // addWishlist({ smoothie_id: res?.data?.data });
+          toast.success(res?.data?.message)
+          setLoading(false)
+          // debugger;
+          push(`/rezepte/${res?.data}`)
+        } else {
+          console.log('Err ', res)
+
+          toast.error(
+            res?.response?.status == 401 ? 'Please Login to Proceed' : err?.response?.data?.message
+          )
+          setLoading(false)
+        }
+      })
     } else {
       setModalVisible(true)
     }

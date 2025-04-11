@@ -74,7 +74,7 @@ function PayPalCheckout({ setPaypalRes, placeOrder }) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture()
 
-          // setPaypalRes(order);
+          setPaypalRes(order)
           placeOrder(order)
           setTransactionStatus('success')
         },

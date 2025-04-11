@@ -81,12 +81,12 @@ export default function Payment({
   // console.log("Subscription count ", subscriptionCount(cartItems));
   return (
     <div>
-      {JSON.stringify(clientSecret)}
+      {/* {JSON.stringify(clientSecret)}
 
       <br />
       {JSON.stringify(stripePromise)}
       <br />
-      {process.env.NEXT_PUBLIC_STRIPE_KEY || 'tt'}
+      {process.env.NEXT_PUBLIC_STRIPE_KEY || 'tt'} */}
       <form onSubmit={onSubmit}>
         <div className="py-5">
           <div className="border p-4 border-secondary rounded-3">

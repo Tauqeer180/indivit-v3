@@ -124,7 +124,7 @@ export default function Page() {
                               isButton={true}
                               data={smooth}
                               actionTitle="Mehr anzeigen"
-                              action={`/recipedetail/${smooth?.unique_id}`}
+                              action={`/rezepte/${smooth?.unique_id}`}
                             />
                           </div>
                         )

@@ -39,6 +39,10 @@ export default function RootLayout({
           async
           crossorigin="anonymous"
         ></script>
+        <script
+          src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PAYPAL_CLIENT_ID}&currency=EUR&components=buttons&vault=true`}
+          crossorigin="anonymous"
+        ></script>
       </head>
       <body className={` antialiased bg-light`}>
         <AllProviders>

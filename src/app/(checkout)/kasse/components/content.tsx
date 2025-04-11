@@ -14,6 +14,7 @@ import { toast } from 'react-toastify'
 import session from '@/services/session'
 import { loginAction } from '@/redux/account'
 import { fetchWishlist } from '@/redux/wishlist'
+import { useRouter } from 'next/navigation'
 
 export default function Content() {
   const { items: cartItems, emptyCart, cartTotal, metadata, isEmpty } = useCart()
@@ -24,9 +25,15 @@ export default function Content() {
   const queryClient = useQueryClient()
   const [paypalRes, setPaypalRes] = useState({})
   const [paymentType, setPaymentType] = useState(null)
-
+  const { push } = useRouter()
   const dispatch = useAppDispatch()
   let isAuthenticated = useAppSelector((state) => state.account?.isAuthenticated)
+  const dcCharges = useAppSelector((state) => state.dcCharges)
+const token = useAppSelector((state) => state.account?.token)
+  let basicShipping = parseFloat(dcCharges?.delivery_cost)
+  let thresholdCost = parseFloat(dcCharges?.threshold_cost)
+  let fastShipCharges = parseFloat(dcCharges?.additional_cost)
+
   const {
     register,
     handleSubmit,
@@ -40,30 +47,28 @@ export default function Content() {
   const loginMutation = useMutation({
     mutationFn: guestLogin,
     onSuccess: (res) => {
-      if (res?.status == 200) {
-        if (res?.data?.token) {
-          toast.success('Loged in Successfuly')
-          dispatch(loginAction(res?.data))
-          dispatch(fetchWishlist())
-          session.set('token', res?.data?.token)
-          session.set('user', res?.data)
-          setLoading(false)
-          // Invalidate and refetch
-          queryClient.invalidateQueries([
-            'wishListing',
-            'smoothieListing',
-            'boxListing',
-            'customSmoothieListing',
-          ])
-        } else {
-          setFormData({ ...formData, guest_id: res?.data?.user })
-          toast.success(res?.data?.message)
-        }
-        // redirect && navigate(-1);
+      if (res?.token) {
+        toast.success('Loged in Successfuly')
+        dispatch(loginAction(res?.data))
+        dispatch(fetchWishlist())
+        session.set('token', res?.token)
+        session.set('user', res)
+        setLoading(false)
+        // Invalidate and refetch
+        queryClient.invalidateQueries([
+          'wishListing',
+          'smoothieListing',
+          'boxListing',
+          'customSmoothieListing',
+        ])
       } else {
+        setFormData({ ...formData, guest_id: res?.data?.user })
+        toast.success(res?.message)
         toast.error(res?.response?.data)
         setSteps(0)
       }
+      // redirect && navigate(-1);
+
       setLoading(false)
     },
     onError: (err) => {
@@ -110,21 +115,23 @@ export default function Content() {
     }
   }
   let placeOrder = async (data) =>
-    await fetcher('/kunden/bestellung', {
+    await fetcher('kunden/bestellung', {
       method: 'POST',
       data,
+      token,
     })
   const mutation = useMutation({
     mutationFn: placeOrder,
     onSuccess: (res) => {
+      console.log('place order response ', res)
       // Invalidate and refetch
       // debugger;
       if (res?.status == 200) {
         setLoading(false)
         queryClient.invalidateQueries(['wishListing'])
-        toast.success(res?.data?.message)
+        toast.success(res?.message)
         emptyCart()
-        push(`/orders/${res?.data?.order_id}`)
+        push(`/meine-bestellung/${res?.data?.order_id}`)
       } else {
         toast.error(res?.response?.data?.message)
         toast.error(res?.message)

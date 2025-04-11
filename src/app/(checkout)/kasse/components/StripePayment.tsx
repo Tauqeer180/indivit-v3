@@ -36,13 +36,14 @@ export default function StripePayment({
       redirect: 'if_required',
     })
 
-    // console.log("Payment Response ", response);
+    console.log('Payment Response ', response)
     // debugger;
     if (
       (response.error && response.error.type === 'card_error') ||
       (response.error && response.error.type === 'validation_error')
     ) {
       setMessage(response.error.message)
+      toast.error(response.error.message)
     } else if (response.paymentIntent.status == 'succeeded') {
       //display success message or redirect user
       // console.log("Stripe Res ", response);

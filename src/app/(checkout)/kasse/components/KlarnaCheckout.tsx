@@ -92,7 +92,7 @@ export default function KlarnaCheckout({ formData, placeOrder }) {
     setStatus('0')
     getKlarnaToken(tokenPostData).then(
       (res) => {
-        // console.log("Token Res => ", res);
+        console.log('Token Res => ', res, window)
         setStatus('paying')
         const { client_token } = res
         setTokenData(res)
