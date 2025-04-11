@@ -22,7 +22,7 @@ export default function OrderCard({ boxData, orderData }) {
               Bestellnummer
               <Link
                 className="text-decoration-none text-theme-success"
-                href={`/orders/${orderData?.unique_id}`}
+                href={`/meine-bestellung/${orderData?.unique_id}`}
               >
                 {' '}
                 &nbsp; #{orderData?.order_id}

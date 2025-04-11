@@ -8,8 +8,30 @@ import AboutJSON from './JSONData.json'
 
 // ABout Page
 
+export async function generateMetadata() {
+  const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
+  return {
+    canonical: 'https://indivit.de/wir-sind-die-smoothie-ninjas',
+    title: `Indivit | Uber uns | ${aboutData?.main_title}`,
+    description: aboutData?.main_description,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Indivit | Uber uns | ${aboutData?.main_title}`,
+      description: aboutData?.main_description,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit | Uber uns | ${aboutData?.main_title}`,
+      description: aboutData?.main_description,
+    },
+  }
+}
 async function getAboutDetails() {
-  const aboutDetailsData = await fetcher('about_us')
+  const aboutDetailsData = await fetcher('about_us', { cache: true, revalidate: 86400 })
   return aboutDetailsData
 }
 

@@ -316,7 +316,7 @@ export function IngredientCard({ data }: { data: any }) {
             <Heart filled={IsWishlist(2, data?.id, wishlist)} />
           )}
         </button>
-        <Link href={`/beste/ernaehrung/${data?.unique_id}`}>
+        <Link href={`/beste-smoothie-zutaten-plant-based/ernaehrung/${data?.unique_id}`}>
           <Image
             src={data?.picture ? baseURL + 'integredient/' + data?.picture : commonImg}
             className="card-img-top img-fluid"
@@ -330,7 +330,7 @@ export function IngredientCard({ data }: { data: any }) {
           <h5 className="card-title">{data?.name}</h5>
           <p className="card-text">{data?.taste_description}</p>
           <Link
-            href={`/beste/ernaehrung/${data?.unique_id}`}
+            href={`/beste-smoothie-zutaten-plant-based/ernaehrung/${data?.unique_id}`}
             type="button"
             className="btn btn-primary btn-outline-success"
           >

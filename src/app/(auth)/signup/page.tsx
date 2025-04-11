@@ -7,7 +7,11 @@ import session from '@/services/session'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
 import { fetcher } from '@/lib/fetcher'
-
+// export async function generateMetadata() {
+//   return {
+//     canonical: 'https://indivit.de/signup',
+//   }
+// }
 export default function Page() {
   const [loading, setLoading] = useState(false)
   const [isVisibile, setIsVisibile] = useState(false)

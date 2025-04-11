@@ -6,6 +6,7 @@ import ProductCategory from './components/ProductCategory'
 import Testimonials from '@/components/Testimonials'
 import HowItWorks from './components/HowItWorks'
 import FAQSection from './components/FAQsSection'
+import Head from 'next/head'
 
 export default async function Home() {
   let res = await fetcher('homePage', { cache: true, revalidate: 86400 })
@@ -15,8 +16,12 @@ export default async function Home() {
   let testimonialsData = res?.data?.testimonials || []
   let howItData = res?.data?.howItsWorkSection || []
   let faqsData = res?.data?.faqs || {}
+
   return (
     <div>
+      <Head>
+        <link rel="canonical" href="https://indivit.de" />
+      </Head>
       {/* {JSON.stringify(res?.data?.sliders)} */}
       <HomeCarousel data={res?.data?.sliders} isLoading={false} />
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}

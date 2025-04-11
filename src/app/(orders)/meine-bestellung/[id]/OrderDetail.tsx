@@ -10,21 +10,21 @@ import HeroBanner from '@/components/common/HeroBanner'
 import moment from 'moment'
 import { formatToGerman2 } from '@/utils/germanFormat'
 import OrderCard from './OrderCard'
+import { useAppSelector } from '@/redux/hooks'
 
-export default function OrderDetail() {
-  const user = useSelector((state) => state.account.user)
+export default function OrderDetail({ id }) {
+  const user = useAppSelector((state) => state.account.user)
   const [loading, setLoading] = useState(false)
-  const params = useParams()
-
+  const token = useAppSelector((state) => state.account.token)
   const {
     isLoading: orderLoading,
     error: orderByIdError,
     data: orderByIdData,
   } = useQuery({
-    queryKey: ['orderById', params?.id],
-    queryFn: () => fetcher(`bestellung/${params?.id}`),
+    queryKey: ['orderById', id],
+    queryFn: () => fetcher(`bestellung/${id}`, { token }),
   })
-  const orders = orderByIdData?.data?.data
+  const orders = orderByIdData?.data
   return (
     <div>
       {orderLoading && loading && <Loader />}

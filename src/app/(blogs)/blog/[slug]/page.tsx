@@ -1,23 +1,92 @@
-import { baseURL, fetcher } from "@/lib/fetcher";
-import React from "react";
-import BlogContent from "../../components/BlogContent";
-import TOC from "../../components/TOC";
-import moment from "moment";
-import Image from "next/image";
+import { baseURL, fetcher } from '@/lib/fetcher'
+import React from 'react'
+import BlogContent from '../../components/BlogContent'
+import TOC from '../../components/TOC'
+import moment from 'moment'
+import Image from 'next/image'
+import Head from 'next/head'
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const decodedSlug = decodeURIComponent(slug)
+
+  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true })
+  let blogData = res?.data?.current
+
+  return {
+    canonical: `https://indivit.de/blog/${slug}`,
+    title: `Indivit | ${blogData?.title}`,
+    description: blogData?.short_text,
+    authors: [{ name: blogData?.auther_name || 'Indivit' }],
+    robots: 'index, follow',
+    keywords: blogData?.keywords,
+    openGraph: {
+      title: `Indivit | ${blogData?.title}`,
+      description: blogData?.short_text,
+      image: baseURL + 'blogs/' + blogData?.image,
+      url: `https://indivit.de/blog/${slug}`,
+      type: 'article',
+      site_name: 'Indivit',
+      locale: 'de_DE',
+    },
+    article: {
+      published_time: blogData?.created_at,
+      modified_time: blogData?.updated_at,
+      authors: [blogData?.auther_name || 'Indivit'],
+      tags: blogData?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit | ${blogData?.title}`,
+      description: blogData?.short_text,
+      card: baseURL + 'blogs/' + blogData?.image,
+      image: baseURL + 'blogs/' + blogData?.image,
+    },
+  }
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const decodedSlug = decodeURIComponent(slug);
-  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true });
-  let blogData = res?.data?.current;
+  const { slug } = params
+  const decodedSlug = decodeURIComponent(slug)
+  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true })
+  let blogData = res?.data?.current
   return (
     <div>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: blogData?.title,
+            description: blogData?.short_text,
+            datePublished: blogData?.created_at,
+            dateModified: blogData?.updated_at,
+            author: {
+              '@type': 'Person',
+              name: blogData?.author_name || 'Indivit',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Smoothie Blog',
+              logo: {
+                '@type': 'ImageObject',
+                url: baseURL + 'blogs/' + blogData?.image, // Update with your
+              },
+            },
+            image: baseURL + 'blogs/' + blogData?.image,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://indivit.de${slug}`,
+            },
+          })}
+        </script>
+      </Head>
       <div className="tw-mx-auto tw-max-w-[1440px] ">
         <div className="tw-flex tw-flex-col  tw-mx-auto tw-overflow-hidden tw-rounded">
           <Image
             src={
-              baseURL + "blogs/" + blogData?.image ||
-              "https://source.unsplash.com/random/480x360"
+              baseURL + 'blogs/' + blogData?.image || 'https://source.unsplash.com/random/480x360'
             }
             width={1920}
             height={1080}
@@ -43,7 +112,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   <Image
                     src={
                       blogData?.icon
-                        ? baseURL + "blogs/" + blogData?.icon
+                        ? baseURL + 'blogs/' + blogData?.icon
                         : `https://ui-avatars.com/api/?background=random&size=150&name=${blogData?.author_name}`
                     }
                     alt={blogData?.author_name}
@@ -57,12 +126,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="tw-space-y-1">
                   <p className="tw-text-xs tw-font-bold tw-mb-0">
-                    Veröffentlicht:{" "}
-                    {moment(blogData?.created_at).format("DD. MMMM YYYY")}
+                    Veröffentlicht: {moment(blogData?.created_at).format('DD. MMMM YYYY')}
                   </p>
                   <p className="tw-text-xs tw-font-bold tw-mb-0">
-                    Aktualisiert:{" "}
-                    {moment(blogData?.updated_at).format("DD. MMMM YYYY")}
+                    Aktualisiert: {moment(blogData?.updated_at).format('DD. MMMM YYYY')}
                   </p>
                 </div>
               </div>
@@ -93,8 +160,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           )}
           
         </div> */}
-      </div>{" "}
+      </div>{' '}
       {/* {JSON.stringify(res)} */}
     </div>
-  );
+  )
 }

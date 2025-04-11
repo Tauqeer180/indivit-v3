@@ -6,21 +6,22 @@ import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import OrderCard from './[id]/OrderCard'
+import { useAppSelector } from '@/redux/hooks'
 
 export default function Page() {
-  const isAuthenticated = useSelector((state) => state.account.isAuthenticated)
-  const user = useSelector((state) => state.account.user)
+  const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
+  const user = useAppSelector((state) => state.account.user)
   const [loading, setLoading] = useState(false)
-
+  const token = useAppSelector((state) => state.account.token)
   const {
     isLoading: orderLoading,
     error: orderError,
     data: orderData,
   } = useQuery({
     queryKey: ['orderListing', isAuthenticated],
-    queryFn: () => fetcher('bestellungs'),
+    queryFn: () => fetcher('bestellungs', { token }),
   })
-  const orders = orderData?.data?.data
+  const orders = orderData?.data
   // let page = searchParams.get("page");
 
   return (
