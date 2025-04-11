@@ -18,7 +18,7 @@ import { useAppSelector } from '@/redux/hooks'
 
 export function WishlistButton({ boxData }) {
   const token = useAppSelector((state) => state?.account?.token)
-  const addWishlistBox = (d) => fetcher('wishlist_smoothie_box', { data: d, token })
+  const addWishlistBox = (d) => fetcher('wishlist_smoothie_box', { data: d, token, method: 'POST' })
   const wishlist = useAppSelector((state) => state?.wishlist)
 
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistBox)
