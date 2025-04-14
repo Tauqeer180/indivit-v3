@@ -9,20 +9,22 @@ import EmptyWishlist from './EmptyWishlist'
 import BoxListing from './BoxListing'
 import IngredientListing from './IngredientListing'
 import SmoothieListing from './SmoothieListing'
+import { useAppSelector } from '@/redux/hooks'
 
 export default function Page() {
-  const isAuthenticated = useSelector((state) => state.account.isAuthenticated)
-
+  const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
+  let token = useAppSelector((state) => state.account.token)
   const [selectedTab, setSelectedTab] = useState(0)
 
   const { isLoading: wishListingLoading, data: wishListingData } = useQuery({
     queryKey: ['wishListing', isAuthenticated],
-    queryFn: () => fetcher('get_wishlist_detail'),
+    queryFn: () => fetcher('get_wishlist_detail', { token }),
     enabled: isAuthenticated,
   })
-  const wishlistSmoothie = wishListingData?.data?.data?.wishlist_smoothie || []
-  const wishlistBox = wishListingData?.data?.data?.wishlist_smoothie_box || []
-  const wishlistIngredient = wishListingData?.data?.data?.wishlist_ingredients || []
+  const wishlistSmoothie = wishListingData?.data?.wishlist_smoothie || []
+  const wishlistBox = wishListingData?.data?.wishlist_smoothie_box || []
+  const wishlistIngredient = wishListingData?.data?.wishlist_ingredients || []
+  console.log('wishlist ', wishListingData, wishlistBox)
 
   return (
     <div>

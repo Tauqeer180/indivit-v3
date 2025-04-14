@@ -15,7 +15,7 @@ export default function BoxListing({ data }) {
                 Deine eigenen Kreationen
               </h3>
               <div className="row">
-                {yourMixes.map((box, index) => {
+                {yourMixes.map(({ box }, index) => {
                   return (
                     <div
                       key={index}
@@ -37,7 +37,7 @@ export default function BoxListing({ data }) {
                 Aus der indivit Zusammenstellung
               </h3>
               <div className="row pt-4">
-                {fromCookBook?.map((box, index) => {
+                {fromCookBook?.map(({ box }, index) => {
                   return (
                     <div
                       key={index}

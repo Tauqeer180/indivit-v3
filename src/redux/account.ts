@@ -19,6 +19,7 @@ export const accountReducer = createSlice({
       // immutable state based off those changes
       state.isAuthenticated = action?.payload?.token ? true : false;
       state.user = action?.payload;
+      state.token = action?.payload?.token;
     },
     logoutAction: (state) => {
       state.isAuthenticated = false;

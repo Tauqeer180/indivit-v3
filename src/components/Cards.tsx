@@ -31,7 +31,7 @@ import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import ModalContainer from './Modal/ModalContainer'
 import ConfirmWishModal from './Modal/ConfirmWishModal'
-import { addWishlistIngredient, addWishlistSmoothie } from '@/services/Wishlist'
+// import { addWishlistIngredient, addWishlistSmoothie } from '@/services/Wishlist'
 import useCheckStock from '@/hooks/useCheckStock'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
@@ -56,7 +56,7 @@ export function BoxCard({ data }) {
   // const filterData = IsWishlist()
 
   const boxData =
-    data?.smoothie_box_descriptions.length > 0 ? data?.smoothie_box_descriptions[0] : {}
+    data?.smoothie_box_descriptions?.length > 0 ? data?.smoothie_box_descriptions[0] : {}
   const boxImages = data?.smoothie_image
 
   return (
@@ -152,7 +152,8 @@ export function RecipeCard({
 }) {
   const token = useAppSelector((state) => state?.account?.token)
 
-  const addWishlistSmoothie = (data) => fetcher(`wishlist_smoothie`, { data, token })
+  const addWishlistSmoothie = async (data) =>
+    await fetcher(`wishlist_smoothie`, { data, token, method: 'POST' })
 
   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistSmoothie)
   const [modalVisible, setModalVisible] = useState(false)
@@ -257,10 +258,13 @@ export function RecipeCard({
   )
 }
 export function IngredientCard({ data }: { data: any }) {
-  const wishlist = useSelector((state) => state?.wishlist)
+  const wishlist = useAppSelector((state) => state?.wishlist)
+  let token = useAppSelector((state) => state?.account?.token)
+  let addWishlistIngredient = async (d) =>
+    await fetcher('wishlist_ingredient', { data: d, token, method: 'POST' })
   const { isLoading, addWishlist, isDone } = useAddWishlist(addWishlistIngredient)
   const [modalVisible, setModalVisible] = useState(false)
-  const commonImg = useSelector((state) => state.settings?.smoothieImg)
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
 
   const { badgeLabel, badgeColor } = useIngredientType(data?.ingredient_filling_types_id)
   const { statusLabel, statusColor } = useIngredientStatus(data?.ingredient_status)

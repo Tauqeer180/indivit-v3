@@ -7,12 +7,14 @@ import { BoxCard, IngrListforReci, RecipeCard, SkeltonCard } from '@/components/
 import { TextSkelton } from '@/components/common/Common'
 import Loader from '@/components/common/Loader'
 import ShareButtons from '@/components/common/ShareButtons'
+import ConfirmModal from '@/components/Modal/ConfirmModal'
 import ConfirmWishModal from '@/components/Modal/ConfirmWishModal'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import StarRating from '@/components/StarRating'
 import useAddWishlist from '@/hooks/useAddWishlist'
 import useCheckStock from '@/hooks/useCheckStock'
 import { baseURL, fetcher } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 import { addWishlistSmoothie } from '@/services/Wishlist'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
@@ -27,12 +29,15 @@ import { toast } from 'react-toastify'
 
 export default function Page() {
   const [loading, setLoading] = useState(false)
+  let token = useAppSelector((state) => state.account.token)
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistSmoothie)
   const { isOutofStock, checkStock } = useCheckStock()
+  // const cookieStore = await cookies()
+  // const token = cookieStore.get('token')?.value || ''
 
   const [modalVisible, setModalVisible] = useState(false)
   const queryClient = useQueryClient()
-  const closeRef = useRef()
+  const closeRef = useRef<HTMLButtonElement | null>(null)
   const params = useParams()
   const router = useRouter()
   const smoothieId = params?.slug // `slug` should match the dynamic folder name
@@ -54,7 +59,7 @@ export default function Page() {
     data: smoothieByIdData,
   } = useQuery({
     queryKey: ['smoothieById', smoothieId],
-    queryFn: () => fetcher(`r/${smoothieId}`),
+    queryFn: () => fetcher(`r/${smoothieId}`, { token }),
   })
   useEffect(() => {
     if (smoothieByIdData?.response?.status == 404) {
@@ -65,7 +70,7 @@ export default function Page() {
 
   const data = smoothieByIdData?.smoothie
   const relative_boxes = smoothieByIdData?.smoothie_box
-  const wishlist = useSelector((state) => state?.wishlist)
+  const wishlist = useAppSelector((state) => state?.wishlist)
 
   const {
     isLoading: benefitsLoading,
@@ -78,20 +83,20 @@ export default function Page() {
 
   const handleDelete = (id) => {
     setLoading(true)
-    fetcher('del_smoothie', { method: 'POST', data: id })
+    fetcher(`del_smoothie/${id}`, { method: 'POST', token })
       .then((res) => {
-        // console.log(res);
-        if (res?.status == 200) {
+        console.log(res)
+        // if (res?.status == 200) {
+        if (closeRef?.current) {
           closeRef.current.click()
-          toast.success('Dein Smoothie wurde gelöscht')
-          queryClient.invalidateQueries([
-            'customSmoothieListing',
-            'smoothieListing',
-            'limitedSmoothieListing',
-            'smoothieById',
-          ])
-          router.push('/gesunde-smoothies-rezepte-selber-machen')
         }
+        toast.success('Dein Smoothie wurde gelöscht')
+        queryClient.invalidateQueries({ queryKey: 'customSmoothieListing' })
+        queryClient.invalidateQueries({ queryKey: 'smoothieListing' })
+        queryClient.invalidateQueries({ queryKey: 'limitedSmoothieListing' })
+        queryClient.invalidateQueries({ queryKey: 'smoothieById' })
+        router.push('/gesunde-smoothies-rezepte-selber-machen')
+        // }
         setLoading(false)
       })
       .catch((err) => {
