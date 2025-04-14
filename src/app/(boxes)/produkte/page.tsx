@@ -3,6 +3,15 @@ import { fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
 import React from 'react'
 // Boxes Page
+
+export async function generateMetadata() {
+  return {
+    alternates: { canonical: 'https://indivit.de/produkte' },
+    title: 'Indivit | Finde deine passende Smoothiebox',
+    description:
+      'Unsere Smoothieboxen enthalten nicht nur köstliche Smoothies, sondern sie sind auch ideal an deinen Lifestyle angepasst. Egal, ob Du deine Smoothies gerne zum Sport, zur Arbeit oder als Mahlzeitenersatz genießen möchtest – wir haben die passende Box dafür zusammengestellt.',
+  }
+}
 export default async function page() {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value || ''

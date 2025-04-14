@@ -8,6 +8,11 @@ import HowItWorks from './components/HowItWorks'
 import FAQSection from './components/FAQsSection'
 import Head from 'next/head'
 
+export async function generateMetadata() {
+  return {
+    alternates: { canonical: 'https://indivit.de' },
+  }
+}
 export default async function Home() {
   let res = await fetcher('homePage', { cache: true, revalidate: 86400 })
   let sliderData = res?.data?.sliders || []

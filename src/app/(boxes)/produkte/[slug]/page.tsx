@@ -1,5 +1,5 @@
 import VATModal from '@/components/Modal/VATModal'
-import { fetcher } from '@/lib/fetcher'
+import { baseURL, fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
 import React from 'react'
 import BoxUiBanner from '../components/BoxUiBanner'
@@ -13,7 +13,59 @@ import dynamic from 'next/dynamic'
 import SmoothiesCarousel from '../components/SmoothiesCarousel'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const decodedSlug = decodeURIComponent(slug)
 
+  const id = params?.slug?.split('_').pop()
+  const cookieStore = cookies()
+  const token = cookieStore.get('token')?.value || ''
+
+  let data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
+
+  let boxImage = data?.data?.smoothie_image
+
+  // let page = searchParams.get("page");
+  const boxData = data?.data
+  const boxDescription = boxData?.smoothie_box_descriptions
+  const title = boxData?.title || 'box'
+  const description =
+    (boxDescription?.length > 0 && boxDescription[0]?.short_detail) ||
+    'Sehen Sie sich unsere neueste Smoothie-Box an.'
+  const author = boxData?.auther_name || 'Indivit'
+  const image = boxImage ? baseURL + 'blogs/' + boxImage : undefined
+  return {
+    alternates: { canonical: `https://indivit.de/produkte/${slug}` },
+    title: `Indivit | ${title}`,
+    description,
+    authors: [{ name: author }],
+    robots: 'index, follow',
+    keywords: boxData?.keywords,
+    openGraph: {
+      title: `Indivit | ${title}`,
+      description,
+      image: image,
+      url: `https://indivit.de/produkte/${slug}`,
+      type: 'product',
+      site_name: 'Indivit',
+      locale: 'de_DE',
+    },
+    article: {
+      published_time: boxData?.created_at,
+      modified_time: boxData?.updated_at,
+      authors: [author],
+      tags: boxData?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit | ${title}`,
+      description,
+      card: 'summary_large_image',
+      image: image,
+    },
+  }
+}
 export default async function page({ params }: any) {
   const id = params?.slug?.split('_').pop()
   const cookieStore = cookies()

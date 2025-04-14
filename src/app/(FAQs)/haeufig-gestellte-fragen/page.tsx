@@ -4,10 +4,18 @@ import React from 'react'
 // Subscriptions Page
 
 async function getFaqData() {
-  const data = await fetcher('faqs')
+  const data = await fetcher('faqs', { cache: true, revalidate: 86400 }) // Fetching from your utility function
   return data
 }
-
+export async function generateMetadata() {
+  const res = await getFaqData()
+  const faqPage = res?.data || {}
+  return {
+    alternates: { canonical: 'https://indivit.de/haeufig-gestellte-fragen' },
+    title: `Indivit | ${faqPage?.heading}`,
+    description: faqPage?.detail,
+  }
+}
 export default async function Page() {
   const res = await getFaqData()
   const faqPage = res?.data || {}

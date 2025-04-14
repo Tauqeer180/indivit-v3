@@ -11,6 +11,20 @@ async function getIngredientById(slug: string): Promise<any> {
   const data = await fetcher(`get_ingredient/${slug}`)
   return data
 }
+export async function generateMetadata({ params }) {
+  const { slug } = params
+
+  const res = await getIngredientById(slug)
+  const data = res?.data?.ingredients
+
+  return {
+    alternates: {
+      canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based/ernaehrung/' + slug,
+    },
+    title: `Indivit | Ingredient | ${data?.name}`,
+    description: data?.key_factor_headline,
+  }
+}
 
 export default async function Page({ params }) {
   const { slug } = params

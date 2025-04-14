@@ -5,7 +5,7 @@ import { BlogCard } from '@/components/Cards'
 
 export async function generateMetadata() {
   return {
-    canonical: 'https://indivit.de/ernaehrung-fuer-gesundes-leben-gesund-essen',
+    alternates: { canonical: 'https://indivit.de/ernaehrung-fuer-gesundes-leben-gesund-essen' },
     title: 'Indivit | Ernährung für gesundes Leben - Gesund Essen',
     description:
       'Entdecken Sie die besten Tipps für eine gesunde Ernährung und ein gesundes Leben. Erfahren Sie, wie Sie mit Smoothies Ihre Gesundheit fördern können.',

@@ -6,6 +6,17 @@ import CustomBox from './components/CustomBox'
 import './components/custombox-anim.css'
 
 // Custom Box
+
+export async function generateMetadata({ params }) {
+  const { slug = [] } = params
+
+  return {
+    alternates: { canonical: `https://indivit.de/meine-smoothie-box/${slug}` },
+    title: 'Indivit | Eigene Box erstellen | Wähle deine Smoothies',
+    description:
+      'Tausche Smoothies in deiner Box gegeneinander aus. Probiere vorgeschlagene Rezepte. Finde Rezeptideen die zu dir passen',
+  }
+}
 export default async function page({ params }) {
   const { slug = [] } = params
   // can be 2 parameters

@@ -4,8 +4,16 @@ import { fetcher } from '@/lib/fetcher'
 import React from 'react'
 // Ingredients page
 async function getIngredientsData() {
-  const data = await fetcher('get_ingredient')
+  const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
   return data
+}
+export async function generateMetadata() {
+  return {
+    alternates: { canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based' },
+    title: `Indivit | Welche Zutaten sind im Smoothie?`,
+    description:
+      'Unsere vitalen und lebendigen Smoothie-Zutaten vereinen sich zu einem harmonischen Zusammenspiel von Aromen und Nährstoffen und sind ein köstlicher und erfrischender Genuss für deine Geschmacksnerven und deine Gesundheit. Für jede unserer Zutaten haben wir spannende Informationen für dich zusammengetragen – das sollte dir bei der Auswahl für deinen Smoothie helfen.',
+  }
 }
 
 export default async function Ingredients() {
