@@ -10,20 +10,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const { slug } = params
   const decodedSlug = decodeURIComponent(slug)
 
-  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true })
+  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true, revalidate: 43200 })
   let blogData = res?.data?.current
-
+  const title = blogData?.title || 'Blogartikel'
+  const description = blogData?.short_text || 'Lies unseren neuesten Blogartikel.'
+  const author = blogData?.auther_name || 'Indivit'
+  const image = blogData?.image ? baseURL + 'blogs/' + blogData.image : undefined
   return {
-    canonical: `https://indivit.de/blog/${slug}`,
-    title: `Indivit | ${blogData?.title}`,
-    description: blogData?.short_text,
-    authors: [{ name: blogData?.auther_name || 'Indivit' }],
+    alternates: { canonical: `https://indivit.de/blog/${slug}` },
+    title: `Indivit | ${title}`,
+    description,
+    authors: [{ name: author }],
     robots: 'index, follow',
     keywords: blogData?.keywords,
     openGraph: {
-      title: `Indivit | ${blogData?.title}`,
-      description: blogData?.short_text,
-      image: baseURL + 'blogs/' + blogData?.image,
+      title: `Indivit | ${title}`,
+      description,
+      image: image,
       url: `https://indivit.de/blog/${slug}`,
       type: 'article',
       site_name: 'Indivit',
@@ -32,16 +35,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     article: {
       published_time: blogData?.created_at,
       modified_time: blogData?.updated_at,
-      authors: [blogData?.auther_name || 'Indivit'],
+      authors: [author],
       tags: blogData?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Indivit | ${blogData?.title}`,
-      description: blogData?.short_text,
-      card: baseURL + 'blogs/' + blogData?.image,
-      image: baseURL + 'blogs/' + blogData?.image,
+      title: `Indivit | ${title}`,
+      description,
+      card: 'summary_large_image',
+      image: image,
     },
   }
 }
@@ -49,7 +52,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params
   const decodedSlug = decodeURIComponent(slug)
-  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true })
+  let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true, revalidate: 43200 })
   let blogData = res?.data?.current
   return (
     <div>

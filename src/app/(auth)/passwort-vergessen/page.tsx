@@ -3,7 +3,9 @@ import ForgotPassword from '../components/ForgotPassword'
 
 export async function generateMetadata() {
   return {
-    canonical: 'https://indivit.de/passwort-vergessen',
+    alternates: {
+      canonical: 'https://indivit.de/passwort-vergessen',
+    },
   }
 }
 export default function Page() {

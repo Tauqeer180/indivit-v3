@@ -63,7 +63,7 @@ export default function CustomSmoothieDetailPopup({ data, ingredients }) {
     )
   }
   const handleNavigate = () => {
-    // closeRef.current.click()
+    closeRef?.current?.click()
     push(`/smoothie-mixen-ideen/${data?.unique_id}`)
   }
   const commonImg = useAppSelector((state) => state.settings?.smoothieImg)

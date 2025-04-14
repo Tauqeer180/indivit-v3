@@ -1,7 +1,7 @@
 import SignupForm from './component/SignupForm'
 export async function generateMetadata() {
   return {
-    canonical: 'https://indivit.de/signup',
+    alternates: { canonical: 'https://indivit.de/signup' },
   }
 }
 export default function Page() {

@@ -13,7 +13,7 @@ export async function generateMetadata() {
   let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
 
   return {
-    canonical: 'https://indivit.de/wir-sind-die-smoothie-ninjas',
+    alternates: { canonical: 'https://indivit.de/wir-sind-die-smoothie-ninjas' },
     title: `Indivit | Uber uns | ${aboutData?.main_title}`,
     description: aboutData?.main_description,
     authors: [{ name: 'Indivit' }],

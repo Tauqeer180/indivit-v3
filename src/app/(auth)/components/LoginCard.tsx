@@ -85,7 +85,7 @@ export default function LoginCard({
     // loginMutation.mutate(data)
     fetcher('login', { method: 'POST', data: data })
       .then((res) => {
-        console.log('Success response:', res)
+        // console.log('Success response:', res)
         if (res?.token) {
           toast.success('Du bist jetzt angemeldet')
           // Success
