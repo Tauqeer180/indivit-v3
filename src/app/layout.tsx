@@ -57,19 +57,20 @@ export default function RootLayout({
           name="description"
           content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
         />
-        <script
+        <Script
           src="https://x.klarnacdn.net/kp/lib/v1/api.js"
           async
           crossOrigin="anonymous"
-        ></script>
+          strategy="lazyOnload"
+        ></Script>
         <Script
           src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PAYPAL_CLIENT_ID}&currency=EUR&components=buttons&vault=true`}
           crossOrigin="anonymous"
-strategy='lazyOnload'
+          strategy="lazyOnload"
         ></Script>
         {/* <!-- Google Tag Manager --> */}
 
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `(function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -83,12 +84,17 @@ strategy='lazyOnload'
         e(j, f);
       })(window, document, "script", "dataLayer", "GTM-KTDZQPSZ");`,
           }}
-        ></script>
+          strategy="afterInteractive"
+        ></Script>
 
         {/* <!-- End Google Tag Manager --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6Q6F1V68P"></script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-L6Q6F1V68P"
+          strategy="afterInteractive"
+        ></Script>
 
-        <script
+        <Script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function (c, l, a, r, i, t, y) {
@@ -104,10 +110,11 @@ strategy='lazyOnload'
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "pnnv80bdnp");`,
           }}
-        ></script>
+          strategy="afterInteractive"
+        ></Script>
 
         {/* <!-- Google tag (gtag.js) --> */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: ` window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -117,10 +124,11 @@ strategy='lazyOnload'
 
       gtag("config", "G-L6Q6F1V68P");`,
           }}
+          strategy="afterInteractive"
         >
           {/* // G-1M0EJW71XL -> mine */}
           {/* // G-L6Q6F1V68P -> Indivit */}
-        </script>
+        </Script>
 
         {/* <title>Indivit | Smoothies zum selber Mixen</title> */}
       </head>
