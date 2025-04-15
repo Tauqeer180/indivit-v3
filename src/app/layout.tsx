@@ -16,6 +16,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import AllProviders from '../providers/AllProviders'
 import CookiesComponent from '@/components/CookiesBanner/Cookies'
+import Script from 'next/script'
 export const metadata: Metadata = {
   title: 'Indivit: Gesunde Smoothies & Clean Eating für individuelle Ziele | Bio',
   description:
@@ -61,10 +62,11 @@ export default function RootLayout({
           async
           crossOrigin="anonymous"
         ></script>
-        <script
+        <Script
           src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PAYPAL_CLIENT_ID}&currency=EUR&components=buttons&vault=true`}
           crossOrigin="anonymous"
-        ></script>
+strategy='lazyOnload'
+        ></Script>
         {/* <!-- Google Tag Manager --> */}
 
         <script
