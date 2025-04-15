@@ -173,7 +173,7 @@ export default function Navbar() {
               </div>
               <button
                 ref={closeRef}
-                type="button"
+                role="button"
                 className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
@@ -187,15 +187,15 @@ export default function Navbar() {
                   <li className="nav-item ">
                     <a
                       className="nav-link dropdown-toggle"
-                      type="button"
-                      id="defaultDropdown"
+                      role="button"
+                      id="shopDropdown"
                       data-bs-toggle="dropdown"
                     >
                       Shop
                     </a>
                     <ul
                       className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0"
-                      aria-labelledby="defaultDropdown"
+                      aria-labelledby="shopDropdown"
                     >
                       <div className="containe">
                         <div className="row mx-0">
@@ -279,15 +279,18 @@ export default function Navbar() {
                   <li className="nav-item">
                     <a
                       className="nav-link dropdown-toggle"
-                      type="button"
-                      id="defaultDropdown"
+                      role="button"
+                      id="smoothieDropdown"
                       data-bs-toggle="dropdown"
                       data-bs-auto-close="true"
                       aria-expanded="false"
                     >
                       Smoothies
                     </a>
-                    <ul className="dropdown-menu border-0 shadow" aria-labelledby="defaultDropdown">
+                    <ul
+                      className="dropdown-menu border-0 shadow"
+                      aria-labelledby="smoothieDropdown"
+                    >
                       <li>
                         <Link
                           href="/gesunde-smoothies-rezepte-selber-machen"
@@ -335,15 +338,18 @@ export default function Navbar() {
                   <li className="nav-item">
                     <a
                       className="nav-link dropdown-toggle"
-                      type="button"
-                      id="defaultDropdown"
+                      role="button"
+                      id="entdeckenDropdown"
                       data-bs-toggle="dropdown"
                       data-bs-auto-close="true"
                       aria-expanded="false"
                     >
                       Entdecken
                     </a>
-                    <ul className="dropdown-menu border-0 shadow" aria-labelledby="defaultDropdown">
+                    <ul
+                      className="dropdown-menu border-0 shadow"
+                      aria-labelledby="entdeckenDropdown"
+                    >
                       <li>
                         <Link href="/wir-sind-die-smoothie-ninjas" className="dropdown-item ">
                           Über uns
@@ -396,8 +402,8 @@ export default function Navbar() {
               <li className="nav-item d-flex align-items-center">
                 <a
                   className=""
-                  type="button"
-                  id="defaultDropdown"
+                  role="button"
+                  id="userDropdown"
                   data-bs-toggle="dropdown"
                   data-bs-auto-close="true"
                   aria-expanded="false"
@@ -412,7 +418,7 @@ export default function Navbar() {
                 </a>
                 <ul
                   className="dropdown-menu border-0 shadow position-absolute"
-                  aria-labelledby="defaultDropdown"
+                  aria-labelledby="userDropdown"
                 >
                   {isAuthenticated ? (
                     <>

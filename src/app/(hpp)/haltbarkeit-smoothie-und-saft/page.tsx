@@ -8,11 +8,25 @@ async function getHPPData() {
   return data?.data?.length > 0 ? data.data[0] : {}
 }
 export async function generateMetadata() {
-  const res = await getHPPData()
+  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
   return {
     alternates: { canonical: 'https://indivit.de/haltbarkeit-smoothie-und-saft' },
-    title: `Indivit | ${res?.title}`,
-    description: res?.title_text,
+    title: `Haltbarkeit von Smoothies steigern: Schonende HPP-Methode erklärt`,
+    description: `Erfahre, wie HPP-Technologie Smoothies & Säfte natürlich haltbar macht – ohne Vitamine zu zerstören. Inklusive Frische-Tipps für Obst & Gemüse.`,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Natürliche Haltbarkeit: Wie HPP-Verfahren Vitamine schützt & Lebensmittel konserviert`,
+      description: `Wie bleiben Smoothies 6 Wochen frisch? Das HPP-Verfahren revolutioniert das Haltbarmachen ohne Hitze oder Zusatzstoffe. Erhalte bis zu 95% der Vitamine und entdecke nachhaltige Alternativen zum Einkochen. Für alle, die gesunde Ernährung lieben!`,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Haltbarkeit von Smoothies steigern: Schonende HPP-Methode erklärt`,
+      description: `Erfahre, wie HPP-Technologie Smoothies & Säfte natürlich haltbar macht – ohne Vitamine zu zerstören. Inklusive Frische-Tipps für Obst & Gemüse.`,
+    },
   }
 }
 

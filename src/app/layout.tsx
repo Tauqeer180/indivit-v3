@@ -17,24 +17,25 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import AllProviders from '../providers/AllProviders'
 import CookiesComponent from '@/components/CookiesBanner/Cookies'
 export const metadata: Metadata = {
-  title: 'Indivit | Smoothies zum selber Mixen',
+  title: 'Indivit: Gesunde Smoothies & Clean Eating für individuelle Ziele | Bio',
   description:
-    'Indivit bietet dir einen Online Smoothie Mixer zur individuellen Konfiguration deines eigenen Smoothies. Du bestimmst, was in deinen Smoothie kommt und indivit produziert und liefert dir deinen ganz persönlichen Smoothie. Dein Smoothie ist nicht nur individuell und maximal vital, sondern auch mindestens 4 Wochen haltbar.',
+    'Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!',
   keywords:
     'indivit, smoothie mixer, smoothie selber mixen, smoothie selber machen, smoothie online bestellen, smoothie lieferung, smoothie box, smoothie subscription',
   openGraph: {
-    title: 'Indivit | Smoothies zum selber Mixen',
+    title:
+      'Indivit Bio-Smoothies: Deine Clean Eating-Lösung mit persönlicher Smoothiebar & Frische-Garantie',
     description:
-      'Indivit bietet dir einen Online Smoothie Mixer zur individuellen Konfiguration deines eigenen Smoothies. Du bestimmst, was in deinen Smoothie kommt und indivit produziert und liefert dir deinen ganz persönlichen Smoothie. Dein Smoothie ist nicht nur individuell und maximal vital, sondern auch mindestens 4 Wochen haltbar.',
+      'Erlebe natürliche Ernährung mit frischen Bio-Smoothies für Fastenkur, Genuss oder Mahlzeitenersatz. Konfiguriere deinen perfekten Mix im Online-Smoothie-Test und profitiere von schonender HPP-Verarbeitung. Gesundes Genießen made easy!',
     siteName: 'Indivit',
     type: 'website',
   },
   twitter: {
     site: '@indivitsmoothie',
     creator: '@indivitsmoothie',
-    title: 'Indivit | Smoothies zum selber Mixen',
+    title: 'Indivit: Gesunde Smoothies & Clean Eating für individuelle Ziele | Bio',
     description:
-      'Indivit bietet dir einen Online Smoothie Mixer zur individuellen Konfiguration deines eigenen Smoothies. Du bestimmst, was in deinen Smoothie kommt und indivit produziert und liefert dir deinen ganz persönlichen Smoothie. Dein Smoothie ist nicht nur individuell und maximal vital, sondern auch mindestens 4 Wochen haltbar.',
+      'Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!',
   },
 }
 
@@ -53,7 +54,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="Indivit bietet dir einen Online Smoothie Mixer zur individuellen Konfiguration deines eigenen Smoothies. Du bestimmst, was in deinen Smoothie kommt und indivit produziert und liefert dir deinen ganz persönlichen Smoothie. Dein Smoothie ist nicht nur individuell und maximal vital, sondern auch mindestens 4 Wochen haltbar."
+          content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
         />
         <script
           src="https://x.klarnacdn.net/kp/lib/v1/api.js"
@@ -119,7 +120,7 @@ export default function RootLayout({
           {/* // G-L6Q6F1V68P -> Indivit */}
         </script>
 
-        <title>Indivit | Smoothies zum selber Mixen</title>
+        {/* <title>Indivit | Smoothies zum selber Mixen</title> */}
       </head>
       <body className={` antialiased bg-light`}>
         {/* <!-- Google Tag Manager (noscript) --> */}

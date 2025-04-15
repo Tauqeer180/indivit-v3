@@ -3,6 +3,28 @@ import React from 'react'
 import SustainabilityDetails from './SustainabilityDetails'
 
 // Sustainability Page
+export async function generateMetadata() {
+  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
+  return {
+    alternates: { canonical: 'https://indivit.de/nachhaltige-bio-lebensmittel-essen' },
+    title: `Bio-Lebensmittel & Nachhaltigkeit: Indivits ökologischer Weg`,
+    description: `Erfahre, wie Indivit mit 100% Bio-Zutaten, Recycling-Systemen und CO₂-optimierter Produktion nachhaltige Ernährung schmackhaft macht. Ökologischer Genuss made in Berlin.`,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Nachhaltig essen mit Bio-Lebensmitteln: Indivits ganzheitlicher Ansatz`,
+      description: `Wie Indivit ökologische Ernährung neu denkt: Von zertifizierten Bio-Zutaten über CO₂-optimierte Logistik bis zur Zero-Waste-Produktion. Erfahre hier, warum jeder Smoothie ein Klimabeitrag ist.`,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Bio-Lebensmittel & Nachhaltigkeit: Indivits ökologischer Weg`,
+      description: `Erfahre, wie Indivit mit 100% Bio-Zutaten, Recycling-Systemen und CO₂-optimierter Produktion nachhaltige Ernährung schmackhaft macht. Ökologischer Genuss made in Berlin.`,
+    },
+  }
+}
 export default function Page() {
   return (
     <div>

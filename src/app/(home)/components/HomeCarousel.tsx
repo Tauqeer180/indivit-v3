@@ -12,7 +12,7 @@ import Link from 'next/link'
 export default function HomeCarousel({ data, isLoading }) {
   return (
     <div className="home-hero-bg- position-relative ">
-      <section id="flx-here-section" className="fade-in ">
+      <section id="flx-here-section" className="fade-in- ">
         {/* <!-- hero banner start--> */}
         <div className="container lg:tw-pt-24 xs:tw-pt-16 tw-pt-10 position-relative sm:!tw-px-0">
           {/* New Hero Section */}

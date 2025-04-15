@@ -4,11 +4,25 @@ import BlogsHero from '../components/BlogsHero'
 import { BlogCard } from '@/components/Cards'
 
 export async function generateMetadata() {
+  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
   return {
     alternates: { canonical: 'https://indivit.de/ernaehrung-fuer-gesundes-leben-gesund-essen' },
-    title: 'Indivit | Ernährung für gesundes Leben - Gesund Essen',
-    description:
-      'Entdecken Sie die besten Tipps für eine gesunde Ernährung und ein gesundes Leben. Erfahren Sie, wie Sie mit Smoothies Ihre Gesundheit fördern können.',
+    title: `Gesund essen & abnehmen: Ernährung als Schlüssel zur Gesundheit`,
+    description: `Entdecke, wie gesunde Ernährung und Intervallfasten dein Wohlbefinden steigern. Praxistipps für dauerhafte Gesundheit und natürliches Abnehmen. Jetzt mehr erfahren!`,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Gesund essen & nachhaltig abnehmen: Dein wissenschaftlicher Ernährungsguide`,
+      description: `Wie du durch bewusste Ernährung deine Gesundheit revolutionierst. Praxistaugliche Tipps zu Intervallfasten, Meal-Prep & Nährstoffoptimierung. Wissenschaftlich fundiert, alltagstauglich umgesetzt.`,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Gesund essen & abnehmen: Ernährung als Schlüssel zur Gesundheit`,
+      description: `Entdecke, wie gesunde Ernährung und Intervallfasten dein Wohlbefinden steigern. Praxistipps für dauerhafte Gesundheit und natürliches Abnehmen. Jetzt mehr erfahren!`,
+    },
   }
 }
 export default async function Page() {

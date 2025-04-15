@@ -6,6 +6,29 @@ import React from 'react'
 import SmoothieMixer from './components/SmoothieMixer'
 import { cookies } from 'next/headers'
 // Smoothie Mixer
+
+export async function generateMetadata() {
+  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
+  return {
+    alternates: { canonical: 'https://indivit.de/smoothie-mixen-ideen' },
+    title: `Individuelle Smoothies mixen ohne Mixer – Kreation & Lieferung`,
+    description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Dein individueller Smoothie: Mixen ohne Küchengeräte | Indivit`,
+      description: `Kreiere mit unserem Tool einzigartige Smoothie-Kreationen: Nährwertoptimierung, Geschmacksprognosen & Lieferung. Nutze Food Innovation für DIY-Ernährung & aktuelle Food Trends.`,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Individuelle Smoothies mixen ohne Mixer – Kreation & Lieferung`,
+      description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+    },
+  }
+}
 export default async function page({ params }) {
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value || ''

@@ -8,11 +8,25 @@ async function getIngredientsData() {
   return data
 }
 export async function generateMetadata() {
+  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
+  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+
   return {
     alternates: { canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based' },
-    title: `Indivit | Welche Zutaten sind im Smoothie?`,
-    description:
-      'Unsere vitalen und lebendigen Smoothie-Zutaten vereinen sich zu einem harmonischen Zusammenspiel von Aromen und Nährstoffen und sind ein köstlicher und erfrischender Genuss für deine Geschmacksnerven und deine Gesundheit. Für jede unserer Zutaten haben wir spannende Informationen für dich zusammengetragen – das sollte dir bei der Auswahl für deinen Smoothie helfen.',
+    title: `Entdecke die perfekte Balance aus Obst, Gemüse & Superfoods für deine Smoothies. Mit Tipps für pflanzliche Ernährung & Rohkost-Rezepte natürlich essen.`,
+    description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+    authors: [{ name: 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: `Smoothie Zutaten Meisterklasse: Von Obst bis Rohkost - Dein Guide für natürliche Ernährung`,
+      description: `Lerne die 7 Schlüssel-Kategorien für perfekte Smoothies kennen – von Obst bis Superfoods. Entdecke Tipps für natürliche Ernährung, optimale Konsistenz und gesunde Mahlzeitenersätze. Ideal für Rohkost-Fans und alle, die ihre Ernährung pflanzenbasiert gestalten möchten.`,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Entdecke die perfekte Balance aus Obst, Gemüse & Superfoods für deine Smoothies. Mit Tipps für pflanzliche Ernährung & Rohkost-Rezepte natürlich essen.`,
+      description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+    },
   }
 }
 
