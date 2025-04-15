@@ -156,11 +156,16 @@ export default function RootLayout({
         <script async src="../assets/js/bootstrap.bundle.min.js"></script>
         <script async src="../assets/js/bootstrap.js"></script>
         <script async src="../assets/js/main.js"></script>
-        <script async src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script
+        <Script
+          strategy="afterInteractive"
+          async
+          src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+        ></Script>
+        <Script
+          strategy="afterInteractive"
           async
           src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        ></script>
+        ></Script>
       </body>
     </html>
   )
