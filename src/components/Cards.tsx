@@ -217,7 +217,7 @@ export function RecipeCard({
           {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
         </button>
         <div className="text-center">
-          <button onClick={action} className="tw-border-none tw-bg-transparent tw-cursor-pointer">
+          <Link href={action || ''} className="tw-border-none tw-bg-transparent tw-cursor-pointer">
             <div className="position-relative">
               <Image
                 alt={data?.name}
@@ -239,7 +239,7 @@ export function RecipeCard({
                 </div>
               )}
             </div>
-          </button>
+          </Link>
 
           <h4>{data?.name}</h4>
           <p className="p5 text-truncate">{data?.headline}</p>
