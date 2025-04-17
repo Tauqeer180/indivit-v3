@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description,
       image: image,
       url: `https://indivit.de/produkte/${slug}`,
-      type: 'product',
       site_name: 'Indivit',
       locale: 'de_DE',
     },
