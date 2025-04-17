@@ -279,7 +279,7 @@ export default function SmoothieMixer({
           }
         })
       } else {
-        tempFixed = selectedData.map((d, i) => {
+        tempFixed = selectedData?.map((d, i) => {
           if (d?.ingredient_filling_types_id == 2) {
             let value_in_ml =
               d?.filling_index >= 0 ? d?.ingredient_filling[d?.filling_index]?.fixed : 0
@@ -352,7 +352,7 @@ export default function SmoothieMixer({
   }
   useEffect(() => {
     if (tempSelected.length > 0) {
-      selectedData.map((d, i) => {
+      selectedData?.map((d, i) => {
         handleRangeChange()
       })
     }
@@ -410,7 +410,7 @@ export default function SmoothieMixer({
   useEffect(() => {
     if (selectedData) {
       // debugger;
-      let tempNameList = selectedData.map((d) => {
+      let tempNameList = selectedData?.map((d) => {
         return d?.order_number
       })
       setSelectedDataNames(tempNameList)
@@ -448,7 +448,7 @@ export default function SmoothieMixer({
     let temp_fixed_share = 0
 
     if (relative_values?.length > 0) {
-      temp_fixed_share = selectedData.reduce(
+      temp_fixed_share = selectedData?.reduce(
         (x, y) =>
           x +
           (y?.ingredient_filling_types_id == 2 || y?.ingredient_filling_types_id == 3
@@ -457,7 +457,7 @@ export default function SmoothieMixer({
         0
       )
     } else {
-      temp_fixed_share = selectedData.reduce(
+      temp_fixed_share = selectedData?.reduce(
         (x, y) =>
           x + (y?.ingredient_filling_types_id == 2 ? parseFloat(y?.value_in_percentage) : 0),
         0
@@ -891,7 +891,7 @@ export default function SmoothieMixer({
                             </button>
                           </div>
                         )}
-                        {!feedback && selectedData.length > 0 && (
+                        {!feedback && selectedData?.length > 0 && (
                           <div className="text-center">
                             <button
                               type="button"

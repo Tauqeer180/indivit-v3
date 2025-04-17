@@ -10,7 +10,6 @@ import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function IngredientBasicInfoSection({ data, loading }) {
   const [modalVisible, setModalVisible] = useState(false)
@@ -19,7 +18,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
     await fetcher('wishlist_ingredient', { data: d, token, method: 'POST' })
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistIngredient)
   const { setStatusId, statusLabel, statusColor } = useIngredientStatus(data?.ingredient_status)
-  const wishlist = useSelector((state) => state?.wishlist)
+  const wishlist = useAppSelector((state) => state?.wishlist)
   useEffect(() => {
     setStatusId(data?.ingredient_status)
   }, [data])

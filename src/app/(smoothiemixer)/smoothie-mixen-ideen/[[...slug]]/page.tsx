@@ -55,6 +55,7 @@ export default async function page({ params }) {
   let smoothieByIdData =
     id &&
     (await fetcher(`r/${id}`, {
+      token,
       cache: true,
       tags: ['smoothieById', id],
     }))
@@ -106,6 +107,7 @@ export default async function page({ params }) {
   const smoothieRecipes = recipeData?.smoothies || []
   return (
     <div>
+      {/* {JSON.stringify(token, smoothieByIdData)} */}
       <TasteInfoModal />
       <FeedbackInfoModal />
       <HeroBanner
