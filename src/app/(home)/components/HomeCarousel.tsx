@@ -8,6 +8,7 @@ import React from 'react'
 import { baseURL } from '@/lib/fetcher'
 import { HeroSkelton } from '@/components/Cards'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomeCarousel({ data, isLoading }) {
   return (
@@ -50,11 +51,16 @@ export default function HomeCarousel({ data, isLoading }) {
                   </div>
                   <div className=" md:tw-order-2 tw-order-1">
                     <div className="flx-animate-relative lg:tw-min-h-96">
-                      <img
+                      <Image
                         src={baseURL + 'slider/' + data?.slide_thumbnail}
                         className="img-fluid flx-oneabsolute- top-animate max-md-5:tw-mx-auto md-5:tw-ml-auto  tw-shadow tw-rounded-3xl 2xl:tw-w-[500px] 2xl:tw-h-[500px] xl:tw-w-[400px] xl:tw-h-[400px] lg:tw-w-96 lg:tw-h-96 tw-border-solid tw-border-0 tw-border-b-4 tw-border-r-4 tw-border-theme "
                         alt={data?.heading}
-                        loading="lazy"
+                        width={500}
+                        height={500}
+                        // loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="/assets/blur/1.jpeg"
+                        // blurDataURL={baseURL + 'slider/' + data?.slide_thumbnail}
                       />
                     </div>
                   </div>

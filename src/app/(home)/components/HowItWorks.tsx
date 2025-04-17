@@ -2,6 +2,7 @@ import React from 'react'
 import { RightIcon } from '@/assets/svgIcons'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const initialSteps = [
   {
@@ -56,9 +57,11 @@ export default function HowItWorks({ data }) {
             {/* Card */}
             <div className="tw-bg-white tw-rounded-2xl tw-px-3 tw-py-6 tw-relative tw-z-10 tw-h-full">
               {/* Image and Number */}
-              <div className="tw-flex tw-flex-col tw-items-center tw-mb-4">
+              <div className="tw-flex tw-flex-col tw-items-center tw-text-center tw-mb-4">
                 <div className="tw-bg-white tw-rounded-full tw-p-4 tw-mb-3">
-                  <img
+                  <Image
+                    width={64}
+                    height={64}
                     src={data?.length > 0 ? baseURL + step?.icon : step?.image}
                     alt={step.title}
                     className="tw-w-16 tw-h-16"

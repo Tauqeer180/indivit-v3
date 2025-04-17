@@ -5,6 +5,7 @@ import React from 'react'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
 import { CheckIcon } from '@/assets/svgIcons'
+import Image from 'next/image'
 // import { Link } from "react-router-dom";
 // import { baseURL } from "../../services/Adapter/customAxios";
 // import { Check, ArrowRight } from "lucide-react";
@@ -27,16 +28,22 @@ export default function ProductCategory({ data = [] }) {
             >
               {/* Image Section */}
               <div className="tw-flex tw-justify-center tw-mb-6">
-                <div className=" tw-relative">
-                  <img
+                <div className=" tw-relative tw-w-full tw-aspect-[16/10.6] tw-rounded-md   ">
+                  <Image
                     src={
                       cat?.image
                         ? baseURL + 'box-category/' + cat?.image
                         : '/assets/NewAssets/img/smothipro1.png'
                     }
-                    alt="Smoothie"
-                    layout="fill"
-                    className="tw-rounded-md  tw-w-full tw-max-h-96 tw-object-contain"
+                    alt={cat?.name}
+                    className="tw-rounded-md  tw-w-full tw-max-h-96 tw-object-contain tw-aspect-[346/230]"
+                    // placeholder="blur"
+                    // blurDataURL="/assets/NewAssets/img/smothipro1.png"
+                    // height={384}
+                    // width={600}
+                    fill
+                    sizes="(min-width: 808px) 100px, 50px"
+                    objectFit="contain"
                   />
                 </div>
               </div>

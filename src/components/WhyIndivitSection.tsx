@@ -10,6 +10,7 @@ import { PlayIcon } from '@/assets/svgIcons'
 import { baseURL } from '@/lib/fetcher'
 import { ScrollToDiv } from './common/Common'
 import { WhyIndivitSkelton } from './Cards'
+import Image from 'next/image'
 
 export default function WhyIndivitSection({ data = [] }) {
   const videoRef = useRef()
@@ -72,7 +73,7 @@ export default function WhyIndivitSection({ data = [] }) {
                 className="tw-flex tw-items-center tw-gap-4 lg:tw-gap-6 2xl:tw-gap-8"
               >
                 <div className=" tw-rounded-lg tw-flex-shrink-0">
-                  <img
+                  <Image
                     src={baseURL + benefit.icon}
                     alt={benefit.title}
                     width={50}

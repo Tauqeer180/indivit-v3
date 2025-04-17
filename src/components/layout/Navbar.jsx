@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import WaveSvg from '@/assets/WaveSvg'
 import { baseURL, fetcher } from '@/lib/fetcher'
+import Image from 'next/image'
 
 // import waveSvg from "../../assets/svg/wave.svg";
 export default function Navbar() {
@@ -168,7 +169,7 @@ export default function Navbar() {
             <div className="offcanvas-header d-lg-none">
               <div className="flx-logo">
                 <Link className="navbar-brand " href="/">
-                  <img width="50px" src={'/assets/icon/logo1.png'} alt="Indivit" />
+                  <Image width={50} height={50} src={'/assets/icon/logo1.png'} alt="Indivit" />
                 </Link>
               </div>
               <button
@@ -383,8 +384,9 @@ export default function Navbar() {
           {/* <!-- Dropdown menu discover end--> */}
           <div className="col-lg-2 col-2 text-lg-center tw-relative">
             <Link className="navbar-brand flx-navbar-logo " href="/">
-              <img
-                width="100px"
+              <Image
+                width={100}
+                height={100}
                 src={'/assets/icon/logo1.png'}
                 className="img-fluid  tw-left-1/2 -tw-translate-x-1/2 min-[991px]:!-tw-top-7 !-tw-top-3"
                 alt=""

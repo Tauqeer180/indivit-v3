@@ -12,6 +12,7 @@ import Carousel from 'react-multi-carousel'
 import { SkeltonCard } from './Cards'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const responsive = {
   superLargeDesktop: {
@@ -94,8 +95,7 @@ export default function Testimonials({ data, isLoading }) {
         <div className="tw-absolute -tw-translate-y-1/2">
           <img
             src={'/assets/NewAssets/svg/leave.jpg'}
-            alt="img1"
-            layout="intrinsic"
+            alt="leaf"
             className="2xl:tw-w-24 2xl:tw-h-32 xl:tw-w-20 xl:tw-h-28 tw-w-16 tw-h-26"
           />
         </div>
@@ -144,9 +144,9 @@ export default function Testimonials({ data, isLoading }) {
                         >
                           <div className="tw-rounded-2xl tw-p-4 lg:tw-px-8 lg:tw-py-6 xl:tw-px-12 xl:tw-py-10 2xl:tw-px-16 2xl:tw-py-[52px] tw-bg-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-text-center tw-transition hover:-translate-y-1 tw-h-full">
                             {/* Avatar and Text Container */}
-                            <div classNmae="tw-text-center">
+                            <div className="tw-text-center">
                               <div className="tw-w-16 tw-h-16 tw-mx-auto">
-                                <img
+                                <Image
                                   src={`${
                                     testimonial?.image
                                       ? baseURL + 'testimonials/' + testimonial?.image
