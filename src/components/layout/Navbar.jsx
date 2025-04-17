@@ -383,7 +383,7 @@ export default function Navbar() {
           </div>
           {/* <!-- Dropdown menu discover end--> */}
           <div className="col-lg-2 col-2 text-lg-center tw-relative">
-            <Link className="navbar-brand flx-navbar-logo " href="/">
+            <Link className="navbar-brand flx-navbar-logo " href="/" alt="Indivit Home">
               <Image
                 width={100}
                 height={100}
@@ -409,6 +409,7 @@ export default function Navbar() {
                   data-bs-toggle="dropdown"
                   data-bs-auto-close="true"
                   aria-expanded="false"
+                  aria-labelledby="userDropdown"
                 >
                   <img
                     className="mx-xl-3 mx-2"

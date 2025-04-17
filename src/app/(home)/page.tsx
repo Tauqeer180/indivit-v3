@@ -56,6 +56,7 @@ export default async function Home() {
           </p>
           <img
             src={'/assets/icon/arrow-right-theme.png'}
+            alt="Jetzt deine Smoothie-Kur starten"
             className="2xl:tw-w-11 2xl:tw-h-11 xl:tw-w-8 xl:tw-h-8 lg:tw-w-7 lg:tw-h-7 sm:tw-w-6 sm:tw-h-6 tw-w-4 tw-h-4"
           />
         </Link>

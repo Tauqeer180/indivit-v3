@@ -43,14 +43,22 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
       <button
         className=" btn position-absolute -tw-left-12 px-0 shadow-none"
         onClick={() => previous()}
+        aria-labelledby="testimonial-previous"
       >
-        <img height="44px" width="45px" className="img-fluid " src={'/assets/object/left.png'} />
+        <img
+          height="44px"
+          width="45px"
+          className="img-fluid "
+          alt="testimonial-previous"
+          src={'/assets/object/left.png'}
+        />
       </button>
       <button
         className="btn position-absolute -tw-right-12 px-0 shadow-none"
         onClick={() => next()}
+        aria-labelledby="testimonial-next"
       >
-        <img height="44px" width="45px" className="img-fluid " src={'/assets/object/right.png'} />
+        <img height="44px" width="45px" className="img-fluid " alt="testimonial-previous" src={'/assets/object/right.png'} />
       </button>
     </div>
   )
