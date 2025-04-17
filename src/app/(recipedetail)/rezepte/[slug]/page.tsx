@@ -15,7 +15,6 @@ import useAddWishlist from '@/hooks/useAddWishlist'
 import useCheckStock from '@/hooks/useCheckStock'
 import { baseURL, fetcher } from '@/lib/fetcher'
 import { useAppSelector } from '@/redux/hooks'
-import { addWishlistSmoothie } from '@/services/Wishlist'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
@@ -30,6 +29,10 @@ import { toast } from 'react-toastify'
 export default function Page() {
   const [loading, setLoading] = useState(false)
   let token = useAppSelector((state) => state.account.token)
+
+  const addWishlistSmoothie = async (data) =>
+    await fetcher(`wishlist_smoothie`, { data, token, method: 'POST' })
+
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistSmoothie)
   const { isOutofStock, checkStock } = useCheckStock()
   // const cookieStore = await cookies()

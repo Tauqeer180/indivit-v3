@@ -5,8 +5,8 @@ import ConfirmWishModal from '@/components/Modal/ConfirmWishModal'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import useAddWishlist from '@/hooks/useAddWishlist'
 import useIngredientStatus from '@/hooks/useIngredientStatus'
-import { baseURL } from '@/lib/fetcher'
-import { addWishlistIngredient } from '@/services/Wishlist'
+import { baseURL, fetcher } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
 import { useEffect, useState } from 'react'
@@ -14,6 +14,9 @@ import { useSelector } from 'react-redux'
 
 export default function IngredientBasicInfoSection({ data, loading }) {
   const [modalVisible, setModalVisible] = useState(false)
+  let token = useAppSelector((state) => state?.account?.token)
+  let addWishlistIngredient = async (d) =>
+    await fetcher('wishlist_ingredient', { data: d, token, method: 'POST' })
   const { isLoading, isDone, addWishlist } = useAddWishlist(addWishlistIngredient)
   const { setStatusId, statusLabel, statusColor } = useIngredientStatus(data?.ingredient_status)
   const wishlist = useSelector((state) => state?.wishlist)
