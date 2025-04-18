@@ -5,8 +5,8 @@ import { baseURL } from "@/lib/fetcher";
 
 const initialState = {
   settings: session.get("settings"),
-  smoothieImg: baseURL + "/custom/smoothie/" + session.get("smoothieImg"),
-  boxImg: baseURL + "/custom/smoothie/" + session.get("boxImg"),
+  smoothieImg: baseURL + "custom/smoothie/" + session.get("smoothieImg"),
+  boxImg: baseURL + "custom/smoothie/" + session.get("boxImg"),
 };
 
 export const settingsReducer = createSlice({
@@ -22,8 +22,8 @@ export const settingsReducer = createSlice({
       const tempState = {
         ...state,
         smoothieImg:
-          baseURL + "/custom/smoothie/" + action?.payload?.smoothieImg,
-        boxImg: baseURL + "/custom/smoothie_box/" + action?.payload.boxImg,
+          baseURL + "custom/smoothie/" + action?.payload?.smoothieImg,
+        boxImg: baseURL + "custom/smoothie_box/" + action?.payload.boxImg,
       };
       session.set("smoothieImg", action?.payload?.smoothieImg);
       session.set("boxImg", action?.payload?.boxImg);

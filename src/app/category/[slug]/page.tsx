@@ -68,14 +68,14 @@ export default async function page({ params }: any) {
                         <div className="text-center">
                           <Link href={`${data?.custom_product_path}`}>
                             <img
-                              src={baseURL + '/box-category/' + data?.custom_product_image}
+                              src={baseURL + 'box-category/' + data?.custom_product_image}
                               className="img-fluid w-100 max-h-350"
                               loading="lazy"
                             />
                           </Link>
                         </div>
                       </div>
-                      {/* <img src={baseURL+"/box-category/"+data?.custom_product_image} /> */}
+                      {/* <img src={baseURL+"box-category/"+data?.custom_product_image} /> */}
                     </div>
                   </div>
                 )}

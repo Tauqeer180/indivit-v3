@@ -3,9 +3,12 @@ import React from 'react'
 import BlogContent from '../../components/BlogContent'
 import TOC from '../../components/TOC'
 import moment from 'moment'
+import 'moment/locale/de'
 import Image from 'next/image'
 import Head from 'next/head'
-
+import BlogsCarousel from '../../components/BlogsCarousel'
+import { FABComponent } from '@/components/common/ShareButtons'
+// moment.locale('de');
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
   const decodedSlug = decodeURIComponent(slug)
@@ -14,7 +17,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   let blogData = res?.data?.current
   const title = blogData?.title || 'Blogartikel'
   const description = blogData?.short_text || 'Lies unseren neuesten Blogartikel.'
-  const author = blogData?.auther_name || 'Indivit'
+  const author = blogData?.author_name || 'Indivit'
   const image = blogData?.image ? baseURL + 'blogs/' + blogData.image : undefined
   return {
     alternates: { canonical: `https://indivit.de/blog/${slug}` },
@@ -23,14 +26,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     authors: [{ name: author }],
     robots: 'index, follow',
     keywords: blogData?.keywords,
+
     openGraph: {
       title: `Indivit | ${title}`,
       description,
-      image: image,
+      images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
       url: `https://indivit.de/blog/${slug}`,
       type: 'article',
       site_name: 'Indivit',
       locale: 'de_DE',
+      publishedTime: blogData.created_at,
+      modifiedTime: blogData.updated_at,
     },
     article: {
       published_time: blogData?.created_at,
@@ -44,7 +50,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: `Indivit | ${title}`,
       description,
       card: 'summary_large_image',
-      image: image,
+      images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
     },
   }
 }
@@ -54,8 +60,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const decodedSlug = decodeURIComponent(slug)
   let res = await fetcher(`blogById?slug=${decodedSlug}`, { cache: true, revalidate: 43200 })
   let blogData = res?.data?.current
+
   return (
     <div>
+      {/* {JSON.stringify(blogData?.body)} */}
       <Head>
         <script type="application/ld+json">
           {JSON.stringify({
@@ -107,10 +115,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <ShareButtons />
             </div> */}
             {/* Share Component */}
-            {/* <FABComponent /> */}
+            <FABComponent />
             {/* <div className="tw-space-y-2"> </div> */}
             {blogData?.author_name && (
-              <div className="tw-bg-white tw-rounded-lg tw-border tw-border-solid tw-border-gray-200 tw-flex tw-items-center tw-justify-between 2xl:tw-p-4 tw-p-3">
+              <div className="tw-bg-white tw-rounded-lg tw-border tw-border-solid tw-border-gray-200 tw-flex tw-items-center tw-justify-between 2xl:tw-p-4 xs:tw-p-3 tw-px-3 tw-py-2">
                 <div className="tw-flex tw-items-center tw-gap-1">
                   <Image
                     src={
@@ -127,12 +135,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     {blogData?.author_name}
                   </p>
                 </div>
-                <div className="tw-space-y-1">
-                  <p className="tw-text-xs tw-font-bold tw-mb-0">
-                    Veröffentlicht: {moment(blogData?.created_at).format('DD. MMMM YYYY')}
+                <div className="xs:tw-space-y-1">
+                  <p className="tw-text-xs d tw-mb-0 tw-font-normal tw-text-end">
+                    Veröffentlicht: <br className="xs:tw-hidden" />{' '}
+                    {moment(blogData?.created_at).format('DD. MMMM YYYY')}
                   </p>
-                  <p className="tw-text-xs tw-font-bold tw-mb-0">
-                    Aktualisiert: {moment(blogData?.updated_at).format('DD. MMMM YYYY')}
+                  <p className="tw-text-xs !tw-font-bold tw-mb-0 tw-font-Greycliff tw-text-end ">
+                    Aktualisiert: <br className="xs:tw-hidden" />{' '}
+                    {moment(blogData?.updated_at).format('DD. MMMM YYYY')}
                   </p>
                 </div>
               </div>
@@ -147,7 +157,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </div>
             )}
             <div className="tw-max-w-3xl tw-mx-auto ">
-              <h1 className="tw-text-3xl">Inhaltsverzeichnis</h1>
+              <h2 className="tw-text-3xl">Inhaltsverzeichnis</h2>
               <TOC data={blogData?.body} />
             </div>
             <div className="  lg:tw-rounded-md  sm:tw-py-10 md:tw-py-16 tw-py-5 tw-max-w-3xl tw-mx-auto html-blog ">
@@ -157,12 +167,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* <div className=" md:tw-px-16 sm:tw-px-10 tw-px-5 ">
-          {blogData?.related_blogs?.length > 0 && (
-            <BlogsCarousel data={blogData?.related_blogs} />
-          )}
-          
-        </div> */}
+        <div className=" md:tw-px-16 sm:tw-px-10 tw-px-5 ">
+          {blogData?.related_blogs?.length > 0 && <BlogsCarousel data={blogData?.related_blogs} />}
+        </div>
       </div>{' '}
       {/* {JSON.stringify(res)} */}
     </div>

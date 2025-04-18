@@ -82,7 +82,7 @@ export default function RootLayout({
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefor;
         e(j, f);
-      })(window, document, "script", "dataLayer", "GTM-KTDZQPSZ");`,
+      })(window, document, "script", "dataLayer", "GTM-MV39GF9C");`,
           }}
           strategy="afterInteractive"
         ></Script>
@@ -90,7 +90,7 @@ export default function RootLayout({
         {/* <!-- End Google Tag Manager --> */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-L6Q6F1V68P"
+          src="https://www.googletagmanager.com/gtag/js?id=G-F8GRTVZY8P"
           strategy="afterInteractive"
         ></Script>
 
@@ -122,21 +122,25 @@ export default function RootLayout({
       }
       gtag("js", new Date());
 
-      gtag("config", "G-L6Q6F1V68P");`,
+      gtag("config", "G-F8GRTVZY8P");`,
           }}
           strategy="afterInteractive"
         >
           {/* // G-1M0EJW71XL -> mine */}
-          {/* // G-L6Q6F1V68P -> Indivit */}
+          {/* // G-F8GRTVZY8P -> Indivit */}
         </Script>
-
-        {/* <title>Indivit | Smoothies zum selber Mixen</title> */}
+        {/* Ahrefs */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="bxiC3Mi5zLJKI374h1U02w"
+          async
+        ></Script>
       </head>
       <body className={` antialiased bg-light`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KTDZQPSZ"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MV39GF9C"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}

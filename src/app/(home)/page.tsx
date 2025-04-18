@@ -28,7 +28,7 @@ export default async function Home() {
         <link rel="canonical" href="https://indivit.de" />
       </Head>
       {/* {JSON.stringify(res?.data?.sliders)} */}
-      <HomeCarousel data={res?.data?.sliders} isLoading={false} />
+      <HomeCarousel data={sliderData} isLoading={false} />
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
       <div>

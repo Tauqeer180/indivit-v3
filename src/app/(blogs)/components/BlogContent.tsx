@@ -1,13 +1,15 @@
-"use client";
-import { useTableOfContent } from "@/hooks/useTableofContent";
-import React from "react";
+'use client'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import { useTableOfContent } from '@/hooks/useTableofContent'
+import React from 'react'
 
 export default function BlogContent({ data }: any) {
-  const { body, TOC } = useTableOfContent(data);
+  const { body } = useTableOfContent(data)
 
   return (
     <div>
-      <p dangerouslySetInnerHTML={{ __html: body }}></p>
+      {/* <p dangerouslySetInnerHTML={{ __html: body }}></p> */}
+      <MarkdownDisplay>{body}</MarkdownDisplay>
     </div>
-  );
+  )
 }

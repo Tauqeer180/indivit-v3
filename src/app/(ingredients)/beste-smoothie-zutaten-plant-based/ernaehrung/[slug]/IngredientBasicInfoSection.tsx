@@ -46,12 +46,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
       <div className="row d-flex  align-items-center">
         <div className="col-">
           <div className="d-flex align-items-center">
-            <h1 className="fs-2 fw-bolder">{loading ? <TextSkelton /> : data?.name}</h1>
-            {statusLabel && (
-              <span className={`badge rounded-pill text-uppercase ms-2 ${statusColor} `}>
-                {statusLabel}
-              </span>
-            )}
+            <h1 className=" fs-3 fw-bold">{data?.key_factor_headline}</h1>
           </div>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5 ">
@@ -68,30 +63,37 @@ export default function IngredientBasicInfoSection({ data, loading }) {
           </div>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <div className=" fs-3 fw-bold mb-3">{data?.key_factor_headline}</div>
+          <div className="d-flex align-items-center mb-3">
+            <h2 className="fs-2 fw-bolder mb-0">{loading ? <TextSkelton /> : data?.name}</h2>
+            {statusLabel && (
+              <span className={`badge rounded-pill text-uppercase ms-2 ${statusColor} `}>
+                {statusLabel}
+              </span>
+            )}
+          </div>
           <div className="text-left">
-            <p>
+            <div className="tw-mb-4">
               <span className="fw-bold">Geschmack:</span> &nbsp;
               {/* taste */}
               {loading ? <TextSkelton /> : data?.taste_description}
-            </p>
-            <p>
+            </div>
+            <div className="tw-mb-4">
               <span className="fw-bold">Bio:</span> &nbsp;
               {loading ? <TextSkelton /> : data?.organic_certificate}
-            </p>
-            <p>
+            </div>
+            <div className="tw-mb-4">
               <span className="fw-bold">Herkunft:</span> &nbsp;
               {loading ? <TextSkelton /> : data?.origin}
-            </p>
-            <p>
+            </div>
+            <div className="tw-mb-4">
               <span className="fw-bold">Energie:</span> &nbsp;
               {loading ? (
                 <TextSkelton />
               ) : (
                 formatToGerman1(data?.energy_kcl) + ' kcal pro 100g                '
               )}
-            </p>
-            <p>
+            </div>
+            <div className="tw-mb-4">
               <span className="fw-bold">Fußabdruck:</span> &nbsp;
               {loading ? (
                 <TextSkelton />
@@ -102,7 +104,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
               )}
               <sub>2</sub>
               &nbsp; pro 100g
-            </p>
+            </div>
           </div>
 
           <button

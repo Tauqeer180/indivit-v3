@@ -219,7 +219,7 @@ export default function Navbar() {
                                       <img
                                         src={
                                           cat?.image
-                                            ? baseURL + `/box-category/` + cat?.image
+                                            ? baseURL + `box-category/` + cat?.image
                                             : commonImgs?.boxImg
                                         }
                                         className="tw-w-full tw-max-h-48"

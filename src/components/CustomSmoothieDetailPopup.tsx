@@ -104,7 +104,7 @@ export default function CustomSmoothieDetailPopup({ data, ingredients }) {
                     alt={data?.name}
                     src={
                       data?.smoothie_picture?.picture
-                        ? baseURL + '/smoothie/' + data?.smoothie_picture?.picture
+                        ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
                         : commonImg
                     }
                     width={768}

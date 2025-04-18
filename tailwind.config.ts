@@ -9,6 +9,12 @@ const config = {
         xs: "576px",
         xxs: "480px",
       },
+      fontFamily: {
+        Greycliff: ['Greycliff CF', 'sans-serif'],
+        Fontspring: ['FONTSPRING DEMO - Regular', 'sans-serif'],
+        Epilogue: ['Epilogue', 'sans-serif'],
+        "Epilogue-bold": ['Epilogue bold', 'sans-serif'],
+      },
       colors: {
         // theme: "#359200", // old Theme Color
         theme: "#81CA00",
@@ -25,7 +31,7 @@ const config = {
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
   prefix: "tw-",
   corePlugins: {
     preflight: false,

@@ -36,7 +36,7 @@ export default function CustomBoxCard({
         <img
           src={
             data?.smoothie_picture?.picture
-              ? baseURL + '/smoothie/' + data?.smoothie_picture?.picture
+              ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
               : commonImg
           }
           className="img-fluid w-75 pb-3"

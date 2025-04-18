@@ -487,7 +487,7 @@ export function BoxListCard({ data, handleModal, handleAdd, isDisable }) {
             width="50px"
             src={
               data?.smoothie_picture?.picture
-                ? baseURL + '/smoothie/' + data?.smoothie_picture?.picture
+                ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
                 : commonImg
             }
             alt={data?.name}
