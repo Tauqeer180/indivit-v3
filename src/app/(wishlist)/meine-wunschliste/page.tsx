@@ -3,7 +3,7 @@ import HeroBanner from '@/components/common/HeroBanner'
 import { fetcher } from '@/lib/fetcher'
 import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import ConfirmDeletePopup from './ConfirmDeletePopup'
 import EmptyWishlist from './EmptyWishlist'
 import BoxListing from './BoxListing'
@@ -107,8 +107,8 @@ export default function Page() {
                       title="Du hast bisher keine Smoothie Box auf deinem Merkzettel"
                       label1="Smoothie Boxen entdecken"
                       label2="Eigene Smoothie Box zusammenstellen"
-                      link1="/boxes"
-                      link2="/custombox"
+                      link1="/produkte"
+                      link2="/meine-smoothie-box"
                     />
                   ))}
                 {selectedTab === 2 &&
@@ -118,7 +118,7 @@ export default function Page() {
                     <EmptyWishlist
                       title="Du hast bisheer keinen Zutaten auf deinem Merkzettel"
                       label1="Zutaten entdecken"
-                      link1="/ingredients"
+                      link1="/beste-smoothie-zutaten-plant-based"
                     />
                   ))}
               </>

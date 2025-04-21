@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 import CustomBoxCard from './CustomBoxCard'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import LoginCard from '@/app/(auth)/components/LoginCard'
+import Loader from '@/components/common/Loader'
 
 export default function CustomBox({
   boxSize,
@@ -152,6 +153,7 @@ export default function CustomBox({
 
   return (
     <div>
+      {loading && <Loader /> }
       {modalData && (
         <CustomSmoothieDetailPopup data={modalData} ingredients={modalData?.smoothie_ingredient} />
       )}

@@ -1,15 +1,19 @@
 import { RecipeCard, SkeltonCard } from '@/components/Cards'
 import { fetcher } from '@/lib/fetcher'
+import { cookies } from 'next/headers'
 import React from 'react'
 // Right Recipes Page
 
-export async function getSmoothiesData() {
-  const data = await fetcher('get_smoothie')
+export async function getSmoothiesData(token) {
+  const data = await fetcher('get_smoothie', { token })
   return data
 }
 
 export default async function Page() {
-  const response = await getSmoothiesData()
+  const cookieStore = await cookies()
+  const token = cookieStore.get('token')?.value || ''
+
+  const response = await getSmoothiesData(token)
   const smoothies = response?.smoothies
   const categories = response?.categories
 

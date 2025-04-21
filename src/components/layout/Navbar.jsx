@@ -245,7 +245,7 @@ export default function Navbar() {
                           {/* <div className={`col-6 col-lg-3 p-0 box-bg-3 `}>
                             <div className="pt-4">
                               <div className="text-center">
-                                <Link href={`/boxes`}>
+                                <Link href={`/produkte`}>
                                   <img
                                     src={commonImgs?.boxImg || ourbox}
                                     className=""
@@ -257,7 +257,7 @@ export default function Navbar() {
                               </div>
                               <div className="text-center bg-wave position-relative py-md-5 py-3">
                                 <Link
-                                  href={`/boxes`}
+                                  href={`/produkte`}
                                   className={`btn btn-secondary hsn-box-btn z-index-10 box-btn-bg-3`}
                                 >
                                   Alle Boxen ansehen

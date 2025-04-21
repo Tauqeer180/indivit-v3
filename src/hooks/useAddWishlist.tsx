@@ -26,7 +26,7 @@ const useAddWishlist = (func) => {
             setLoading(false)
             setDone(true)
             dispatch(fetchWishlist())
-            queryClient.invalidateQueries({ queryKey: 'wishListing' })
+            queryClient.invalidateQueries(['wishListing'])
             toast.success(res.message)
           } else {
             toast.error(res?.message)

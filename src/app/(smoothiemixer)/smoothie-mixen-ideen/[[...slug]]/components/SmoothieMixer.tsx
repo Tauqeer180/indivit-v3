@@ -123,9 +123,12 @@ export default function SmoothieMixer({
       fetcher('smoothies', { method: 'POST', data: postData, token }).then((res) => {
         console.log('resss ', res)
         if (res?.status === 'success') {
-          queryClient.invalidateQueries({ queryKey: 'customSmoothieListing' })
-          queryClient.invalidateQueries({ queryKey: 'smoothieListing' })
-          queryClient.invalidateQueries({ queryKey: 'limitedSmoothieListing' })
+          queryClient.invalidateQueries([
+            'customSmoothieListing',
+            'smoothieListing',
+            'limitedSmoothieListing',
+          ])
+
           // addWishlist({ smoothie_id: res?.data?.data });
           toast.success(res?.message)
           setLoading(false)

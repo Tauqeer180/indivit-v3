@@ -94,10 +94,13 @@ export default function Page() {
           closeRef.current.click()
         }
         toast.success('Dein Smoothie wurde gelöscht')
-        queryClient.invalidateQueries({ queryKey: 'customSmoothieListing' })
-        queryClient.invalidateQueries({ queryKey: 'smoothieListing' })
-        queryClient.invalidateQueries({ queryKey: 'limitedSmoothieListing' })
-        queryClient.invalidateQueries({ queryKey: 'smoothieById' })
+        queryClient.invalidateQueries([
+          'customSmoothieListing',
+          'smoothieListing',
+          'limitedSmoothieListing',
+          'smoothieById',
+        ])
+
         router.push('/gesunde-smoothies-rezepte-selber-machen')
         // }
         setLoading(false)
