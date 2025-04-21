@@ -23,6 +23,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { ScrollIntoview } from '@/components/common/Common'
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/common/Loader'
 let boxShadowClass =
   'tw-bg-white tw-p-2 tw-rounded-xl tw-border tw-border-solid tw-border-gray-100 hover:tw-shadow-around hover:tw-border-transparent'
 
@@ -553,6 +554,7 @@ export default function SmoothieMixer({
     maxOcc.element === undefined ? selectedData[0]?.ingredient?.category_id : maxOcc.element
   return (
     <div>
+      {isLoading && <Loader />}
       {/* Login card if not authenticated */}
       <ModalContainer
         isOpen={modalVisible && !isAuthenticated}
