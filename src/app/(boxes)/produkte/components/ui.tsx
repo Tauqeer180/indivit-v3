@@ -246,7 +246,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
           })}
       </select>
       {errors?.box_size?.type === 'required' && (
-        <p className="text-danger my-1">* Angabe notwendig</p>
+        <div className="text-danger my-1">* Angabe notwendig</div>
       )}
 
       <h5 className="pt-4">Das steckt drin</h5>
@@ -341,7 +341,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
                   })}
                 </select>
                 {errors?.subscription?.type === 'required' && (
-                  <p className="text-danger my-1">* Angabe notwendig</p>
+                  <div className="text-danger my-1">* Angabe notwendig</div>
                 )}
               </>
             )}{' '}

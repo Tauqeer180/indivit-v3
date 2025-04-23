@@ -215,7 +215,9 @@ export default function Navbar() {
                               >
                                 <div className="pt-2">
                                   <div className="text-center">
-                                    <Link href={`/category/${cat?.name + '_' + cat?.id}`}>
+                                    <Link
+                                      href={`/category/${cat?.slug || cat?.name + '_' + cat?.id}`}
+                                    >
                                       <img
                                         src={
                                           cat?.image
@@ -230,7 +232,7 @@ export default function Navbar() {
                                   </div>
                                   <div className="text-center bg-wave position-relative py-md-5 py-3">
                                     <Link
-                                      href={`/category/${cat?.name + '_' + cat?.id}`}
+                                      href={`/category/${cat?.slug || cat?.name + '_' + cat?.id}`}
                                       className={`btn btn-secondary  z-index-10  !tw-px-5 !tw-py-2 !tw-border-none`}
                                       style={{ backgroundColor: cat?.color }}
                                     >

@@ -46,7 +46,7 @@ export default async function Page({ params }) {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <Link href="/beste-smoothie-zutaten-plant-based">Ingredients</Link>
+                  <Link href="/beste-smoothie-zutaten-plant-based">Smoothie Zutaten</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {data ? data?.name : <TextSkelton />}

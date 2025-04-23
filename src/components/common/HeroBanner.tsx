@@ -9,7 +9,7 @@ export default function HeroBanner({ data, bgImg }: { data: DataProps; bgImg?: s
         id="flx-hero-section"
         className={`max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none ${bgImg} `}
       >
-        <div className="container">
+        <div className="container md:!tw-max-w-3xl tw-mx-auto">
           <div className="flx-hero-about md:!tw-pt-7 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
             <h1
               className={`text-center pb-2  ${
@@ -34,7 +34,7 @@ export default function HeroBanner({ data, bgImg }: { data: DataProps; bgImg?: s
         </div>
       </section>
       {data?.description && (
-        <div className="flx-hero-about !tw-h-auto max-md:!tw-px-4">
+        <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
           <p className="text-center pb-2">{data?.description}</p>
           {data?.description2 && <p className="text-center pb-2">{data?.description2}</p>}
         </div>

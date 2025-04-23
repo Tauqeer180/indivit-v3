@@ -11,18 +11,23 @@ import ShareButtons from '@/components/common/ShareButtons'
 import ProductCarousel from '../components/ProductCarousel'
 import dynamic from 'next/dynamic'
 import SmoothiesCarousel from '../components/SmoothiesCarousel'
+import Link from 'next/link'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
-  const decodedSlug = decodeURIComponent(slug)
+  // const decodedSlug = decodeURIComponent(slug)
 
-  const id = params?.slug?.split('_').pop()
+  const id = slug?.split('_').pop()
   const cookieStore = cookies()
   const token = cookieStore.get('token')?.value || ''
 
-  let data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
-
+  let data
+  data = await fetcher(`smoothie_box_description_slug/${slug}`, { token, cache: true })
+  if (!data?.data) {
+    data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
+  }
   let boxImage = data?.data?.smoothie_image
 
   // let page = searchParams.get("page");
@@ -66,7 +71,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 export default async function page({ params }: any) {
-  const id = params?.slug?.split('_').pop()
+  let { slug } = params
+  const id = slug?.split('_').pop()
   const cookieStore = cookies()
   const token = cookieStore.get('token')?.value || ''
 
@@ -84,8 +90,11 @@ export default async function page({ params }: any) {
   //   let smoothieData = smoothieres?.data
 
   //   Box By ID
-  let data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
-
+  let data
+  data = await fetcher(`smoothie_box_description_slug/${slug}`, { token, cache: true })
+  if (!data?.data) {
+    data = await fetcher(`smoothie_box_description/${id}`, { token, cache: true })
+  }
   let boxImage = data?.data?.smoothie_image
   // let page = searchParams.get("page");
   const boxData = data?.data
@@ -111,11 +120,29 @@ export default async function page({ params }: any) {
     <div>
       <ViewBoxPopup />
       <VATModal />
-      {/* {JSON.stringify(boxDescription)} */}
+      {/* {JSON.stringify(data)} */}
       {/* Pending Section */}
       <section id="flx-hero-boxui">
         <div className="container">
+          <div className="">
+            <nav aria-label="breadcrumb" className="px-0">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <Link href="/">Home</Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link href="/produkte">Produkte</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  {boxData?.name}
+                </li>
+              </ol>
+            </nav>
+          </div>
           <div className="row d-flex pt-0 pt-md-3">
+            <div className="col-12">
+              {boxData?.heading && <h1 className="tw-text-4xl">{boxData?.heading}</h1>}
+            </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div className="carousel-inner pe-0 pe-md-5 ps-0 ps-md-5">
                 <ProductCarousel boxImage={boxImage} />
@@ -131,9 +158,9 @@ export default async function page({ params }: any) {
                     <h4 className="mb-0 sm:!tw-text-xl xxs:!tw-text-lg !tw-text-base fw-bold">
                       Jetzt Smoothie-Abo abschließen
                     </h4>
-                    <p className="tw-text-xs xxs:tw-text-sm text-muted mb-0">
+                    <div className="tw-text-xs xxs:tw-text-sm text-muted mb-0">
                       Abonnement kann jederzeit pausiert oder gekündigt werden
-                    </p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -153,7 +180,8 @@ export default async function page({ params }: any) {
                   {boxDescription?.length > 0 && boxDescription?.[0]?.created_by == 1 && (
                     // Means Created By User
                     <span className={`badge rounded-pill text-uppercase bg-info ms-2`}>
-                      Customized
+                      {/* Customized */}
+                      Maßgeschneidert
                     </span>
                   )}
                 </div>
@@ -220,12 +248,15 @@ export default async function page({ params }: any) {
             </div>
           </div>
           <div className="my-4"></div>
-          <h5> {boxDescription?.length > 0 && boxDescription?.[0]?.short_detail} </h5>
-          <div
+          {/* <h5> {boxDescription?.length > 0 && boxDescription?.[0]?.short_detail} </h5> */}
+          <MarkdownDisplay>
+            {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
+          </MarkdownDisplay>
+          {/* <div
             dangerouslySetInnerHTML={{
               __html: boxDescription?.length > 0 && boxDescription?.[0]?.detail,
             }}
-          ></div>
+          ></div> */}
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

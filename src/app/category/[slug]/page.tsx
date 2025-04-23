@@ -5,11 +5,22 @@ import Link from 'next/link'
 import React from 'react'
 // Category Sub Pages
 export default async function page({ params }: any) {
-  const id = params?.slug?.split('_').pop()
+  const { slug } = params
+
+  const id = slug?.split('_').pop()
   const cookieStore = await cookies()
   const token = cookieStore.get('token')?.value || ''
 
-  let res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: true })
+  // let res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: true })
+  // const data = res?.data || {}
+  // let keySection =
+  //   data?.box_category_key_sections?.length > 0 &&
+  //   JSON.parse(data?.box_category_key_sections[0]?.key_sections)
+  let res
+  res = await fetcher(`smoothieBoxByCategoryBySlug/${slug}`, { token, cache: true })
+  if (!res?.data) {
+    res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: false })
+  }
   const data = res?.data || {}
   let keySection =
     data?.box_category_key_sections?.length > 0 &&
@@ -19,14 +30,14 @@ export default async function page({ params }: any) {
     <div>
       {/* <!-- hero banner start--> */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
-        {/* {JSON.stringify(data)} */}
-        <div className="container ">
+        {/* {JSON.stringify(id)} */}
+        <div className="container md:!tw-max-w-3xl tw-mx-auto ">
           <div className="flx-hero-about md:!tw-pt-7 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
             <h1 className="text-center pb-2">{data?.heading}</h1>
           </div>
         </div>
       </section>
-      <div className="flx-hero-about !tw-h-auto max-md:tw-px-4">
+      <div className="tw-pt-14 !tw-h-auto max-md:tw-px-4 md:!tw-max-w-3xl tw-mx-auto">
         <p className="text-center pb-2">{data?.detail}</p>
       </div>
       {/* <!-- hero banner end--> */}

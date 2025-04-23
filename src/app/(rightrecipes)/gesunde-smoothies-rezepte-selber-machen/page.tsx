@@ -19,15 +19,16 @@ export default async function Page() {
 
   return (
     <div>
+      {/* {JSON.stringify(smoothies[0])} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
-        <div className="container">
+        <div className="container md:!tw-max-w-3xl tw-mx-auto">
           <div className="flx-hero-about md:!tw-pt-7 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
             <h1 className="text-center pb-2">FsmoothieLoadinginde dein Lieblingsrezept</h1>
           </div>
         </div>
       </section>
 
-      <div className="flx-hero-about !tw-h-auto max-md:!tw-px-4">
+      <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
         <p className="text-center pb-2">
           Unsere Smoothie-Rezepte sind nicht nur köstlich, sondern auch eine fantastische
           Möglichkeit, eine schnelle und gesunde Mahlzeit zu sich zu nehmen. Egal, ob Du ein
@@ -102,7 +103,7 @@ export default async function Page() {
                               isButton={true}
                               data={smooth}
                               actionTitle="Mehr anzeigen"
-                              action={`/rezepte/${smooth?.unique_id}`}
+                              action={`/rezepte/${smooth?.slug || smooth?.unique_id}`}
                             />
                           </div>
                         </div>
