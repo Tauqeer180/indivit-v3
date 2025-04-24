@@ -33,7 +33,7 @@ export default function HomeCarousel({ data, isLoading }) {
                       <Link
                         href={data?.link}
                         // target="_blank"
-                        // onClick={() => ScrollToDiv("category_section")}
+                        // onClick={() => ScrollToDiv("uebersicht-smoothie-produkte")}
                         type="button"
                         className="btn btn-primary btn-solid-success"
                       >

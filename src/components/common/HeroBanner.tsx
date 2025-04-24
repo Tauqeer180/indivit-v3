@@ -1,7 +1,15 @@
 import { DataProps } from '@/types/data'
 import React from 'react'
 
-export default function HeroBanner({ data, bgImg }: { data: DataProps; bgImg?: string }) {
+export default function HeroBanner({
+  data,
+  bgImg,
+  breadCrumb,
+}: {
+  data: DataProps
+  bgImg?: string
+  breadCrumb?: React.ReactNode
+}) {
   return (
     <div>
       {/* <!-- hero banner start--> */}
@@ -30,9 +38,11 @@ export default function HeroBanner({ data, bgImg }: { data: DataProps; bgImg?: s
                 {data?.title2}
               </h1>
             )}
+            {breadCrumb && <div className="tw-hidden lg:tw-block">{breadCrumb}</div>}
           </div>
         </div>
       </section>
+      {breadCrumb && <div className="container tw-block lg:tw-hidden">{breadCrumb}</div>}
       {data?.description && (
         <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
           <p className="text-center pb-2">{data?.description}</p>

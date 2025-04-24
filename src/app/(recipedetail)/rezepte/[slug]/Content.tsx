@@ -6,6 +6,7 @@ import { BgSmoothieMixer, Heart } from '@/assets/svgIcons'
 import { BoxCard, IngrListforReci, RecipeCard, SkeltonCard } from '@/components/Cards'
 import { TextSkelton } from '@/components/common/Common'
 import Loader from '@/components/common/Loader'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import ShareButtons from '@/components/common/ShareButtons'
 import ConfirmModal from '@/components/Modal/ConfirmModal'
 import ConfirmWishModal from '@/components/Modal/ConfirmWishModal'
@@ -247,14 +248,15 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                 </div>
               </div>
               {data?.created_by != 1 && (
-                <div className="col-12 text-center my-4 tw-pt-14">
-                  <h5> {data?.headline} </h5>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: data?.smoothie_recipe_text?.recipe_text,
-                    }}
-                  ></div>
-                </div>
+                // <div className="col-12 text-center my-4 tw-pt-14">
+                //   <h5> {data?.headline} </h5>
+                //   <div
+                //     dangerouslySetInnerHTML={{
+                //       __html: data?.smoothie_recipe_text?.recipe_text,
+                //     }}
+                //   ></div>
+                // </div>
+                <MarkdownDisplay>{data?.smoothie_recipe_text?.recipe_text}</MarkdownDisplay>
               )}
             </div>
           </div>

@@ -1,7 +1,22 @@
 import HeroBanner from '@/components/common/HeroBanner'
 import React from 'react'
 import SustainabilityDetails from './SustainabilityDetails'
+import Link from 'next/link'
 
+const BreadCrumb = ({ name }) => {
+  return (
+    <nav aria-label="breadcrumb" className="px-0">
+      <ol className="breadcrumb lg:tw-justify-center">
+        <li className="breadcrumb-item">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item active" aria-current="page">
+          {name}
+        </li>
+      </ol>
+    </nav>
+  )
+}
 // Sustainability Page
 export async function generateMetadata() {
   // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
@@ -34,6 +49,7 @@ export default function Page() {
           description:
             'Vieles von dem, was wir täglich umsetzen, möchten wir auch in den nächsten Jahren weiterführen. Daher liegt uns ein nachhaltiges Handeln sehr nahe. Das bedeutet für uns ganz konkret, wir positionieren uns für einen umfassenden Umweltschutz, ein vollständiges Recycling, einen sinnvollen Ressourceneinsatz und minimale Verschwendung.',
         }}
+        breadCrumb={<BreadCrumb name="Nachhaltigkeit" />}
       />
       <SustainabilityDetails />
     </div>

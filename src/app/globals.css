@@ -48,3 +48,12 @@ code {
   background-color: var(--green);
   color: white;
 }
+.no-tailwind:not([dir=rtl]) blockquote {
+  border-left: 2px solid #ccc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+.no-tailwind a{
+  color: var(--green);
+  /* text-decoration: none; */
+}

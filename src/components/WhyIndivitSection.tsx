@@ -90,7 +90,7 @@ export default function WhyIndivitSection({ data = [] }) {
           </div>
 
           <button
-            onClick={() => ScrollToDiv('category_section')}
+            onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}
             className="tw-mt-8 tw-bg-[#81CA00] hover:tw-text-slate-100 tw-no-underline  tw-py-3 tw-px-7 tw-border-none tw-rounded-lg tw-text-white tw-max-w-[291px] max-md:tw-mx-auto"
           >
             Unsere Produkte entdecken

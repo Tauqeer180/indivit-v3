@@ -93,8 +93,8 @@ export default function HowItWorks({ data }) {
       {/* CTA Button */}
       <div className="tw-text-center tw-mt-16">
         <Link
-          href="#category_section"
-          //   onClick={() => ScrollToDiv('category_section')}
+          href="#uebersicht-smoothie-produkte"
+          //   onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}
           // target="_blank"
           className="tw-bg-[#81CA00] tw-border-none tw-text-white tw-px-8 tw-py-3 tw-rounded-lg hover:tw-bg-[#81CA00] tw-transition-colors tw-decoration-transparent hover:tw-text-white"
         >

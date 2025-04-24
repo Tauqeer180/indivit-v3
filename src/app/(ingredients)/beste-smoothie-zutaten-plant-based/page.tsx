@@ -1,8 +1,25 @@
 import { IngredientCard } from '@/components/Cards'
 import HeroBanner from '@/components/common/HeroBanner'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import { fetcher } from '@/lib/fetcher'
+import Link from 'next/link'
 import React from 'react'
+import IntroText from '@/constant/IntroText.json'
 // Ingredients page
+const BreadCrumb = ({ name }) => {
+  return (
+    <nav aria-label="breadcrumb" className="px-0">
+      <ol className="breadcrumb lg:tw-justify-center">
+        <li className="breadcrumb-item">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item active" aria-current="page">
+          {name}
+        </li>
+      </ol>
+    </nav>
+  )
+}
 async function getIngredientsData() {
   const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
   return data
@@ -45,6 +62,7 @@ export default async function Ingredients() {
             'Unsere vitalen und lebendigen Smoothie-Zutaten vereinen sich zu einem harmonischen Zusammenspiel von Aromen und Nährstoffen und sind ein köstlicher und erfrischender Genuss für deine Geschmacksnerven und deine Gesundheit. Für jede unserer Zutaten haben wir spannende Informationen für dich zusammengetragen – das sollte dir bei der Auswahl für deinen Smoothie helfen.',
         }}
         bgImg=" !tw-bg-mixer"
+        breadCrumb={<BreadCrumb name="Smoothie Zutaten" />}
       />
       {/* <!-- hero banner end--> */}
 
@@ -152,6 +170,10 @@ export default async function Ingredients() {
               )
             })}
           </div>
+        </div>
+
+        <div className="container tw-mt-14">
+          <MarkdownDisplay>{IntroText?.ingredient_content_2}</MarkdownDisplay>
         </div>
         {/* <div className="d-flex justify-content-center mt-5">
           <ReactPaginate

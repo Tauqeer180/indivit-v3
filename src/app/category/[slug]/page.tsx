@@ -4,6 +4,21 @@ import { cookies } from 'next/headers'
 import Link from 'next/link'
 import React from 'react'
 // Category Sub Pages
+
+const BreadCrumb = ({ name }) => {
+  return (
+    <nav aria-label="breadcrumb" className="px-0">
+      <ol className="breadcrumb lg:tw-justify-center">
+        <li className="breadcrumb-item">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item active" aria-current="page">
+          {name}
+        </li>
+      </ol>
+    </nav>
+  )
+}
 export default async function page({ params }: any) {
   const { slug } = params
 
@@ -29,14 +44,20 @@ export default async function page({ params }: any) {
   return (
     <div>
       {/* <!-- hero banner start--> */}
+      {/* {JSON.stringify(data)} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
-        {/* {JSON.stringify(id)} */}
         <div className="container md:!tw-max-w-3xl tw-mx-auto ">
-          <div className="flx-hero-about md:!tw-pt-7 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
+          <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
             <h1 className="text-center pb-2">{data?.heading}</h1>
+            <div className="tw-hidden lg:tw-block">
+              <BreadCrumb name={data?.name} />
+            </div>
           </div>
         </div>
       </section>
+      <div className="container tw-block lg:tw-hidden">
+        <BreadCrumb name={data?.name} />
+      </div>
       <div className="tw-pt-14 !tw-h-auto max-md:tw-px-4 md:!tw-max-w-3xl tw-mx-auto">
         <p className="text-center pb-2">{data?.detail}</p>
       </div>

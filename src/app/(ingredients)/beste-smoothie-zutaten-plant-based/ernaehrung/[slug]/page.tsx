@@ -6,9 +6,14 @@ import AllNutrientsPopup from './AllNutrientsPopup'
 import IngredientBasicInfoSection from './IngredientBasicInfoSection'
 import NutrientsSection from './NutrientsSection'
 import TasteSection from './TasteSection'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 
 async function getIngredientById(slug: string): Promise<any> {
-  const data = await fetcher(`get_ingredient/${slug}`)
+  let data
+  data = await fetcher(`get_ingredient_slug/${slug}`, { cache: true, revalidate: 86400 })
+  if (!data?.data?.ingredients) {
+    data = await fetcher(`get_ingredient/${slug}`, { cache: true, revalidate: 86400 })
+  }
   return data
 }
 export async function generateMetadata({ params }) {
@@ -36,6 +41,7 @@ export default async function Page({ params }) {
 
   return (
     <div>
+      {/* {JSON.stringify(res?.data?.ingredients)} */}
       <AllNutrientsPopup data={data?.nutrients} />
       <section id="flx-hero-rdetailed">
         <div className="container">
@@ -59,6 +65,11 @@ export default async function Page({ params }) {
           </div>
         </div>
       </section>
+      <div className="container">
+        {data?.ingredient_description && (
+          <MarkdownDisplay>{data?.ingredient_description || ''}</MarkdownDisplay>
+        )}
+      </div>
 
       {/* <!-- progressbar section --> */}
       <section id="flx-idetailed-probr">
@@ -112,11 +123,10 @@ export default async function Page({ params }) {
                   </a>
                 )}{' '}
               </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data?.ingredient_description || '', // Make sure this is HTML content, not JSON
-                }}
-              ></div>
+              {data?.bottom_detail && (
+                <MarkdownDisplay>{data?.bottom_detail || ''}</MarkdownDisplay>
+              )}
+
               {/* <p>{data?.ingredient_category?.detail}</p> */}
             </div>
           </div>

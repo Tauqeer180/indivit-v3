@@ -1,9 +1,25 @@
 import { RecipeCard, SkeltonCard } from '@/components/Cards'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import { fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
+import Link from 'next/link'
 import React from 'react'
+import IntroText from '@/constant/IntroText.json'
 // Right Recipes Page
-
+const BreadCrumb = ({ name }) => {
+  return (
+    <nav aria-label="breadcrumb" className="px-0">
+      <ol className="breadcrumb lg:tw-justify-center">
+        <li className="breadcrumb-item">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item active" aria-current="page">
+          {name}
+        </li>
+      </ol>
+    </nav>
+  )
+}
 export async function getSmoothiesData(token) {
   const data = await fetcher('get_smoothie', { token })
   return data
@@ -22,12 +38,17 @@ export default async function Page() {
       {/* {JSON.stringify(smoothies[0])} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container md:!tw-max-w-3xl tw-mx-auto">
-          <div className="flx-hero-about md:!tw-pt-7 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
+          <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
             <h1 className="text-center pb-2">FsmoothieLoadinginde dein Lieblingsrezept</h1>
+            <div className="tw-hidden lg:tw-block">
+              <BreadCrumb name={'Smoothie Rezepte'} />
+            </div>
           </div>
         </div>
       </section>
-
+      <div className="container tw-block lg:tw-hidden">
+        <BreadCrumb name={'Smoothie Rezepte'} />
+      </div>
       <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
         <p className="text-center pb-2">
           Unsere Smoothie-Rezepte sind nicht nur köstlich, sondern auch eine fantastische
@@ -151,6 +172,10 @@ export default async function Page() {
             })}
 
             {/* <!--Caffeine tabs setting end --> */}
+          </div>
+
+          <div className="container">
+            <MarkdownDisplay>{IntroText?.recipe_content_2}</MarkdownDisplay>
           </div>
         </div>
       </section>

@@ -12,7 +12,7 @@ import Image from 'next/image'
 
 export default function ProductCategory({ data = [] }) {
   return (
-    <div className="tw-min-h- tw-py-12 " id="category_section">
+    <div className="tw-min-h- tw-py-12 " id="uebersicht-smoothie-produkte">
       {/* {JSON.stringify(data)} */}
       <div className="container mx-auto">
         <h2 className="tw-text-3xl md:tw-text-4xl tw-font-bold tw-text-center tw-text-gray-800 tw-mb-12">

@@ -8,10 +8,12 @@ interface Props {
 export const MarkdownDisplay = (props: Props) => {
   return (
     <div className={props.className}>
-      <div
-        className={props.enableTailwind ? '' : 'no-tailwind'}
-        dangerouslySetInnerHTML={{ __html: props.children }}
-      />
+      {props?.children && (
+        <div
+          className={props.enableTailwind ? '' : 'no-tailwind'}
+          dangerouslySetInnerHTML={{ __html: props.children }}
+        />
+      )}
     </div>
   )
 }
