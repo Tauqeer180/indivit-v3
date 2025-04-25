@@ -1,3 +1,4 @@
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import Image from 'next/image'
 import React from 'react'
 export default function SustainabilityDetails() {
@@ -28,134 +29,326 @@ export default function SustainabilityDetails() {
                     />
                   </div>
                 </div>
-                <h2>
-                  Mit indivit Smoothies:{' '}
-                  <span className="hsn-smoothies">
-                    &nbsp;Schluck für Schluck zur Nachhaltigkeit
-                  </span>
-                </h2>{' '}
-                <p>
-                  Wenn es um Smoothies geht, dann spielt Nachhaltigkeit in allen Stufen der
-                  Wertschöpfung eine Rolle. Wir haben unsere Prozesse entsprechend beleuchtet und
-                  arbeiten weiter an einer Minimierung unseres ökologischen Fußabdrucks.
-                </p>
-                <p>
-                  <span className="hsn-smoothies">
-                    <b>
-                      Umweltschutz durch reine Verwendung von Zutaten, nach den Richtlinien des
-                      ökologischen Landbaus:
-                    </b>
-                  </span>
+
+                <div className="no-tailwind">
+                  <h2>
+                    Mit indivit Smoothies:{' '}
+                    <span className="hsn-smoothies">
+                      &nbsp;Schluck für Schluck zur Nachhaltigkeit
+                    </span>
+                  </h2>
+                  <p>
+                    Du willst dich klimafreundlich ernähren und gleichzeitig auf Bio-Lebensmittel
+                    setzen? Indivit verbindet ökologisches Essen mit innovativen Lösungen: Von
+                    zertifizierten Bio-Zutaten über umweltfreundliche Verpackungen bis zur
+                    ressourcensparenden Produktion. Wir zeigen, wie nachhaltige Ernährung mit
+                    recyclingfähigen Materialien, CO₂-optimiertem Versand und Zero-Waste-Philosophie
+                    funktioniert. Erfahre hier, warum unsere Smoothies nicht nur deinem Körper,
+                    sondern auch dem Planeten guttun.
+                  </p>
                   <br />
-                  Die verwendeten Biolebensmittel tragen, nach Angaben des Umwelt Bundesamtes, zum
-                  Umweltschutz bei. Dies gelingt, indem sie Umweltbelastungen reduzieren, die sonst
-                  mit der konventionellen Landwirtschaft auftreten. Dazu zählt der vollständige
-                  Verzicht auf chemisch -synthetische Pflanzenschutzmittel und auf leicht lösliche
-                  mineralische Düngemittel. Leider sind diese umweltschonende Anbaumethoden in der
-                  Regel mit Mehrkosten verbunden, sodass Biolebensmittel meist teurer gegenüber
-                  vergleichbaren konventionellen Lebensmitteln sind. Dabei ist jedoch zu beachten,
-                  dass konventionelle Lebensmittel auch deshalb so günstig sind, weil die Kosten für
-                  die damit verbundenen Umweltschäden an die Allgemeinheit und zukünftige
-                  Generationen weitergegeben werden. Daher haben wir uns klar entschieden – wir
-                  möchten unseren Beitrag zu einer lebenswerten Umwelt leisten und verwenden
-                  ausschließlich Zutaten aus ökologischem Anbau. Zusätzlich sind wir uns bewusst,
-                  dass einige unserer Zutaten auch aus weiter entfernteren Ländern zu uns reisen
-                  müssen. Daher informieren wir mit transparenten Angaben über die jeweiligen
-                  Herkunftsländer sowie über den durchschnittlichen CO2 -Fußabdrucks aller Zutaten.
-                  So ist jeder Kunde in der Lage, seinen individuellen Smoothie so zu erstellen,
-                  dass sein CO2 -Budget minimal belastet wird. Darüber hinaus verzichten wir
-                  generell auf die Nutzung von importierter Flugware .
-                </p>
-                <p>
-                  <span className="hsn-smoothies">
-                    <b>
-                      Beitrag zu einem nachhaltigem Kreislauf durch maximalen Einsatz von recyceltem
-                      und recyclingfähigem Material:{' '}
-                    </b>
-                  </span>
-                  <br />
-                  Natürlich benötigt ein Smoothie eine Verpackung. Wir haben uns jedoch dazu
-                  entschieden, die genutzten Verpackungen auf ein Minimum zu reduzieren und alle
-                  eingesetzten Materialien entlang ökologischer Kriterien auszuwählen. Dies ist
-                  unser Beitrag zu einem nachhaltigem Ressourcenkreislauf. <br /> Die Flasche
-                  unseres Smoothies besteht zu 100% aus recyceltem PET. Dies bedeutet, dass die
-                  Herstellung einer Flasche lediglich ca. 10% der Energie im Vergleich zu
-                  herkömmlichen PET-Flaschen benötigt. Durch den Anschluss an das Einweg-Pfandsystem
-                  ist die Weiterverwendung des Flaschenmaterials im Recyclingkreislauf
-                  sichergestellt. Wir haben uns übrigens bewusst gegen die Verwendung von
-                  Glasflaschen entschieden, da diese im direkten Öko-Vergleich schlechter
-                  abschneiden, sobald sie weiter als ca. 200km transportiert werden müssen und
-                  weniger als ca. 15 mal wieder verwendet werden.
-                  <br /> Für den Versand unserer Smoothies kommt ausschließlich recyclingfähiges
-                  Verpackungsmaterial zum Einsatz. Wir waren nicht glücklich über die bestehenden
-                  Verpackungsangebote und haben deshalb ganz einfach unsere eigene Verpackung für
-                  den gekühlten Versand unserer Smoothies entwickelt. Die gesamte Verpackung besteht
-                  dabei zu ca. 50% aus recyceltem Altpapier. Dadurch wird unsere Umwelt weniger
-                  stark belastet, denn – nach Angaben des Umwelt Bundesamtes – benötigt die
-                  Produktion von Recyclingpapier nur etwa 50% an Energie und nur rund 33% der
-                  Wassermenge. Außerdem werden pro Kilogramm recyceltem Papier bis zu 2,2 Kilogramm
-                  Holz eingespart. Letztendlich kann unsere Versandverpackung vollständig im
-                  Altpapier entsorgt werden und wird schon bald wieder in neuen Produkten Verwendung
-                  finden.
-                </p>
-                <p>
-                  <span className="hsn-smoothies">
-                    <b>
-                      Wir wollen Ressourcen sinnvoll nutzen, um für alle das bestmögliche Ergebnis
-                      zu erzielen – in der höchsten Qualität:
-                    </b>
-                  </span>{' '}
-                  <br />
-                  Für uns bedeutet ein nachhaltiger Umgang mit unserer Umgebung, dass wir notwendige
-                  Ressourcen generell sinnvoll einsetzen – egal ob diese in Kilowattstunden (für
-                  Energie), in Litern (z.B. für Wasser), in Kilogramm (z.B. für CO2), in Stunden
-                  (für investierte Zeit) oder in Euro gemessen werden. Das bedeutet, dass wir
-                  durchaus Ressourcen verbrauchen. Allerdings haben wir uns zum Ziel gesetzt den
-                  Ressourceneinsatz, über den gesamten Prozess zur Herstellung von vitalen Smoothies
-                  hinweg, so sinnvoll wie möglich zu gestalten. So nutzen wir zum Beispiel - aus
-                  unserer Sicht – das beste verfügbare Equipment zur Herstellung unserer feinen
-                  Smoothies. Damit ersparen wir vielen unserer Kunden sich selbst einen teuren Mixer
-                  anzuschaffen, der womöglich im privaten Gebrauch nur eine geringe Auslastung
-                  finden würde. Neben den somit optimal genutzten Geräteressourcen macht es unsere
-                  zentrale Produktion möglich - im Vergleich zum individuellen Privatgebrauch – auch
-                  weitere Ressourcen zu sparen. Das bedeutet z.B. einen geringen Verbrauch von
-                  Wasser und letztendlich auch einen optimalen Einsatz einer weiteren wichtigen
-                  Ressource: Zeit. Als weitere, beinahe schon selbstverständliche Maßnahme,
-                  versorgen wir unseren Berliner Firmensitz ausschließlich mit Energie aus
-                  erneuerbaren Quellen. Jeder sinnvolle Beitrag zu einem verantwortungsbewussten
-                  Umgang mit unseren begrenzten Ressourcen ist daher auch in Zukunft willkommen.
-                </p>
-                <p>
-                  <span className="hsn-smoothies">
-                    <b>
-                      {' '}
-                      Vermeidung von Abfall in allen Stufen der Wertschöpfung – zu jedem Zeitpunkt:
-                    </b>
-                  </span>
-                  <br />
-                  Wir bestreben, bei allem was wir tun, möglichst wenig Abfall zu produzieren und
-                  Verschwendungen auf ein Minimum zu reduzieren. Das fängt bei unserem innovativen
-                  Verpackungskonzept an und geht über den generell verantwortungsbewussten Umgang
-                  mit Ressourcen hinaus. Leider leben wir alle in einem Umfeld, in dem – nach
-                  Angaben der Welthungerhilfe – weltweit ca. 17% aller Lebensmittel ungenutzt in der
-                  Tonne landen. Für unseren Kontext ist dabei besonders hervorzuheben die
-                  Lebensmittelverluste in der Industrie (insbesondere durch Überproduktion), im
-                  Einzelhandel (insbesondere, wenn Erzeugnisse liegen bleiben und entsorgt werden
-                  müssen) und in der Gastronomie (insbesondere durch eine unkalkulierbare
-                  Nachfrage). Die Produktion von Lebensmitteln, die letzten Endes im Müll landen,
-                  verschwendet damit wichtige Ressourcen wie Energie, Wasser und Ackerflächen, die
-                  in anderen Ländern dringend benötigt werden. Um einen großen Teil der
-                  Lebensmittelabfälle zu reduzieren, fordert das Bundeszentrum für Ernährung deshalb
-                  die Einbindung aller Akteure in der Lebensmittelversorgungskette. Genau an dieser
-                  Stelle setzen wir an, indem wir Verschwendungen jeder Art regelrecht den Kampf
-                  ansagen. Das bedeutet, wir haben uns entschieden, unsere leckeren Smoothies nur
-                  auf konkrete Bestellung hin zu produzieren. Damit binden wir unsere Kunden direkt
-                  in den Produktionsprozess ein und senken die Verschwendung durch z.B.
-                  Überproduktion oder Liegenbleiben quasi auf Null. Ganz nebenbei heißt das übrigens
-                  auch, dass jeder produzierte Smoothie so frisch wie möglich beim Kunden landet –
-                  damit bleibt der Anteil der gesunden Vitalstoffe besonders hoch. So sinnvoll kann
-                  die Reduktion von Verschwendung nämlich auch sein.
-                </p>
+
+                  {/* Secondary Text */}
+                  <p>
+                    🌍 <strong>Warum ökologische Ernährung mehr als ein Trend ist</strong>
+                    <br />
+                    Immer mehr Menschen fragen sich: Wie kann ich mich{' '}
+                    <strong>umweltfreundlich ernähren</strong> und gleichzeitig etwas für meine
+                    Gesundheit tun? Die Antwort liegt in der Kombination aus{' '}
+                    <strong>Bio-Lebensmitteln</strong>, bewusstem Konsum und innovativen Lösungen.
+                    Bei uns findest du nicht nur Smoothies, sondern ein ganzheitliches Konzept für{' '}
+                    <strong>nachhaltige Lebensmittel</strong> – von der Zutat bis zur
+                    Verpackung.{' '}
+                  </p>
+
+                  <hr />
+
+                  <h2>Bio-Lebensmittel: Mehr als nur ein Label</h2>
+
+                  <h3>Was „ökologisch erzeugt“ wirklich bedeutet</h3>
+
+                  <p>
+                    <strong>Bio-Lebensmittel</strong> stammen aus Anbaumethoden, die:
+                    <br />
+                    ✔️ Auf chemisch-synthetische Pestizide verzichten
+                    <br />
+                    ✔️ Natürliche Dünger wie Kompost nutzen
+                    <br />
+                    ✔️ Tierwohl und Artenvielfalt fördern
+                    <br />
+                    ✔️ Transparente Herkunftsangaben{' '}
+                  </p>
+
+                  <p>
+                    <strong>Bio-Lebensmittel</strong> sind kein Luxus, sondern eine Investition in
+                    unsere gemeinsame Zukunft. Bei Indivit setzen wir seit der ersten Flasche auf{' '}
+                    <strong>ökologische Ernährung</strong> – weil echter Genuss nie auf Kosten der
+                    Umwelt gehen darf.{' '}
+                  </p>
+
+                  <p>
+                    📊 <strong>Der Preis-Vergleich, der nachdenklich macht</strong>{' '}
+                  </p>
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Konventionell</th>
+                        <th>Bio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>CO₂-Fußabdruck*</td>
+                        <td>2,5 kg/kg</td>
+                        <td>1,8 kg/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Wasserverbrauch*</td>
+                        <td>500 l/kg</td>
+                        <td>300 l/kg</td>
+                      </tr>
+                      <tr>
+                        <td>Biodiversitätsindex</td>
+                        <td>60/100</td>
+                        <td>85/100</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <p>*Durchschnittswerte laut Umweltbundesamt </p>
+
+                  <p>
+                    💡 <strong>Unser Versprechen</strong>: Alle Zutaten stammen aus
+                    EU-zertifiziertem Öko-Anbau – transparent nachverfolgbar in jedem Smoothie.{' '}
+                  </p>
+
+                  <hr />
+
+                  <h2>Klimafreundlich ernähren: Vom Acker bis zur Lieferung</h2>
+
+                  <h3>So reduzieren wir Emissionen</h3>
+
+                  <p>
+                    Unser Vorzeige-Smoothie{' '}
+                    <strong>
+                      <a href="https://indivit.de/rezepte/pfirsich-smoothie-fructoseintoleranz-ernaehrung">
+                        Fructover 3.0
+                      </a>
+                    </strong>{' '}
+                    zeigt, wie <strong>umweltfreundlich essen</strong> funktioniert:
+                    <br />- <strong>CO₂-Bilanz</strong>: Unter 100 g pro Flasche (inkl. Anbau &amp;
+                    Transport)
+                    <br />- <strong>Transport</strong>: Keine Flugware – nur Schiff und Bahn
+                    <br />- <strong>Zutatenmix</strong>: Regionales Obst kombiniert mit Superfoods
+                    aus fairem Handel{' '}
+                  </p>
+
+                  <p>
+                    ♻️ <strong>Die Verpackungsrevolution</strong>
+                    <br />- <strong>Flasche</strong>: 100 % recyceltes PET (spart 90 % Energie vs.
+                    Neuplastik)
+                    <br />- <strong>Kühlbox</strong>: Aus 50 % Altpapier, komplett recyclingfähig
+                    <br />- <strong>Etiketten</strong>: Pflanzenbasierte Druckfarben{' '}
+                  </p>
+
+                  <hr />
+
+                  <h2>Ressourcen clever nutzen – ohne Qualitätsverlust</h2>
+
+                  <h3>Warum wir auf Glas verzichten</h3>
+
+                  <p>Viele glauben, Glas sei nachhaltiger. Doch unser Vergleich zeigt: </p>
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Kriterien</th>
+                        <th>Recyceltes PET</th>
+                        <th>Glas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Energieverbrauch</td>
+                        <td>10 % von Neu-Plastik</td>
+                        <td>3x höher</td>
+                      </tr>
+                      <tr>
+                        <td>CO₂ pro Flasche</td>
+                        <td>0,05 kg</td>
+                        <td>0,15 kg</td>
+                      </tr>
+                      <tr>
+                        <td>Wiederverwendungen</td>
+                        <td>Recycling-Kreislauf im Pfandsystem</td>
+                        <td>15x nötig für positive Ökobilanz</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <p>
+                    <em>Warum also kein Glas?</em> Ab 200 km Transportstrecke schneiden PET-Flaschen
+                    in der Ökobilanz besser ab – selbst bei theoretisch 15-maliger Wiederverwendung
+                    einer Verpackung aus Glas.{' '}
+                  </p>
+
+                  <p>
+                    💧 <strong>Wasser sparen durch Effizienz</strong>
+                    <br />
+                    Unsere Berliner Manufaktur verbraucht 70 % weniger Wasser als typische
+                    Haushaltsprozesse – dank geschlossenem Kühlkreislauf.{' '}
+                  </p>
+
+                  <hr />
+
+                  <h2>Zero Waste: Kein Smoothie für die Tonne</h2>
+
+                  <h3>Wie wir Lebensmittelverschwendung stoppen</h3>
+
+                  <ul>
+                    <li>
+                      <strong>On-demand-Produktion</strong>: Wir mixen erst nach deiner
+                      Bestellung{' '}
+                    </li>
+                    <li>
+                      <strong>HPP-Verfahren</strong>: Natürliche Haltbarkeit ohne
+                      Konservierungsstoffe{' '}
+                    </li>
+                    <li>
+                      <strong>Supply-Management</strong>: Chargen werden vollständig
+                      verarbeitet{' '}
+                    </li>
+                  </ul>
+
+                  <hr />
+
+                  <h2>
+                    FAQ: Häufige Fragen zu <strong>nachhaltiger Ernährung</strong>
+                  </h2>
+
+                  <h3>❓ „Sind Bio-Lebensmittel wirklich gesünder?“</h3>
+
+                  <p>
+                    Studien zeigen: Bio-Obst enthält bis zu 60 % mehr Antioxidantien. Entscheidender
+                    ist aber der Verzicht auf Pestizidrückstände.{' '}
+                  </p>
+
+                  <h3>❓ „Wie kann ich im Alltag klimafreundlich essen?“</h3>
+
+                  <ul>
+                    <li>
+                      Starte mit kleinen Schritten wie unserem{' '}
+                      <a href="https://indivit.de/saftkur-erfahrung-mit-intervallfasten">
+                        Intervallfasten-Programm
+                      </a>{' '}
+                    </li>
+                    <li>
+                      Ersetze Snacks durch <strong>umweltfreundliche Lebensmittel</strong> wie Nüsse
+                      oder unsere{' '}
+                      <a href="https://indivit.de/produkte/suesse-snacks-gesund-smoothie-optionen">
+                        Genießer-Smoothies
+                      </a>{' '}
+                    </li>
+                  </ul>
+
+                  <h3>❓ „Welche Produkte sollte ich unbedingt Bio kaufen?“</h3>
+
+                  <p>
+                    Bei dünnschaligem Obst/Gemüse wie Äpfeln oder Spinat lohnt sich Bio besonders.
+                    In unseren{' '}
+                    <a href="https://indivit.de/die-besten-saftkur-fastenkur-programme">
+                      Fastenkuren
+                    </a>{' '}
+                    setzen wir deshalb auf 100 % Bio-Zutaten.{' '}
+                  </p>
+
+                  <h3>❓ „Wie ernähre ich mich klimafreundlich?“</h3>
+
+                  <ul>
+                    <li>Kombiniere regional + saisonal </li>
+                    <li>Reduziere tierische Produkte </li>
+                    <li>Plane Einkäufe clever </li>
+                    <li>Nutze ökologische Verpackungen </li>
+                  </ul>
+
+                  <hr />
+
+                  <h2>
+                    Dein Guide zum <strong>nachhaltigen Einkaufen</strong>
+                  </h2>
+
+                  <h3>3 Schritte für mehr Öko-Bewusstsein</h3>
+
+                  <ol>
+                    <li>
+                      <strong>Planvoll bestellen</strong>: Ob{' '}
+                      <a href="https://indivit.de/trinkmahlzeit-snack-fuer-unterwegs">
+                        Trinkmahlzeit
+                      </a>{' '}
+                      oder{' '}
+                      <a href="https://indivit.de/produkte/saftkur-7-tage-heilfasten-nach-buchinger">
+                        7-Tage-Kur
+                      </a>{' '}
+                      – vermeide Spontankäufe{' '}
+                    </li>
+                    <li>
+                      <strong>Kreislauf fördern</strong>: Gib leere Flaschen ins Pfand oder bastle
+                      sie zu Seedbombs um{' '}
+                    </li>
+                    <li>
+                      <strong>Experimentieren</strong>: Probier im{' '}
+                      <a href="https://indivit.de/smoothie-mixen-ideen">Smoothie-Mixer</a> Rezepte
+                      mit regionalen Zutaten wie Sellerie{' '}
+                    </li>
+                  </ol>
+
+                  <p>
+                    🌱 <strong>Let’s change the sip!</strong>
+                    <br />
+                    Jeder Schluck unserer Bio-Smoothies ist ein Beitrag für eine lebenswerte
+                    Zukunft. Willst du wissen, wie einfach <strong>ökologisch essen</strong> sein
+                    kann?{' '}
+                    <a href="https://indivit.de/#uebersicht-smoothie-produkte">
+                      Entdecke unsere Programme
+                    </a>
+                    .{' '}
+                  </p>
+
+                  <blockquote>
+                    <p>
+                      <strong>Pro-Tipp:</strong> Unser{' '}
+                      <a href="https://indivit.de/smoothie-mixen-ideen">Smoothie-Konfigurator</a>{' '}
+                      zeigt live, wie sich Zutaten auf deine CO₂-Bilanz auswirken. Experimentiere
+                      mit verschiedenen Kombinationen!{' '}
+                    </p>
+                  </blockquote>
+
+                  <hr />
+
+                  <h3>Unser Nachhaltigkeitsversprechen</h3>
+
+                  <ul>
+                    <li>
+                      🌿 <strong>100% Bio-Zutaten</strong> aus EU-zertifiziertem Anbau{' '}
+                    </li>
+                    <li>
+                      🔍 <strong>Volle Transparenz</strong> über Herkunft und CO₂-Fußabdruck{' '}
+                    </li>
+                    <li>
+                      ♻️ <strong>Kreislaufwirtschaft</strong> durch smartes Recycling{' '}
+                    </li>
+                    <li>
+                      🤝 <strong>Fairer Handel</strong> mit langfristigen Partnerbetrieben{' '}
+                    </li>
+                  </ul>
+
+                  <p>
+                    <em>Jeder Schluck ist eine Entscheidung – für dich und unseren Planeten.</em>{' '}
+                    🌍✨
+                  </p>
+                </div>
               </div>
             </div>
           </div>

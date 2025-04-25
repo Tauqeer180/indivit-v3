@@ -5,6 +5,7 @@ import React from 'react'
 import AboutDetails from './AboutDetails'
 import { fetcher } from '@/lib/fetcher'
 import AboutJSON from './JSONData.json'
+import { BreadCrumb } from '@/components/common/Common'
 
 // ABout Page
 
@@ -45,6 +46,7 @@ export default async function Page() {
           title: aboutData?.data?.[0].main__title,
           description: aboutData?.data?.[0]?.main_description,
         }}
+        breadCrumb={<BreadCrumb name="Über Indivit" />}
         bgImg=" !tw-bg-about"
       />
       <AboutDetails

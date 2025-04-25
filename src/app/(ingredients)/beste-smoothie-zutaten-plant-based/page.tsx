@@ -5,21 +5,9 @@ import { fetcher } from '@/lib/fetcher'
 import Link from 'next/link'
 import React from 'react'
 import IntroText from '@/constant/IntroText.json'
+import { BreadCrumb } from '@/components/common/Common'
 // Ingredients page
-const BreadCrumb = ({ name }) => {
-  return (
-    <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center">
-        <li className="breadcrumb-item">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="breadcrumb-item active" aria-current="page">
-          {name}
-        </li>
-      </ol>
-    </nav>
-  )
-}
+
 async function getIngredientsData() {
   const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
   return data

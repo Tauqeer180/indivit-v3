@@ -5,6 +5,9 @@ import { fetcher } from '@/lib/fetcher'
 import React from 'react'
 import SmoothieMixer from './components/SmoothieMixer'
 import { cookies } from 'next/headers'
+import { BreadCrumb } from '@/components/common/Common'
+import IntroText from '@/constant/IntroText.json'
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 // Smoothie Mixer
 
 export async function generateMetadata() {
@@ -113,9 +116,10 @@ export default async function page({ params }) {
       <HeroBanner
         data={{
           title: 'Online Smoothie Mixer',
-          description:
-            'Ein Smoothie. Unendliche Gestaltungsfreiheit. Kreiere deinen persönlichen Smoothie einfach selbst.',
+          description: IntroText?.mixer_content_1,
+          markdown: true,
         }}
+        breadCrumb={<BreadCrumb name="Online Smoothie Mixer" />}
         bgImg=" !tw-bg-mixer"
       />
       <SmoothieMixer
@@ -126,6 +130,9 @@ export default async function page({ params }) {
         smoothieByIdData={smoothieByIdData}
         smoothieRecipes={smoothieRecipes}
       />
+      <div className="container">
+        <MarkdownDisplay>{IntroText?.mixer_content_2}</MarkdownDisplay>
+      </div>
       {/* {JSON.stringify(ingredientData)} */}
       {/* Smoothie Mixer
       <br />

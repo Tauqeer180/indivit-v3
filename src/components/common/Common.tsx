@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import React from 'react'
 
 export function TextSkelton() {
@@ -57,5 +58,20 @@ export function ShowMoreBtn({ show, setShow, list }) {
         </div>
       )}
     </>
+  )
+}
+
+export const BreadCrumb = ({ name }) => {
+  return (
+    <nav aria-label="breadcrumb" className="px-0">
+      <ol className="breadcrumb lg:tw-justify-center">
+        <li className="breadcrumb-item">
+          <Link href="/">Home</Link>
+        </li>
+        <li className="breadcrumb-item active" aria-current="page">
+          {name}
+        </li>
+      </ol>
+    </nav>
   )
 }

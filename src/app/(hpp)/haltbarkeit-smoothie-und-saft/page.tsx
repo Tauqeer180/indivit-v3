@@ -2,6 +2,7 @@ import React from 'react'
 import HeroBanner from '@/components/common/HeroBanner'
 import { fetcher } from '@/lib/fetcher'
 import HPPDetails from './HppDetails'
+import { BreadCrumb } from '@/components/common/Common'
 
 async function getHPPData() {
   const data = await fetcher('hpp_procedure', { cache: true, revalidate: 86400 })
@@ -40,6 +41,7 @@ export default async function HPP() {
           title: res?.title,
           description: res?.title_text,
         }}
+        breadCrumb={<BreadCrumb name="HPP Haltbarkeit" />}
       />
       <HPPDetails
         data={{

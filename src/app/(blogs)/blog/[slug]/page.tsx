@@ -9,6 +9,16 @@ import Head from 'next/head'
 import BlogsCarousel from '../../components/BlogsCarousel'
 import { FABComponent } from '@/components/common/ShareButtons'
 // moment.locale('de');
+
+export const dynamicParams = true // or false, to 404 on unknown paths
+
+export async function generateStaticParams() {
+  const posts = await fetcher('blogs', { cache: true, revalidate: 3600 * 4 })
+  return posts?.data?.data?.map((post) => ({
+    slug: String(post.slug),
+  }))
+}
+export const revalidate = 3600 * 4 // Revalidate every 4 hours
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
   const decodedSlug = decodeURIComponent(slug)

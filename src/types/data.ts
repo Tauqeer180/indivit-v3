@@ -3,4 +3,5 @@ export interface DataProps {
   title2?: string
   description?: string
   description2?: string
+  markdown?: boolean
 }

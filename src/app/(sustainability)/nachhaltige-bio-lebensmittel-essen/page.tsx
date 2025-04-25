@@ -2,21 +2,9 @@ import HeroBanner from '@/components/common/HeroBanner'
 import React from 'react'
 import SustainabilityDetails from './SustainabilityDetails'
 import Link from 'next/link'
+import { BreadCrumb } from '@/components/common/Common'
 
-const BreadCrumb = ({ name }) => {
-  return (
-    <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center">
-        <li className="breadcrumb-item">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="breadcrumb-item active" aria-current="page">
-          {name}
-        </li>
-      </ol>
-    </nav>
-  )
-}
+
 // Sustainability Page
 export async function generateMetadata() {
   // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })

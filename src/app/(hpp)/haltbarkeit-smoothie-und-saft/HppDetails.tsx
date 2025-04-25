@@ -1,3 +1,4 @@
+import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import { DataProps } from '@/types/data'
 import Image from 'next/image'
 import React from 'react'
@@ -38,11 +39,12 @@ export default function HPPDetails({ data }: { data: DataProps }) {
                 </div>
                 <span className="flx-about-stock">Smoothies</span>
                 <h3 className="hsn-smoothies"> {data?.title} </h3>{' '}
-                <div
+                {/* <div
                   dangerouslySetInnerHTML={{
                     __html: typeof data?.description === 'string' ? data?.description : '',
                   }}
-                ></div>
+                ></div> */}
+                <MarkdownDisplay>{data?.description}</MarkdownDisplay>
               </div>
             </div>
           </div>

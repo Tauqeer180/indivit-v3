@@ -1,5 +1,6 @@
 import { DataProps } from '@/types/data'
 import React from 'react'
+import { MarkdownDisplay } from './MarkdownDisplay'
 
 export default function HeroBanner({
   data,
@@ -45,7 +46,11 @@ export default function HeroBanner({
       {breadCrumb && <div className="container tw-block lg:tw-hidden">{breadCrumb}</div>}
       {data?.description && (
         <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
-          <p className="text-center pb-2">{data?.description}</p>
+          {data?.markdown ? (
+            <MarkdownDisplay>{data?.description}</MarkdownDisplay>
+          ) : (
+            <p className="text-center pb-2">{data?.description}</p>
+          )}
           {data?.description2 && <p className="text-center pb-2">{data?.description2}</p>}
         </div>
       )}
