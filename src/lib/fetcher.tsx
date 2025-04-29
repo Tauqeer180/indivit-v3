@@ -1,5 +1,5 @@
-import Cookies from 'js-cookie'
-import { toast } from 'react-toastify'
+// import Cookies from 'js-cookie'
+// import { toast } from 'react-toastify'
 // import { toast } from "sonner";
 // import { useRouter } from 'next/navigation'
 export const baseURL = `${process.env.NEXT_PUBLIC_URL}`

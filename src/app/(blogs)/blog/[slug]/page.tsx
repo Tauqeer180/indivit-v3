@@ -12,13 +12,30 @@ import { FABComponent } from '@/components/common/ShareButtons'
 
 export const dynamicParams = true // or false, to 404 on unknown paths
 
-export async function generateStaticParams() {
-  const posts = await fetcher('blogs?page=1&limit=12')
-  console.log('posts data => ', posts)
-  return posts?.data?.data?.map((post) => ({
-    slug: String(post?.slug),
-  }))
-}
+// export async function generateStaticParams() {
+//   const response = await fetch(`${baseURL}api/client/blogs?page=1&limit=100 }`)
+
+//   const posts = await response?.json()
+//   console.log('posts data => ', posts)
+//   return posts?.data?.data?.map((post) => ({
+//     slug: String(post?.slug),
+//   }))
+// }
+
+// export async function generateStaticParams() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api/client/blogs?page=1&limit=100`, {
+//     // Use `next` options to enable static generation caching
+//     next: { revalidate: 3600, tags: ['blogs'] },
+//     cache: 'force-cache', // or 'no-store' if you don't want caching
+//   })
+
+//   const posts = await res.json()
+//   console.log('posts data => ', posts)
+
+//   return posts?.data?.data?.map((post: any) => ({
+//     slug: String(post?.slug),
+//   }))
+// }
 export const revalidate = 3600 * 4 // Revalidate every 4 hours
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
