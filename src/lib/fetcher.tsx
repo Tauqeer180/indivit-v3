@@ -38,7 +38,7 @@ export const fetcher = async (
       Authorization: `Bearer ${token}`,
       Accept: 'application/json',
     } as any,
-    cache: cache ? 'force-cache' : 'no-store',
+    // cache: cache ? 'force-cache' : 'no-store',
   }
 
   if (formData) {
@@ -50,6 +50,9 @@ export const fetcher = async (
   }
   if (cache) {
     reqOptions.next = { revalidate, tags }
+  } else {
+    reqOptions.cache = 'no-store'
+    reqOptions.next = { tags }
   }
   try {
     const response = await fetch(`${baseURL}api/client/${url}`, reqOptions)

@@ -13,9 +13,10 @@ import { FABComponent } from '@/components/common/ShareButtons'
 export const dynamicParams = true // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  const posts = await fetcher('blogs', { cache: true, revalidate: 3600 * 4 })
+  const posts = await fetcher('blogs?page=1&limit=12')
+  console.log('posts data => ', posts)
   return posts?.data?.data?.map((post) => ({
-    slug: String(post.slug),
+    slug: String(post?.slug),
   }))
 }
 export const revalidate = 3600 * 4 // Revalidate every 4 hours
