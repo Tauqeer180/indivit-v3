@@ -8,7 +8,7 @@ import { fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
 
 async function getWhyIndivitData() {
-  const data = await fetcher('why_indivit')
+  const data = await fetcher('why_indivit', { cache: true, revalidate: 86400 })
   return data?.data?.length > 0 ? data.data[0] : {}
 }
 

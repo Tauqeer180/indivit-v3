@@ -1391,7 +1391,7 @@ p {
   padding: 0px 50px 0px 0px;
 }
 
-#contant {
+#contact {
   background-color: transparent;
   padding: 100px 0px;
 }
@@ -3904,10 +3904,11 @@ button.accordion-button.collapsed {
     padding: 0px 0px 0px 0px;
   }
 
-  #contant {
+  #contact {
     background-color: transparent;
     padding: 100px 20px 20px 20px;
   }
+ 
 
   .form-control {
     padding: 15px 25px;
@@ -4733,4 +4734,7 @@ button.accordion-button.collapsed {
   width: 0.75rem;
   height: 0.75rem;
   background-size: 0.75rem;
+}
+#contact .nav-tabs .active {
+  border-bottom: 1px solid var(--green);
 }

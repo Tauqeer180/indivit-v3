@@ -7,8 +7,9 @@ import './components/custombox-anim.css'
 
 // Custom Box
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params, searchParams }) {
   const { slug = [] } = params
+  // const { add_me } = router.query;
 
   return {
     alternates: { canonical: `https://indivit.de/meine-smoothie-box/${slug}` },
@@ -17,10 +18,12 @@ export async function generateMetadata({ params }) {
       'Tausche Smoothies in deiner Box gegeneinander aus. Probiere vorgeschlagene Rezepte. Finde Rezeptideen die zu dir passen',
   }
 }
-export default async function page({ params }) {
+export default async function page({ params, searchParams }) {
   const { slug = [] } = params
   // can be 2 parameters
   let [id, size] = slug
+  const add_me = searchParams?.add_me
+
   // slug[0] = smoothie box id
   // slug[1] = smoothie box size
   const cookieStore = cookies()
@@ -52,6 +55,7 @@ export default async function page({ params }) {
   let mineSmoothies = customSmoothiesData?.smoothies?.filter((d) => d.created_by == '1')
   return (
     <div>
+      {add_me}
       <HeroBanner
         data={{
           title: 'Wähle deine Smoothie Trinkmahlzeiten',
@@ -69,7 +73,7 @@ export default async function page({ params }) {
         mineSmoothies={mineSmoothies}
         boxDescription={boxDescription}
         boxData={boxData}
-        id={id}
+        add_me={add_me}
         size={Number(size)}
       />
       {/* {JSON.stringify(id)}

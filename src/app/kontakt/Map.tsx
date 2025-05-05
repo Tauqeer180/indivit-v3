@@ -13,7 +13,7 @@ export default function Map() {
             scrolling="no"
             marginHeight={0}
             marginWidth={0}
-            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=2880 Broadway, New York&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Smoothie Ninja, Kiefholzstr. 25, 12435 Berlin, Deutschland&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           ></iframe>
         </div>
         {/* <style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style> */}

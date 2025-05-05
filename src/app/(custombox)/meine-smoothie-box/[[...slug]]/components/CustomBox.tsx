@@ -16,15 +16,17 @@ import Loader from '@/components/common/Loader'
 
 export default function CustomBox({
   boxSize,
-  filtSmoothies,
+  filtSmoothies: smoothies,
   wishlistSmoothies,
   mineSmoothies,
   boxDescription,
   boxData,
   size,
+  add_me,
 }) {
   const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
   const { animate } = useAnimate()
+  const [filtSmoothies, setFiltSmoothies] = useState(smoothies || [])
 
   const token = useAppSelector((state) => state.account.user?.token)
   const [loading, setLoading] = useState(false)
@@ -124,6 +126,13 @@ export default function CustomBox({
         : setSelectedSmoothie([...selectedSmoothie, { ...data, quantity: 1 }])
     }
   }
+  const handleInput = (e, name) => {
+    // console.log("e-> ", e, "name -> ", name, "Smoothies -> ", smoothies);
+    let filt = smoothies.filter((character) => {
+      return character[name] && character[name].toLowerCase().includes(e && e.toLowerCase())
+    })
+    setFiltSmoothies(filt)
+  }
   useEffect(() => {
     if (boxDescription) {
       setValue('name', boxData?.name)
@@ -149,11 +158,19 @@ export default function CustomBox({
         setSelectedSmoothie(tempSelected || [])
       }
     }
+    if (add_me && filtSmoothies?.length > 0) {
+      let temp_smoothie = filtSmoothies?.find((d) => d.unique_id == add_me)
+      setSelectedSmoothie([{ ...temp_smoothie, quantity: 1 }])
+      // navigate(window.location.pathname, { replace: true });
+      // console.log("9999999999");
+    }
   }, [boxDescription])
 
+  // useEffect(() => {
+  // }, [allSmoothies]);
   return (
     <div>
-      {loading && <Loader /> }
+      {loading && <Loader />}
       {modalData && (
         <CustomSmoothieDetailPopup data={modalData} ingredients={modalData?.smoothie_ingredient} />
       )}

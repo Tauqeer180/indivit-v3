@@ -3,7 +3,7 @@ import { logoutAction } from './account'
 import session from '@/services/session'
 import { fetcher } from '@/lib/fetcher'
 
-const initialState = { count: 0 }
+const initialState = { count: 0 ,wishlist_smoothie:[], wishlist_smoothie_box:[], wishlist_ingredient:[] }
 export const fetchWishlist = createAsyncThunk('wishlist/fetchWishlist', async (_, thunkAPI) => {
   const { dispatch } = thunkAPI
   // const dispatch = useDispatch();

@@ -97,12 +97,16 @@ export function BoxCard({ data }) {
         </button>
         <div className="text-center">
           <Link href={`/produkte/${data?.slug || data?.unique_id}`}>
-            <img
+            <Image
               src={
                 boxImages?.length > 0 ? baseURL + 'smoothie_box/' + boxImages[0]?.images : commonImg
               }
-              className="img-fluid w-100 max-h-350"
+              className="img-fluid w-100 max-h-350 aspect-auto tw-mb-4"
+              // fill={true}
+              width={500}
+              height={500}
               loading="lazy"
+              alt={data?.name}
             />
           </Link>
 

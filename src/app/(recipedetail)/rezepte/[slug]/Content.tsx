@@ -237,7 +237,10 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                   <div className="mt-3">
                     {!isOutofStock && (
                       <Link
-                        href={`/meine-smoothie-box`}
+                        href={{
+                          pathname: `/meine-smoothie-box`,
+                          query: { add_me: data?.unique_id },
+                        }}
                         className="btn !tw-bg-theme !tw-text-white !tw-font-bold tw-decoration-transparent tw-w-fit !tw-py-[10px] !tw-px-8"
                       >
                         <span>Pack mich in eine Box!</span>

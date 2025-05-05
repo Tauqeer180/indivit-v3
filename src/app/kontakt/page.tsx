@@ -1,60 +1,11 @@
-'use client'
-import React, { useLayoutEffect } from 'react'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+import React from 'react'
 import HeroBanner from '../../components/common/HeroBanner'
 import Map from './Map'
-import { useMutation } from '@tanstack/react-query'
-import { fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
+import ContactForm from './contact'
+import Link from 'next/link'
 
 export default function Contact() {
-  const [activeTab, setActiveTab] = useState(0)
-  const [loading, setLoading] = useState(false)
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm()
-
-  const contactFormMutation = useMutation({
-    mutationFn: (data) => {
-      return fetcher('contact', { method: 'POST', data: data })
-    },
-    onSuccess: (res) => {
-      console.log('Success response:', res)
-
-      setLoading(true)
-      if (res.status === 200) {
-        toast.success('Email wurde erfolgreich Versendet')
-        reset()
-      } else {
-        res?.errors?.map((err) => {
-          return toast.error(err)
-        })
-        if (res?.data?.message) {
-          toast.error(res?.response?.data?.message)
-        }
-      }
-      setLoading(false)
-    },
-    onError: (err: any) => {
-      err?.errors?.map((e) => {
-        return toast.error(e)
-      })
-      setLoading(false)
-    },
-  })
-
-  const onSubmit = (data) => {
-    setLoading(true)
-    contactFormMutation.mutate({ ...data, status: 1 })
-  }
   return (
     <div>
       <HeroBanner
@@ -67,7 +18,7 @@ export default function Contact() {
       />
 
       {/* <!-- contact us Form--> */}
-      <section id="contant" className="!tw-pt-10 ">
+      <section id="contact" className="!tw-pt-10 ">
         <div className="container">
           <div className="row no-gutters">
             <div className="col-md-6">
@@ -82,120 +33,51 @@ export default function Contact() {
                   Setze Dich mit uns in Verbindung und lass uns darüber sprechen, wie wir Dir helfen
                   können.
                 </p>
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  id="contactForm"
-                  name="contactForm"
-                  className="contactForm"
-                >
-                  <div className="row">
-                    <div className="col-md-6 pt-4">
-                      <div className="form-group shadow-sm">
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="name"
-                          id="name"
-                          placeholder="Name"
-                          {...register('name', {
-                            required: 'Angabe notwendig',
-                          })}
-                        />
-                        {errors.name && (
-                          <p className="text-danger my-1">{String(errors.name.message)}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="col-md-6 pt-4">
-                      <div className="form-group shadow-sm">
-                        <input
-                          type="email"
-                          className="form-control"
-                          name="email"
-                          id="email"
-                          placeholder="E-Mail"
-                          {...register('email', {
-                            required: 'Must be Valid Email',
-                            pattern:
-                              /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                          })}
-                        />
-                        {errors.email && (
-                          <p className="text-danger my-1">{String(errors.email.message)}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="col-md-12 pt-4">
-                      <div className="form-group shadow-sm">
-                        <input
-                          type="phone"
-                          className="form-control"
-                          placeholder="Telefonnummer"
-                          {...register('phone', {
-                            required: 'Angabe notwendig',
-                          })}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-12 pt-4">
-                      <div className="form-group shadow-sm">
-                        <textarea
-                          name="message"
-                          className="form-control"
-                          id="message"
-                          cols={30}
-                          rows={4}
-                          placeholder="Nachricht"
-                          {...register('message', {
-                            required: 'Angabe notwendig',
-                          })}
-                        ></textarea>
-                        {errors.message && (
-                          <p className="text-danger my-1">{String(errors.message.message)}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="col-md-12 pt-4">
-                      <div className="form-group d-grid gap-2">
-                        <button className="btn btn-solid-success" type="submit">
-                          Senden
-                        </button>
-                        <div className="submitting"></div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+
+                {/* Contact Form */}
+                <ContactForm />
+
+                {/* Containt Form End */}
               </div>
             </div>
             <div className="col-md-6 contant-info">
-              <ul className="nav nav-tabs flx-tabs-nav" role="tablist">
-                <li className="nav-item">
-                  <a
-                    role="button"
-                    onClick={() => setActiveTab(0)}
-                    className={`nav-link  border-top-0 border-end-0 border-start-0 ${
-                      activeTab == 0 ? 'flx-tabs-style' : ''
-                    } `}
+              <ul className="nav nav-tabs" id="myTab" role="tablist">
+                <li className="nav-item" role="presentation">
+                  <button
+                    className="nav-link active  border-top-0 border-end-0 border-start-0 !tw-bg-transparent"
+                    id="home-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#home"
+                    type="button"
+                    role="tab"
+                    aria-controls="home"
+                    aria-selected="true"
                   >
-                    {/* Address */}
                     <h3>Kontakt</h3>
-                  </a>
+                  </button>
                 </li>
-                {/* <li className="nav-item">
-                  <a
-                    role="button"
-                    onClick={() => setActiveTab(1)}
-                    className={`nav-link border-top-0 border-end-0 border-start-0 ${
-                      activeTab == 1 ? "flx-tabs-style" : ""
-                    } `}
+                <li className="nav-item" role="presentation">
+                  <button
+                    className="nav-link  border-top-0 border-end-0 border-start-0 !tw-bg-transparent"
+                    id="map-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#map"
+                    type="button"
+                    role="tab"
+                    aria-controls="map"
+                    aria-selected="true"
                   >
                     <h3>Google Map</h3>
-                  </a>
-                </li> */}
+                  </button>
+                </li>
               </ul>
-              {/* <!-- Tab panes --> */}
-              <div className="tab-content">
-                <div className={`tab-pane ${activeTab == 0 ? 'active' : ''}  pt-5`}>
+              <div className="tab-content tw-pt-6" id="myTabContent">
+                <div
+                  className="tab-pane fade show active"
+                  id="home"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                >
                   <div className="flx-iconbox ">
                     <ul>
                       <li>
@@ -224,7 +106,12 @@ export default function Contact() {
                       </li>
                       <li className="ps-3">
                         <h4>Schreib uns eine E-Mail</h4>
-                        <p>smoothie@indivit.de</p>
+                        <Link
+                          href="mailto:smoothie@indivit.de"
+                          className="tw-text-black tw-no-underline hover:tw-text-theme"
+                        >
+                          smoothie@indivit.de
+                        </Link>
                       </li>
                     </ul>
                     <ul>
@@ -239,13 +126,17 @@ export default function Contact() {
                       </li>
                       <li className="ps-3">
                         <h4>Ruf uns an</h4>
-                        <p>030 53010813</p>
+                        <Link
+                          href="tel:03053010813"
+                          className="tw-text-black tw-no-underline hover:tw-text-theme"
+                        >
+                          030 53010813
+                        </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
-
-                <div className={`tab-pane ${activeTab == 1 ? 'active' : ''}  pt-5`}>
+                <div className="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
                   <Map />
                 </div>
               </div>

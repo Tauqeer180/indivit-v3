@@ -4,7 +4,7 @@ import TermsConditionsDetails from './TermsConditionsDetails'
 import { fetcher } from '@/lib/fetcher'
 
 async function getTermsData() {
-  const data = await fetcher('terms_condition')
+  const data = await fetcher('terms_condition', { cache: true, revalidate: 86400 })
   return data?.data?.length > 0 ? data.data[0] : {}
 }
 

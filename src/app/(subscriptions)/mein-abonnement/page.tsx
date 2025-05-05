@@ -2,6 +2,7 @@
 import HeroBanner from '@/components/common/HeroBanner'
 import Loader from '@/components/common/Loader'
 import { baseURL, fetcher } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman2 } from '@/utils/germanFormat'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import moment from 'moment'
@@ -14,7 +15,7 @@ import { toast } from 'react-toastify'
 export default function Page() {
   // console.log("Available Dates ", availableDates);
 
-  const commonImg = useSelector((state) => state.settings?.boxImg)
+  const commonImg = useAppSelector((state) => state.settings?.boxImg)
 
   const queryClient = useQueryClient()
   const [loading, setLoading] = useState(false)
@@ -50,7 +51,7 @@ export default function Page() {
       setLoading(false)
       setModalVisible(false)
     },
-    onError: (err) => {
+    onError: (err:any) => {
       toast.error(
         err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
       )

@@ -3,14 +3,14 @@ import OrderCard from '@/app/(orders)/meine-bestellung/[id]/OrderCard'
 import HeroBanner from '@/components/common/HeroBanner'
 import Loader from '@/components/common/Loader'
 import { fetcher } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'next/navigation'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function Page() {
   const params = useParams()
-  const user = useSelector((state) => state.account.user)
+  const user = useAppSelector((state) => state.account.user)
   const [loading, setLoading] = useState(false)
 
   const { isLoading: orderLoading, data: orderData } = useQuery({
@@ -100,7 +100,7 @@ export default function Page() {
                   <h4 className=" " data-aos="fade-up" data-aos-duration="1000">
                     Order History
                   </h4>
-                  <p className="pb-3">You don't have any recipes in your wishlist yet.</p>
+                  <p className="pb-3">You don't have any orders.</p>
                 </div>
               </div>
             )
