@@ -1132,19 +1132,6 @@ p {
   position: relative;
 }
 
-/* .flx-forever-object:before {
-  content: "";
-  background-image: url(/assets/object/about-forever.png);
-  padding: 96px 101px;
-  position: absolute;
-  top: -59px;
-  left: 70px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-  animation: rotateoff 0.5s linear;
-
-} */
 
 .flx-forever-object .disk-container {
   width: 175px;
@@ -1164,19 +1151,7 @@ p {
   transform: rotate(0deg);
   animation: rotate 0.5s linear;
 }
-/* .flx-forever-object:hover:before {
-  content: "";
-  background-image: url(/assets/object/about-forever.png);
-  padding: 96px 101px;
-  position: absolute;
-  top: -59px;
-  left: 70px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-  transform: rotate(15deg);
-  animation: rotate 0.5s linear ;
-} */
+
 @keyframes rotate {
   0% {
     transform: rotate(-15deg);
@@ -2780,18 +2755,7 @@ button.accordion-button.collapsed {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  /* 
-  .flx-forever-object:before {
-    content: "";
-    background-image: url(/assets/object/about-forever.png);
-    padding: 96px 101px;
-    position: absolute;
-    top: -82px;
-    left: 48px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-  } */
+
 
   /*===========================================================about page end media query ========================================*/
   /*===========================================================sutainability page start media query ================================*/
@@ -3151,17 +3115,6 @@ button.accordion-button.collapsed {
     left: 0px;
   }
 
-  /* .flx-forever-object:before {
-    content: "";
-    background-image: url(/assets/object/about-forever.png);
-    padding: 96px 101px;
-    position: absolute;
-    top: -75px;
-    left: 14px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-  } */
   .flx-forever-object .disk-container {
     width: 150px;
     height: 150px;
@@ -3573,17 +3526,7 @@ button.accordion-button.collapsed {
     padding: 100px 0px 0px 0px;
   }
 
-  /* .flx-forever-object:before {
-    content: "";
-    background-image: url(/assets/object/about-forever.png);
-    padding: 100px 106px;
-    position: absolute;
-    top: 18px;
-    left: 60px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-  } */
+ 
 
   .flx-about-col::after {
     content: "";
@@ -3858,17 +3801,7 @@ button.accordion-button.collapsed {
     padding-top: 100px;
   }
 
-  /* .flx-forever-object:before {
-    content: "";
-    background-image: url(/assets/object/about-forever.png);
-    padding: 88px 88px;
-    position: absolute;
-    top: 0;
-    left: 0px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 1;
-  } */
+ 
 
   .flx-forever-object .disk-container {
     top: 10px !important;
