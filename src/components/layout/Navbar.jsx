@@ -13,6 +13,7 @@ import { useParams, useRouter } from 'next/navigation'
 import WaveSvg from '@/assets/WaveSvg'
 import { baseURL, fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
+import { useAppSelector } from '@/redux/hooks'
 
 // import waveSvg from "../../assets/svg/wave.svg";
 export default function Navbar() {
@@ -22,9 +23,9 @@ export default function Navbar() {
   const dispatch = useDispatch()
   const { slug } = useParams()
   const queryClient = useQueryClient()
-  const isAuthenticated = useSelector((state) => state.account.isAuthenticated)
-  const wishlistCount = useSelector((state) => state.wishlist.count)
-  const commonImgs = useSelector((state) => state.settings)
+  const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
+  const wishlistCount = useAppSelector((state) => state.wishlist.count)
+  const commonImgs = useAppSelector((state) => state.settings)
 
   // console.log("German ", new Intl.NumberFormat("de-DE").format(1236.31));
   useEffect(() => {

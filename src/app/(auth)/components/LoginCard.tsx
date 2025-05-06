@@ -89,16 +89,16 @@ export default function LoginCard({
         if (res?.token) {
           toast.success('Du bist jetzt angemeldet')
           // Success
-          dispatch(loginAction(res))
-          dispatch(fetchWishlist())
           session.set('token', res?.token)
           session.set('user', res)
+          dispatch(loginAction(res))
           queryClient.invalidateQueries([
             'wishListing',
             'smoothieListing',
             'boxListing',
             'customSmoothieListing',
           ]) // Invalidate and refetch
+          dispatch(fetchWishlist())
           redirect && router.back()
         } else {
           toast.error(res)
