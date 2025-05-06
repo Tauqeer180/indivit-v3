@@ -57,3 +57,27 @@ code {
   color: var(--green);
   /* text-decoration: none; */
 }
+
+/* Table Transform */
+.no-tailwind table {
+  width: 100%;
+  max-width: 90vw;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.no-tailwind ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+@media (max-width: 768px) {
+  .no-tailwind img {
+    width: 100%;
+    height: auto;
+  }
+  
+}
+
+
