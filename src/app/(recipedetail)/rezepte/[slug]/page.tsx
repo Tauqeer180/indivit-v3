@@ -3,6 +3,42 @@ import Content from './Content'
 import { fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  let cookieStore = cookies()
+  let token = cookieStore.get('token')?.value || ''
+  let smoothieByIdData
+  smoothieByIdData = await fetcher(`r/slug/${slug}`, {
+    token,
+    tags: ['smoothieById'],
+  })
+  if (!smoothieByIdData?.smoothie) {
+    smoothieByIdData = await fetcher(`r/${slug}`, {
+      token,
+      tags: ['smoothieById'],
+    })
+  }
+  const data = smoothieByIdData?.smoothie
+
+  return {
+    alternates: { canonical: data?.canonical || `https://indivit.de/rezepte/${slug}` },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    // keywords: data?.keywords,
+    openGraph: {
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: data?.meta_title || `Indivit | Uber uns `,
+      description: data?.meta_description,
+    },
+  }
+}
+
 export default async function page({ params }: { params: { slug: string } }) {
   const smoothieId = params?.slug // `slug` should match the dynamic folder name
 

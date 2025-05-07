@@ -1,13 +1,13 @@
 'use client'
 import { BoxCard, RecipeCard, SkeltonCard } from '@/components/Cards'
 import { fetcher } from '@/lib/fetcher'
+import { useAppSelector } from '@/redux/hooks'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import { useSelector } from 'react-redux'
 // My Creations
 export default function Page() {
-  const isAuthenticated = useSelector((state) => state.account.isAuthenticated)
-  const token = useSelector((state) => state.account.token)
+  const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
+  const token = useAppSelector((state) => state.account.token)
 
   const {
     isLoading: smoothieLoading,

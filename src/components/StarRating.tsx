@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function StarRating({ value, onChange, color }) {
+export default function StarRating({ value, onChange, color }:{value:number, onChange:(value:number)=>void, color?:string}) {
   const handleStarClick = (index) => {
     onChange(index + 1);
   };

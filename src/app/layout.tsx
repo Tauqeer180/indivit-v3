@@ -53,10 +53,10 @@ export default function RootLayout({
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
+        {/* <meta
           name="description"
           content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
-        />
+        /> */}
         <Script
           src="https://x.klarnacdn.net/kp/lib/v1/api.js"
           async

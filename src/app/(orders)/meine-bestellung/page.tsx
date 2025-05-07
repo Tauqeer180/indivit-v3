@@ -4,7 +4,6 @@ import Loader from '@/components/common/Loader'
 import { fetcher } from '@/lib/fetcher'
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
 import OrderCard from './[id]/OrderCard'
 import { useAppSelector } from '@/redux/hooks'
 
