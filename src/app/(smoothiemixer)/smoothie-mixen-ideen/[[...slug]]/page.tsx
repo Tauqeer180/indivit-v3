@@ -48,7 +48,7 @@ export default async function page({ params }) {
   // });
   let ingredientData = await fetcher('get_ingredient', {
     cache: true,
-    revalidate: 86400,
+    revalidate: 3600,
     tags: ['ingredientListing'],
   })
   let ingredients = ingredientData?.ingredient
@@ -60,6 +60,7 @@ export default async function page({ params }) {
     (await fetcher(`r/${id}`, {
       token,
       cache: true,
+      revalidate: 3600,
       tags: ['smoothieById', id],
     }))
   let smoothieData = smoothieByIdData?.smoothie

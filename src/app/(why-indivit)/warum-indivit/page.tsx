@@ -6,6 +6,40 @@ import RecipeBanner from './RecipeBanner'
 import VisionRecipeSection from '@/components/section/VisionRecipeSection'
 import { fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
+
+export async function generateMetadata() {
+  const { data } = await getSEOData(SWRKeys?.WhyIndivit)
+
+  return {
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
+    openGraph: {
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit`,
+      description: `Indivit`,
+    },
+  }
+}
 
 async function getWhyIndivitData() {
   const data = await fetcher('why_indivit', { cache: true, revalidate: 86400 })

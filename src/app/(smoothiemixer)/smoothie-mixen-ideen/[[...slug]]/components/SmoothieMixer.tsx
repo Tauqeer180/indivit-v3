@@ -157,14 +157,14 @@ export default function SmoothieMixer({
     let sum_of_factor = relativeData.reduce(
       (x, y) =>
         x +
-        (y?.filling_index >= 0 ? parseFloat(y?.ingredient_filling[y?.filling_index].factor) : 0),
+        (y?.filling_index >= 0 ? parseFloat(y?.ingredient_filling[y?.filling_index]?.factor) : 0),
       0
     )
     if (!optional) {
       sum_of_factor += optionalData.reduce(
         (x, y) =>
           x +
-          (y?.filling_index >= 0 ? parseFloat(y?.ingredient_filling[y?.filling_index].factor) : 0),
+          (y?.filling_index >= 0 ? parseFloat(y?.ingredient_filling[y?.filling_index]?.factor) : 0),
         0
       )
     }
@@ -174,7 +174,7 @@ export default function SmoothieMixer({
         // debugger;
         //only Relative
         let value_in_ml =
-          (d?.filling_index >= 0 ? d?.ingredient_filling[d?.filling_index].factor : 0) *
+          (d?.filling_index >= 0 ? d?.ingredient_filling[d?.filling_index]?.factor : 0) *
           (size / sum_of_factor)
         tempRelativeShare += (value_in_ml / 250) * 100
         return {
@@ -189,7 +189,7 @@ export default function SmoothieMixer({
         // Both relative and optional
         let value_in_ml =
           sum_of_factor > 0
-            ? (d?.filling_index >= 0 ? d?.ingredient_filling[d?.filling_index].factor : 0) *
+            ? (d?.filling_index >= 0 ? d?.ingredient_filling[d?.filling_index]?.factor : 0) *
               (size / sum_of_factor)
             : 0
         tempRelativeShare += (value_in_ml / 250) * 100
