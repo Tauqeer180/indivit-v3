@@ -4,18 +4,40 @@ import { cookies } from 'next/headers'
 import React from 'react'
 import CustomBox from './components/CustomBox'
 import './components/custombox-anim.css'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 
 // Custom Box
 
-export async function generateMetadata({ params, searchParams }) {
-  const { slug = [] } = params
-  // const { add_me } = router.query;
+export async function generateMetadata() {
+  const { data } = await getSEOData(SWRKeys?.CustomBox)
 
   return {
-    alternates: { canonical: `https://indivit.de/meine-smoothie-box/${slug}` },
-    title: 'Indivit | Eigene Box erstellen | Wähle deine Smoothies',
-    description:
-      'Tausche Smoothies in deiner Box gegeneinander aus. Probiere vorgeschlagene Rezepte. Finde Rezeptideen die zu dir passen',
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
+    openGraph: {
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
+    },
   }
 }
 export default async function page({ params, searchParams }) {

@@ -6,7 +6,7 @@ import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 
 export async function generateMetadata() {
-  const { data } = await getSEOData(SWRKeys?.WhyIndivit)
+  const { data } = await getSEOData(SWRKeys?.PaymentPolicy)
 
   return {
     alternates: {
@@ -31,8 +31,8 @@ export async function generateMetadata() {
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Indivit`,
-      description: `Indivit`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

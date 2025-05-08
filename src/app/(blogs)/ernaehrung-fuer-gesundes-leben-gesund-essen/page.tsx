@@ -5,26 +5,37 @@ import { BlogCard } from '@/components/Cards'
 import { BreadCrumb } from '@/components/common/Common'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import IntroText from '@/constant/IntroText.json'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 
 export async function generateMetadata() {
-  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
-  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+  const { data } = await getSEOData(SWRKeys?.BlogList)
 
   return {
-    alternates: { canonical: 'https://indivit.de/ernaehrung-fuer-gesundes-leben-gesund-essen' },
-    title: `Gesund essen & abnehmen: Ernährung als Schlüssel zur Gesundheit`,
-    description: `Entdecke, wie gesunde Ernährung und Intervallfasten dein Wohlbefinden steigern. Praxistipps für dauerhafte Gesundheit und natürliches Abnehmen. Jetzt mehr erfahren!`,
-    authors: [{ name: 'Indivit' }],
-    // keywords: data?.keywords,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
     openGraph: {
-      title: `Gesund essen & nachhaltig abnehmen: Dein wissenschaftlicher Ernährungsguide`,
-      description: `Wie du durch bewusste Ernährung deine Gesundheit revolutionierst. Praxistaugliche Tipps zu Intervallfasten, Meal-Prep & Nährstoffoptimierung. Wissenschaftlich fundiert, alltagstauglich umgesetzt.`,
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Gesund essen & abnehmen: Ernährung als Schlüssel zur Gesundheit`,
-      description: `Entdecke, wie gesunde Ernährung und Intervallfasten dein Wohlbefinden steigern. Praxistipps für dauerhafte Gesundheit und natürliches Abnehmen. Jetzt mehr erfahren!`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

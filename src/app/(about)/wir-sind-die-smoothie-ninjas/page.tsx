@@ -6,28 +6,40 @@ import AboutDetails from './AboutDetails'
 import { fetcher } from '@/lib/fetcher'
 import AboutJSON from './JSONData.json'
 import { BreadCrumb } from '@/components/common/Common'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 
 // ABout Page
 
 export async function generateMetadata() {
-  const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
-  let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+  const { data } = await getSEOData(SWRKeys?.AboutUs)
 
   return {
-    alternates: { canonical: 'https://indivit.de/wir-sind-die-smoothie-ninjas' },
-    title: `Indivit | Uber uns | ${aboutData?.main_title}`,
-    description: aboutData?.main_description,
-    authors: [{ name: 'Indivit' }],
-    // keywords: data?.keywords,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
     openGraph: {
-      title: `Indivit | Uber uns | ${aboutData?.main_title}`,
-      description: aboutData?.main_description,
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Indivit | Uber uns | ${aboutData?.main_title}`,
-      description: aboutData?.main_description,
+      title: data?.meta_title || `Indivit`,
+
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

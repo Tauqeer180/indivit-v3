@@ -36,8 +36,8 @@ export async function generateMetadata() {
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Indivit`,
-      description: `Indivit`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

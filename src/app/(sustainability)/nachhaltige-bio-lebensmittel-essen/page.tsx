@@ -2,28 +2,38 @@ import HeroBanner from '@/components/common/HeroBanner'
 import React from 'react'
 import SustainabilityDetails from './SustainabilityDetails'
 import { BreadCrumb } from '@/components/common/Common'
-
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 
 // Sustainability Page
 export async function generateMetadata() {
-  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
-  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+  const { data } = await getSEOData(SWRKeys?.sustainability)
 
   return {
-    alternates: { canonical: 'https://indivit.de/nachhaltige-bio-lebensmittel-essen' },
-    title: `Bio-Lebensmittel & Nachhaltigkeit: Indivits ökologischer Weg`,
-    description: `Erfahre, wie Indivit mit 100% Bio-Zutaten, Recycling-Systemen und CO₂-optimierter Produktion nachhaltige Ernährung schmackhaft macht. Ökologischer Genuss made in Berlin.`,
-    authors: [{ name: 'Indivit' }],
-    // keywords: data?.keywords,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
     openGraph: {
-      title: `Nachhaltig essen mit Bio-Lebensmitteln: Indivits ganzheitlicher Ansatz`,
-      description: `Wie Indivit ökologische Ernährung neu denkt: Von zertifizierten Bio-Zutaten über CO₂-optimierte Logistik bis zur Zero-Waste-Produktion. Erfahre hier, warum jeder Smoothie ein Klimabeitrag ist.`,
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Bio-Lebensmittel & Nachhaltigkeit: Indivits ökologischer Weg`,
-      description: `Erfahre, wie Indivit mit 100% Bio-Zutaten, Recycling-Systemen und CO₂-optimierter Produktion nachhaltige Ernährung schmackhaft macht. Ökologischer Genuss made in Berlin.`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

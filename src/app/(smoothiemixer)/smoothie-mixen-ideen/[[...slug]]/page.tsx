@@ -8,27 +8,38 @@ import { cookies } from 'next/headers'
 import { BreadCrumb } from '@/components/common/Common'
 import IntroText from '@/constant/IntroText.json'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 // Smoothie Mixer
 
 export async function generateMetadata() {
-  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
-  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+  const { data } = await getSEOData(SWRKeys?.SmoothieMixer)
 
   return {
-    alternates: { canonical: 'https://indivit.de/smoothie-mixen-ideen' },
-    title: `Individuelle Smoothies mixen ohne Mixer – Kreation & Lieferung`,
-    description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
-    authors: [{ name: 'Indivit' }],
-    // keywords: data?.keywords,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
     openGraph: {
-      title: `Dein individueller Smoothie: Mixen ohne Küchengeräte | Indivit`,
-      description: `Kreiere mit unserem Tool einzigartige Smoothie-Kreationen: Nährwertoptimierung, Geschmacksprognosen & Lieferung. Nutze Food Innovation für DIY-Ernährung & aktuelle Food Trends.`,
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Individuelle Smoothies mixen ohne Mixer – Kreation & Lieferung`,
-      description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }

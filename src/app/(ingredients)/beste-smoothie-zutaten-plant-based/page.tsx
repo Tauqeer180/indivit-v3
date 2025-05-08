@@ -5,6 +5,8 @@ import { fetcher } from '@/lib/fetcher'
 import React from 'react'
 import IntroText from '@/constant/IntroText.json'
 import { BreadCrumb } from '@/components/common/Common'
+import { getSEOData } from '@/services/common'
+import { SWRKeys } from '@/constant/SWRKeys'
 // Ingredients page
 
 async function getIngredientsData() {
@@ -12,24 +14,33 @@ async function getIngredientsData() {
   return data
 }
 export async function generateMetadata() {
-  // const data = await fetcher('about_us', { cache: true, revalidate: 86400 })
-  // let aboutData = data?.data?.length > 0 ? data?.data[0] : {}
+  const { data } = await getSEOData(SWRKeys?.IngredientsList)
 
   return {
-    alternates: { canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based' },
-    title: `Entdecke die perfekte Balance aus Obst, Gemüse & Superfoods für deine Smoothies. Mit Tipps für pflanzliche Ernährung & Rohkost-Rezepte natürlich essen.`,
-    description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
-    authors: [{ name: 'Indivit' }],
-    // keywords: data?.keywords,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
     openGraph: {
-      title: `Smoothie Zutaten Meisterklasse: Von Obst bis Rohkost - Dein Guide für natürliche Ernährung`,
-      description: `Lerne die 7 Schlüssel-Kategorien für perfekte Smoothies kennen – von Obst bis Superfoods. Entdecke Tipps für natürliche Ernährung, optimale Konsistenz und gesunde Mahlzeitenersätze. Ideal für Rohkost-Fans und alle, die ihre Ernährung pflanzenbasiert gestalten möchten.`,
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
     },
     twitter: {
       site: '@indivitsmoothie',
       creator: '@indivitsmoothie',
-      title: `Entdecke die perfekte Balance aus Obst, Gemüse & Superfoods für deine Smoothies. Mit Tipps für pflanzliche Ernährung & Rohkost-Rezepte natürlich essen.`,
-      description: `Erstelle deinen perfekten Smoothie mit unserem Konfigurator: Zutaten zusammenstellen, Nährwerte berechnen & cremige Kreationen ohne Mixer bestellen. Jetzt ausprobieren!`,
+      title: data?.meta_title || `Indivit`,
+      description: data?.meta_description || `Indivit`,
     },
   }
 }
