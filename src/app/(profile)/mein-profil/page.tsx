@@ -1,14 +1,19 @@
 'use client'
 import HeroBanner from '@/components/common/HeroBanner'
+import { useAppSelector } from '@/redux/hooks'
+import Head from 'next/head'
 import React from 'react'
-import { useSelector } from 'react-redux'
 // Profile Page
 
 export default function Page() {
-  const user = useSelector((state) => state.account.user)
+  const user = useAppSelector((state) => state.account.user)
 
   return (
     <div>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Mein Profil | Indivit</title>
+      </Head>
       <HeroBanner
         data={{
           title: 'Wilkommen',

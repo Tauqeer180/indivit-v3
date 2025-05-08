@@ -1,5 +1,7 @@
 import HeroBanner from '@/components/common/HeroBanner'
+import { SWRKeys } from '@/constant/SWRKeys'
 import { fetcher } from '@/lib/fetcher'
+import { getSEOData } from '@/services/common'
 import React from 'react'
 // Subscriptions Page
 
@@ -8,12 +10,34 @@ async function getFaqData() {
   return data
 }
 export async function generateMetadata() {
-  const res = await getFaqData()
-  const faqPage = res?.data || {}
+  const { data } = await getSEOData(SWRKeys?.FAQ)
+
   return {
-    alternates: { canonical: 'https://indivit.de/haeufig-gestellte-fragen' },
-    title: `Indivit | ${faqPage?.heading}`,
-    description: faqPage?.detail,
+    alternates: {
+      canonical: data?.canonical || 'https://indivit.de',
+    },
+    title: data?.meta_title || `Indivit`,
+    description: data?.meta_description || `Indivit`,
+    authors: [{ name: data?.author_name || 'Indivit' }],
+    keywords: data?.keywords,
+    openGraph: {
+      title: data?.og_title || `Indivit`,
+      description: data?.og_description || `Indivit`,
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at || new Date(),
+      modified_time: data?.updated_at || new Date(),
+      authors: [data?.author_name || 'Indivit'],
+      tags: data?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit`,
+      description: `Indivit`,
+    },
   }
 }
 export default async function Page() {

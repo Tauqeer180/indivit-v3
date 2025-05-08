@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import OrderCard from './[id]/OrderCard'
 import { useAppSelector } from '@/redux/hooks'
+import Head from 'next/head'
 
 export default function Page() {
   const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
@@ -25,6 +26,10 @@ export default function Page() {
 
   return (
     <div>
+      <Head>
+        <title>Meine Bestellung | Indivit</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       {orderLoading && loading && <Loader />}
       <HeroBanner
         data={{

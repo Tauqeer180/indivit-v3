@@ -1,17 +1,12 @@
 import HeroBanner from '@/components/common/HeroBanner'
-import Loader from '@/components/common/Loader'
-import TermsConditionsDetails from './TermsConditionsDetails'
+import React from 'react'
+import PaymentDetails from './PaymentDetails'
 import { fetcher } from '@/lib/fetcher'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 
-async function getTermsData() {
-  const data = await fetcher('terms_condition', { cache: true, revalidate: 86400 })
-  return data?.data?.length > 0 ? data.data[0] : {}
-}
-
 export async function generateMetadata() {
-  const { data } = await getSEOData(SWRKeys?.TermCondition)
+  const { data } = await getSEOData(SWRKeys?.WhyIndivit)
 
   return {
     alternates: {
@@ -41,27 +36,26 @@ export async function generateMetadata() {
     },
   }
 }
-export default async function TermsConditions() {
-  const res = await getTermsData()
-  const resd = res?.title_text?.split('||')
+async function getPaymentDetails() {
+  const data = await fetcher('payment_policy')
+  return data?.data
+}
 
-  const resdes1 = resd ? resd[0] : ''
-  const resdes2 = resd ? resd[1] : ''
+export default async function Page() {
+  const res = await getPaymentDetails()
 
   return (
     <div>
-      {!res && <Loader />}
       <HeroBanner
         data={{
-          title: res?.title,
-          description: resdes1,
-          description2: resdes2,
+          title: res?.[0]?.title,
+          description: res?.[0]?.title_text,
         }}
       />
-      <TermsConditionsDetails
+      <PaymentDetails
         data={{
-          title: res?.heading,
-          description: res?.content,
+          title: res?.[0]?.heading,
+          description: res?.[0]?.content,
         }}
       />
     </div>

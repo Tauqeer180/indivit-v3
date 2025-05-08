@@ -3,6 +3,7 @@ import { DataProps } from '@/types/data'
 import Image from 'next/image'
 import React from 'react'
 
+
 export default function HPPDetails({ data }: { data: DataProps }) {
   return (
     <div>
