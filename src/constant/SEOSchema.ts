@@ -1,4 +1,4 @@
-{
+export const SEOSchema = {
   "HomePage": {
     "title":"Indivit: Gesunde Smoothies & Clean Eating für individuelle Ziele | Bio",
     "description":"",
@@ -18,9 +18,9 @@
             "streetAddress": "Kiefholzstrasse 25",
             "addressLocality": "Berlin",
             "postalcode": "12435"
-          },
+            },
           "telephone": "+49-30-53010813"
-        },
+          },
         "mainEntity": {
           "@type": "WebApplication",
           "name": "Indivit",
@@ -49,22 +49,22 @@
           "addressCountry": "Germany"
         },
         "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
+              "@type": "ContactPoint",
+              "contactType": "customer service",
           "email": "smoothie@indivit.de",
           "telephone": "+49-30-53010813",
           "areaServed": "DE",
           "availableLanguage": [
             {
-              "@type": "Language",
-              "name": "German"
+            "@type": "Language",
+            "name": "German"
             },
             {
-              "@type": "Language",
-              "name": "English"
+            "@type": "Language",
+            "name": "English"
             }
           ]
-        },
+          },
         "vatID": "DE353116846",
         "iso6523Code": "0088:4270003949309",
         "legalName": "Smoothie Ninja GmbH",
@@ -72,7 +72,7 @@
           "@type": "PropertyValue",
           "propertyID": "Amtsgericht Charlottenburg",
           "value": "HRB 241307 B"
-        },
+          },
         "sameAs": [
           "https://www.facebook.com/profile.php?id=100088113601684",
           "https://www.instagram.com/indivit_smoothie",
@@ -84,111 +84,111 @@
         "founder": {
           "@type": "Person",
           "name": "Dr. Jan Lampe"
-        },
+          },
         "foundingDate": "2022-03-21",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Smoothie Produkte",
           "itemListElement": [
             {
-              "@type": "OfferCatalog",
-              "name": "Die besten Saftkur Fastenkur Programme ",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Saftkur 3-Tage Entgiftungskur"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Saftkur 5-Tage Darmsanierung"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Saftkur 7-Tage Heilfasten nach Buchinger"
-                  }
+            "@type": "OfferCatalog",
+            "name": "Die besten Saftkur Fastenkur Programme ",
+            "itemListElement": [
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Saftkur 3-Tage Entgiftungskur"
                 }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Saftkur 5-Tage Darmsanierung"
+                }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Saftkur 7-Tage Heilfasten nach Buchinger"
+                }
+              }
               ]
             },
             {
-              "@type": "OfferCatalog",
-              "name": "Saftkur Erfahrung mit 5:2 Intervallfasten",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "1 Woche Intervallfasten: Gesund durch zwei Fastentage"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "2 Wochen Intervallfasten: Saftkur und Saftdiät als Abnehmstrategie"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "3 Wochen Intervallfasten: Fastenkur zum Abnehmen"
-                  }
+            "@type": "OfferCatalog",
+            "name": "Saftkur Erfahrung mit 5:2 Intervallfasten",
+            "itemListElement": [
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "1 Woche Intervallfasten: Gesund durch zwei Fastentage"
                 }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "2 Wochen Intervallfasten: Saftkur und Saftdiät als Abnehmstrategie"
+                }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "3 Wochen Intervallfasten: Fastenkur zum Abnehmen"
+                }
+              }
               ]
             },
             {
-              "@type": "OfferCatalog",
-              "name": "Trinkmahlzeiten als Snack für unterwegs",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Smoothie Trinkmahlzeiten: Abnehmen mit Shakes und Snacks"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Individuelle Smoothie Trinkmahlzeiten selber zusammenstellen"
-                  }
+            "@type": "OfferCatalog",
+            "name": "Trinkmahlzeiten als Snack für unterwegs",
+            "itemListElement": [
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Smoothie Trinkmahlzeiten: Abnehmen mit Shakes und Snacks"
                 }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Individuelle Smoothie Trinkmahlzeiten selber zusammenstellen"
+                }
+              }
               ]
             },
             {
-              "@type": "OfferCatalog",
-              "name": "Leckere Smoothies für Foodies",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Süße Snacks und gesunde Smoothies"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Dubai Style Schokolade: Schoko Smoothie"
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Product",
-                    "name": "Leckere Smoothies zum selber konfigurieren"
-                  }
+            "@type": "OfferCatalog",
+            "name": "Leckere Smoothies für Foodies",
+            "itemListElement": [
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Süße Snacks und gesunde Smoothies"
                 }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Dubai Style Schokolade: Schoko Smoothie"
+                }
+              },
+              {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Leckere Smoothies zum selber konfigurieren"
+                }
+              }
               ]
             }
           ]
@@ -199,51 +199,52 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://indivit.de/"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://indivit.de/"
           }
         ]
       }
-    ]
+      ]
+      
   },
-  "1": {
+  "Page1": {
     "title":"",
     "description":"",
     "og_title":"",
     "og_description":"",
     "schema": null
   },
-  "1": {
+  "Page2": {
     "title":"",
     "description":"",
     "og_title":"",
     "og_description":"",
     "schema": null
   },
-  "1": {
+  "Page3": {
     "title":"",
     "description":"",
     "og_title":"",
     "og_description":"",
     "schema": null
   },
-  "1": {
+  "Page4": {
     "title":"",
     "description":"",
     "og_title":"",
     "og_description":"",
     "schema": null
   },
-  "1": {
+  "Page5": {
     "title":"",
     "description":"",
     "og_title":"",
     "og_description":"",
     "schema": null
   },
-  "1": {
+  "Page6": {
     "title":"",
     "description":"",
     "og_title":"",

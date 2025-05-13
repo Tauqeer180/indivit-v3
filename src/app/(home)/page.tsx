@@ -9,6 +9,7 @@ import FAQSection from './components/FAQsSection'
 import Head from 'next/head'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.Home)
@@ -54,6 +55,10 @@ export default async function Home() {
     <div>
       <Head>
         <link rel="canonical" href="https://indivit.de" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SEOSchema?.HomePage?.schema) }}
+        />
       </Head>
       {/* {JSON.stringify(res?.data?.sliders)} */}
       <HomeCarousel data={sliderData} isLoading={false} />

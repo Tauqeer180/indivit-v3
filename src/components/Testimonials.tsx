@@ -90,7 +90,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 //   },
 // ];
 
-export default function Testimonials({ data, isLoading }) {
+export default function Testimonials({ data, isLoading }:{data:any,isLoading?:boolean}) {
   // const { isLoading, error, data } = useQuery({
   //   queryKey: ["testmonialsListing"],
   //   queryFn: getTestimonials,

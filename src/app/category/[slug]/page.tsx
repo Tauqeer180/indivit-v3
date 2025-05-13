@@ -1,5 +1,6 @@
 import { BoxCard } from '@/components/Cards'
 import { baseURL, fetcher } from '@/lib/fetcher'
+import Head from 'next/head'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import React from 'react'
@@ -43,8 +44,18 @@ export default async function page({ params }: any) {
 
   return (
     <div>
+      <Head>
+        {data?.seo_scheme && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(data?.seo_scheme),
+            }}
+          />
+        )}
+      </Head>
       {/* <!-- hero banner start--> */}
-      {/* {JSON.stringify(data)} */}
+      {/* {data?.seo_scheme} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container md:!tw-max-w-3xl tw-mx-auto ">
           <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">

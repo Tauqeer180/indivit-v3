@@ -10,7 +10,7 @@ export default function CartSidebar({ data }) {
   const { cartTotal } = useCart()
   const { data: boxSizeData } = useQuery({
     queryKey: ['getBoxSize'],
-    queryFn: () => fetcher('get_smoothie_box_size'),
+    queryFn: () => fetcher('get_smoothie_box_size', { cache: true, revalidate: 86400 }),
   })
   const boxSize = boxSizeData?.data
 
