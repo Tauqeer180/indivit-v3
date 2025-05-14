@@ -51,7 +51,7 @@ export default function Page() {
       setLoading(false)
       setModalVisible(false)
     },
-    onError: (err:any) => {
+    onError: (err: any) => {
       toast.error(
         err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
       )
@@ -130,7 +130,8 @@ export default function Page() {
                                     y.smoothie_box.box.smoothie_image[0].images
                                   : commonImg
                               }
-                              alt=""
+                              alt={y?.smoothie_box?.box?.name}
+                              title={y?.smoothie_box?.box?.name}
                               className="img-fluid w-75"
                             />
                           </div>
@@ -244,7 +245,8 @@ export default function Page() {
                                     y.smoothie_box.box.smoothie_image[0].images
                                   : commonImg
                               }
-                              alt=""
+                              alt={y?.smoothie_box?.box?.name}
+                              title={y?.smoothie_box?.box?.name}
                               className="img-fluid w-75"
                             />
                           </div>

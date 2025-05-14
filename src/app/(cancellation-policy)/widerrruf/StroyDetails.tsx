@@ -19,7 +19,8 @@ export default function StoryDetails({ data }) {
                       width={500}
                       height={500}
                       className="img-fluid z-3"
-                      alt=""
+                      alt={data?.title}
+                      title={data?.title}
                     />
                   </div>
                 </div>

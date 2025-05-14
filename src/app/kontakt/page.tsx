@@ -116,7 +116,7 @@ export default function Contact() {
                       <li>
                         <Image
                           src="/assets/icon/icon.png"
-                          alt=""
+                          alt="address"
                           className="img-fluid flx-email"
                           width={50}
                           height={50}
@@ -131,7 +131,7 @@ export default function Contact() {
                       <li>
                         <Image
                           src="/assets/icon/icon1.png"
-                          alt=""
+                          alt="email"
                           className="img-fluid flx-email"
                           width={50}
                           height={50}
@@ -151,7 +151,7 @@ export default function Contact() {
                       <li>
                         <Image
                           src="/assets/icon/icon2.png"
-                          alt=""
+                          alt="phone"
                           className="img-fluid flx-email"
                           width={50}
                           height={50}

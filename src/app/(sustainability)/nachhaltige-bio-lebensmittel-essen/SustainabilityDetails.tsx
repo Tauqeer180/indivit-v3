@@ -22,7 +22,7 @@ export default function SustainabilityDetails() {
                   <div className="text-left flx-img-position">
                     <Image
                       src="/assets/img/Sustainable_smoothie.png"
-                      alt=""
+                      alt="sustainable smoothie"
                       height={500}
                       width={500}
                       className="img-fluid z-3"

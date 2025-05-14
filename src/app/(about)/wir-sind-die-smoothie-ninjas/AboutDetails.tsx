@@ -25,7 +25,8 @@ export default async function AboutDetails({ data }) {
                       height={500}
                       src="/assets/img/Jan_Lampe.png"
                       className="img-fluid z-3"
-                      alt=""
+                      alt="Jan Lampe"
+                      title="Jan Lampe"
                     />
                   </div>
                 </div>

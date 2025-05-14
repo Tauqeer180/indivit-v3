@@ -23,7 +23,7 @@ export default function TermsConditionsDetails({ data }) {
                     <Image
                       src="/assets/img/indivit_AGBs.png"
                       className="img-fluid z-3"
-                      alt=""
+                      alt="Indivit AGBs"
                       width={500}
                       height={500}
                     />

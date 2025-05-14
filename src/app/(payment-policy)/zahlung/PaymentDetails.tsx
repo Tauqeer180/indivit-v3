@@ -19,7 +19,7 @@ export default function PaymentDetails({ data }) {
                       height={500}
                       src="/assets/img/Custom_Box.png"
                       className="img-fluid z-3"
-                      alt=""
+                      alt={data?.title}
                     />
                   </div>
                 </div>

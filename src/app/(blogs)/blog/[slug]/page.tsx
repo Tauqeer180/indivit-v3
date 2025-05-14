@@ -130,6 +130,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             width={1920}
             height={1080}
             alt={blogData?.title}
+            title={blogData?.title}
             className="tw-w-full tw-h-auto tw-max-w-6xl tw-mx-auto lg:tw-rounded-xl lg:tw-mt-36 md:tw-mt-32 tw-mt-28"
           />
           <div className=" tw-mx-auto tw-space-y-6 sm:tw-px-10 sm:tw-mx-12 md:tw-px-16 tw-px-5 ">
@@ -155,6 +156,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         : `https://ui-avatars.com/api/?background=random&size=150&name=${blogData?.author_name}`
                     }
                     alt={blogData?.author_name}
+                    title={blogData?.author_name}
                     className="tw-rounded-full tw-w-12 tw-h-12"
                     width={48}
                     height={48}

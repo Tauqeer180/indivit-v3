@@ -140,6 +140,7 @@ export default function CustomSmoothieDetailPopup({ data, ingredients }) {
                                   <Image
                                     className="img-fluid tw-w-12 tw-h-12"
                                     alt={ingr?.ingredient?.name}
+                                    title={ingr?.ingredient?.name}
                                     width={300}
                                     height={300}
                                     src={

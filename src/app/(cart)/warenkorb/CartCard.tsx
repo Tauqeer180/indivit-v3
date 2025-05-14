@@ -82,7 +82,7 @@ export default function CartCard({ box, subscriptionPlan }) {
               height={30}
               width={30}
               src="/assets/icon/Recycle-Bin.png"
-              alt=""
+              alt="recycle bin"
               className="img-fluid"
             />
           </div>
@@ -117,7 +117,8 @@ export default function CartCard({ box, subscriptionPlan }) {
                       }
                       width={500}
                       height={500}
-                      alt=""
+                      alt={item?.smoothie?.name}
+                      title={item?.smoothie?.name}
                       className="img-fluid rounded-3 shadow-sm"
                     />
                   </div>

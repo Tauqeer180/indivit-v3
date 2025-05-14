@@ -20,7 +20,7 @@ export default function EmptyWishlist({
       <div className="py-5">
         <Image
           src="/assets/img/fruits.png"
-          alt=""
+          alt="fruits and vegetables"
           width={200}
           height={200}
           className="img-fluid pb-3"

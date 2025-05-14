@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 export default function Loader() {
   return (
     <div className="position-absolute start-0 top-0">
@@ -6,10 +6,12 @@ export default function Loader() {
         <img
           height="100px"
           width="100px"
+          alt="Loading..."
+          title="Loading..."
           className="img-fluid rotate"
           src={'/assets/icon/logo1.png'}
         />
       </div>
     </div>
-  );
+  )
 }

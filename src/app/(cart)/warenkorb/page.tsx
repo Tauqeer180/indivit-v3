@@ -54,7 +54,7 @@ export default function Page() {
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                   <Image
                     src="/assets/img/fruits.png"
-                    alt=""
+                    alt="fruits"
                     height={200}
                     width={200}
                     className="img-fluid pb-3"

@@ -36,7 +36,7 @@ export default function AboutRecipe({ color, data }: { color: string; data: IAbo
                       <div className="col-xs-12 col-sm-12 col-md-2 col-lg-1 d-md-block">
                         <div className="d-flex align-items-center h-100 justify-content-center">
                           <Image
-                            alt=""
+                            alt={data?.title}
                             src={icons[d?.icon]}
                             className="img-fluid"
                             width={100}

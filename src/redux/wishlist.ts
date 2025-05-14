@@ -8,12 +8,14 @@ export const fetchWishlist = createAsyncThunk('wishlist/fetchWishlist', async (_
   const { dispatch } = thunkAPI
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const response = await fetcher('get_wishlist', { token: session.get('token') })
+  let token = session.get('token')
+  
+  const response = token ? await fetcher('get_wishlist', { token: session.get('token') }) : {}
   if (response?.response?.status == 401 || response?.response?.status == 403) {
     dispatch(logoutAction())
     // navigate("/login");
   }
-  return response.data
+  return response?.data || {}
 })
 export const wishlistReducer = createSlice({
   name: 'wishlist',

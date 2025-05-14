@@ -64,7 +64,7 @@ export default function CartSidebar({ data }) {
               height={25}
               className="img-fluid me-2"
               src="/assets/icon/deliveryIcon.png"
-              alt=""
+              alt="deliveryIcon"
             />
             <span>Versandkosten</span>
             {/* Delivery Charges */}
@@ -78,7 +78,7 @@ export default function CartSidebar({ data }) {
               height={25}
               className="img-fluid me-2"
               src="/assets/icon/deposit.png"
-              alt=""
+              alt="deposit icon"
             />
             Pfand
           </p>

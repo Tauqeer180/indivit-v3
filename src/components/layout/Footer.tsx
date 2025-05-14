@@ -36,6 +36,7 @@ export default async function Footer() {
                 width={80}
                 height={80}
                 alt="Indivit"
+                title="Indivit"
               />
             </div>
             {/* <!-- shop colum --> */}

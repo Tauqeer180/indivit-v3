@@ -170,7 +170,13 @@ export default function Navbar() {
             <div className="offcanvas-header d-lg-none">
               <div className="flx-logo">
                 <Link className="navbar-brand " href="/">
-                  <Image width={50} height={50} src={'/assets/icon/logo1.png'} alt="Indivit" />
+                  <Image
+                    width={50}
+                    height={50}
+                    src={'/assets/icon/logo1.png'}
+                    alt="Indivit"
+                    title="Indivit"
+                  />
                 </Link>
               </div>
               <button
@@ -392,7 +398,8 @@ export default function Navbar() {
                 height={100}
                 src={'/assets/icon/logo1.png'}
                 className="img-fluid  tw-left-1/2 -tw-translate-x-1/2 min-[991px]:!-tw-top-7 !-tw-top-3"
-                alt=""
+                alt="Indivit"
+                title="Indivit"
               />
             </Link>
           </div>

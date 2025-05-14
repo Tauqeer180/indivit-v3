@@ -15,7 +15,8 @@ export default async function NotFound() {
         <div className="tw-absolute tw-left-0 tw-top-0 tw-opacity-20 -tw-z-10">
           <Image
             src="/assets/object/leave.png"
-            alt=""
+            alt="leaf"
+            title="leaf"
             width={200}
             height={300}
             className="tw-h-auto"
@@ -52,7 +53,8 @@ export default async function NotFound() {
         <div className="tw-absolute tw-right-0 tw-bottom-0 tw-opacity-30 -tw-z-10">
           <Image
             src="/assets/img/fruits.png"
-            alt=""
+            alt="fruits"
+            title="fruits"
             width={150}
             height={150}
             className="tw-h-auto"

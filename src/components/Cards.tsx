@@ -318,7 +318,7 @@ export function IngredientCard({ data }: { data: any }) {
             <Image
               width={50}
               height={50}
-              alt=""
+              alt="loader"
               src={'/assets/icon/loader.gif'}
               className="img-fluid"
               loading="lazy"
@@ -383,6 +383,7 @@ export function SelectListCard({
               data?.picture ? baseURL + 'integredient/' + data.picture : '/assets/icon/logo1.png'
             }
             alt={data?.name}
+            title={data?.name}
             className=" img-fluid "
             width="40px"
             loading="lazy"
@@ -573,7 +574,8 @@ export function MixerSelectedListCard({
       <div className="col-2">
         <img
           src={data?.picture ? baseURL + 'integredient/' + data?.picture : '/assets/icon/logo1.png'}
-          alt=""
+          alt={data?.name}
+          title={data?.name}
           height="87px"
           width="87px"
           className=" img-fluid "

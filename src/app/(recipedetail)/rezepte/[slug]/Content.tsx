@@ -139,7 +139,7 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                         width={500}
                         height={500}
                         className="img-fluid flx-rdetailed-animation max-h- w-100 !tw-duration-500"
-                        alt=""
+                        alt={data?.name}
                       />
                     </div>
                   </div>

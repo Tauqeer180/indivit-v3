@@ -73,7 +73,7 @@ export default async function WhyIndivit() {
 
       <div className="text-center py-5">
         <Image
-          alt=""
+          alt="comparison chart"
           src="/assets/object/Chart.png"
           className="img-fluid"
           width={600}

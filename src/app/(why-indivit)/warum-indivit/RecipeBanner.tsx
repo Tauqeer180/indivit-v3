@@ -16,7 +16,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white">
                   <Image
-                    alt=""
+                    alt="echte Smoothies aus ganzen Früchten"
                     src="/assets/icon/fruits-and-vegetables_w.png"
                     width={100}
                     height={100}
@@ -36,7 +36,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white">
                   <Image
-                    alt=""
+                    alt="bio"
                     src="/assets/icon/bio_w.png"
                     width={100}
                     height={100}
@@ -58,7 +58,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white pb-5">
                   <Image
-                    alt=""
+                    alt="schutz"
                     src="/assets/icon/schutz_w.png"
                     width={100}
                     height={100}
@@ -81,7 +81,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white pb-5">
                   <Image
-                    alt=""
+                    alt="frucht"
                     src="/assets/icon/frucht_w.png"
                     width={100}
                     height={100}
@@ -103,7 +103,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white pb-5">
                   <Image
-                    alt=""
+                    alt="mixer"
                     src="/assets/icon/mixer_w.png"
                     width={100}
                     height={100}
@@ -123,7 +123,7 @@ export default function RecipeBanner() {
               >
                 <div className="text-white pb-5">
                   <Image
-                    alt=""
+                    alt="recycling zeichen"
                     src="/assets/icon/recycling-zeichen_w.png"
                     width={100}
                     height={100}

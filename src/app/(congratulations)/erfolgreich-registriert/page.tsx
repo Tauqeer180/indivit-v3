@@ -8,7 +8,7 @@ export default function Page() {
         <div className="container text-center">
           <Image
             src="/assets/img/congratulations.png"
-            alt=""
+            alt="congratulations"
             height={500}
             width={500}
             className="img-fluid mt-5"

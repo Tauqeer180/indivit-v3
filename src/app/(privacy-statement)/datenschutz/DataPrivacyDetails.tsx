@@ -26,7 +26,7 @@ export default function DataPrivacyDetails({ data }) {
                   <div className="text-left flx-img-position">
                     <Image
                       src="/assets/img/indivit_data_privacy.png"
-                      alt=""
+                      alt={data?.title}
                       height={500}
                       width={500}
                       className="img-fluid z-3"

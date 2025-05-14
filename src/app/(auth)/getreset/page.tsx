@@ -16,7 +16,7 @@ export default function Page() {
                       width={100}
                       height={100}
                       src="/assets/img/reset-img.png"
-                      alt=""
+                      alt="Reset Password"
                       className="img-fluid pb-3"
                     />
                   </div>
