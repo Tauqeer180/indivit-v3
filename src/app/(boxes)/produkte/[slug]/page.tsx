@@ -13,7 +13,9 @@ import dynamic from 'next/dynamic'
 import SmoothiesCarousel from '../components/SmoothiesCarousel'
 import Link from 'next/link'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
-import SEOSchema from '../components/SEOSchema'
+import SEOSchema, { generateWebPageSchema } from '../components/SEOSchema'
+import Head from 'next/head'
+import Script from 'next/script'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -116,14 +118,39 @@ export default async function page({ params }: any) {
   //       : selectedBoxData?.price) /
   //       selectedQty) *
   //     4
-
+  // const jsonLd = {
+  //   '@context': 'https://schema.org',
+  //   '@type': 'Product',
+  //   name: 'tauqeer',
+  //   image: 'tauqeer',
+  //   description: 'tauqeer',
+  // }
   return (
     <>
       <SEOSchema data={boxData} />
       <ViewBoxPopup />
       <VATModal />
-      {/* {JSON.stringify(data)} */}
+      {/* <Head>
+        <script
+          type="application/ld+json"
+          // dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebPageSchema()) }}
+        >
+          {`${generateWebPageSchema()}`}
+        </script>
+      </Head> */}
+      {/* <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: generateWebPageSchema() }}
+      /> */}
+      {/* {`${JSON.stringify(generateWebPageSchema())}`} */}
       {/* Pending Section */}
+      {/* <script type="application/ld+json">{`${JSON.stringify(generateWebPageSchema())}`}</script> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebPageSchema()) }}
+      >
+        {/* {`${generateWebPageSchema()}`} */}
+      </script>
       <section id="flx-hero-boxui">
         <div className="container">
           <div className="">

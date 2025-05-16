@@ -319,15 +319,15 @@ export default function SEOSchema(data) {
 
   return (
     <>
-      {JSON.stringify(generateWebPageSchema)}
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schemas, null, 2).replace(/</g, '\\u003c'),
-          }}
-        >
-          {/* {` '@context': 'https://schema.org',
+      {/* {JSON.stringify(generateWebPageSchema)} */}
+      {/* <Head> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schemas, null, 2).replace(/</g, '\\u003c'),
+        }}
+      >
+        {/* {` '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Indivit Smoothies',
   description:
@@ -355,8 +355,8 @@ export default function SEOSchema(data) {
     },
   
   }`} */}
-        </script>
-      </Head>
+      </script>
+      {/* </Head> */}
     </>
   )
 }
