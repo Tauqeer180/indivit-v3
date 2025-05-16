@@ -258,12 +258,13 @@ export const generateProductSchema = (product) => ({
       {
         '@type': 'UnitPriceSpecification',
         priceType: 'https://schema.org/StrikethroughPrice',
-        price: parseFloat(
-          !product?.smoothie_box_descriptions?.[0]?.price ||
-            product?.smoothie_box_descriptions?.[0]?.price == 0
-            ? product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.price
-            : product?.smoothie_box_descriptions?.[0]?.price
-        )?.toFixed(1) || 0,
+        price:
+          parseFloat(
+            !product?.smoothie_box_descriptions?.[0]?.price ||
+              product?.smoothie_box_descriptions?.[0]?.price == 0
+              ? product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.price
+              : product?.smoothie_box_descriptions?.[0]?.price
+          ) || 0,
         priceCurrency: 'EUR',
         referenceQuantity: {
           '@type': 'QuantitativeValue',

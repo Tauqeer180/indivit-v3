@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import BlogsCarousel from '../../components/BlogsCarousel'
 import { FABComponent } from '@/components/common/ShareButtons'
+import SEOSchema from '../../components/SEOSchema'
 // moment.locale('de');
 
 export const dynamicParams = true // or false, to 404 on unknown paths
@@ -91,6 +92,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
+      <SEOSchema data={blogData} />
       {/* {JSON.stringify(blogData?.body)} */}
       <Head>
         <script type="application/ld+json">

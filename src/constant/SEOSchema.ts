@@ -209,7 +209,7 @@ export const SEOSchema = {
       ]
       
   },
-  "Page1": {
+  "BlogDetail": {
     "title":"",
     "description":"",
     "og_title":"",
