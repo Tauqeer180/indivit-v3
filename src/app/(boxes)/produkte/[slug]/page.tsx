@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic'
 import SmoothiesCarousel from '../components/SmoothiesCarousel'
 import Link from 'next/link'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import SEOSchema from '../components/SEOSchema'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -117,7 +118,8 @@ export default async function page({ params }: any) {
   //     4
 
   return (
-    <div>
+    <>
+      <SEOSchema data={boxData} />
       <ViewBoxPopup />
       <VATModal />
       {/* {JSON.stringify(data)} */}
@@ -284,6 +286,6 @@ export default async function page({ params }: any) {
 
       {/* Smoothie Carousel */}
       <SmoothiesCarousel />
-    </div>
+    </>
   )
 }
