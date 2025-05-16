@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { baseURL } from '@/lib/fetcher'
 import React from 'react'
 
 export const generateWebPageSchema = () => ({
@@ -221,22 +221,10 @@ export const BreadCrumbSchema = (pageName) => ({
 export const generateProductSchema = (product) => ({
   '@context': 'http://schema.org/',
   '@type': 'Product',
-  name: 'Saftkur 3-Tage Entgiftungskur',
-  image: [
-    'https://admin.indivit.de/smoothie_box/202502182110smoothie-fastenkur-3-tage.png',
-    'https://admin.indivit.de/smoothie_box/202502182110smoothie-fastenkur-varianten.png',
-    'https://admin.indivit.de/smoothie_box/202502182110smoothie-fastenkur-fastenguide.png',
-    'https://admin.indivit.de/smoothie_box/202502182110smoothie-fastenkur-dauer.png',
-    'https://admin.indivit.de/smoothie_box/202502191049smoothie-fastenkur-fastentag.png',
-    'https://admin.indivit.de/smoothie_box/202502191049fructover-3.0-fastenkur.png',
-    'https://admin.indivit.de/smoothie_box/202502191049mindzup-1.0-fastenkur.png',
-    'https://admin.indivit.de/smoothie_box/202502191049all-in-fruit-1.0-fastenkur.png',
-    'https://admin.indivit.de/smoothie_box/202502191049feedya-1.0-fastenkur.png',
-    'https://admin.indivit.de/smoothie_box/202502191049immuboosta-1.0-fastenkur.png',
-    'https://admin.indivit.de/smoothie_box/202502191049mojofit-1.0-fastenkur.png',
-  ],
-  description:
-    '3-Tage Detox mit individuellen Smoothies: Weniger Zucker, mehr Nährstoffe & 4 Ausführungen für Entgiftung oder Reset. Frisch geliefert.',
+  name: product?.name,
+  image: [product?.smoothie_image?.map((e) => baseURL + 'smoothie_box/' + e?.images)],
+  description: product?.meta_description,
+
   gtin13: '4270003949309',
   brand: {
     '@type': 'Brand',
@@ -244,15 +232,21 @@ export const generateProductSchema = (product) => ({
   },
   offers: {
     '@type': 'Offer',
-    url: 'https://indivit.de/produkte/saftkur-3-tage-entgiftungskur',
+    url: `${baseURL}/produkte/${product?.slug}`,
     priceSpecification: [
       {
         '@type': 'UnitPriceSpecification',
-        price: 69.0,
+        price:
+          parseFloat(
+            !product?.smoothie_box_descriptions?.[0]?.price ||
+              product?.smoothie_box_descriptions?.[0]?.price == 0
+              ? product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.price
+              : product?.smoothie_box_descriptions?.[0]?.price
+          )?.toFixed(1) || 0,
         priceCurrency: 'EUR',
         referenceQuantity: {
           '@type': 'QuantitativeValue',
-          value: '4.5',
+          value: product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.size * 0.25,
           unitCode: 'LTR',
           valueReference: {
             '@type': 'QuantitativeValue',
@@ -264,11 +258,16 @@ export const generateProductSchema = (product) => ({
       {
         '@type': 'UnitPriceSpecification',
         priceType: 'https://schema.org/StrikethroughPrice',
-        price: 69.0,
+        price: parseFloat(
+          !product?.smoothie_box_descriptions?.[0]?.price ||
+            product?.smoothie_box_descriptions?.[0]?.price == 0
+            ? product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.price
+            : product?.smoothie_box_descriptions?.[0]?.price
+        )?.toFixed(1) || 0,
         priceCurrency: 'EUR',
         referenceQuantity: {
           '@type': 'QuantitativeValue',
-          value: '4.5',
+          value: product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.size * 0.25,
           unitCode: 'LTR',
           valueReference: {
             '@type': 'QuantitativeValue',
@@ -309,54 +308,23 @@ export const generateProductSchema = (product) => ({
     },
   },
 })
-export default function SEOSchema(data) {
+export default function SEOSchema({ data }) {
   const schemas = [
     generateWebPageSchema(),
     generateOrganizationSchema(),
     BreadCrumbSchema(data?.name),
-    generateProductSchema({}),
+    generateProductSchema(data),
   ]
 
   return (
     <>
-      {/* {JSON.stringify(generateWebPageSchema)} */}
-      {/* <Head> */}
+      {/* {JSON.stringify(data, null, 2)} */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(schemas, null, 2).replace(/</g, '\\u003c'),
         }}
-      >
-        {/* {` '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Indivit Smoothies',
-  description:
-    'Indivit ist ein innovativer Anbieter bio-zertifizierter, individuell konfigurierbarer Smoothies. Die Produkte werden wissenschaftlich entwickelt und mit High-Pressure-Processing (HPP) schonend haltbar gemacht – ohne künstliche Zusätze. Indivit unterstützt gesunde Ernährung mit nährstoffreichen Smoothies für Fastenkuren, Intervallfasten und ausgewogene Mahlzeiten.',
-  publisher: {
-    '@type': 'Organization',
-    name: 'Indivit',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Kiefholzstrasse 25',
-      addressLocality: 'Berlin',
-      postalcode: '12435',
-    },
-    telephone: '+49-30-53010813',
-  },
-  mainEntity: {
-    '@type': 'WebApplication',
-    name: 'Indivit',
-    url: 'https://indivit.de/',
-    operatingSystem: 'All',
-    applicationCategory: 'Shopping',
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'EUR',
-    },
-  
-  }`} */}
-      </script>
-      {/* </Head> */}
+      ></script>
     </>
   )
 }

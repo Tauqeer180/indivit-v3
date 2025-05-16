@@ -55,11 +55,13 @@ export default async function Home() {
     <div>
       <Head>
         <link rel="canonical" href="https://indivit.de" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(SEOSchema?.HomePage?.schema) }}
-        />
       </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SEOSchema?.HomePage?.schema, null, 2),
+        }}
+      />
       {/* {JSON.stringify(res?.data?.sliders)} */}
       <HomeCarousel data={sliderData} isLoading={false} />
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}

@@ -130,27 +130,7 @@ export default async function page({ params }: any) {
       <SEOSchema data={boxData} />
       <ViewBoxPopup />
       <VATModal />
-      {/* <Head>
-        <script
-          type="application/ld+json"
-          // dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebPageSchema()) }}
-        >
-          {`${generateWebPageSchema()}`}
-        </script>
-      </Head> */}
-      {/* <Script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: generateWebPageSchema() }}
-      /> */}
-      {/* {`${JSON.stringify(generateWebPageSchema())}`} */}
-      {/* Pending Section */}
-      {/* <script type="application/ld+json">{`${JSON.stringify(generateWebPageSchema())}`}</script> */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebPageSchema()) }}
-      >
-        {/* {`${generateWebPageSchema()}`} */}
-      </script>
+
       <section id="flx-hero-boxui">
         <div className="container">
           <div className="">

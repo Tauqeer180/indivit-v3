@@ -32,12 +32,12 @@ export const wishlistReducer = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(fetchWishlist.fulfilled, (state, { payload }) => {
       // Add user to the state array
-      let tempCount = state.count
+      let tempCount = state?.count
       tempCount =
         payload?.wishlist_smoothie?.length +
         payload?.wishlist_smoothie_box?.length +
         payload?.wishlist_ingredient?.length
-      state.count = tempCount
+      state.count = tempCount || 0
       state.wishlist_smoothie = payload.wishlist_smoothie
       state.wishlist_smoothie_box = payload.wishlist_smoothie_box
       state.wishlist_ingredient = payload.wishlist_ingredient

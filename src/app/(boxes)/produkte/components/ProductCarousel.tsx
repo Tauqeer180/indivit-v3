@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 // import rightArrow from '../../assets/object/right.png'
 import { baseURL } from '@/lib/fetcher'
 import { useBoxDetail } from './useBoxDetail'
+import { useAppSelector } from '@/redux/hooks'
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -57,7 +58,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
   )
 }
 export default function ProductCarousel({ boxImage }) {
-  const commonImg = useSelector((state) => state.settings?.boxImg)
+  const commonImg = useAppSelector((state) => state.settings?.boxImg)
   const { selectedBoxData } = useBoxDetail()
   return (
     <div className="tw-relative">
