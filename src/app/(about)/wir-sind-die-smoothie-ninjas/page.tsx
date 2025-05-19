@@ -8,6 +8,7 @@ import AboutJSON from './JSONData.json'
 import { BreadCrumb } from '@/components/common/Common'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 // ABout Page
 
@@ -52,23 +53,31 @@ export default async function Page() {
   const aboutData = await getAboutDetails()
 
   return (
-    <div>
-      <HeroBanner
-        data={{
-          title: aboutData?.data?.[0].main__title,
-          description: aboutData?.data?.[0]?.main_description,
-        }}
-        breadCrumb={<BreadCrumb name="Über Indivit" />}
-        bgImg=" !tw-bg-about"
-      />
-      <AboutDetails
-        data={{
-          title: aboutData?.data?.[0]?.section_heading,
-          description: aboutData?.data?.[0].section_description,
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SEOSchema?.About?.schema, null, 2),
         }}
       />
-      <AboutRecipe data={AboutJSON?.about} color="#F8F9FA" />
-      <VisionRecipeSection />
-    </div>
+      <div>
+        <HeroBanner
+          data={{
+            title: aboutData?.data?.[0].main__title,
+            description: aboutData?.data?.[0]?.main_description,
+          }}
+          breadCrumb={<BreadCrumb name="Über Indivit" />}
+          bgImg=" !tw-bg-about"
+        />
+        <AboutDetails
+          data={{
+            title: aboutData?.data?.[0]?.section_heading,
+            description: aboutData?.data?.[0].section_description,
+          }}
+        />
+        <AboutRecipe data={AboutJSON?.about} color="#F8F9FA" />
+        <VisionRecipeSection />
+      </div>
+    </>
   )
 }
