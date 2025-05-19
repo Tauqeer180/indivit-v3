@@ -6,6 +6,7 @@ import CustomBox from './components/CustomBox'
 import './components/custombox-anim.css'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 // Custom Box
 
@@ -76,8 +77,8 @@ export default async function page({ params, searchParams }) {
   })
   let mineSmoothies = customSmoothiesData?.smoothies?.filter((d) => d.created_by == '1')
   return (
-    <div>
-      {add_me}
+    <>
+      {/* {add_me} */}
       <HeroBanner
         data={{
           title: 'Wähle deine Smoothie Trinkmahlzeiten',
@@ -87,7 +88,16 @@ export default async function page({ params, searchParams }) {
           //   "Nimm wieder den leckeren Smoothie aus deiner letzten Bestellung. Verfeinere deine Kreationen. Mix dir deine Smoothies einfach selbst",
         }}
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.CustomBox?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <CustomBox
         boxSize={boxSizeData?.data}
         wishlistSmoothies={wishlistSmoothies}
@@ -106,6 +116,6 @@ export default async function page({ params, searchParams }) {
       <br />
       {JSON.stringify(filtSmoothies[0])} */}
       {/* Custom Box,*/}
-    </div>
+    </>
   )
 }

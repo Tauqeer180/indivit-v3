@@ -1,9 +1,20 @@
+import { SEOSchema } from '@/constant/SEOSchema'
 import Image from 'next/image'
 import React from 'react'
 // Congratulations Page
 export default function Page() {
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Congratulations?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <div className="pt-140 tw-max-w-7xl tw-mx-auto">
         <div className="container text-center">
           <Image
@@ -20,6 +31,6 @@ export default function Page() {
           Tab.
         </p>
       </div>
-    </div>
+    </>
   )
 }

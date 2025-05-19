@@ -7,6 +7,7 @@ import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import IntroText from '@/constant/IntroText.json'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.BlogList)
@@ -43,7 +44,13 @@ export default async function Page() {
   let res = await fetcher('blogs?page=1&limit=12', { cache: true, revalidate: 3600 * 4 })
   res = JSON.parse(JSON.stringify(res))
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SEOSchema?.Blogs?.schema, null, 2),
+        }}
+      />
       <BlogsHero
         data={{
           title: 'Smoothie Wissen',
@@ -69,6 +76,6 @@ export default async function Page() {
       <div className="container tw-my-14">
         <MarkdownDisplay>{IntroText?.blog_content_2}</MarkdownDisplay>
       </div>
-    </div>
+    </>
   )
 }

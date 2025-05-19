@@ -4,6 +4,7 @@ import HeroBanner from '@/components/common/HeroBanner'
 import ImprintDetails from './ImprintDetails'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getImprintData() {
   const data = await fetcher('imprint', { cache: true, revalidate: 86400 })
@@ -46,7 +47,17 @@ export default async function Imprint() {
   const res = await getImprintData()
 
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Imprint?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: res?.title,
@@ -59,6 +70,6 @@ export default async function Imprint() {
           description: res?.content,
         }}
       />
-    </div>
+    </>
   )
 }

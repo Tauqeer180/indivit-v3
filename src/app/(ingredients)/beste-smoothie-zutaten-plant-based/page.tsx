@@ -7,6 +7,7 @@ import IntroText from '@/constant/IntroText.json'
 import { BreadCrumb } from '@/components/common/Common'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 // Ingredients page
 
 async function getIngredientsData() {
@@ -52,6 +53,16 @@ export default async function Ingredients() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Ingredients?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       {/* <!-- hero banner start--> */}
       <HeroBanner
         data={{

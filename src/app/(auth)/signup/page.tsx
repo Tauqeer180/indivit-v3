@@ -1,3 +1,4 @@
+import { SEOSchema } from '@/constant/SEOSchema'
 import SignupForm from './component/SignupForm'
 export async function generateMetadata() {
   return {
@@ -6,7 +7,13 @@ export async function generateMetadata() {
 }
 export default function Page() {
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SEOSchema?.Signup?.schema, null, 2),
+        }}
+      />
       <div className="container">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-6">
@@ -28,6 +35,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

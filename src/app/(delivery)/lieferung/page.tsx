@@ -4,6 +4,7 @@ import HeroBanner from '@/components/common/HeroBanner'
 import DeliveryDetails from './DeliveryDetails'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getDeliveryData() {
   const data = await fetcher('delivery', { cache: true, revalidate: 86400 }) // Fetching from your utility function
@@ -44,8 +45,17 @@ export default async function Delivery() {
   const res = await getDeliveryData()
 
   return (
-    <div>
-      {' '}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Liferung?.schema],
+            null,
+            2
+          ),
+        }}
+      />{' '}
       <HeroBanner
         data={{
           title: res?.title,
@@ -58,6 +68,6 @@ export default async function Delivery() {
           description: res?.content,
         }}
       />
-    </div>
+    </>
   )
 }

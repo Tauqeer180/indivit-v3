@@ -5,6 +5,7 @@ import HPPDetails from './HppDetails'
 import { BreadCrumb } from '@/components/common/Common'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getHPPData() {
   const data = await fetcher('hpp_procedure', { cache: true, revalidate: 86400 })
@@ -47,7 +48,17 @@ export default async function HPP() {
   const res = await getHPPData()
 
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.HPP?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: res?.title,
@@ -61,6 +72,6 @@ export default async function HPP() {
           description: res?.content,
         }}
       />
-    </div>
+    </>
   )
 }

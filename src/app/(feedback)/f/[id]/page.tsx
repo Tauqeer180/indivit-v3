@@ -44,8 +44,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   let dataByProdID = await fetcher(`smoothie_rating?id=${id}`, { token })
   return (
     <div>
-      {/* {id}
-      {JSON.stringify(dataByProdID)} */}
       <PageContent dataByProdID={dataByProdID} id={id} />
     </div>
   )

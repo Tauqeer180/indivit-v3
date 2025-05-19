@@ -1,4 +1,5 @@
 import HeroBanner from '@/components/common/HeroBanner'
+import { SEOSchema } from '@/constant/SEOSchema'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { fetcher } from '@/lib/fetcher'
 import { getSEOData } from '@/services/common'
@@ -47,7 +48,13 @@ export default async function Page() {
   const faq = faqPage?.faqs ? JSON.parse(faqPage?.faqs) : []
 
   return (
-    <div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([...SEOSchema?.Common?.schema, ...SEOSchema?.FAQ?.schema], null, 2),
+        }}
+      />
       <HeroBanner
         data={{
           title: faqPage?.heading,
@@ -158,6 +165,6 @@ export default async function Page() {
         </div>
       </section>
       {/* <!-- accordion section --> */}
-    </div>
+    </>
   )
 }
