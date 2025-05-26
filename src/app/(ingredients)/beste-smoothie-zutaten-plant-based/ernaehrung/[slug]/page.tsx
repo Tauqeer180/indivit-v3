@@ -79,7 +79,7 @@ export default async function Page({ params }) {
           }}
         />
       )}
-      {JSON.stringify(data?.seo_scheme)}
+      {/* {JSON.stringify(data?.seo_scheme)} */}
       <AllNutrientsPopup data={data?.nutrients} />
       <section id="flx-hero-rdetailed">
         <div className="container">
