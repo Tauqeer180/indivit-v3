@@ -1,3 +1,4 @@
+import { SEOSchema } from '@/constant/SEOSchema'
 import PageContent from './PageContent'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { getSEOData } from '@/services/common'
@@ -39,6 +40,16 @@ export async function generateMetadata() {
 export default function Page() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.MyCreation?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       {/* <!-- hero banner start--> */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container">
