@@ -2050,21 +2050,140 @@ export const SEOSchema = {
 ]
 ,
   },
-  Page6: {
+  Orders: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: [
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Bestellungsübersicht"
+		}
+	]
+}
+]
+  },
+  // Payment Policy
+  Zahlung: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Zahlungsmöglichkeiten"
+		}
+	]
+}
+]
+  },
+  Privacy: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Datenschutz"
+		}
+	]
+}
+]
+
+  },
+  Profile: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: [
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Nutzerprofil"
+		}
+	]
+}
+]
+  },
+  Page9: {
     title: '',
     description: '',
     og_title: '',
     og_description: '',
     schema: null,
   },
-  Page6: {
+  Page1: {
     title: '',
     description: '',
     og_title: '',
     og_description: '',
     schema: null,
   },
-  Page6: {
+  Page2: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: null,
+  },
+  Page3: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: null,
+  },
+  Page4: {
     title: '',
     description: '',
     og_title: '',

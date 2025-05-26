@@ -4,6 +4,7 @@ import PaymentDetails from './PaymentDetails'
 import { fetcher } from '@/lib/fetcher'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.PaymentPolicy)
@@ -46,6 +47,16 @@ export default async function Page() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Zahlung?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: res?.[0]?.title,

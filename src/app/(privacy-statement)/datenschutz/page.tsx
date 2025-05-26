@@ -4,6 +4,7 @@ import React from 'react'
 import DataPrivacyDetails from './DataPrivacyDetails'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 // Privacy Statement Page
 
 export async function generateMetadata() {
@@ -49,6 +50,16 @@ export default async function Page() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Privacy?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: res?.title,

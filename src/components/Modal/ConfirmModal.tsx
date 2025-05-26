@@ -1,6 +1,18 @@
 import React from 'react'
 
-export default function ConfirmModal({ action, className, closeRef, isLoading, innerHtml }) {
+export default function ConfirmModal({
+  action,
+  className,
+  closeRef,
+  isLoading,
+  innerHtml,
+}: {
+  action: () => void
+  className?: string
+  closeRef: any
+  isLoading: boolean
+  innerHtml: string
+}) {
   return (
     <>
       <button

@@ -1,15 +1,30 @@
-'use client'
+// 'use client'
 import HeroBanner from '@/components/common/HeroBanner'
-import { useAppSelector } from '@/redux/hooks'
+import { SEOSchema } from '@/constant/SEOSchema'
+// import { useAppSelector } from '@/redux/hooks'
 import Head from 'next/head'
+import { cookies } from 'next/headers'
 import React from 'react'
 // Profile Page
 
-export default function Page() {
-  const user = useAppSelector((state) => state.account.user)
+export default async function Page() {
+  const cookieStore = await cookies()
+  const userData = cookieStore.get('user')?.value || '{}'
+  let user = JSON.parse(userData)
+  // const user = useAppSelector((state) => state.account.user)
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Profile?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <Head>
         <meta name="robots" content="noindex, nofollow" />
         <title>Mein Profil | Indivit</title>

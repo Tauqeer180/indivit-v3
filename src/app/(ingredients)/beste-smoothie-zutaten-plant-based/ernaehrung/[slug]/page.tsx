@@ -7,7 +7,6 @@ import IngredientBasicInfoSection from './IngredientBasicInfoSection'
 import NutrientsSection from './NutrientsSection'
 import TasteSection from './TasteSection'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
-import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getIngredientById(slug: string): Promise<any> {
   let data

@@ -2,6 +2,7 @@ import React from 'react'
 import Content from './Content'
 import { fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -73,6 +74,45 @@ export default async function page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SEOSchema?.Common?.schema, null, 2),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [
+              {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://indivit.de/',
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'gesunde smoothies rezepte selber machen',
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: data?.name,
+                  },
+                ],
+              },
+            ],
+            null,
+            2
+          ),
+        }}
+      />
       {/* {JSON.stringify(data)} */}
       <Content
         smoothiesListing={smoothiesListing}

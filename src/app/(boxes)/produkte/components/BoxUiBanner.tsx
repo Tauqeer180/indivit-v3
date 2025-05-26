@@ -5,7 +5,6 @@ import React from "react";
 
 export default function BoxUiBanner({
   isHeading,
-  data,
   heading,
   description,
   benefits,

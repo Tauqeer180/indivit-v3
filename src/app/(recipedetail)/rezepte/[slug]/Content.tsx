@@ -3,8 +3,7 @@ import BoxUiBanner from '@/app/(boxes)/produkte/components/BoxUiBanner'
 import AllNutrientsPopup from '@/app/(ingredients)/beste-smoothie-zutaten-plant-based/ernaehrung/[slug]/AllNutrientsPopup'
 import TasteSection from '@/app/(ingredients)/beste-smoothie-zutaten-plant-based/ernaehrung/[slug]/TasteSection'
 import { BgSmoothieMixer, Heart } from '@/assets/svgIcons'
-import { BoxCard, IngrListforReci, RecipeCard, SkeltonCard } from '@/components/Cards'
-import { TextSkelton } from '@/components/common/Common'
+import { BoxCard, IngrListforReci, RecipeCard } from '@/components/Cards'
 import Loader from '@/components/common/Loader'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import ShareButtons from '@/components/common/ShareButtons'
@@ -18,12 +17,11 @@ import { baseURL, fetcher } from '@/lib/fetcher'
 import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 // Recipe Detail Page
 
@@ -90,7 +88,7 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
   }, [data])
   // console.log("Data --->>", data);
 
-  const commonImg = useSelector((state) => state.settings?.smoothieImg)
+  const commonImg = useAppSelector((state) => state.settings?.smoothieImg)
 
   return (
     <>
