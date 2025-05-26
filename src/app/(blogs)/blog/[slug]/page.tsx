@@ -94,36 +94,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <SEOSchema data={blogData} />
       <div>
-        {/* {JSON.stringify(blogData?.body)} */}
-        <Head>
-          <script type="application/ld+json">
-            {JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BlogPosting',
-              headline: blogData?.title,
-              description: blogData?.short_text,
-              datePublished: blogData?.created_at,
-              dateModified: blogData?.updated_at,
-              author: {
-                '@type': 'Person',
-                name: blogData?.author_name || 'Indivit',
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'Smoothie Blog',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: baseURL + 'blogs/' + blogData?.image, // Update with your
-                },
-              },
-              image: baseURL + 'blogs/' + blogData?.image,
-              mainEntityOfPage: {
-                '@type': 'WebPage',
-                '@id': `https://indivit.de${slug}`,
-              },
-            })}
-          </script>
-        </Head>
         <div className="tw-mx-auto tw-max-w-[1440px] ">
           <div className="tw-flex tw-flex-col  tw-mx-auto tw-overflow-hidden tw-rounded">
             <Image

@@ -71,15 +71,15 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      {data?.seo_schema && (
+      {data?.seo_scheme && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(JSON.parse(data?.seo_schema), null, 2).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(JSON.parse(data?.seo_scheme), null, 2).replace(/</g, '\\u003c'),
           }}
         />
       )}
-      {/* {JSON.stringify(data)} */}
+      {JSON.stringify(data?.seo_scheme)}
       <AllNutrientsPopup data={data?.nutrients} />
       <section id="flx-hero-rdetailed">
         <div className="container">
