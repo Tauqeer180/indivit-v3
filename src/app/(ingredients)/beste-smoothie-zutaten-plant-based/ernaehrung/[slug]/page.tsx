@@ -1,12 +1,13 @@
 import { IngredientCard, RecipeCard } from '@/components/Cards'
 import { TextSkelton } from '@/components/common/Common'
-import { fetcher } from '@/lib/fetcher'
+import { baseURL, fetcher } from '@/lib/fetcher'
 import Link from 'next/link'
 import AllNutrientsPopup from './AllNutrientsPopup'
 import IngredientBasicInfoSection from './IngredientBasicInfoSection'
 import NutrientsSection from './NutrientsSection'
 import TasteSection from './TasteSection'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getIngredientById(slug: string): Promise<any> {
   let data
@@ -26,8 +27,37 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based/ernaehrung/' + slug,
     },
-    title: `Indivit | Ingredient | ${data?.name}`,
-    description: data?.key_factor_headline,
+    title: data?.meta_title || `Indivit | Ingredient | ${data?.name}`,
+    description: data?.meta_description,
+    authors: [{ name: data?.author_name }],
+    robots: 'index, follow',
+    keywords: data?.keywords,
+    openGraph: {
+      title: data?.og_title || `Indivit | ${data?.name}`,
+      description: data?.og_description,
+      image: data?.picture
+        ? `${baseURL}/integredient/${data?.picture}`
+        : 'assets/icon/img-icon.png',
+      url: 'https://indivit.de/beste-smoothie-zutaten-plant-based/ernaehrung/' + slug,
+      site_name: 'Indivit',
+      locale: 'de_DE',
+    },
+    article: {
+      published_time: data?.created_at,
+      modified_time: data?.updated_at,
+      authors: [data?.author_name],
+      tags: data?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: data?.meta_title || `Indivit | Ingredient | ${data?.name}`,
+      description: data?.meta_description,
+      card: 'summary_large_image',
+      image: data?.picture
+        ? `${baseURL}/integredient/${data?.picture}`
+        : 'assets/icon/img-icon.png',
+    },
   }
 }
 
@@ -41,7 +71,15 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      {/* {JSON.stringify(res?.data?.ingredients)} */}
+      {data?.seo_schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data?.seo_schema, null, 2),
+          }}
+        />
+      )}
+      {/* {JSON.stringify(data)} */}
       <AllNutrientsPopup data={data?.nutrients} />
       <section id="flx-hero-rdetailed">
         <div className="container">
