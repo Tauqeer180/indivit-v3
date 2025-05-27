@@ -68,13 +68,20 @@ export default async function Page({ params }) {
   const relativeIngredients = res?.data?.relative_ingredients
   const relativeSmoothies = res?.data?.relative_smoothies
 
+  let parsedSchema = {}
+
+  try {
+    parsedSchema = JSON.parse(data.seo_scheme || '{}')
+  } catch (error) {
+    console.error('Invalid JSON in data.seo_scheme:', error)
+  }
   return (
     <div>
       {data?.seo_scheme && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(JSON.parse(data?.seo_scheme), null, 2).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(parsedSchema, null, 2).replace(/</g, '\\u003c'),
           }}
         />
       )}

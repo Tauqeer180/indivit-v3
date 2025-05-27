@@ -2526,12 +2526,31 @@ export const SEOSchema = {
 ]
 
   },
-  Page8: {
+  Contact: {
     title: '',
     description: '',
     og_title: '',
     og_description: '',
-    schema: null,
+    schema: [
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Kontakt zu Indivit"
+		}
+	]
+}
+]
+
   },
   Page9: {
     title: '',
@@ -2630,7 +2649,7 @@ export const SEOSchema = {
 
 
 // {
-// 	"@context"": ""http://schema.org/"",
+// 	"@context": ""http://schema.org/"",
 // 	""@type"": ""Recipe"",
 // 	""name"": ""Low-Carb Himbeer Smoothie"",
 // 	""image"": [

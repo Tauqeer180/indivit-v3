@@ -6,6 +6,7 @@ import ContactForm from './contact'
 import Link from 'next/link'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.Contact)
@@ -41,6 +42,16 @@ export async function generateMetadata() {
 export default function Contact() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Contact?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: 'Kontaktiere uns',
