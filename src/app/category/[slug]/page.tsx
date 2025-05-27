@@ -50,7 +50,7 @@ export default async function page({ params }: any) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(data.seo_scheme, null, 2).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(JSON.parse(data.seo_scheme), null, 2).replace(/</g, '\\u003c'),
           }}
         />
       )}
