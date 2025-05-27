@@ -2552,12 +2552,91 @@ export const SEOSchema = {
 ]
 
   },
-  Page9: {
+  Fructover: {
     title: '',
     description: '',
     og_title: '',
     og_description: '',
-    schema: null,
+    schema:[
+{
+	"@context": "http://schema.org/",
+	"@type": "Recipe",
+	"name": "Low-Carb Himbeer Smoothie",
+	"image": [
+		"TBA",
+		"TBA"
+	],
+	"recipeCategory": "Drink",
+	"prepTime": "PT9M",
+	"cookTime": "PT0M",
+	"totalTime": "PT9M",
+	"recipeYield": "1 Portion (= 250ml)",
+	"datePublished": "2024-03-28",
+	"description": "Gut bekömmlicher Smoothie mit wenig Fructose: Nur ca. 2,8g Fructose pro Portion. Beitrag zur Erhaltung normaler Knochen durch Vitamin C und K. Ideal für Low-Carb-Ernährung und bei Fructoseintoleranz!",
+	"keywords": "low calorie, ernährung bei fructoseintoleranz",
+	"author": {
+		"@type": "Organization",
+		"name": "Indivit"
+	},
+	"nutrition": {
+		"@type": "NutritionInformation",
+		"servingSize": "1 Portion (= 250ml)",
+		"calories": "94 calories",
+		"fatContent": "3.9 g",
+		"carbohydrateContent": "8.4 g",
+		"sugarContent": "7.6 g",
+		"proteinContent": "3.6 g",
+		"fiberContent": "10.4 g"
+	},
+	"recipeIngredient": [
+		"drei kleine handvoll Bio-Himbeeren",
+		"zwei große Bio-Brokkoli-Röschen",
+		"zwei knappe Schnapsgläser reines Wasser einer frischen Bio-Kokosnuss",
+		"1/4 einer kleinen-mittelgroßen Bio-Avocado",
+		"einen ordentlichen Schuss weiches Quellwasser"
+	],
+	"recipeInstructions": [
+		{
+			"@type": "HowToStep",
+			"name": "Vorbereitung",
+			"text": "Himbeeren in Sieb unter kaltem Wasser abspülen. Brokkoli in blenderfähige Stücke zerteilen. Avocado schälen und würfeln.",
+			"image": "TBA"
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Schichtweise einfüllen",
+			"text": "Kokoswasser und Quellwasser zuerst. Avocado und Himbeeren folgen. Brokkoli zuoberst platzieren.",
+			"image": "TBA"
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Mixprozess",
+			"text": "Hochleistungsmixer ab 1.000 Watt verwenden. 60 Sekunden bei 30.000 U/min mixen. Bei Bedarf mit Quellwasser auf 250ml auffüllen.",
+			"image": "TBA"
+		},
+		{
+			"@type": "HowToStep",
+			"name": "Serviervorschlag",
+			"text": "Sofort in gekühltem Glas genießen. Optional mit frischer Minze garnieren.",
+			"image": "TBA"
+		}
+	],
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5.0",
+		"ratingCount": "8"
+	},
+	"suitableForDiet": [
+		"https://schema.org/LowCalorieDiet",
+		"https://schema.org/LowFatDiet",
+		"https://schema.org/DiabeticDiet",
+		"https://schema.org/GlutenFreeDiet",
+		"https://schema.org/VeganDiet",
+		"https://schema.org/VegetarianDiet"
+	]
+}
+]
+
   },
   Page1: {
     title: '',

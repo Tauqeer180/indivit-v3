@@ -1,8 +1,9 @@
 import React from 'react'
 import Content from './Content'
-import { fetcher } from '@/lib/fetcher'
+import { baseURL, fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
 import { SEOSchema } from '@/constant/SEOSchema'
+import { modifyRecipeSchema } from '@/utils/ModifyRecipeSchema'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -99,6 +100,7 @@ export default async function page({ params }: { params: { slug: string } }) {
                     '@type': 'ListItem',
                     position: 2,
                     name: 'gesunde smoothies rezepte selber machen',
+                    item: 'https://indivit.de/gesunde-smoothies-rezepte-selber-machen',
                   },
                   {
                     '@type': 'ListItem',
@@ -113,6 +115,18 @@ export default async function page({ params }: { params: { slug: string } }) {
           ),
         }}
       />
+      {data?.seo_scheme && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              modifyRecipeSchema(data, [baseURL + 'smoothie/' + data?.smoothie_picture?.picture]),
+              null,
+              2
+            ),
+          }}
+        />
+      )}
 
       {/* {JSON.stringify(data)} */}
       <Content
