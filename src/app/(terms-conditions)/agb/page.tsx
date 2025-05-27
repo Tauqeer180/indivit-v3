@@ -4,6 +4,7 @@ import TermsConditionsDetails from './TermsConditionsDetails'
 import { fetcher } from '@/lib/fetcher'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 async function getTermsData() {
   const data = await fetcher('terms_condition', { cache: true, revalidate: 86400 })
@@ -50,6 +51,16 @@ export default async function TermsConditions() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.TermsConditions?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       {!res && <Loader />}
       <HeroBanner
         data={{

@@ -1,9 +1,20 @@
+import { SEOSchema } from '@/constant/SEOSchema'
 import Image from 'next/image'
 import React from 'react'
 // Thank You Page
 export default function Page() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.ThankYou?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <div className="">
         <div className="container pt-5 text-center">
           <Image

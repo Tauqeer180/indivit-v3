@@ -113,6 +113,7 @@ export default async function page({ params }: { params: { slug: string } }) {
           ),
         }}
       />
+
       {/* {JSON.stringify(data)} */}
       <Content
         smoothiesListing={smoothiesListing}

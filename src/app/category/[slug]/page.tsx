@@ -44,16 +44,16 @@ export default async function page({ params }: any) {
 
   return (
     <div>
-      <Head>
-        {data?.seo_scheme && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(data?.seo_scheme),
-            }}
-          />
-        )}
-      </Head>
+      {data?.seo_scheme && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data?.seo_scheme),
+          }}
+        />
+      )}
+      {/* <Head>
+      </Head> */}
       {/* <!-- hero banner start--> */}
       {/* {data?.seo_scheme} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">

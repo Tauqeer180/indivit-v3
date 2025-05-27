@@ -10,6 +10,7 @@ import IntroText from '@/constant/IntroText.json'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 // Smoothie Mixer
 
 export async function generateMetadata() {
@@ -122,6 +123,16 @@ export default async function page({ params }) {
   const smoothieRecipes = recipeData?.smoothies || []
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.SmoothieMixer?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       {/* {JSON.stringify(token, smoothieByIdData)} */}
       <TasteInfoModal />
       <FeedbackInfoModal />

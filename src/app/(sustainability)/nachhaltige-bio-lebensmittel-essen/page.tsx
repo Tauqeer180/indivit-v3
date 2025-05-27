@@ -4,6 +4,7 @@ import SustainabilityDetails from './SustainabilityDetails'
 import { BreadCrumb } from '@/components/common/Common'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 // Sustainability Page
 export async function generateMetadata() {
@@ -40,6 +41,16 @@ export async function generateMetadata() {
 export default function Page() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.Sustainability?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <HeroBanner
         data={{
           title: 'Nachhaltigkeit liegt uns am Herzen',

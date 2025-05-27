@@ -8,6 +8,7 @@ import { fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.WhyIndivit)
@@ -52,6 +53,16 @@ export default async function WhyIndivit() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.WhyIndivit?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       <WhyIndivitHero
         data={{
           title: res?.main_title,

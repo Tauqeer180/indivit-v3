@@ -7,6 +7,7 @@ import React from 'react'
 import IntroText from '@/constant/IntroText.json'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
+import { SEOSchema } from '@/constant/SEOSchema'
 // Right Recipes Page
 
 export async function generateMetadata() {
@@ -69,6 +70,16 @@ export default async function Page() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.RightRecipes?.schema],
+            null,
+            2
+          ),
+        }}
+      />
       {/* {JSON.stringify(smoothies[0])} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container md:!tw-max-w-3xl tw-mx-auto">

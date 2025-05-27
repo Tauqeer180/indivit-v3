@@ -2155,6 +2155,384 @@ export const SEOSchema = {
 }
 ]
   },
+  RightRecipes: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: [{
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://indivit.de/rezepte/genialer-bananen-apfel-und-beeren-smoothie"
+        },
+        {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://indivit.de/rezepte/obst-fruechte-smoothie-genuss"
+        },
+        {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://indivit.de/rezepte/gesunder-gruener-smoothie-nicht-bitter"
+        },
+        {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://indivit.de/rezepte/vegan-healthy-smoothie-mit-superfoods"
+        },
+        {
+        "@type": "ListItem",
+        "position": 5,
+        "url": "https://indivit.de/rezepte/frisch-gepresster-orangensaft-smoothie-mit-ingwer"
+        },
+        {
+        "@type": "ListItem",
+        "position": 6,
+        "url": "https://indivit.de/rezepte/erfrischender-mango-lassi-smoothie"
+        },
+        {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "Recipe",
+          "name": "Low-Carb Himbeer Smoothie",
+          "image": [
+            " https://indivit.de/static/media/logo1.2f3c6f6529a9f1e4ab65.png ",
+            " https://indivit.de/static/media/logo1.2f3c6f6529a9f1e4ab65.png "
+          ],
+          "recipeCategory": "Drink",
+          "prepTime": "PT11M",
+          "cookTime": "PT0M",
+          "totalTime": "PT11M",
+          "recipeYield": "1 Portion (= 250ml)",
+          "datePublished": "2024-03-28",
+          "description": "Gut bekömmlicher Smoothie mit wenig Fructose: Nur ca. 2,8g Fructose pro Portion. Beitrag zur Erhaltung normaler Knochen durch Vitamin C und K. Ideal für Low-Carb-Ernährung und bei Fructoseintoleranz!",
+          "keywords": "low calorie, ernährung bei fructoseintoleranz",
+          "author": {
+            "@type": "Organization",
+            "name": "Indivit"
+          },
+          "nutrition": {
+            "@type": "NutritionInformation",
+            "servingSize": "1 Portion (= 250ml)",
+            "calories": "94 calories",
+            "fatContent": "3.9 g",
+            "carbohydrateContent": "8.4 g",
+            "sugarContent": "7.6 g",
+            "proteinContent": "3.6 g",
+            "fiberContent": "10.4 g"
+          },
+          "recipeIngredient": [
+            "drei kleine handvoll Bio-Himbeeren",
+            "zwei große Bio-Brokkoli-Röschen",
+            "zwei knappe Schnapsgläser reines Wasser einer frischen Bio-Kokosnuss",
+            "1/4 einer kleinen-mittelgroßen Bio-Avocado",
+            "einen ordentlichen Schuss weiches Quellwasser"
+          ],
+          "recipeInstructions": [
+            {
+              "@type": "HowToStep",
+              "name": "Wort oder Wortgruppe zur Zusammenfassung des Schritts",
+              "text": "Vollständiger Anweisungstext des Schritts",
+              "url": "URL, die direkt auf den Schritt verweist (sofern verfügbar)",
+              "image": "Ein Bild des Schritts"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Wort oder Wortgruppe zur Zusammenfassung des Schritts",
+              "text": "Vollständiger Anweisungstext des Schritts",
+              "url": "URL, die direkt auf den Schritt verweist (sofern verfügbar)",
+              "image": "Ein Bild des Schritts"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "8"
+          },
+          "suitableForDiet": [
+            "https://schema.org/LowCalorieDiet",
+            "https://schema.org/LowFatDiet",
+            "https://schema.org/DiabeticDiet",
+            "https://schema.org/GlutenFreeDiet",
+            "https://schema.org/VeganDiet",
+            "https://schema.org/VegetarianDiet"
+          ]
+        }
+        },
+        {
+        "@type": "ListItem",
+        "position": 8,
+        "url": "https://indivit.de/rezepte/gurken-smoothie-zum-abnehmen"
+        },
+        {
+        "@type": "ListItem",
+        "position": 9,
+        "url": "https://indivit.de/rezepte/pfirsich-smoothie-fructoseintoleranz-ernaehrung"
+        },
+        {
+        "@type": "ListItem",
+        "position": 10,
+        "url": "https://indivit.de/rezepte/avocado-smoothie-zum-fruehstueck"
+        },
+        {
+        "@type": "ListItem",
+        "position": 11,
+        "url": "https://indivit.de/rezepte/brokkoli-smoothie-schwangerschaft-vorteile"
+        },
+        {
+        "@type": "ListItem",
+        "position": 12,
+        "url": "https://indivit.de/rezepte/ananas-smoothie-vor-wettkampf-ernaehrung"
+        },
+        {
+        "@type": "ListItem",
+        "position": 13,
+        "url": "https://indivit.de/rezepte/banane-smoothie-getraenk-beim-sport"
+        },
+        {
+        "@type": "ListItem",
+        "position": 14,
+        "url": "https://indivit.de/rezepte/regeneration-nach-sport-eiweiss-smoothie"
+        },
+        {
+        "@type": "ListItem",
+        "position": 15,
+        "url": "https://indivit.de/rezepte/detox-smoothie-anti-kater-drink"
+        },
+        {
+        "@type": "ListItem",
+        "position": 16,
+        "url": "https://indivit.de/rezepte/vitamin-smoothie-fuer-gesundes-immunsystem"
+        },
+        {
+        "@type": "ListItem",
+        "position": 17,
+        "url": "https://indivit.de/rezepte/zitrone-und-ingwer-immunsystem-smoothie"
+        },
+        {
+        "@type": "ListItem",
+        "position": 18,
+        "url": "https://indivit.de/rezepte/kalorienarmer-erdbeer-smoothie-snack"
+        },
+        {
+        "@type": "ListItem",
+        "position": 19,
+        "url": "https://indivit.de/rezepte/nahrungsergaenzung-shake-mit-mandelmus"
+        },
+        {
+        "@type": "ListItem",
+        "position": 20,
+        "url": "https://indivit.de/rezepte/brainfood-mango-smoothie"
+        },
+        {
+        "@type": "ListItem",
+        "position":21,
+        "url": "https://indivit.de/rezepte/smoothies-gesunde-snacks-fuer-kinder"
+        }
+      ]
+    }],
+  },
+  SmoothieMixer: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "My Smoothie selber mixen - ohne Mixer Smoothie Ideen kreieren"
+		}
+	]
+}
+]
+
+  },
+  Subscriptions: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: [
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Abonnementübersicht"
+		}
+	]
+}
+]
+
+  },
+  Sustainability: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Ökologisch ernähren und nachhaltig essen mit Bio Lebensmitteln"
+		}
+	]
+}
+]
+
+  },
+  TermsConditions: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema:
+[
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Allgemeine Geschäftsbedingungen"
+		}
+	]
+}
+]
+  },
+  ThankYou: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Danke für dein Feedback zu unseren Rezepten und Produkten"
+		}
+	]
+}
+]
+
+  },
+  WhyIndivit: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Warum Indivit?"
+		}
+	]
+}
+]
+
+  },
+  Whishlist: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: 
+[
+{
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{
+		"@type": "ListItem",
+		"position": 1,
+		"name": "Home",
+		"item": "https://indivit.de/"
+		},
+		{
+		"@type": "ListItem",
+		"position": 2,
+		"name": "Meine favorisierten Zutaten, Smoothies und Smoothie Boxen auf einen Blick"
+		}
+	]
+}
+]
+
+  },
+  Page8: {
+    title: '',
+    description: '',
+    og_title: '',
+    og_description: '',
+    schema: null,
+  },
   Page9: {
     title: '',
     description: '',
@@ -2169,25 +2547,165 @@ export const SEOSchema = {
     og_description: '',
     schema: null,
   },
-  Page2: {
-    title: '',
-    description: '',
-    og_title: '',
-    og_description: '',
-    schema: null,
-  },
-  Page3: {
-    title: '',
-    description: '',
-    og_title: '',
-    og_description: '',
-    schema: null,
-  },
-  Page4: {
-    title: '',
-    description: '',
-    og_title: '',
-    og_description: '',
-    schema: null,
-  },
 }
+
+
+// "Add: Image Links, Add (automated): Rating picked from Backend
+
+
+// <script type="application/ld+json">
+// [
+// {
+// 	"@context": "http://schema.org/",
+// 	"@type": "Recipe",
+// 	"name": "Gesunder grüner Smoothie",
+// 	"image": [
+// 		"TBA",
+// 		"TBA"
+// 	],
+// 	"recipeCategory": "Drink",
+// 	"prepTime": "PT19M",
+// 	"cookTime": "PT0M",
+// 	"totalTime": "PT19M",
+// 	"recipeYield": "1 Portion (= 250ml)",
+// 	"datePublished": "2024-11-14",
+// 	"description": "Grüner Smoothie für einen frischen Start in den Tag: Ist reich an Vitamin C und K, unterstützt eine gesunde Verdauung und ist perfekt für grüne Smoothie-Fans geeignet!",
+// 	"keywords": "grüner smoothie, bitteres erfrischungsgetränk",
+// 	"author": {
+// 		"@type": "Organization",
+// 		"name": "Indivit"
+// 	},
+// 	"nutrition": {
+// 		"@type": "NutritionInformation",
+// 		"servingSize": "1 Portion (= 250ml)",
+// 		"calories": "128 calories",
+// 		"fatContent": "0.5 g",
+// 		"carbohydrateContent": "25.2 g",
+// 		"sugarContent": "23.9 g",
+// 		"proteinContent": "3.3 g",
+// 		"fiberContent": "3.1 g"
+// 	},
+// 	"recipeIngredient": [
+// 		"1/2 einer kleinen reifen Bio-Banane",
+// 		"sechs haselnussgroße Stücke Bio-Mango",
+// 		"ein großes Bio-Brokkoli-Röschen",
+// 		"1/2 große handvoll junge Bio-Spinat-Blättchen",
+// 		"1/2 Glas frisch gepresster Bio-Orangensaft"
+// 	],
+// 	"recipeInstructions": [
+// 		{
+// 			"@type": "HowToStep",
+// 			"name": "Vorbereitung",
+// 			"text": "Banane: Schälen, in 2cm-Würfel schneiden. Mango: Schälen, Fruchtfleisch vom Kern lösen. Brokkoli: 2 Min. blanchieren, Röschen zerteilen. Spinat: In Eiswasser revitalisieren. Orange: Frisch pressen (ergibt ca. 125ml Saft).",
+// 			"image": "TBA"
+// 		},
+// 		{
+// 			"@type": "HowToStep",
+// 			"name": "Mixen",
+// 			"text": "Alle Zutaten in Hochleistungsmixer geben. Bei 28.000 U/min 90 Sekunden mixen. Bei Bedarf 50ml Quellwasser hinzugeben.",
+// 			"image": "TBA"
+// 		},
+// 		{
+// 			"@type": "HowToStep",
+// 			"name": "Servieren",
+// 			"text": "In gekühltem Ballonglas mit: 1 Minzblatt (frisch) + 1 Mango-Würfel als Garnitur. Optional: Crushed Ice.",
+// 			"image": "TBA"
+// 		}
+// 	],
+// 	"aggregateRating": {
+// 		"@type": "AggregateRating",
+// 		"ratingValue": "5.0",
+// 		"ratingCount": "1"
+// 	},
+// 	"suitableForDiet": [
+// 		"https://schema.org/LowCalorieDiet",
+// 		"https://schema.org/LowFatDiet",
+// 		"https://schema.org/GlutenFreeDiet",
+// 		"https://schema.org/VeganDiet",
+// 		"https://schema.org/VegetarianDiet"
+// 	]
+// }
+// ]
+// </script>"
+
+
+// {
+// 	"@context"": ""http://schema.org/"",
+// 	""@type"": ""Recipe"",
+// 	""name"": ""Low-Carb Himbeer Smoothie"",
+// 	""image"": [
+// 		""TBA"",
+// 		""TBA""
+// 	],
+// 	""recipeCategory"": ""Drink"",
+// 	""prepTime"": ""PT9M"",
+// 	""cookTime"": ""PT0M"",
+// 	""totalTime"": ""PT9M"",
+// 	""recipeYield"": ""1 Portion (= 250ml)"",
+// 	""datePublished"": ""2024-03-28"",
+// 	""description"": ""Gut bekömmlicher Smoothie mit wenig Fructose: Nur ca. 2,8g Fructose pro Portion. Beitrag zur Erhaltung normaler Knochen durch Vitamin C und K. Ideal für Low-Carb-Ernährung und bei Fructoseintoleranz!"",
+// 	""keywords"": ""low calorie, ernährung bei fructoseintoleranz"",
+// 	""author"": {
+// 		""@type"": ""Organization"",
+// 		""name"": ""Indivit""
+// 	},
+// 	""nutrition"": {
+// 		""@type"": ""NutritionInformation"",
+// 		""servingSize"": ""1 Portion (= 250ml)"",
+// 		""calories"": ""94 calories"",
+// 		""fatContent"": ""3.9 g"",
+// 		""carbohydrateContent"": ""8.4 g"",
+// 		""sugarContent"": ""7.6 g"",
+// 		""proteinContent"": ""3.6 g"",
+// 		""fiberContent"": ""10.4 g""
+// 	},
+// 	""recipeIngredient"": [
+// 		""drei kleine handvoll Bio-Himbeeren"",
+// 		""zwei große Bio-Brokkoli-Röschen"",
+// 		""zwei knappe Schnapsgläser reines Wasser einer frischen Bio-Kokosnuss"",
+// 		""1/4 einer kleinen-mittelgroßen Bio-Avocado"",
+// 		""einen ordentlichen Schuss weiches Quellwasser""
+// 	],
+// 	""recipeInstructions"": [
+// 		{
+// 			""@type"": ""HowToStep"",
+// 			""name"": ""Vorbereitung"",
+// 			""text"": ""Himbeeren in Sieb unter kaltem Wasser abspülen. Brokkoli in blenderfähige Stücke zerteilen. Avocado schälen und würfeln."",
+// 			""image"": ""TBA""
+// 		},
+// 		{
+// 			""@type"": ""HowToStep"",
+// 			""name"": ""Schichtweise einfüllen"",
+// 			""text"": ""Kokoswasser und Quellwasser zuerst. Avocado und Himbeeren folgen. Brokkoli zuoberst platzieren."",
+// 			""image"": ""TBA""
+// 		},
+// 		{
+// 			""@type"": ""HowToStep"",
+// 			""name"": ""Mixprozess"",
+// 			""text"": ""Hochleistungsmixer ab 1.000 Watt verwenden. 60 Sekunden bei 30.000 U/min mixen. Bei Bedarf mit Quellwasser auf 250ml auffüllen."",
+// 			""image"": ""TBA""
+// 		},
+// 		{
+// 			""@type"": ""HowToStep"",
+// 			""name"": ""Serviervorschlag"",
+// 			""text"": ""Sofort in gekühltem Glas genießen. Optional mit frischer Minze garnieren."",
+// 			""image"": ""TBA""
+// 		}
+// 	],
+// 	""aggregateRating"": {
+// 		""@type"": ""AggregateRating"",
+// 		""ratingValue"": ""5.0"",
+// 		""ratingCount"": ""8""
+// 	},
+// 	""suitableForDiet"": [
+// 		""https://schema.org/LowCalorieDiet"",
+// 		""https://schema.org/LowFatDiet"",
+// 		""https://schema.org/DiabeticDiet"",
+// 		""https://schema.org/GlutenFreeDiet"",
+// 		""https://schema.org/VeganDiet"",
+// 		""https://schema.org/VegetarianDiet""
+// 	]
+// }
+
+
+
