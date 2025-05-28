@@ -9,6 +9,7 @@ import Head from 'next/head'
 import BlogsCarousel from '../../components/BlogsCarousel'
 import { FABComponent } from '@/components/common/ShareButtons'
 import SEOSchema from '../../components/SEOSchema'
+import { CollapseIcon } from '@/assets/svgIcons'
 // moment.locale('de');
 
 export const dynamicParams = true // or false, to 404 on unknown paths
@@ -160,8 +161,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </div>
               )}
               <div className="tw-max-w-3xl tw-mx-auto ">
-                <h2 className="tw-text-3xl">Inhaltsverzeichnis</h2>
-                <TOC data={blogData?.body} />
+                <h2 className="tw-text-3xl tw-flex tw-items-center tw-justify-between">
+                  Inhaltsverzeichnis{' '}
+                  <button
+                    className=" tw-border-0  !tw-shadow-none tw-rounded"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#TocCollapse"
+                    aria-expanded="false"
+                    aria-controls="TocCollapse"
+                  >
+                    <CollapseIcon className="tw-w-8 tw-h-8" />
+                  </button>
+                </h2>
+                <div className="collapse show" id="TocCollapse">
+                  <TOC data={blogData?.body} />
+                </div>
               </div>
               <div className="  lg:tw-rounded-md  sm:tw-py-10 md:tw-py-16 tw-py-5 tw-max-w-3xl tw-mx-auto html-blog ">
                 {/* <p dangerouslySetInnerHTML={{ __html: body }}></p> */}

@@ -257,7 +257,9 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                 //     }}
                 //   ></div>
                 // </div>
-                <MarkdownDisplay>{data?.smoothie_recipe_text?.recipe_text}</MarkdownDisplay>
+                <MarkdownDisplay enableTailwind>
+                  {data?.smoothie_recipe_text?.recipe_text}
+                </MarkdownDisplay>
               )}
             </div>
           </div>

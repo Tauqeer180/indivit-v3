@@ -34,6 +34,7 @@ const nextConfig = {
       { hostname: 'images.unsplash.com' },
       { hostname: 'i.ytimg.com' },
       { hostname: 'youtube.com' },
+      { hostname: 'placehold.co' },
     ],
   },
 }

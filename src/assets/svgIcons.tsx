@@ -468,7 +468,7 @@ export function RightIcon(props) {
     </svg>
   )
 }
-import React from 'react'
+import React, { SVGProps } from 'react'
 
 export function CheckIcon({ className }) {
   return (
@@ -506,6 +506,23 @@ export function TwitterIcon(props) {
       {...props}
     >
       <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+    </svg>
+  )
+}
+
+export function CollapseIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" {...props}>
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1"
+      >
+        <path d="M20 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m0 9H4"></path>
+        <path d="m14 8l-2 2l-2-2"></path>
+      </g>
     </svg>
   )
 }
