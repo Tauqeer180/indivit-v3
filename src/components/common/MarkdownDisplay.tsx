@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import React from 'react'
 
 interface Props {
@@ -10,7 +11,7 @@ export const MarkdownDisplay = (props: Props) => {
     <div className={props.className}>
       {props?.children && (
         <div
-          className={props.enableTailwind ? '' : 'no-tailwind'}
+          className={cn('markdown', props.enableTailwind ? '' : 'no-tailwind')}
           dangerouslySetInnerHTML={{ __html: props.children }}
         />
       )}

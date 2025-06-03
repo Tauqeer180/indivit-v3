@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
 
   return {
     alternates: {
-      canonical: 'https://indivit.de/beste-smoothie-zutaten-plant-based/ernaehrung/' + slug,
+      canonical: 'https://indivit.de/ernaehrung/' + slug,
     },
     title: data?.meta_title || `Indivit | Ingredient | ${data?.name}`,
     description: data?.meta_description,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
       image: data?.picture
         ? `${baseURL}/integredient/${data?.picture}`
         : 'assets/icon/img-icon.png',
-      url: 'https://indivit.de/beste-smoothie-zutaten-plant-based/ernaehrung/' + slug,
+      url: 'https://indivit.de/ernaehrung/' + slug,
       site_name: 'Indivit',
       locale: 'de_DE',
     },

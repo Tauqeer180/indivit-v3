@@ -327,9 +327,7 @@ export function IngredientCard({ data }: { data: any }) {
             <Heart filled={IsWishlist(2, data?.id, wishlist)} />
           )}
         </button>
-        <Link
-          href={`/beste-smoothie-zutaten-plant-based/ernaehrung/${data?.slug || data?.unique_id}`}
-        >
+        <Link href={`/ernaehrung/${data?.slug || data?.unique_id}`}>
           <Image
             src={data?.picture ? baseURL + 'integredient/' + data?.picture : commonImg}
             className="card-img-top img-fluid"
@@ -343,7 +341,7 @@ export function IngredientCard({ data }: { data: any }) {
           <h5 className="card-title">{data?.name}</h5>
           <p className="card-text">{data?.taste_description}</p>
           <Link
-            href={`/beste-smoothie-zutaten-plant-based/ernaehrung/${data?.slug || data?.unique_id}`}
+            href={`/ernaehrung/${data?.slug || data?.unique_id}`}
             type="button"
             className="btn btn-primary btn-outline-success"
           >
@@ -646,7 +644,7 @@ export function IngrListforReci({ data }) {
     <div className="d-flex align-items-center">
       <p>
         <Link
-          href={`/beste-smoothie-zutaten-plant-based/ernaehrung/${data?.ingredient?.slug || data?.ingredient?.unique_id}`}
+          href={`/ernaehrung/${data?.ingredient?.slug || data?.ingredient?.unique_id}`}
           className="text-dark text-decoration-none hover-green"
         >
           {data?.ingredient?.name} &nbsp;

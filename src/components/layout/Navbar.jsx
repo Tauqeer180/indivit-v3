@@ -9,7 +9,7 @@ import Loader from '@/components/common/Loader'
 import CountDown from '../CountDown'
 import { setCommonImgs, setSiteSettings } from '../../redux/settings'
 import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams, usePathname, useRouter } from 'next/navigation'
 import WaveSvg from '@/assets/WaveSvg'
 import { baseURL, fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
@@ -22,6 +22,7 @@ export default function Navbar() {
   const { replace, push } = useRouter()
   const dispatch = useDispatch()
   const { slug } = useParams()
+  const path = usePathname()
   const queryClient = useQueryClient()
   const isAuthenticated = useAppSelector((state) => state.account.isAuthenticated)
   const wishlistCount = useAppSelector((state) => state.wishlist.count)
@@ -131,6 +132,7 @@ export default function Navbar() {
     }
   }, [slug])
 
+  if(path ==='/indivit-editor')return;
   return (
     <div>
       {loading && <Loader />}
