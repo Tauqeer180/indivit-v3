@@ -53,7 +53,7 @@ export default async function page({ params }: any) {
     <div>
       {/* <Head>
       </Head> */}
-      {data?.seo_scheme && (
+      {parsedSchema && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -62,7 +62,7 @@ export default async function page({ params }: any) {
         />
       )}
       {/* <!-- hero banner start--> */}
-      {/* {parsedSchema} */}
+      {/* {JSON.stringify(parsedSchema)} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container md:!tw-max-w-3xl tw-mx-auto ">
           <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
