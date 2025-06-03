@@ -42,7 +42,7 @@ export default async function page({ params }: any) {
     data?.box_category_key_sections?.length > 0 &&
     JSON.parse(data?.box_category_key_sections[0]?.key_sections)
 
-  let parsedSchema = {}
+  let parsedSchema = null
 
   try {
     parsedSchema = JSON.parse(data.seo_scheme || '{}')
