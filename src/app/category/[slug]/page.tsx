@@ -45,7 +45,7 @@ export default async function page({ params }: any) {
   let parsedSchema = null
 
   try {
-    parsedSchema = JSON.parse(data.seo_scheme || '{}')
+    parsedSchema = data?.seoSchema && JSON.parse(data.seo_scheme)
   } catch (error) {
     console.error('Invalid JSON in data.seo_scheme:', error)
   }
