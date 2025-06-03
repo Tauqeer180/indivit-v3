@@ -42,13 +42,13 @@ export default async function page({ params }: any) {
     data?.box_category_key_sections?.length > 0 &&
     JSON.parse(data?.box_category_key_sections[0]?.key_sections)
 
-  let parsedSchema = null
+  // let parsedSchema = null
 
-  try {
-    parsedSchema = data?.seo_scheme && JSON.parse(data.seo_scheme || '{}')
-  } catch (error) {
-    console.error('Invalid JSON in data.seo_scheme:', error)
-  }
+  // try {
+  //   parsedSchema = data?.seo_scheme && JSON.parse(data.seo_scheme || '{}')
+  // } catch (error) {
+  //   console.error('Invalid JSON in data.seo_scheme:', error)
+  // }
   return (
     <div>
       {/* <Head>
@@ -57,7 +57,7 @@ export default async function page({ params }: any) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(JSON.parse(data?.seo_scheme || '{}'), null, 2),
+            __html: JSON.stringify(JSON.parse(data?.seo_scheme), null, 2),
           }}
         />
       )}
