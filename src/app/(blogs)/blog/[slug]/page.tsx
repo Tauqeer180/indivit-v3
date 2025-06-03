@@ -174,7 +174,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     <CollapseIcon className="tw-w-8 tw-h-8" />
                   </button>
                 </h2>
-                <div className="collapse show" id="TocCollapse">
+                <div className="collapse" id="TocCollapse">
                   <TOC data={blogData?.body} />
                 </div>
               </div>
