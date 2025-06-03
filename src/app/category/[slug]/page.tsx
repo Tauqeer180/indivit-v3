@@ -45,7 +45,7 @@ export default async function page({ params }: any) {
   let parsedSchema = null
 
   try {
-    parsedSchema = data?.seoSchema && JSON.parse(data.seo_scheme)
+    parsedSchema = data?.seo_scheme && JSON.parse(data.seo_scheme || '{}')
   } catch (error) {
     console.error('Invalid JSON in data.seo_scheme:', error)
   }
@@ -57,12 +57,12 @@ export default async function page({ params }: any) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(parsedSchema, null, 2),
+            __html: JSON.stringify(parsedSchema, null, 2).replace(/</g, '\\u003c'),
           }}
         />
       )}
       {/* <!-- hero banner start--> */}
-      {/* {JSON.stringify(parsedSchema)} */}
+      {/* {data?.seo_scheme} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
         <div className="container md:!tw-max-w-3xl tw-mx-auto ">
           <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
