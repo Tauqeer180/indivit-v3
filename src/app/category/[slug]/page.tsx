@@ -53,11 +53,11 @@ export default async function page({ params }: any) {
     <div>
       {/* <Head>
       </Head> */}
-      {parsedSchema && (
+      {data?.seo_scheme && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(parsedSchema, null, 2).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(JSON.parse(data?.seo_scheme), null, 2),
           }}
         />
       )}
