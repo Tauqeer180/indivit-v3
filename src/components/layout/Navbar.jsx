@@ -132,7 +132,7 @@ export default function Navbar() {
     }
   }, [slug])
 
-  if(path ==='/indivit-editor')return;
+  if (path === '/indivit-editor') return
   return (
     <div>
       {loading && <Loader />}
@@ -224,9 +224,7 @@ export default function Navbar() {
                               >
                                 <div className="pt-2">
                                   <div className="text-center">
-                                    <Link
-                                      href={`/category/${cat?.slug || cat?.name + '_' + cat?.id}`}
-                                    >
+                                    <Link href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}>
                                       <img
                                         src={
                                           cat?.image
@@ -241,7 +239,7 @@ export default function Navbar() {
                                   </div>
                                   <div className="text-center bg-wave position-relative py-md-5 py-3">
                                     <Link
-                                      href={`/category/${cat?.slug || cat?.name + '_' + cat?.id}`}
+                                      href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}
                                       className={`btn btn-secondary  z-index-10  !tw-px-5 !tw-py-2 !tw-border-none`}
                                       style={{ backgroundColor: cat?.color }}
                                     >

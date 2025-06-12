@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      {JSON.stringify(blogData, null, 2)}
+      {/* {JSON.stringify(blogData, null, 2)} */}
       <SEOSchema data={blogData} />
       <div>
         <div className="tw-mx-auto tw-max-w-[1440px] ">

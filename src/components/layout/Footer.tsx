@@ -48,7 +48,7 @@ export default async function Footer() {
                   return (
                     <li key={index} className="lh-lg" aria-current="true">
                       <Link
-                        href={`/category/${box?.name + '_' + box?.id}`}
+                        href={`/${box?.name + '_' + box?.id}`}
                         className="text-decoration-none text-reset"
                       >
                         {box?.name}

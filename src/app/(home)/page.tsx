@@ -83,7 +83,7 @@ export default async function Home() {
       {/* Footer Top */}
       <div className=" tw-bg-theme lg:tw-py-8 md:tw-py-7 sm:tw-py-6 tw-py-4">
         <Link
-          href="/category/Smoothie%20Fastenkuren_1"
+          href="/Smoothie%20Fastenkuren_1"
           className=" tw-flex tw-items-center tw-justify-center tw-no-underline tw-group"
         >
           <p className="tw-mr-4 tw-text-white 2xl:tw-text-[53px] group-hover:tw-text-slate-50 xl:tw-text-4xl lg:tw-text-3xl  tw-mb-0 tw-font-bold">

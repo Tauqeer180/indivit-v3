@@ -87,7 +87,7 @@ export default function ProductCategory({ data = [] }) {
                 </div>
                 {/* CTA ButtonLink*/}
                 <Link
-                  href={`/category/${cat?.slug || cat?.name + '_' + cat?.id}`}
+                  href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}
                   className="tw-w-full tw-bg-[#81CA00] hover:tw-bg-[#81CA00] tw-text-white hover:tw-text-white tw-no-underline tw-py-3 tw-px-4 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-transition-colors tw-border-none"
                 >
                   {cat?.button_label}
