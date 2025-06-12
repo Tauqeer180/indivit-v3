@@ -51,15 +51,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const image = blogData?.image ? baseURL + 'blogs/' + blogData.image : undefined
   return {
     alternates: { canonical: `https://indivit.de/blog/${slug}` },
-    title: `Indivit | ${title}`,
-    description,
+    title: blogData?.meta_title ||`Indivit | ${title}`,
+    description : blogData?.meta_description || description,
     authors: [{ name: author }],
     robots: 'index, follow',
     keywords: blogData?.keywords,
 
     openGraph: {
-      title: `Indivit | ${title}`,
-      description,
+      title:  blogData?.og_title || `Indivit | ${title}`,
+      description : blogData?.og_description || description,
       images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
       url: `https://indivit.de/blog/${slug}`,
       type: 'article',
@@ -93,6 +93,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      {JSON.stringify(blogData, null, 2)}
       <SEOSchema data={blogData} />
       <div>
         <div className="tw-mx-auto tw-max-w-[1440px] ">
