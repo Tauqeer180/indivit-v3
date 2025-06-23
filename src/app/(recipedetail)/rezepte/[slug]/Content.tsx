@@ -113,7 +113,7 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                     <Link href="/">Home</Link>
                   </li>
                   <li className="breadcrumb-item">
-                    <Link href="/gesunde-smoothies-rezepte-selber-machen">Rezepte</Link>
+                    <Link href="/gesunde-smoothies-rezepte-selber-machen">Smoothie Rezepte</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                     {data?.name}
@@ -168,7 +168,7 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                       derzeit nicht verfügbar
                     </span>
                   )}
-                  <p>{data?.headline}</p>
+                  <div className="tw-mb-3">{data?.headline}</div>
                   <button
                     className="btn btn-outline-success shadow-none rounded-pill"
                     onClick={() => handleWishlist(data?.unique_id)}

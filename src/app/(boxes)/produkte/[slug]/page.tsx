@@ -140,7 +140,9 @@ export default async function page({ params }: any) {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">
-                  <Link href="/produkte">Produkte</Link>
+                  <Link href={'/' + (boxData?.box_category?.slug || 'produkte')}>
+                    {boxData?.box_category?.name}
+                  </Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {boxData?.name}
@@ -148,6 +150,7 @@ export default async function page({ params }: any) {
               </ol>
             </nav>
           </div>
+          {/* {JSON.stringify(boxData, null, 2)} */}
           <div className="row d-flex pt-0 pt-md-3">
             <div className="col-12">
               {boxData?.heading && <h1 className="tw-text-4xl">{boxData?.heading}</h1>}
