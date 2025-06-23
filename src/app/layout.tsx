@@ -163,11 +163,11 @@ export default function RootLayout({
           async
           src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         ></Script>
-        <Script
+        {/* <Script
           strategy="afterInteractive"
           async
           src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        ></Script>
+        ></Script> */}
       </body>
     </html>
   )

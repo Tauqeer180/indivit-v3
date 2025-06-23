@@ -66,8 +66,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       site_name: 'Indivit',
       locale: 'de_DE',
-      publishedTime: blogData.created_at,
-      modifiedTime: blogData.updated_at,
+      publishedTime: blogData?.created_at,
+      modifiedTime: blogData?.updated_at,
     },
     article: {
       published_time: blogData?.created_at,
@@ -111,7 +111,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               }
               width={1920}
               height={1080}
-              alt={blogData?.title}
+              alt={blogData?.image_alt_text || blogData?.title}
               title={blogData?.title}
               className="tw-w-full tw-h-auto tw-max-w-6xl tw-mx-auto lg:tw-rounded-xl lg:tw-mt-36 md:tw-mt-32 tw-mt-28"
             />
@@ -168,7 +168,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   ></div>
                 </div>
               )}
-              <div className="tw-max-w-3xl tw-mx-auto ">
+              {/* <div className="tw-max-w-3xl tw-mx-auto ">
                 <h2 className="tw-text-3xl tw-flex tw-items-center tw-justify-between">
                   Inhaltsverzeichnis{' '}
                   <button
@@ -185,8 +185,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <div className="collapse" id="TocCollapse">
                   <TOC data={blogData?.body} />
                 </div>
-              </div>
-              <div className="  lg:tw-rounded-md  sm:tw-py-10 md:tw-py-16 tw-py-5 tw-max-w-3xl tw-mx-auto html-blog ">
+              </div> */}
+              <TOC data={blogData?.body} />
+              <div className="  lg:tw-rounded-md  sm:tw-pb-10 md:tw-pb-16 tw-pb-5 tw-max-w-3xl tw-mx-auto html-blog ">
                 {/* <p dangerouslySetInnerHTML={{ __html: body }}></p> */}
                 <BlogContent data={blogData?.body} />
               </div>

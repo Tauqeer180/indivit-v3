@@ -62,7 +62,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
   )
 }
 
-export default function BlogsCarousel({ data, isLoading }) {
+export default function BlogsCarousel({ data, isLoading }:{ data: any, isLoading?: boolean }) {
   // const { isLoading, error, data } = useQuery({
   //   queryKey: ["testmonialsListing"],
   //   queryFn: getTestimonials,
