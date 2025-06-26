@@ -1,9 +1,9 @@
 import { BoxCard } from '@/components/Cards'
 import { baseURL, fetcher } from '@/lib/fetcher'
-import Head from 'next/head'
+// import Head from 'next/head'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+// import { redirect } from 'next/navigation'
 import React from 'react'
 // Category Sub Pages
 

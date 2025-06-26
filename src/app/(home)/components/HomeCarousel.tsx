@@ -31,7 +31,7 @@ export default function HomeCarousel({ data, isLoading }) {
                     <p className="pt-3 pb-3">{data?.description}</p>
                     <div className="tw-flex tw-flex-wrap lg:tw-gap-2 tw-gap-1">
                       <Link
-                        href={data?.link}
+                        href={data?.link || '/'}
                         // target="_blank"
                         // onClick={() => ScrollToDiv("uebersicht-smoothie-produkte")}
                         type="button"
@@ -40,7 +40,7 @@ export default function HomeCarousel({ data, isLoading }) {
                         Jetzt starten
                       </Link>
                       <Link
-                        href={data?.mehr_erfahren_link}
+                        href={data?.mehr_erfahren_link || '/'}
                         // target="_blank"
                         type="button"
                         className="btn btn-primary btn-outline-success !tw-bg-white "

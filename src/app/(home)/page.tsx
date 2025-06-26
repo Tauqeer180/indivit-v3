@@ -44,7 +44,7 @@ export async function generateMetadata() {
 }
 export default async function Home() {
   let res = await fetcher('homePage', { cache: true, revalidate: 86400 })
-  let sliderData = res?.data?.sliders || []
+  let sliderData = res?.data?.sliders || {}
   let whyIndivitData = res?.data?.whyIndivitSection || []
   let boxCategories = res?.data?.categories || []
   let testimonialsData = res?.data?.testimonials || []
