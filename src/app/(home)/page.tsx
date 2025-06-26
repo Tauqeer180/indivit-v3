@@ -50,7 +50,7 @@ export default async function Home() {
   let testimonialsData = res?.data?.testimonials || []
   let howItData = res?.data?.howItsWorkSection || []
   let faqsData = res?.data?.faqs || {}
-
+  console.log('home response ', res)
   return (
     <div>
       <Head>
