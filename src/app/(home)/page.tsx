@@ -44,7 +44,7 @@ export async function generateMetadata() {
 }
 export default async function Home() {
   let res = await fetcher('homePage', { cache: true, revalidate: 86400 })
-  let sliderData = res?.data?.sliders || {}
+  let sliderData = res?.data?.sliders
   let whyIndivitData = res?.data?.whyIndivitSection || []
   let boxCategories = res?.data?.categories || []
   let testimonialsData = res?.data?.testimonials || []
@@ -62,7 +62,7 @@ export default async function Home() {
           __html: JSON.stringify(SEOSchema?.HomePage?.schema, null, 2),
         }}
       />
-      {/* {JSON.stringify(res?.data?.sliders)} */}
+      {/* {JSON.stringify(res)} */}
       <HomeCarousel data={sliderData} isLoading={false} />
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
