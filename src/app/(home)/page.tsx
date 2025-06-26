@@ -50,7 +50,7 @@ export default async function Home() {
   let testimonialsData = res?.data?.testimonials || []
   let howItData = res?.data?.howItsWorkSection || []
   let faqsData = res?.data?.faqs || {}
-  console.log('home response ', res)
+  // console.log('home response ', res)
   return (
     <div>
       <Head>
@@ -62,7 +62,7 @@ export default async function Home() {
           __html: JSON.stringify(SEOSchema?.HomePage?.schema, null, 2),
         }}
       />
-      {/* {JSON.stringify(res)} */}
+      {JSON.stringify(res)}
       <HomeCarousel data={sliderData} isLoading={false} />
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
