@@ -43,9 +43,9 @@ export default async function page({ params }: any) {
     data?.box_category_key_sections?.length > 0 &&
     JSON.parse(data?.box_category_key_sections[0]?.key_sections)
 
-  if (!data?.name) {
-    redirect('/')
-  }
+  // if (!data?.name) {
+  //   redirect('/')
+  // }
   // let parsedSchema = null
 
   // try {
@@ -65,6 +65,7 @@ export default async function page({ params }: any) {
           }}
         />
       )}
+      {/* {JSON.stringify(data?.name)} */}
       {/* <!-- hero banner start--> */}
       {/* {data?.seo_scheme} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
