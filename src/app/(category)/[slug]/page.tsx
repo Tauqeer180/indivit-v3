@@ -7,6 +7,57 @@ import Link from 'next/link'
 import React from 'react'
 // Category Sub Pages
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const decodedSlug = decodeURIComponent(slug)
+  const id = slug?.split('_').pop()
+
+  let res
+  res = await fetcher(`smoothieBoxByCategoryBySlug/${decodedSlug}`, { cache: true })
+  if (!res?.data) {
+    res = await fetcher(`smoothieBoxByCategory/${id}`, { cache: true })
+  }
+  const data = res?.data || {}
+  const title = data?.name
+  const description = data?.description
+  const author = data?.author_name || 'Indivit'
+  // const image = data?.image ? baseURL + 'blogs/' + data.image : undefined
+  return {
+    alternates: { canonical: `https://indivit.de/blog/${slug}` },
+    title: data?.meta_title || `Indivit | ${title}`,
+    description: data?.meta_description || description,
+    authors: [{ name: author }],
+    robots: 'index, follow',
+    keywords: data?.keywords,
+
+    openGraph: {
+      title: data?.og_title || `Indivit | ${title}`,
+      description: data?.og_description || description,
+      // images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
+      url: `https://indivit.de/blog/${slug}`,
+      type: 'article',
+      site_name: 'Indivit',
+      locale: 'de_DE',
+      publishedTime: data?.created_at,
+      modifiedTime: data?.updated_at,
+    },
+    article: {
+      published_time: data?.created_at,
+      modified_time: data?.updated_at,
+      authors: [author],
+      tags: data?.keywords,
+    },
+    twitter: {
+      site: '@indivitsmoothie',
+      creator: '@indivitsmoothie',
+      title: `Indivit | ${title}`,
+      description,
+      card: 'summary_large_image',
+      // images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
+    },
+  }
+}
+
 const BreadCrumb = ({ name }) => {
   return (
     <nav aria-label="breadcrumb" className="px-0">
@@ -65,7 +116,7 @@ export default async function page({ params }: any) {
           }}
         />
       )}
-      {/* {JSON.stringify(data?.name)} */}
+      {/* {JSON.stringify(data)} */}
       {/* <!-- hero banner start--> */}
       {/* {data?.seo_scheme} */}
       <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">

@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: blogData?.og_description || description,
       images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
       url: `https://indivit.de/blog/${slug}`,
-      type: 'article',
+      // type: 'article',
       site_name: 'Indivit',
       locale: 'de_DE',
       publishedTime: blogData?.created_at,
