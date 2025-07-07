@@ -188,6 +188,7 @@ export default async function Page({ params }) {
                 Contained in...
               </h3>
             )}
+            {/* {JSON.stringify(relativeSmoothies[0])} */}
             <div className="row pt-4">
               {relativeSmoothies?.slice(0, 6)?.map((smooth) => {
                 return (
@@ -201,7 +202,7 @@ export default async function Page({ params }) {
                       isButton={true}
                       data={smooth?.smoothie}
                       actionTitle="Mehr anzeigen"
-                      action={`/rezepte/${smooth?.slug || smooth?.unique_id}`}
+                      action={`/rezepte/${smooth?.smoothie?.slug || smooth?.smoothie?.unique_id}`}
                     />
                   </div>
                 )
