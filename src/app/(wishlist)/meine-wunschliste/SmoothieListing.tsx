@@ -27,7 +27,7 @@ export default function SmoothieListing({ data }) {
                         isButton={true}
                         data={smooth.smoothie}
                         actionTitle="mehr sehen"
-                        action={`/rezepte/${smooth?.smoothie?.unique_id}`}
+                        action={`/rezepte/${smooth?.smoothie?.slug || smooth?.smoothie?.unique_id}`}
                       />
                     </div>
                   )
@@ -55,7 +55,7 @@ export default function SmoothieListing({ data }) {
                         isButton={true}
                         data={smooth.smoothie}
                         actionTitle="mehr sehen"
-                        action={`/rezepte/${smooth?.smoothie?.unique_id}`}
+                        action={`/rezepte/${smooth?.smoothie?.slug || smooth?.smoothie?.unique_id}`}
                       />
                     </div>
                   )

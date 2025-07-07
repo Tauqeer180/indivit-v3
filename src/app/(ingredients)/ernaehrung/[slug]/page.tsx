@@ -201,7 +201,7 @@ export default async function Page({ params }) {
                       isButton={true}
                       data={smooth?.smoothie}
                       actionTitle="Mehr anzeigen"
-                      action={`/rezepte/${smooth?.smoothie_id}`}
+                      action={`/rezepte/${smooth?.slug || smooth?.unique_id}`}
                     />
                   </div>
                 )

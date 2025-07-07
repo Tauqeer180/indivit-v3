@@ -12,11 +12,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   let smoothieByIdData
   smoothieByIdData = await fetcher(`r/slug/${slug}`, {
     token,
+    cache: true,
     tags: ['smoothieById'],
   })
   if (!smoothieByIdData?.smoothie) {
     smoothieByIdData = await fetcher(`r/${slug}`, {
       token,
+      cache: true,
       tags: ['smoothieById'],
     })
   }
@@ -47,12 +49,17 @@ export default async function page({ params }: { params: { slug: string } }) {
   let cookieStore = cookies()
   let token = cookieStore.get('token')?.value || ''
   //   Smoothies For Relative Section
-  let smoothieData = await fetcher('get_smoothie', { token, tags: ['smoothieListing'] })
+  let smoothieData = await fetcher('get_smoothie', {
+    token,
+    cache: true,
+    tags: ['smoothieListing'],
+  })
   const smoothiesListing = smoothieData?.smoothies
   // Smoothie By ID
   let smoothieByIdData
   smoothieByIdData = await fetcher(`r/slug/${smoothieId}`, {
     token,
+    cache: true,
     tags: ['smoothieById'],
   })
   //   if data not available on ID then search Slug

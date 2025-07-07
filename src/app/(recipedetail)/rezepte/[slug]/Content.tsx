@@ -337,7 +337,7 @@ export default function Content({ smoothiesListing, data, relative_boxes, benefi
                       isButton={true}
                       data={smooth}
                       actionTitle="Mehr anzeigen"
-                      action={`/rezepte/${smooth?.unique_id}`}
+                      action={`/rezepte/${smooth?.slug || smooth?.unique_id}`}
                     />
                   </div>
                 )
