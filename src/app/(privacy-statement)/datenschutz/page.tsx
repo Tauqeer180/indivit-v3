@@ -40,7 +40,7 @@ export async function generateMetadata() {
   }
 }
 async function getPrivacyDetails() {
-  const data = await fetcher('data_privacy')
+  const data = await fetcher('data_privacy', { cache: true, revalidate: 3600 * 24 })
   return data
 }
 

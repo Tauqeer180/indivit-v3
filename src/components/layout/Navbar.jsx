@@ -69,7 +69,7 @@ export default function Navbar() {
     data: boxCategories,
   } = useQuery({
     queryKey: ['limitedboxCategories'],
-    queryFn: () => fetcher('limit_box_category'),
+    queryFn: () => fetcher('limit_box_category', { cache: true, revalidate: 86400 }),
   })
   const {
     isLoading: settingsLoading,

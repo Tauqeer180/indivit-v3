@@ -10,9 +10,9 @@ import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 
 async function getIngredientById(slug: string): Promise<any> {
   let data
-  data = await fetcher(`get_ingredient_slug/${slug}`, { cache: true, revalidate: 3600 })
+  data = await fetcher(`get_ingredient_slug/${slug}`, { cache: true, revalidate: 3600 * 12 })
   if (!data?.data?.ingredients) {
-    data = await fetcher(`get_ingredient/${slug}`, { cache: true, revalidate: 3600 })
+    data = await fetcher(`get_ingredient/${slug}`, { cache: true, revalidate: 3600 * 12 })
   }
   return data
 }

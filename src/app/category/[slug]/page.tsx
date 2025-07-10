@@ -35,7 +35,7 @@ export default async function page({ params }: any) {
   let res
   res = await fetcher(`smoothieBoxByCategoryBySlug/${slug}`, { token, cache: true })
   if (!res?.data) {
-    res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: false })
+    res = await fetcher(`smoothieBoxByCategory/${id}`, { token, cache: true })
   }
   const data = res?.data || {}
   let keySection =

@@ -60,13 +60,14 @@ export default async function page({ params }: { params: { slug: string } }) {
   smoothieByIdData = await fetcher(`r/slug/${smoothieId}`, {
     token,
     cache: true,
-    tags: ['smoothieById'],
+    tags: [smoothieId],
   })
   //   if data not available on ID then search Slug
   if (!smoothieByIdData?.smoothie) {
     smoothieByIdData = await fetcher(`r/${smoothieId}`, {
       token,
-      tags: ['smoothieById'],
+      cache: true,
+      tags: [smoothieId],
     })
   }
   const data = smoothieByIdData?.smoothie

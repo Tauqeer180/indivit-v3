@@ -24,6 +24,7 @@ import { toast } from 'react-toastify'
 import { ScrollIntoview } from '@/components/common/Common'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/common/Loader'
+import { revalidateByTag } from '@/app/actions/revalidate-action'
 let boxShadowClass =
   'tw-bg-white tw-p-2 tw-rounded-xl tw-border tw-border-solid tw-border-gray-100 hover:tw-shadow-around hover:tw-border-transparent'
 
@@ -134,6 +135,7 @@ export default function SmoothieMixer({
           toast.success(res?.message)
           setLoading(false)
           // debugger;
+          revalidateByTag(res?.data)
           push(`/rezepte/${res?.data}`)
         } else {
           console.log('Err ', res)

@@ -72,7 +72,6 @@ export default async function page({ params }) {
     (await fetcher(`r/${id}`, {
       token,
       cache: true,
-      revalidate: 3600,
       tags: ['smoothieById', id],
     }))
   let smoothieData = smoothieByIdData?.smoothie
@@ -118,6 +117,7 @@ export default async function page({ params }) {
   })
   let recipeData = await fetcher(`get_smoothie`, {
     token,
+    // cache: true,
     tags: ['smoothieListing'],
   })
   const smoothieRecipes = recipeData?.smoothies || []

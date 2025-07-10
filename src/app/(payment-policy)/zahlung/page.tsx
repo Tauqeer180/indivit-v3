@@ -38,7 +38,7 @@ export async function generateMetadata() {
   }
 }
 async function getPaymentDetails() {
-  const data = await fetcher('payment_policy')
+  const data = await fetcher('payment_policy', { cache: true, revalidate: 3600 * 24 })
   return data?.data
 }
 

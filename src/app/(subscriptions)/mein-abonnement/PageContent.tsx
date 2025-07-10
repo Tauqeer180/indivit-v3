@@ -10,12 +10,11 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 // Subscriptions Page
 
-
 export default function PageContent() {
   // console.log("Available Dates ", availableDates);
 
   const commonImg = useAppSelector((state) => state.settings?.boxImg)
-
+  const token = useAppSelector((state) => state?.account?.token)
   const queryClient = useQueryClient()
   const [loading, setLoading] = useState(false)
   const [selectedTab, setSelectedTab] = useState(0)
@@ -27,7 +26,7 @@ export default function PageContent() {
     data,
   } = useQuery({
     queryKey: ['subscriptionListing'],
-    queryFn: () => fetcher('getSubscriptionByUser'),
+    queryFn: () => fetcher('getSubscriptionByUser', { token }),
   })
   const subscriptionData = data?.data?.data
 
@@ -42,7 +41,8 @@ export default function PageContent() {
   const availableDates = availDates?.data?.data
 
   const mutation = useMutation({
-    mutationFn: (data) => fetcher('cancelSubscriptionByUser', { method: 'POST', data: data }),
+    mutationFn: (data) =>
+      fetcher('cancelSubscriptionByUser', { method: 'POST', data: data, token }),
     onSuccess: (res) => {
       // Invalidate and refetch
       queryClient.invalidateQueries(['subscriptionListing'])
@@ -73,8 +73,6 @@ export default function PageContent() {
     <div>
       {/* <!-- hero banner start--> */}
       {subscriptionLoading && <Loader />}
-
-     
 
       <section className="my-5 pb-5">
         <div className="container">

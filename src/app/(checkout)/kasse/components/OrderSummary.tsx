@@ -24,6 +24,7 @@ export default function OrderSummary() {
   const [loading, setLoading] = useState(false)
   const [grandTotal, setGrandTotal] = useState(0)
   const commonImg = useAppSelector((state) => state.settings?.boxImg)
+  const token = useAppSelector((state) => state.account?.token)
 
   const { items: cartItems, cartTotal, metadata, updateCartMetadata } = useCart()
   // const dcCharges = useSelector((state) => state.dcCharges);
@@ -57,27 +58,29 @@ export default function OrderSummary() {
       (!!metadata?.fastShipping ? parseFloat(metadata?.fastShipping) : 0)
     setGrandTotal(tempGrandTotal)
   }, [basicShipping, thresholdCost, fastShipCharges, metadata?.fastShipping, total])
-  let getDiscount = async (data) => await fetcher('discount', { method: 'POST', data })
+  let getDiscount = async (data) => await fetcher('discount', { method: 'POST', data, token })
   const mutation = useMutation({
     mutationFn: getDiscount,
     onSuccess: (res) => {
+      // console.log('promo Res ', res)
       if (res?.status == 400) {
         vibrate('#orderSummary')
         setError('promo_code', {
           type: 'custom',
-          message: res?.data?.message,
+          message: res?.message,
         })
         setLoading(false)
-      } else if (res?.response?.status == 401) {
+      } else if (res?.response?.status == 401 || !res?.data) {
         toast.error('Bitte melden Sie sich an, um fortzufahren') //Login to Proceed
         vibrate('#orderSummary')
       } else {
-        promoValidity(res?.data?.data)
+        promoValidity(res?.data)
       }
       setLoading(false)
       // toast.success(res?.data?.message);
     },
     onError: (err) => {
+      // console.log('Error ', err)
       toast.error(
         err.response.status == 401
           ? 'Bitte melden Sie sich an, um fortzufahren' //Login to Proceed
