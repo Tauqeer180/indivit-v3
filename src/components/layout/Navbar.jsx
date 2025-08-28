@@ -155,13 +155,13 @@ export default function Navbar() {
         </Helmet>
       )} */}
       {/* <!-- navbar start --> */}
-      <div className="container flx-navbar-style">
+      <div className=" tw-bg-light-green tw-bg-gradient-to-r tw-from-light-green tw-via-[#bee9b1] tw-to-[#bce6ae] ">
         <nav
           id="header"
-          className=" tw-duration-500 row container xs:!tw-mt-6 mx-auto fixed-top navbar navbar-expand-lg px-3 px-lg-4 bg-white  shadow-sm sm:tw-rounded py-0"
+          className="container tw-duration-500 row tw-z-10   mx-auto fixed-top- navbar navbar-expand-lg   py-0 tw-h-[103px]"
         >
           <div
-            className="offcanvas offcanvas-end position-lg-initial transform-lg-none border-lg-none col-lg-5 py-2"
+            className="offcanvas offcanvas-end position-lg-initial transform-lg-none border-lg-none col-lg-5 py-2 lg:!tw-bg-transparent lg:!tw-px-0 tw-bg-white"
             tabIndex="-1"
             id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel"

@@ -281,7 +281,7 @@ export const ProdCycleIcon = () => {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              fill="white"
+              // fill="white"
             ></path>{' '}
           </g>{' '}
           <defs>
@@ -559,6 +559,38 @@ export function CollapseRightIcon(props: SVGProps<SVGSVGElement>) {
         <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm11-2v16" />
         <path d="m9 10l2 2l-2 2" />
       </g>
+    </svg>
+  )
+}
+
+export function PineapleIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.25 7.25C10 7 10 6.575 10 5.5C10 3.567 12 2 12 2C12 2 13.5 3.567 13.5 5.5C13.5 6.461 13.5 7 13.25 7.25"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.5 8.50021C7.895 7.04121 6.431 5.21671 5.5 4.50021C8.2055 3.99321 10.387 5.65021 11.5 7.00021M15 8.00021C15.726 6.65171 17.152 5.15271 18 4.50021C15.1785 3.97121 13.0645 5.63071 12 7.00021"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.9998 9.00004L5.49977 14.5M7.99977 9.00004L18.4998 14.5M17.4998 20.5L5.49977 13.5M18.4998 13.5L6.49977 20.5M8.36227 8.68704C8.0666 8.94924 7.77896 9.22036 7.49977 9.50004C5.40477 11.595 5.05077 15.432 5.00127 17.14C4.98427 17.715 4.98827 18.301 5.20577 18.8335C5.43927 19.405 5.93727 20.203 6.99977 21C8.99977 22.5 14.9998 22.5 16.9998 21C18.0578 20.2065 18.5558 19.4125 18.7903 18.841C19.0108 18.304 19.0153 17.712 18.9978 17.1315C18.9478 15.419 18.5918 11.5915 16.4998 9.50004C16.1998 9.20071 15.9121 8.92971 15.6368 8.68704C13.5078 6.80354 10.4918 6.80354 8.36227 8.68704Z"
+        stroke="white"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   )
 }

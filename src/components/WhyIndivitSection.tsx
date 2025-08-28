@@ -22,79 +22,84 @@ export default function WhyIndivitSection({ data = [] }) {
   let whyData = data?.length > 0 ? data[0] : {}
   let benefits = (whyData?.why_indivit && JSON.parse(whyData?.why_indivit)) || []
   return (
-    <div className="tw-bg-white tw-mb-12">
+    <div className="tw-bg-[#FAF4D1] tw-mb-12">
       {/* {JSON.stringify(whyData)} */}
-      <div className="2xl:tw-container tw-mx-auto tw-grid tw-grid-cols-1 md:tw-grid-cols-2 xl:tw-gap-0 tw-gap-4">
-        {/* Left Column - Image */}
-        <div
-          className={` tw-aspect-[0.7/1]- tw-relative tw-w-full tw-flex tw-items-center tw-justify-center tw-group tw-overflow-visible`}
-        >
-          {!isPlaying && (
-            <div
-              className={` tw-hidden sm:tw-block tw-absolute play-btn -tw-translate-x-1/2 -tw-translate-y-1/2  tw-rounded-full tw-shadow-theme-md `}
-            >
-              <div className="tw-text-2xl tw-leading-6 tw-text-center tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2">
-                <PlayIcon className="tw-h-20 tw-w-20 tw-text-white" />
-              </div>
+      <div className="container tw-py-24">
+        {!whyData?.heading && <WhyIndivitSkelton />}
+
+        <h2 className=" tw-text-xl xl:tw-text-5xl 2xl:tw-text-5xl tw-font-bold tw-mb-6">
+          {whyData?.heading}
+        </h2>
+        <p>{whyData?.description}</p>
+        <div className="2xl:tw-container tw-mx-auto tw-grid tw-grid-cols-1 md:tw-grid-cols-2  tw-gap-8 tw-pt-20">
+          {/* Left Column - Image */}
+
+          {/* Right Column - Content */}
+
+          <div className="tw-flex tw-flex-col tw-justify-center tw-p-4 xl:tw-p-10 tw-bg-white tw-rounded-2xl shadow-theme tw-shadow-theme ">
+            <div className="tw-space-y-4 lg:tw-space-y-8 xl:tw-space-y-10 2xl:tw-space-y-12">
+              {benefits.map((benefit, index) => (
+                <div key={index}>
+                  <div
+                    // key={index}
+                    className="tw-flex tw-items-center tw-gap-4 lg:tw-gap-3 2xl:tw-gap-4"
+                  >
+                    <div className="  tw-flex-shrink-0">
+                      <Image
+                        src={baseURL + benefit.icon}
+                        alt={benefit.title}
+                        width={50}
+                        height={50}
+                        className="tw-text-[#81CA00]"
+                      />
+                    </div>
+
+                    <h3 className="tw-font-bold tw-mb-1 tw-text-2xl tw-text-dark tw-font-Epilogue-bold">
+                      {benefit.title}
+                    </h3>
+                  </div>
+                  <p className="tw-text-gray-600 tw-text-lg tw-mb-0 tw-pt-3">{benefit.detail}</p>
+                </div>
+              ))}
             </div>
-          )}
-          <div className="tw-w-full">
-            {whyData?.video && (
-              <video
-                // onClick={checkVideoStatus}
-                // ref={videoRef}
-                // controls
-                muted
-                autoPlay
-                loop
-                playsInline
-                preload="preload"
-                // poster={SideImage}
-                src={whyData?.video ? baseURL + 'whyIndivit/' + whyData?.video : ''}
-                className=" tw-w-full tw-aspect-[0.7/1]-"
-              />
-            )}
+
+            <button
+              onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}
+              className="tw-mt-8 btn-theme tw-w-max !tw-font-extrabold tw-font-Epilogue-bold"
+            >
+              Unsere Produkte entdecken
+            </button>
           </div>
-        </div>
-
-        {/* Right Column - Content */}
-
-        <div className="tw-flex tw-flex-col tw-justify-center tw-p-4 ">
-          {!whyData?.heading && <WhyIndivitSkelton />}
-
-          <h2 className=" tw-text-xl xl:tw-text-2xl 2xl:tw-text-4xl tw-font-bold tw-mb-6">
-            {whyData?.heading}
-          </h2>
-          <p>{whyData?.description}</p>
-          <div className="tw-space-y-4 lg:tw-space-y-8 xl:tw-space-y-10 2xl:tw-space-y-12">
-            {benefits.map((benefit, index) => (
+          <div
+            className={` tw-rounded-2xl tw-aspect-[0.7/1]- tw-relative tw-w-full tw-flex tw-items-center tw-justify-center tw-group tw-overflow-visible`}
+          >
+            {!isPlaying && (
               <div
-                key={index}
-                className="tw-flex tw-items-center tw-gap-4 lg:tw-gap-6 2xl:tw-gap-8"
+                className={` tw-hidden sm:tw-block tw-absolute play-btn -tw-translate-x-1/2 -tw-translate-y-1/2  tw-rounded-full tw-shadow-theme-md `}
               >
-                <div className=" tw-rounded-lg tw-flex-shrink-0">
-                  <Image
-                    src={baseURL + benefit.icon}
-                    alt={benefit.title}
-                    width={50}
-                    height={50}
-                    className="tw-text-[#81CA00]"
-                  />
-                </div>
-                <div>
-                  <h3 className="tw-font-semibold tw-mb-1 tw-text-xl ">{benefit.title}</h3>
-                  <p className="tw-text-gray-600 tw-text-sm tw-mb-0">{benefit.detail}</p>
+                <div className="tw-text-2xl tw-leading-6 tw-text-center tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2">
+                  <PlayIcon className="tw-h-20 tw-w-20 tw-text-white" />
                 </div>
               </div>
-            ))}
+            )}
+            <div className="tw-w-full tw-h-full ">
+              {whyData?.video && (
+                <video
+                  // onClick={checkVideoStatus}
+                  // ref={videoRef}
+                  // controls
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                  preload="preload"
+                  // poster={SideImage}
+                  src={whyData?.video ? baseURL + 'whyIndivit/' + whyData?.video : ''}
+                  className=" tw-w-full tw-h-full tw-object-cover tw-rounded-2xl"
+                />
+              )}
+            </div>
           </div>
-
-          <button
-            onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}
-            className="tw-mt-8 tw-bg-[#81CA00] hover:tw-text-slate-100 tw-no-underline  tw-py-3 tw-px-7 tw-border-none tw-rounded-lg tw-text-white tw-max-w-[291px] max-md:tw-mx-auto"
-          >
-            Unsere Produkte entdecken
-          </button>
         </div>
       </div>
     </div>

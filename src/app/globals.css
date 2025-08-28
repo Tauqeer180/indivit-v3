@@ -19,6 +19,47 @@ body {
     position: relative; 
   } */
 
+  .container {
+  max-width: 1440px !important;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -76,6 +117,75 @@ code {
     max-width: 100%;
     height: auto;
   }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* color: white; */
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-theme-xl {
+  box-shadow: 8px 8px 0px 0px var(--tw-shadow-color);
+
+}
+.shadow-theme-lg {
+  box-shadow: 6px 6px 0px 0px var(--tw-shadow-color);
+
+}
+.shadow-theme-sm {
+  box-shadow: 2px 2px 0px 0px var(--tw-shadow-color);
+
+}
+.btn-theme{
+  background-color: var(--green);
+  color: white;
+  border-radius: 50px;
+  padding: 15px 28px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+box-shadow: 4px 4px 0px 1px #212529;
+border:1px solid #212529;
+font-size: 16px;
+font-weight: 800;
+transition: all 0.3s ease;
+width: max-content;
+line-height: 1;
+}
+.btn-theme:hover{
+  color:white;
+  transform: translateY(3px);
+  box-shadow: 2px 2px 0px 1px #212529;
+}
+
+.btn-outline{
+  color: #4B5563;
+  border-radius: 50px;
+  padding: 15px 28px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+box-shadow: 4px 4px 0px 1px #4B5563;
+border: 1px solid #4B5563;
+font-size: 16px;
+font-weight: 800;
+transition: all 0.3s ease;
+width: max-content;
+line-height: 1;
+}
+.btn-outline:hover{
+  color: #4B5563;
+  transform: translateY(3px);
+  box-shadow: 2px 2px 0px 1px #4B5563;
+}
+.offcanvas-backdrop {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .markdown img {
     width: 100%;

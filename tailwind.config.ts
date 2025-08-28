@@ -19,6 +19,8 @@ const config = {
         // theme: "#359200", // old Theme Color
         theme: "#81CA00",
         "theme-orange": "#FE6703",
+        "light-green": "#C2ECB4",
+        "dark":"#212529"
       },
       boxShadow: {
         around: "0 0 25px -5px rgba(0, 0, 0, 0.1)", // Customize as needed

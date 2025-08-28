@@ -10,6 +10,7 @@ import Head from 'next/head'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
+import { PineapleIcon } from '@/assets/svgIcons'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.Home)
@@ -64,6 +65,16 @@ export default async function Home() {
       />
       {/* {JSON.stringify(res)} */}
       <HomeCarousel data={sliderData} isLoading={false} />
+
+      <div className="tw-bg-dark">
+        <div className=" container tw-flex tw-items-center tw-justify-between ">
+          <PineapleIcon className="max-sm:tw-hidden" />
+          <p className="tw-text-white tw-text-center tw-mb-0 tw-py-5 tw-text-lg tw-font-bold">
+            Enjoyment, health and lightness your journey begins here Discover smoothie programs.
+          </p>
+          <PineapleIcon className="max-sm:tw-hidden" />
+        </div>
+      </div>
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
       <div>
