@@ -11,6 +11,7 @@ import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
 import { PineapleIcon } from '@/assets/svgIcons'
+import CustomizeSection from '@/components/CustomizeSection'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.Home)
@@ -77,6 +78,7 @@ export default async function Home() {
       </div>
       {whyIndivitData?.length !== 0 && <WhyIndivitSection data={whyIndivitData} />}
       <ProductCategory data={boxCategories} />
+      <CustomizeSection />
       <div>
         <Testimonials data={testimonialsData} />
       </div>

@@ -22,7 +22,7 @@ export default function WhyIndivitSection({ data = [] }) {
   let whyData = data?.length > 0 ? data[0] : {}
   let benefits = (whyData?.why_indivit && JSON.parse(whyData?.why_indivit)) || []
   return (
-    <div className="tw-bg-[#FAF4D1] tw-mb-12">
+    <div className="tw-bg-[#FAF4D1] ">
       {/* {JSON.stringify(whyData)} */}
       <div className="container tw-py-24">
         {!whyData?.heading && <WhyIndivitSkelton />}
@@ -36,7 +36,7 @@ export default function WhyIndivitSection({ data = [] }) {
 
           {/* Right Column - Content */}
 
-          <div className="tw-flex tw-flex-col tw-justify-center tw-p-4 xl:tw-p-10 tw-bg-white tw-rounded-2xl shadow-theme tw-shadow-theme ">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-p-4 xl:tw-p-10 tw-bg-white tw-rounded-2xl shadow-theme-xl tw-shadow-theme ">
             <div className="tw-space-y-4 lg:tw-space-y-8 xl:tw-space-y-10 2xl:tw-space-y-12">
               {benefits.map((benefit, index) => (
                 <div key={index}>

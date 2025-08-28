@@ -784,59 +784,45 @@ export function BlogCard({ data }) {
   )
 }
 
-// export function TestimonialCard({ data }) {
-//   const { comment, image, designation, rating, name } = data;
-//   return (
-//     <div className="xl:tw-max-w-6xl lg:tw-max-w-4xl md:tw-max-w-2xl sm:tw-max-w-xl tw-max-w-lg mx-auto tw-relative tw-px-4">
-//       <div className=" tw-text-start tw-absolute tw-z-10 lg:-tw-top-12 md:-tw-top-10 sm:-tw-top-8 -tw-top-6 lg:tw-w-32 md:tw-w-28 sm:tw-w-20 tw-w-16">
-//         <QuoteUpIcon />
-//       </div>
-//       <div className=" tw-mx-4 tw-bg-[#e3edde] lg:tw-px-20 md:tw-px-16 sm:tw-px-10 tw-px-5 mx-auto tw-relative tw-rounded-lg tw-text-center tw-pb-5">
-//         <div
-//           className="tw-mx-auto tw-text-center "
-//           data-aos="fade-up"
-//           data-aos-duration="2000"
-//         >
-//           <img
-//             src={`${
-//               image
-//                 ? baseURL + "testimonials/" + image
-//                 : "https://pretty-girls.net/wp-content/uploads/2018/09/moisrgo.jpg"
-//             } `}
-//             width="200px"
-//             height="200px"
-//             alt="profile"
-//             title="profile"
-//             className={"tw-bg-[#e3edde] " + profileIconStyle}
-//           />
-//         </div>
-//         <h3 className="tw-capitalize tw-font-bold tw-text-center tw-mt-5">
-//           {name}
-//         </h3>
-//         <p className="tw-capitalize tw-text-theme">{designation} </p>
+export function TestimonialCard({ data }) {
+  const { comment, image, designation, rating, name } = data
+  return (
+    <div
+      // key={index}
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className=" tw-h-full shadow-theme-xl tw-shadow-[#4B5563] tw-rounded-2xl "
+    >
+      <div className="tw-rounded-2xl tw-p-4 lg:tw-p-8  xl:tw-p-9 tw-bg-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-text-center tw-transition hover:-translate-y-1 tw-h-full">
+        {/* Avatar and Text Container */}
+        <div className="tw-text-start">
+          <div className="tw-w-16 tw-h-16">
+            <Image
+              src={`${
+                image
+                  ? baseURL + 'testimonials/' + image
+                  : 'https://pretty-girls.net/wp-content/uploads/2018/09/moisrgo.jpg'
+              } `}
+              alt={`${name}'s avatar`}
+              width={64}
+              height={64}
+              className="tw-w-12 tw-h-12 tw-object-cover tw-border tw-border-solid tw-border-theme tw-border-b-2 tw-border-r-[6px] tw-rounded-sm"
+            />
+          </div>
+          {/* Testimonial Text */}
+          <p className="tw-text-gray-600 2xl:tw-mt-10 2xl:tw-mb-14 xl:tw-mt-8 xl:tw-mb-10 lg:tw-text-xl  tw-mt-6 tw-mb-8  tw-leading-normal tw-line-clamp-6 tw-text-start">
+            "{comment}"
+          </p>{' '}
+        </div>
 
-//         <p>
-//           {/* Indivit has completely elevated my smoothie game! Their website is
-//           incredibly user-friendly, offering a wide array of delicious options
-//           to cater to every taste and nutritional need. Ordering is a seamless
-//           process, and their delivery is impressively swift. I'm continually
-//           amazed by the freshness and quality of their smoothies, making every
-//           sip a delight. If you're seeking convenience without compromising on
-//           taste and nutrition, look no further than SmoothiesRUs! */}
-//           {comment}
-//         </p>
-
-//         {!isNaN(parseFloat(rating)) && (
-//           <StarRating value={rating} color="!tw-text-theme" />
-//         )}
-//       </div>
-
-//       <div className=" tw-text-start tw-absolute tw-z-10 lg:-tw-bottom-12 md:-tw-bottom-10 sm:-tw-bottom-8 -tw-bottom-6 lg:tw-w-32 md:tw-w-28 sm:tw-w-20 tw-w-16 tw-right-0 tw-rotate-180">
-//         <QuoteUpIcon />
-//       </div>
-//     </div>
-//   );
-// }
+        {/* Author Info */}
+        <div className="tw-text-sm lg:tw-text-base xl:tw-text-lg 2xl:tw-text-xl  tw-font-black">
+          - {name},{/* {age}, */} {designation}
+        </div>
+      </div>{' '}
+    </div>
+  )
+}
 
 export function WhyIndivitSkelton() {
   return (

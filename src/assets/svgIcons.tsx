@@ -594,3 +594,39 @@ export function PineapleIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
+export function OctagonShapeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="333"
+      height="336"
+      viewBox="0 0 333 336"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M333 141.883L269.571 134.569L321.415 89.8027L264.106 29.9856L214.11 70.0946L219.46 1.42422L136.98 0L131.129 51.6568L95.4123 6.31275L27.8655 72.8661L59.6567 110.396L1.11616 103.66L0 198.89L48.7646 202.739L2.65569 239.731L68.6245 307.862L105.804 275.798L99.1071 334.884L193.519 336L198.33 274.027L244.015 327.955L303.326 270.14L263.567 219.676L331.614 225.065L333 141.883Z"
+        fill="#F8F9FA"
+      />
+    </svg>
+  )
+}
+
+export function TriShapeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="140"
+      height="184"
+      viewBox="0 0 140 184"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.14234 184L0 129.629L97.8354 148.259L0 73.7622L35.5719 23.827L111.932 122.177L94.1459 1.49552L156.409 0L145.29 127.398L194.958 27.5531L249.054 55.8669L159.361 151.961L262.412 130.364L266 183.721L8.14234 184Z"
+        fill="#DCE9C7"
+      />
+    </svg>
+  )
+}

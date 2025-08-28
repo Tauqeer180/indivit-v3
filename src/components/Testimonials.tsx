@@ -9,7 +9,7 @@ import Carousel from 'react-multi-carousel'
 // import img3 from "../../assets/NewAssets/svg/orange.png";
 // import { baseURL } from "../../services/Adapter/customAxios";
 // import { Link } from "react-router-dom";
-import { SkeltonCard } from './Cards'
+import { SkeltonCard, TestimonialCard } from './Cards'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -58,39 +58,81 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
         onClick={() => next()}
         aria-labelledby="testimonial-next"
       >
-        <img height="44px" width="45px" className="img-fluid " alt="testimonial-previous" src={'/assets/object/right.png'} />
+        <img
+          height="44px"
+          width="45px"
+          className="img-fluid "
+          alt="testimonial-previous"
+          src={'/assets/object/right.png'}
+        />
       </button>
     </div>
   )
 }
-// const testimonials = [
-//   {
-//     name: "Anna",
-//     location: "Berlin",
-//     age: "32",
-//     comment:
-//       "Die Smoothie Fastenkur von Indivit hat mein Wohlbefinden deutlich verbessert! Ich habe mich leichter, energiegeladener und konzentrierter gefühlt und das ohne großen Aufwand.",
-//     avatar: testimonialAvatar,
-//   },
-//   {
-//     name: "Max",
-//     location: "München",
-//     age: "41",
-//     comment:
-//       "Ich mache regelmäßig das 5:2 Intervallfasten mit den Smoothies von Indivit. Es ist super praktisch, für 2 Tage pro Woche meine Ernährung umzustellen, und die Smoothies sind einfach lecker!",
-//     avatar: testimonialAvatar,
-//   },
-//   {
-//     name: "Lisa",
-//     location: "Hamburg",
-//     age: "28",
-//     comment:
-//       "Die Trinkmahlzeiten sind mein Go-to für unterwegs. Sie sind nicht nur super gesund, sondern auch unglaublich praktisch und halten mich stundenlang satt!",
-//     avatar: testimonialAvatar,
-//   },
-// ];
 
-export default function Testimonials({ data, isLoading }:{data:any,isLoading?:boolean}) {
+function TestimonialCarousel({ data, isLoading }: { data: any; isLoading?: boolean }) {
+  return (
+    <div className="">
+      <div className=" m-auto position-relative ">
+        <Carousel
+          responsive={responsive}
+          itemclassName=""
+          autoPlay={false}
+          arrows={false}
+          renderButtonGroupOutside={true}
+          customButtonGroup={<ButtonGroup />}
+          infinite={true}
+          showDots={false}
+          containerClass=" tw-items-stretch "
+        >
+          {isLoading || data?.length == 0
+            ? Array.from(Array(8))?.map((box, index) => {
+                return (
+                  <div key={index} className="px-md-5" data-aos="fade-up" data-aos-duration="1000">
+                    <SkeltonCard profileStyle={true} />
+                  </div>
+                )
+              })
+            : data?.map((testimonial, index) => (
+                <div
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                  className="2xl:tw-px-4 xl:tw-px-3 tw-px-2 tw-h-full shadow-theme-lg shadow-dark "
+                >
+                  <div className="tw-rounded-2xl tw-p-4 lg:tw-p-8  xl:tw-p-9 tw-bg-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-text-center tw-transition hover:-translate-y-1 tw-h-full">
+                    <div className="tw-text-start">
+                      <div className="tw-w-16 tw-h-16">
+                        <Image
+                          src={`${
+                            testimonial?.image
+                              ? baseURL + 'testimonials/' + testimonial?.image
+                              : 'https://pretty-girls.net/wp-content/uploads/2018/09/moisrgo.jpg'
+                          } `}
+                          alt={`${testimonial.name}'s avatar`}
+                          width={64}
+                          height={64}
+                          className="tw-w-12 tw-h-12 tw-object-cover tw-border tw-border-solid tw-border-theme tw-border-b-2 tw-border-r-[6px] tw-rounded-sm"
+                        />
+                      </div>
+                      <p className="tw-text-gray-600 2xl:tw-mt-10 2xl:tw-mb-14 xl:tw-mt-8 xl:tw-mb-10 lg:tw-text-xl  tw-mt-6 tw-mb-8  tw-leading-normal tw-line-clamp-6 tw-text-start">
+                        "{testimonial.comment}"
+                      </p>{' '}
+                    </div>
+
+                    <div className="tw-text-sm lg:tw-text-base xl:tw-text-lg 2xl:tw-text-xl  tw-font-black">
+                      {testimonial.designation}
+                    </div>
+                  </div>{' '}
+                </div>
+              ))}
+        </Carousel>
+      </div>
+    </div>
+  )
+}
+
+export default function Testimonials({ data, isLoading }: { data: any; isLoading?: boolean }) {
   // const { isLoading, error, data } = useQuery({
   //   queryKey: ["testmonialsListing"],
   //   queryFn: getTestimonials,
@@ -99,7 +141,7 @@ export default function Testimonials({ data, isLoading }:{data:any,isLoading?:bo
   // console.log("Dtata ", data);
   return (
     <>
-      <div className="tw-bg-[#FE6703] tw-relative">
+      <div className="tw-bg-[#F8F9FA]- tw-relative">
         <div className="tw-absolute -tw-translate-y-1/2">
           <img
             src={'/assets/NewAssets/svg/leave.jpg'}
@@ -109,7 +151,7 @@ export default function Testimonials({ data, isLoading }:{data:any,isLoading?:bo
         </div>
         <div className=" tw-mx-auto 2xl:tw-py-24 xl:tw-py-20 tw-py-16 ">
           <div className="tw-text-center tw-mb-12">
-            <h2 className="tw-text-3xl tw-font-bold tw-text-white tw-mt-4">
+            <h2 className="tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-font-bold  tw-mt-4">
               Das sagen unsere Kunden
             </h2>
           </div>
@@ -117,71 +159,12 @@ export default function Testimonials({ data, isLoading }:{data:any,isLoading?:bo
           {/* Testimonials Grid */}
           <div className="container">
             {/* tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 */}
-            <div className="">
-              <div className=" m-auto position-relative ">
-                <Carousel
-                  responsive={responsive}
-                  itemclassName=""
-                  autoPlay={true}
-                  arrows={false}
-                  renderButtonGroupOutside={true}
-                  customButtonGroup={<ButtonGroup />}
-                  infinite={true}
-                  showDots={false}
-                  containerClass=" tw-items-stretch "
-                >
-                  {isLoading || data?.length == 0
-                    ? Array.from(Array(8))?.map((box, index) => {
-                        return (
-                          <div
-                            key={index}
-                            className="px-md-5"
-                            data-aos="fade-up"
-                            data-aos-duration="1000"
-                          >
-                            <SkeltonCard profileStyle={true} />
-                          </div>
-                        )
-                      })
-                    : data?.map((testimonial, index) => (
-                        <div
-                          key={index}
-                          data-aos="fade-up"
-                          data-aos-duration="1000"
-                          className="2xl:tw-px-4 xl:tw-px-3 tw-px-2 tw-h-full"
-                        >
-                          <div className="tw-rounded-2xl tw-p-4 lg:tw-px-8 lg:tw-py-6 xl:tw-px-12 xl:tw-py-10 2xl:tw-px-16 2xl:tw-py-[52px] tw-bg-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-text-center tw-transition hover:-translate-y-1 tw-h-full">
-                            {/* Avatar and Text Container */}
-                            <div className="tw-text-center">
-                              <div className="tw-w-16 tw-h-16 tw-mx-auto">
-                                <Image
-                                  src={`${
-                                    testimonial?.image
-                                      ? baseURL + 'testimonials/' + testimonial?.image
-                                      : 'https://pretty-girls.net/wp-content/uploads/2018/09/moisrgo.jpg'
-                                  } `}
-                                  alt={`${testimonial.name}'s avatar`}
-                                  width={64}
-                                  height={64}
-                                  className="tw-rounded-full tw-object-cover tw-border tw-border-solid tw-border-theme tw-border-b-2 tw-border-r-2"
-                                />
-                              </div>
-                              {/* Testimonial Text */}
-                              <p className="tw-text-gray-600 2xl:tw-mt-10 2xl:tw-mb-14 xl:tw-mt-8 xl:tw-mb-10  tw-mt-6 tw-mb-8  tw-leading-tight tw-line-clamp-6">
-                                "{testimonial.comment}"
-                              </p>{' '}
-                            </div>
-
-                            {/* Author Info */}
-                            <div className="tw-text-sm lg:tw-text-base xl:tw-text-lg 2xl:tw-text-xl  tw-font-black">
-                              - {testimonial.name},{/* {testimonial.age}, */}{' '}
-                              {testimonial.designation}
-                            </div>
-                          </div>{' '}
-                        </div>
-                      ))}
-                </Carousel>
-              </div>
+            <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-gap-7 lg:tw-gap-6 md:tw-gap-5 tw-gap-4">
+              {data?.map((testimonial, index) => (
+                <div key={index}>
+                  <TestimonialCard data={testimonial} />
+                </div>
+              ))}
             </div>
 
             {/* CTA Button */}
@@ -189,7 +172,7 @@ export default function Testimonials({ data, isLoading }:{data:any,isLoading?:bo
               <Link
                 target="_blank"
                 href={'https://g.page/r/CScP0bps-ENOEBM/review'}
-                className="tw-bg-transparent tw-border-solid tw-border tw-border-white hover:tw-text-white tw-text-white tw-px-8 tw-outline-none tw-py-3 tw-rounded-lg tw-no-underline "
+                className="btn-theme "
               >
                 Mehr Kundenstimmen
               </Link>
