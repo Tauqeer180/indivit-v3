@@ -30,6 +30,7 @@ const nextConfig = {
       { hostname: 'admin.nautaes.com' },
       { hostname: '192.168.31.210' },
       { hostname: 'admin.indivit.de' },
+      { hostname: 'dev1.indivit.de' },
       { hostname: 'source.unsplash.com' },
       { hostname: 'images.unsplash.com' },
       { hostname: 'i.ytimg.com' },
