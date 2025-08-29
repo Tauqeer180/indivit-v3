@@ -120,14 +120,18 @@ code {
 
   .glass-effect {
     background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px); /* for Safari */
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px); /* for Safari */
   border: 1px solid rgba(255, 255, 255, 0.3);
   /* color: white; */
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+.shadow-theme-2xl {
+  box-shadow: 10px 10px 0px 0px var(--tw-shadow-color);
+
+}
 .shadow-theme-xl {
   box-shadow: 8px 8px 0px 0px var(--tw-shadow-color);
 
@@ -155,6 +159,8 @@ font-weight: 800;
 transition: all 0.3s ease;
 width: max-content;
 line-height: 1;
+font-family: "epilogue-bold", sans-serif;
+font-weight: 800;
 }
 .btn-theme:hover{
   color:white;
@@ -176,6 +182,8 @@ font-weight: 800;
 transition: all 0.3s ease;
 width: max-content;
 line-height: 1;
+font-family: "epilogue-bold", sans-serif;
+font-weight: 800;
 }
 .btn-outline:hover{
   color: #4B5563;

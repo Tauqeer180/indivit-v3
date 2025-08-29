@@ -82,15 +82,15 @@ export default async function Home() {
       <div>
         <Testimonials data={testimonialsData} />
       </div>
-      <div className="tw-bg-[#DCE9C7]">
+      <div className="tw-bg-[#FAF4D1]">
         <HowItWorks data={howItData} />
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
           <path
             fill="#F8F9FA"
             fillOpacity="1"
             d="M0,128L60,106.7C120,85,240,43,360,58.7C480,75,600,149,720,154.7C840,160,960,96,1080,90.7C1200,85,1320,139,1380,165.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
           ></path>
-        </svg>
+        </svg> */}
       </div>
       <div className=" tw-py-14">{faqsData?.faqs && <FAQSection data={faqsData} />}</div>
       {/* Footer Top */}

@@ -38,45 +38,49 @@ export default function HowItWorks({ data }) {
   let myData = data?.length > 0 && data[0]
   let steps = myData && myData?.how_it_works && JSON.parse(myData?.how_it_works)
   return (
-    <div className="sm:tw-container tw-mx-auto   tw-pt-14 tw-px-8">
+    <div className="container tw-mx-auto   tw-py-24">
       {/* Section Title */}
       <div className="tw-mb-12">
-        <h2 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-800">
+        <h2 className="tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-font-extrabold  tw-text-gray-800 tw-font-Epilogue-bold">
           {myData?.heading}
         </h2>
-        <p className="tw-font-bold tw-text-center">{myData?.description}</p>
+        <p className="tw-font-Epilogue-bold tw-font-medium lg:tw-text-xl xl:tw-text-2xl tw-text-[#4B5563] ">
+          {myData?.description}
+        </p>
       </div>
       {/* {JSON.stringify(steps)} */}
       {/* Steps Grid */}
-      <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-[22px] tw-relative tw-items-stretch ">
+      <div className="tw-grid tw-grid-cols-1 md-5:tw-grid-cols-2  tw-gap-[22px] xl:tw-gap-8 tw-relative tw-items-stretch ">
         {/* Connector Line */}
         {/* <div className="tw-hidden lg:tw-block tw-absolute tw-top-24 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-green-200 tw-z-0"></div> */}
 
         {(steps || initialSteps).map((step, index) => (
           <div key={index} className="tw-relative">
             {/* Card */}
-            <div className="tw-bg-white tw-rounded-2xl tw-px-3 tw-py-6 tw-relative tw-z-10 tw-h-full">
+            <div className="tw-bg-white tw-rounded-2xl tw-px-3 tw-py-6 lg:tw-px-8 lg:tw-py-[30px] tw-relative  tw-h-full tw-grid tw-grid-cols-4 shadow-theme-xl xl:shadow-theme-2xl tw-shadow-[#4B5563]">
               {/* Image and Number */}
-              <div className="tw-flex tw-flex-col tw-items-center tw-text-center tw-mb-4">
-                <div className="tw-bg-white tw-rounded-full tw-p-4 tw-mb-3">
-                  <Image
-                    width={64}
-                    height={64}
-                    src={data?.length > 0 ? baseURL + step?.icon : step?.image}
-                    alt={step.title}
-                    className="tw-w-16 tw-h-16"
-                  />
-                </div>
-                <div className="tw-text-lg tw-font-semibold tw-text-gray-800 tw-mb-2">
+              <div className="tw-flex tw-flex-col   tw-mb-4 xl:tw-mb-6 tw-col-span-3">
+                <div className="tw-text-lg xl:tw-text-xl tw-font-extrabold tw-text-gray-800 tw-mb-2 tw-font-Epilogue-bold">
                   {step.title}
                 </div>
+                <p className="tw-text-gray-600 tw-text-sm xl:tw-text-[15px] tw-leading-loose ">
+                  {step.detail}
+                </p>
+              </div>
+              <div className="tw-bg-white tw-rounded-full  tw-mb-3 tw-flex tw-justify-end">
+                <Image
+                  width={64}
+                  height={64}
+                  src={data?.length > 0 ? baseURL + step?.icon : step?.image}
+                  alt={step.title}
+                  className="tw-w-16 tw-h-16"
+                />
               </div>
 
               {/* Description */}
-              <p className="tw-text-gray-600 tw-text-sm tw-text-center">{step.detail}</p>
 
               {/* Number Badge */}
-              <div className="tw-flex tw-justify-end">
+              {/* <div className="tw-flex tw-justify-end">
                 <div className="tw-flex tw-gap-3 tw-items-center">
                   {index < 3 && (
                     <div>
@@ -84,19 +88,19 @@ export default function HowItWorks({ data }) {
                     </div>
                   )}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}
       </div>
 
       {/* CTA Button */}
-      <div className="tw-text-center tw-mt-16">
+      <div className=" tw-pt-[60px]">
         <Link
           href="#uebersicht-smoothie-produkte"
           //   onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}
           // target="_blank"
-          className="tw-bg-[#81CA00] tw-border-none tw-text-white tw-px-8 tw-py-3 tw-rounded-lg hover:tw-bg-[#81CA00] tw-transition-colors tw-decoration-transparent hover:tw-text-white"
+          className="btn-theme"
         >
           Jetzt loslegen
         </Link>

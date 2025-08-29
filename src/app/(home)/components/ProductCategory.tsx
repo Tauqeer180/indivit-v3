@@ -19,7 +19,7 @@ export default function ProductCategory({ data = [] }) {
           Entdecke unsere Produktlinien
         </h2>
 
-        <div className=" tw-grid tw-grid-cols-1 md:tw-grid-cols-2  tw-gap-6 xl:tw-gap-10 2xl:tw-gap-6">
+        <div className=" tw-grid tw-grid-cols-1 xl:tw-grid-cols-2  tw-gap-6 xl:tw-gap-10 2xl:tw-gap-6">
           {data?.map((cat, index) => (
             <div
               key={index}
@@ -27,7 +27,7 @@ export default function ProductCategory({ data = [] }) {
               style={{ backgroundColor: cat?.color }}
             >
               {/* Content */}
-              <div className="tw-col-span-2 tw-flex tw-flex-col tw-justify-between  tw-h-[-webkit-fill-available] ">
+              <div className="tw-col-span-2 tw-flex tw-flex-col tw-justify-between  tw-h-[-webkit-fill-available] md:tw-gap-4 tw-gap-2">
                 <div>
                   <h3 className="tw-text-[26px] tw-font-bold tw-font-Epilogue-bold tw-mb-3 tw-text-gray-800 ">
                     {cat?.name}
@@ -74,24 +74,22 @@ export default function ProductCategory({ data = [] }) {
 
               {/* Image Section */}
               <div className="tw-flex tw-justify-center ">
-                <div className=" tw-relative tw-w-full  tw-rounded-t-full   ">
-                  <Image
-                    src={
-                      cat?.image
-                        ? baseURL + 'box-category/' + cat?.image
-                        : '/assets/NewAssets/img/smothipro1.png'
-                    }
-                    alt={cat?.name}
-                    className="tw-rounded-t-full  tw-w-full tw-max-h-96 tw-object-cover tw-aspect-[206/288]"
-                    // placeholder="blur"
-                    // blurDataURL="/assets/NewAssets/img/smothipro1.png"
-                    height={288}
-                    width={206}
-                    // fill
-                    sizes="(min-width: 808px) 100px, 50px"
-                    // objectFit="contain"
-                  />
-                </div>
+                <Image
+                  src={
+                    cat?.image
+                      ? baseURL + 'box-category/' + cat?.image
+                      : '/assets/NewAssets/img/smothipro1.png'
+                  }
+                  alt={cat?.name}
+                  className="tw-rounded-t-full   tw-max-h-96 tw-object-cover tw-aspect-[206/288]"
+                  // placeholder="blur"
+                  // blurDataURL="/assets/NewAssets/img/smothipro1.png"
+                  height={288}
+                  width={206}
+                  // fill
+                  // sizes="(min-width: 808px) 100px, 50px"
+                  // objectFit="contain"
+                />
               </div>
             </div>
           ))}

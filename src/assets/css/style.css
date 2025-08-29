@@ -43,10 +43,10 @@
 }
 @font-face {
   font-family: "Epilogue bold";
-  src: url("../fonts/Epilogue/Epilogue-SemiBold.ttf") format("truetype");
+  src: url("../fonts/Epilogue/Epilogue-VariableFont_wght.ttf") format("truetype");
 
   /* url("../fonts/FONTSPRINGDEMO-GreycliffCFRegular.svg#FONTSPRINGDEMO-GreycliffCFRegular") format("svg"); */
-  font-weight: bold;
+  /* font-weight: 800; */
   font-style: normal;
   font-display: swap;
 }

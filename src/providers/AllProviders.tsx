@@ -36,18 +36,23 @@ export default function AllProviders({ children }) {
       if (scrollDifference > threshold) {
         if (window.scrollY > 100 && window.scrollY > lastScrollY) {
           // Scrolling down
-          header.classList.add('tw-fixed')
+          header.classList.add('!tw-fixed')
           header.classList.add('tw-top-0')
-          header.classList.add('-tw-translate-y-24')
+          header.classList.add('-tw-translate-y-28')
           // header.classList.add('glass-effect')
         } else {
           // Scrolling up
           // header.classList.remove('glass-effect')
 
-          header.classList.remove('-tw-translate-y-24')
+          header.classList.remove('-tw-translate-y-28')
         }
 
         lastScrollY = window.scrollY
+      }
+      if (window.scrollY >= 100) {
+        header.classList.add('glass-effect')
+      } else {
+        header.classList.remove('glass-effect')
       }
     })
   }, [])

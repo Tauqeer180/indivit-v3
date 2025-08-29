@@ -142,13 +142,7 @@ export default function Testimonials({ data, isLoading }: { data: any; isLoading
   return (
     <>
       <div className="tw-bg-[#F8F9FA]- tw-relative">
-        <div className="tw-absolute -tw-translate-y-1/2">
-          <img
-            src={'/assets/NewAssets/svg/leave.jpg'}
-            alt="leaf"
-            className="2xl:tw-w-24 2xl:tw-h-32 xl:tw-w-20 xl:tw-h-28 tw-w-16 tw-h-26"
-          />
-        </div>
+        
         <div className=" tw-mx-auto 2xl:tw-py-24 xl:tw-py-20 tw-py-16 ">
           <div className="tw-text-center tw-mb-12">
             <h2 className="tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-font-bold  tw-mt-4">
@@ -159,9 +153,9 @@ export default function Testimonials({ data, isLoading }: { data: any; isLoading
           {/* Testimonials Grid */}
           <div className="container">
             {/* tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 */}
-            <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-gap-7 lg:tw-gap-6 md:tw-gap-5 tw-gap-4">
-              {data?.map((testimonial, index) => (
-                <div key={index}>
+            <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-gap-7 lg:tw-gap-6 md:tw-gap-5 tw-gap-4 ">
+              {data?.slice(0, 3)?.map((testimonial, index) => (
+                <div key={index} className='tw-pb-8' >
                   <TestimonialCard data={testimonial} />
                 </div>
               ))}
@@ -179,20 +173,7 @@ export default function Testimonials({ data, isLoading }: { data: any; isLoading
             </div>
           </div>
         </div>
-        <div className="tw-absolute tw-right-0 tw-top-0 max-sm:-tw-translate-y-1/3">
-          <img
-            src={'/assets/NewAssets/svg/kiwi1.png'}
-            alt="img1"
-            className="2xl:tw-w-[136px] 2xl:tw-h-40 lg:tw-w-28 lg:tw-h-32 md:tw-w-24 md:tw-h-28 tw-w-20 tw-h-24 tw-object-contain"
-          />
-        </div>
-        <div className="tw-absolute -tw-translate-y-2/3">
-          <img
-            src={'/assets/NewAssets/svg/orange.png'}
-            alt="img1"
-            className="2xl:tw-w-[152px] 2xl:tw-h-52  lg:tw-w-28 lg:tw-h-32 md:tw-w-24 md:tw-h-28 tw-w-20 tw-h-24 "
-          />
-        </div>
+        
       </div>
     </>
   )

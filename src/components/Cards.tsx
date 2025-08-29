@@ -9,7 +9,15 @@ import { useAppSelector } from '@/redux/hooks'
 //   addWishlistSmoothie,
 // } from "../services/Wishlist";
 // import { useSelector } from "react-redux";
-import { ArrowOutIcon, CrossBoxIcon, Heart, PlusBoxIcon, QuoteUpIcon } from '@/assets/svgIcons'
+import {
+  ArrowOutIcon,
+  CloudShape,
+  CrossBoxIcon,
+  Heart,
+  PlusBoxIcon,
+  QuotationIcon,
+  QuoteUpIcon,
+} from '@/assets/svgIcons'
 // import { IsWishlist } from "./common/utils";
 import useIngredientType from '@/hooks/useIngredientType'
 import useIngredientStatus from '@/hooks/useIngredientStatus'
@@ -791,7 +799,7 @@ export function TestimonialCard({ data }) {
       // key={index}
       data-aos="fade-up"
       data-aos-duration="1000"
-      className=" tw-h-full shadow-theme-xl tw-shadow-[#4B5563] tw-rounded-2xl "
+      className=" tw-h-full shadow-theme-xl tw-shadow-[#4B5563] tw-rounded-2xl tw-relative "
     >
       <div className="tw-rounded-2xl tw-p-4 lg:tw-p-8  xl:tw-p-9 tw-bg-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-text-center tw-transition hover:-translate-y-1 tw-h-full">
         {/* Avatar and Text Container */}
@@ -809,17 +817,17 @@ export function TestimonialCard({ data }) {
               className="tw-w-12 tw-h-12 tw-object-cover tw-border tw-border-solid tw-border-theme tw-border-b-2 tw-border-r-[6px] tw-rounded-sm"
             />
           </div>
+          <QuotationIcon />
           {/* Testimonial Text */}
           <p className="tw-text-gray-600 2xl:tw-mt-10 2xl:tw-mb-14 xl:tw-mt-8 xl:tw-mb-10 lg:tw-text-xl  tw-mt-6 tw-mb-8  tw-leading-normal tw-line-clamp-6 tw-text-start">
             "{comment}"
           </p>{' '}
         </div>
-
-        {/* Author Info */}
-        <div className="tw-text-sm lg:tw-text-base xl:tw-text-lg 2xl:tw-text-xl  tw-font-black">
-          - {name},{/* {age}, */} {designation}
-        </div>
       </div>{' '}
+      <CloudShape
+        className="tw-absolute tw-right-0 tw-left-0 tw-bottom-0 tw-translate-y-2/3 tw-mx-auto  "
+        label={`- ${name}, ${designation}`}
+      />
     </div>
   )
 }

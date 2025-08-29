@@ -73,7 +73,9 @@ export default function CountDown() {
               data-bs-auto-close="true"
               aria-expanded="false"
             >
-              <span className="d-none d-lg-block">Nächste Produktion</span>
+              <span className="d-none d-lg-block tw-font-Epilogue-bold !tw-font-semibold">
+                Nächste Produktion
+              </span>
               <span className="d-block d-lg-none">
                 <ProdCycleIcon />
               </span>

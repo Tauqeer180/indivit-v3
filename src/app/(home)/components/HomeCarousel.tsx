@@ -34,10 +34,10 @@ export default function HomeCarousel({ data, isLoading }) {
                 {' '}
                 {data?.heading}{' '}
               </h1>
-              <p className="tw-pt-3 tw-pb-14 tw-text-lg tw-leading-[30px] xl:tw-pe-10">
+              <p className="tw-pt-3 tw-pb-14 tw-text-lg tw-leading-[30px] xl:tw-pe-10 tw-font-Epilogue-bold tw-text-[#212529] tw-font-medium">
                 {data?.description}
               </p>
-              <div className="tw-flex tw-flex-wrap lg:tw-gap-2 tw-gap-1">
+              <div className="tw-flex tw-flex-wrap  tw-gap-4">
                 <Link
                   href={data?.link || '/'}
                   // target="_blank"
