@@ -29,8 +29,8 @@ export default function VisionRecipeSection() {
                 </Link>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 flx-vision-fruite">
-              <img src="/assets/img/vision.png" className="img-fluid " loading="lazy" />
+            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 flx-vision-fruite border">
+              {/* <img src="/assets/img/vision.png" className="img-fluid " loading="lazy" /> */}
             </div>
           </div>
         </div>
