@@ -64,7 +64,7 @@
   --white: white;
   --black: black;
   --gray-light: #f8f9fa;
-  --footer-bg: #e3edde;
+  --footer-bg: #DCE9C7;
   --lightgreen: #35920073;
 }
 
@@ -770,9 +770,9 @@ p {
   position: relative;
 }
 
-#flx-footer::after {
+/* #flx-footer::after {
   content: "";
-  background-image: url(/assets/object/footer1.png);
+  background-image: url(/assets/img/frut.png);
   padding: 90px 136px;
   position: absolute;
   background-size: cover;
@@ -780,7 +780,7 @@ p {
   z-index: 49;
   right: 0;
   bottom: 0;
-}
+} */
 
 /* footer end */
 /* ====================================about page start======================================== */

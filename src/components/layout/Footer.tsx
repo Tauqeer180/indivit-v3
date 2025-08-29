@@ -1,7 +1,6 @@
 import React from 'react'
 // import { Link, useNavigate } from "react-router-dom";
 import FooterTop from './FooterTop'
-
 import { fetcher } from '@/lib/fetcher'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -22,13 +21,41 @@ export default async function Footer() {
 
   // console.log("Site Setings ", settings);
   return (
-    <div>
+    <div className="tw-relative">
       {/* <!-- footer start --> */}
       {/* <FooterTop /> */}
       {/* {JSON.stringify(categories)} */}
-      <footer id="flx-footer">
-        <div className="container">
-          <div className="row d-flex pb-5 pb-md-0">
+      <footer id="flx-footer" className="tw-relative">
+        <div className="tw-m-10 tw-w-[1200px] tw-h-[480px] border tw-border-red-950">
+          <section className="tw-relative tw-w-full tw-h-full tw-rounded-3xl tw-overflow-hidden">
+            {/* Background Image */}
+            <Image
+              src="/assets/img/ftr.png"
+              alt="Background"
+              fill
+              className="tw-object-cover tw-rounded-3xl tw-z-0 border-2"
+            />
+
+            {/* Content Box */}
+            <div className="tw-relative tw-z-10 tw-p-8 tw-flex tw-flex-col md:tw-flex-row tw-items-start tw-justify-between tw-h-full">
+              <div className="md:tw-w-1/2 tw-space-y-6">
+                <h1 className="tw-text-4xl md:tw-text-4xl tw-font-extra bold tw-text-gray-900 tw-leading-snug">
+                  jetzt Deine Smoothie Kur <br /> starten
+                </h1>
+                <p className="tw-text-gray-700 tw-font-medium tw-leading-relaxed">
+                  Starten Sie jetzt Ihre transformative Smoothie-Kur und entdecken Sie ein neues
+                  Lebensgefühl! Beginnen Sie noch heute Ihre Reise zu mehr Vitalität und natürlicher
+                  Schönheit.
+                </p>
+                <button className="tw-px-6 tw-py-3 btn-theme tw-shadow-dark tw-bg-[#b5f31b] tw-text-white tw-font-bold tw-rounded-full tw-border-2 tw-border-black tw-shadow-md hover:tw-scale-105 tw-transition">
+                  Erfahren Sie mehr
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className="tw-relative container">
+          <div className=" row d-flex pb-5 pb-md-0">
             <div className=" d-none d-lg-block pb-5 ps-sm-1">
               <Image
                 className=" img-fluid"
@@ -40,7 +67,9 @@ export default async function Footer() {
               />
             </div>
             {/* <!-- shop colum --> */}
-            <div className="col-12 custom-md-col pb-3">
+            <div className=" col-12 custom-md-col pb-3">
+              {/* Background Image */}
+
               <h6 className="text-uppercase fw-bold">PRODUKTE</h6>
               {/* means SHOP */}
               <ul className="list-group list-unstyled">
@@ -250,6 +279,16 @@ export default async function Footer() {
             {/* <!-- HELP & CONTACT colum end--> */}
           </div>
         </div>
+        {/* <div className=""> */}
+        <Image
+          src="/assets/img/frut.png"
+          alt="Background"
+          // fill
+          className=" -tw-inset-1- pt-4 tw-absolute  tw-bottom-0 tw-right-0 "
+          width={1220}
+          height={180}
+        />
+        {/* </div> */}
       </footer>
       <div className="container">
         <div className="row d-lg-flex justify-content-lg-between py-1">
@@ -282,11 +321,12 @@ export default async function Footer() {
           </div>
           <div className="col-6 col-lg-auto order-lg-5 order-4">
             <Link href="/impressum" className="text-decoration-none text-muted">
-              <small>Impressum</small>
+              j<small>Impressum</small>
             </Link>
           </div>
         </div>
       </div>
+
       {/*  <!-- footer end --> */}
     </div>
   )
