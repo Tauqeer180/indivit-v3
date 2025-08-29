@@ -594,3 +594,4 @@ export function PineapleIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+

@@ -44,19 +44,18 @@ export default function FAQSection({ data }: { data?: any }) {
       </h2>
 
       {/* FAQ Items */}
-      <div className="tw-grid tw-border tw-grid-cols-1 tw-max-w-4xl tw-mx-auto tw-gap-[1px]">
+      <div className="tw-grid tw-border tw-grid-cols-1 tw-rounded-tl-2xl tw-rounded-tr-2xl tw-rounded-bl-2xl tw-rounded-br-2xl tw-bg-[#DCE9C8] tw-max-w-4xl tw-mx-auto ">
         {faq?.slice(0, 5)?.map(({ questions, answers }, index) => {
           const isFirst = index === 0
           const isLast = index === faq.slice(0, 5).length - 1
 
           return (
-           <div
-        key={index}
-        className={`${
-          isFirst ? "tw-rounded-t-2xl" : ""
-        } ${isLast ? "tw-rounded-b-2xl" : ""}`}
-      >
-          
+            <div
+              key={index}
+              className={` tw-bg-[#DCE9C8]${
+                isFirst ? 'tw-rounded-t-2xl' : ''
+              } ${isLast ? 'tw-rounded-b-2xl' : ''}`}
+            >
               <button
                 onClick={() => toggleAccordion(index)}
                 className={`tw-w-full tw-flex tw-justify-between  tw-bg-[#DCE9C8] tw-items-center tw-border-0 tw-text-left tw-p-4 tw-text-lg tw-font-extrabold tw-text-black  ${
@@ -70,7 +69,7 @@ export default function FAQSection({ data }: { data?: any }) {
                     openIndex === index ? 'tw-rotate-45 tw-text-[#81CA00]' : ''
                   }`}
                 >
-                  <div className="tw-bg-[#81CA00] tw-rounded-full">
+                  <div className="tw-bg-[#81CA00] tw-rounded-[45%]">
                     <Plus className="tw-w-4 tw-h-4 m-2 tw-text-white" />
                   </div>
                 </span>
@@ -81,6 +80,9 @@ export default function FAQSection({ data }: { data?: any }) {
                   {answers}
                 </div>
               )}
+              <div className="mx-4">
+                <div className="tw-h-[2px] tw-bg-gradient-to-r tw-from-[#DCE9C8] tw-via-[#FBEEF8] tw-to-[#DCE9C8]" />
+              </div>
             </div>
           )
         })}
