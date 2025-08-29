@@ -94,7 +94,7 @@ export default async function Home() {
       </div>
       <div className=" tw-py-14">{faqsData?.faqs && <FAQSection data={faqsData} />}</div>
       {/* Footer Top */}
-      <div className=" tw-bg-theme lg:tw-py-8 md:tw-py-7 sm:tw-py-6 tw-py-4">
+      {/* <div className=" tw-bg-theme lg:tw-py-8 md:tw-py-7 sm:tw-py-6 tw-py-4">
         <Link
           href="/Smoothie%20Fastenkuren_1"
           className=" tw-flex tw-items-center tw-justify-center tw-no-underline tw-group"
@@ -108,7 +108,7 @@ export default async function Home() {
             className="2xl:tw-w-11 2xl:tw-h-11 xl:tw-w-8 xl:tw-h-8 lg:tw-w-7 lg:tw-h-7 sm:tw-w-6 sm:tw-h-6 tw-w-4 tw-h-4"
           />
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }
