@@ -1,5 +1,7 @@
+'use client'
+import { useState } from 'react'
 import Link from 'next/link'
-// import { Link } from 'react-router-dom'
+import { Plus } from 'lucide-react'
 
 const faqList = [
   {
@@ -28,118 +30,66 @@ const faqList = [
       'Smoothies können als Mahlzeitenersatz verwendet werden, wenn sie mit einem ausgewogenen Verhältnis von Eiweiß, gesunden Fetten und Kohlenhydraten zubereitet werden, um die notwendigen Nährstoffe und Energie zu liefern. Es ist jedoch wichtig, darauf zu achten, dass sie als Teil einer ausgewogenen Ernährung konsumiert werden.',
   },
 ]
-
-export default function FAQSection({ data }) {
+export default function FAQSection({ data }: { data?: any }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   let faq = data?.faqs ? JSON.parse(data?.faqs) : faqList
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
   return (
-    <section id="faq-accordion">
-      {/* <style jsx>{`
-        .accordion-button::after {
-          width: 0.75rem;
-          height: 0.75rem;
-          background-size: 0.75rem;
-        }
-      `}</style> */}
-      <div className=" tw-mx-auto">
-        <h2 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-800 tw-mb-16">
-          {data?.heading}
-        </h2>
-        <div
-          id="faqAccordionPanels"
-          className="accordion tw-grid tw-grid-cols-1 tw-max-w-6xl md:tw-px-20 tw-px-8 tw-mx-auto"
-        >
-          {faq?.slice(0, 5)?.map(({ questions, answers }, index) => (
-            <div key={index} className="accordion-item !tw-border-none !tw-rounded-lg tw-shadow-sm">
-              <button
-                // onClick={() => toggleAccordion(index)}
-                className={`accordion-button collapsed tw-w-full tw-text-left tw-p-4 tw-bg-white  !tw-rounded-lg !tw-shadow-none tw-flex tw-justify-between tw-items-center tw-text-lg  tw-focus:outline-none !tw-border-none  tw-font-medium  [aria-expanded="false"]:tw-text-black [aria-expanded="true"]:tw-text-theme [aria-expanded="true"]:!tw-font-bold`}
-                data-bs-toggle="collapse"
-                data-bs-target={`#faqs-${index}`}
-                aria-expanded="false"
-                type="button"
-                aria-controls={`#faqs-${index}`}
-                id={`FAQ-heading-${index}`}
-                style={{ color: 'black' }}
-              >
-                <span>{questions}</span>
-                {/* <span
-                  className={`tw-transition-transform tw-duration-300 ${
-                    openIndex === index ? 'tw-rotate-45' : 'tw-rotate-0'
-                  }`}
-                >
-                  <svg
-                    className="tw-w-5 tw-h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
-                </span> */}
-              </button>
+    <section id="faq-accordion" className="tw-mx-auto ">
+      {/* Heading */}
+      <h2 className="tw-text-3xl tw-font-bold tw-text-center tw-text-gray-800 tw-mb-12 ">
+        {data?.heading || 'Häufig gestellte Fragen'}
+      </h2>
 
-              <div
-                id={`faqs-${index}`}
-                className="accordion-collapse collapse  tw-p-4 tw-bg-white tw-rounded-b-lg tw-duration-300"
-                aria-labelledby={`FAQ-heading-${index}`}
-                data-bs-parent="#faqAccordionPanels"
-              >
-                <p className="tw-text-gray-600">{answers}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* FAQ Items */}
+      <div className="tw-grid tw-border tw-grid-cols-1 tw-max-w-4xl tw-mx-auto tw-gap-[1px]">
+        {faq?.slice(0, 5)?.map(({ questions, answers }, index) => {
+          const isFirst = index === 0
+          const isLast = index === faq.slice(0, 5).length - 1
 
-        {/*  */}
-        {/* <div className="tw-grid tw-grid-cols-1 tw-gap-6 tw-max-w-6xl md:tw-px-20 tw-px-8 tw-mx-auto">
-          {faq?.slice(0, 5)?.map(({ questions, answers }, index) => (
-            <div key={index} className="tw-border tw-rounded-lg tw-shadow-sm">
+          return (
+           <div
+        key={index}
+        className={`${
+          isFirst ? "tw-rounded-t-2xl" : ""
+        } ${isLast ? "tw-rounded-b-2xl" : ""}`}
+      >
+          
               <button
                 onClick={() => toggleAccordion(index)}
-                className={`tw-w-full tw-text-left tw-p-4 tw-bg-white tw-text-black tw-rounded-lg tw-flex tw-justify-between tw-items-center tw-text-lg  tw-focus:outline-none tw-border-none ${openIndex === index ? 'tw-text-theme tw-font-bold' : 'tw-text-black tw-font-medium'}`}
+                className={`tw-w-full tw-flex tw-justify-between  tw-bg-[#DCE9C8] tw-items-center tw-border-0 tw-text-left tw-p-4 tw-text-lg tw-font-extrabold tw-text-black  ${
+                  isFirst ? 'tw-rounded-tl-2xl tw-rounded-tr-2xl' : ''
+                } ${isLast ? 'tw-rounded-bl-2xl tw-rounded-br-2xl' : ''}`}
               >
                 <span>{questions}</span>
+
                 <span
                   className={`tw-transition-transform tw-duration-300 ${
-                    openIndex === index ? 'tw-rotate-45' : 'tw-rotate-0'
+                    openIndex === index ? 'tw-rotate-45 tw-text-[#81CA00]' : ''
                   }`}
                 >
-                  <svg
-                    className="tw-w-5 tw-h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
+                  <div className="tw-bg-[#81CA00] tw-rounded-full">
+                    <Plus className="tw-w-4 tw-h-4 m-2 tw-text-white" />
+                  </div>
                 </span>
               </button>
+
               {openIndex === index && (
-                <div className="tw-p-4 tw-bg-white tw-rounded-b-lg tw-duration-300">
-                  <p className="tw-text-gray-600">{answers}</p>
+                <div className="tw-px-4 tw-pb-4 tw-text-gray-700 tw-text-base tw-animate-fadeIn">
+                  {answers}
                 </div>
               )}
             </div>
-          ))}
-        </div> */}
+          )
+        })}
       </div>
-      <div className="tw-text-center tw-mt-16">
+      {/* "mehr sehen" button */}
+      <div className="tw-text-center tw-mt-12 tw-max-w-4xl tw-mx-auto">
         <Link
           href="/haeufig-gestellte-fragen"
-          // target="_blank"
-          className="tw-bg-[#81CA00] tw-capitalize tw-border-none tw-text-white tw-px-8 tw-py-3 tw-rounded-lg hover:tw-bg-[#81CA00] tw-transition-colors tw-decoration-transparent hover:tw-text-white"
+          className="tw-bg-[#81CA00] tw-text-white btn-theme tw-shadow-dark tw-px-8 tw-py-3 tw-rounded-lg tw-font-semibold hover:tw-bg-[#6fb200] tw-transition-colors tw-no-underline"
         >
           mehr sehen
         </Link>
