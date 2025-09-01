@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import Link from 'next/link'
 // import { Link } from 'react-router-dom'
 
@@ -32,7 +34,7 @@ const faqList = [
 export default function FAQSection({ data }) {
   let faq = data?.faqs ? JSON.parse(data?.faqs) : faqList
   return (
-    <section id="faq-accordion">
+    <section id="faq-accordion" className="container">
       {/* <style jsx>{`
         .accordion-button::after {
           width: 0.75rem;
@@ -46,13 +48,16 @@ export default function FAQSection({ data }) {
         </h2>
         <div
           id="faqAccordionPanels"
-          className="accordion tw-grid tw-grid-cols-1 tw-max-w-6xl md:tw-px-20 tw-px-8 tw-mx-auto"
+          className="accordion tw-grid tw-grid-cols-1 tw-w-full  tw-bg-[#DCE9C7] tw-rounded-2xl tw-overflow-hidden"
         >
           {faq?.slice(0, 5)?.map(({ questions, answers }, index) => (
-            <div key={index} className="accordion-item !tw-border-none !tw-rounded-lg tw-shadow-sm">
+            <div
+              key={index}
+              className="accordion-item- !tw-border-none  tw-shadow-sm !tw-mb-0 !tw-bg-transparent tw-relative tw-w-full"
+            >
               <button
                 // onClick={() => toggleAccordion(index)}
-                className={`accordion-button collapsed tw-w-full tw-text-left tw-p-4 tw-bg-white  !tw-rounded-lg !tw-shadow-none tw-flex tw-justify-between tw-items-center tw-text-lg  tw-focus:outline-none !tw-border-none  tw-font-medium  [aria-expanded="false"]:tw-text-black [aria-expanded="true"]:tw-text-theme [aria-expanded="true"]:!tw-font-bold`}
+                className={`accordion-button tw-rounded-none collapsed tw-w-full tw-text-left 2xl:!tw-p-9 xl:!tw-p-8 lg:!tw-p-7 md:!tw-p-6 !tw-p-4 !tw-bg-[#DCE9C7]  !tw-shadow-none tw-flex tw-justify-between tw-items-center xl:!tw-text-2xl lg:!tw-text-xl !tw-text-lg   tw-focus:outline-none !tw-border-none  tw-font-semibold  [aria-expanded="false"]:tw-text-black [aria-expanded="true"]:tw-text-theme [aria-expanded="true"]:!tw-font-bold`}
                 data-bs-toggle="collapse"
                 data-bs-target={`#faqs-${index}`}
                 aria-expanded="false"
@@ -62,84 +67,36 @@ export default function FAQSection({ data }) {
                 style={{ color: 'black' }}
               >
                 <span>{questions}</span>
-                {/* <span
-                  className={`tw-transition-transform tw-duration-300 ${
-                    openIndex === index ? 'tw-rotate-45' : 'tw-rotate-0'
-                  }`}
-                >
-                  <svg
-                    className="tw-w-5 tw-h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
-                </span> */}
               </button>
 
               <div
                 id={`faqs-${index}`}
-                className="accordion-collapse collapse  tw-p-4 tw-bg-white tw-rounded-b-lg tw-duration-300"
+                className="accordion-collapse collapse  2xl:!tw-px-9 xl:!tw-px-8 lg:!tw-px-7 md:!tw-px-6 !tw-px-4   tw-duration-300"
                 aria-labelledby={`FAQ-heading-${index}`}
                 data-bs-parent="#faqAccordionPanels"
               >
                 <p className="tw-text-gray-600">{answers}</p>
               </div>
+
+              <Image
+                src="/assets/svg/border.svg"
+                alt="border"
+                width={100}
+                height={3}
+                className={cn(
+                  'tw-w-full tw-absolute tw-bottom-0 tw-z-10',
+                  index == 4 && 'tw-hidden'
+                )}
+              />
             </div>
           ))}
         </div>
-
-        {/*  */}
-        {/* <div className="tw-grid tw-grid-cols-1 tw-gap-6 tw-max-w-6xl md:tw-px-20 tw-px-8 tw-mx-auto">
-          {faq?.slice(0, 5)?.map(({ questions, answers }, index) => (
-            <div key={index} className="tw-border tw-rounded-lg tw-shadow-sm">
-              <button
-                onClick={() => toggleAccordion(index)}
-                className={`tw-w-full tw-text-left tw-p-4 tw-bg-white tw-text-black tw-rounded-lg tw-flex tw-justify-between tw-items-center tw-text-lg  tw-focus:outline-none tw-border-none ${openIndex === index ? 'tw-text-theme tw-font-bold' : 'tw-text-black tw-font-medium'}`}
-              >
-                <span>{questions}</span>
-                <span
-                  className={`tw-transition-transform tw-duration-300 ${
-                    openIndex === index ? 'tw-rotate-45' : 'tw-rotate-0'
-                  }`}
-                >
-                  <svg
-                    className="tw-w-5 tw-h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 4v16m8-8H4"
-                    ></path>
-                  </svg>
-                </span>
-              </button>
-              {openIndex === index && (
-                <div className="tw-p-4 tw-bg-white tw-rounded-b-lg tw-duration-300">
-                  <p className="tw-text-gray-600">{answers}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div> */}
       </div>
       <div className="tw-text-center tw-mt-16">
         <Link
           href="/haeufig-gestellte-fragen"
           // target="_blank"
-          className="tw-bg-[#81CA00] tw-capitalize tw-border-none tw-text-white tw-px-8 tw-py-3 tw-rounded-lg hover:tw-bg-[#81CA00] tw-transition-colors tw-decoration-transparent hover:tw-text-white"
+          className="btn-theme"
         >
           mehr sehen
         </Link>

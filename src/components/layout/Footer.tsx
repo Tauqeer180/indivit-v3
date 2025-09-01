@@ -21,7 +21,7 @@ export default async function Footer() {
 
   // console.log("Site Setings ", settings);
   return (
-    <div className="tw-relative tw-bg-[#DCE9C7] tw-pt-20">
+    <div className="tw-relative tw-bg-[#DCE9C7] lg:tw-pt-20 tw-pt-10">
       {/* <!-- footer start --> */}
       {/* <FooterTop /> */}
       {/* {JSON.stringify(categories)} */}
@@ -38,17 +38,22 @@ export default async function Footer() {
               />
 
               {/* Content Box */}
-              <div className="tw-relative tw-z-10 lg:tw-px-10 lg:tw-py-20 p-4 tw-flex tw-flex-col md:tw-flex-row tw-items-start tw-justify-between tw-h-full">
-                <div className="md:tw-w-1/2 ">
-                  <h1 className="tw-text-2xl md:tw-text-4xl lg:tw-text-5xl tw-font-extrabold tw-font-Epilogue-bold tw-text-gray-900 tw-leading-normal">
-                    jetzt Deine Smoothie Kur <br className="tw-hidden lg:tw-block" /> starten
-                  </h1>
-                  <p className="tw-text-gray-700 tw-font-medium tw-leading-relaxed tw-font-Epilogue-bold tw-text-base lg:tw-text-lg lg:tw-pt-5">
-                    Starten Sie jetzt Ihre transformative Smoothie-Kur und entdecken Sie ein neues
-                    Lebensgefühl! Beginnen Sie noch heute Ihre Reise zu mehr Vitalität und
-                    natürlicher Schönheit.
-                  </p>
-                  <Link href={'/Smoothie%20Fastenkuren_1'} className="btn-theme lg:tw-mt-[70px]">
+              <div className="tw-relative  lg:tw-px-10 lg:tw-py-20 md:tw-px-5 md:tw-py-10 tw-p-4 tw-flex tw-flex-col md:tw-flex-row tw-items-start tw-justify-between tw-h-full">
+                <div className="xl:tw-w-1/2 md-5:tw-w-2/3  tw-flex tw-flex-col tw-justify-between tw-h-full">
+                  <div>
+                    <h1 className="tw-text-2xl sm:tw-text-3xl md:tw-text-4xl lg:tw-text-5xl tw-font-extrabold tw-font-Epilogue-bold tw-text-gray-900 tw-leading-normal">
+                      jetzt Deine Smoothie Kur <br className="tw-hidden lg:-tw-block" /> starten
+                    </h1>
+                    <p className="tw-text-gray-700 tw-font-medium md:tw-leading-relaxed tw-font-Epilogue-bold  sm:tw-text-base lg:tw-text-lg lg:tw-pt-5">
+                      Starten Sie jetzt Ihre transformative Smoothie-Kur und entdecken Sie ein neues
+                      Lebensgefühl! Beginnen Sie noch heute Ihre Reise zu mehr Vitalität und
+                      natürlicher Schönheit.
+                    </p>
+                  </div>
+                  <Link
+                    href={'/Smoothie%20Fastenkuren_1'}
+                    className="btn-theme xl:tw-mt-[70px] lg:tw-mt-10 md:tw-pt"
+                  >
                     Erfahren Sie mehr
                   </Link>
                 </div>
@@ -287,7 +292,7 @@ export default async function Footer() {
           src="/assets/img/frut.png"
           alt="Background"
           // fill
-          className=" -tw-inset-1- pt-4 tw-absolute  tw-bottom-0 tw-right-0 "
+          className=" -tw-inset-1- pt-4 tw-absolute  tw-bottom-0 tw-right-0 tw-aspect-[1220/180] tw-z-0 max-sm:tw-w-full max-sm:tw-object-contain"
           width={1220}
           height={180}
         />

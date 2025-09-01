@@ -1,5 +1,5 @@
 import React from 'react'
-import { RightIcon } from '@/assets/svgIcons'
+import { OctagonShapeIcon, RightIcon } from '@/assets/svgIcons'
 import { baseURL } from '@/lib/fetcher'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -34,6 +34,7 @@ const initialSteps = [
     number: 4,
   },
 ]
+let svgColors = ['#C7E6FF', '#F4C7FF', '#C9EBEE', '#FFE5C7']
 export default function HowItWorks({ data }) {
   let myData = data?.length > 0 && data[0]
   let steps = myData && myData?.how_it_works && JSON.parse(myData?.how_it_works)
@@ -55,11 +56,11 @@ export default function HowItWorks({ data }) {
         {/* <div className="tw-hidden lg:tw-block tw-absolute tw-top-24 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-green-200 tw-z-0"></div> */}
 
         {(steps || initialSteps).map((step, index) => (
-          <div key={index} className="tw-relative">
+          <div key={index} className="tw-relative tw-mb-12">
             {/* Card */}
-            <div className="tw-bg-white tw-rounded-2xl tw-px-3 tw-py-6 lg:tw-px-8 lg:tw-py-[30px] tw-relative  tw-h-full tw-grid tw-grid-cols-4 shadow-theme-xl xl:shadow-theme-2xl tw-shadow-[#4B5563]">
+            <div className="tw-bg-white tw-z-10 tw-rounded-2xl tw-px-3 tw-py-6 lg:tw-px-8 lg:tw-py-[30px] tw-relative  tw-h-full tw-grid tw-grid-cols-4 shadow-theme-xl xl:shadow-theme-2xl tw-shadow-[#4B5563] ">
               {/* Image and Number */}
-              <div className="tw-flex tw-flex-col   tw-mb-4 xl:tw-mb-6 tw-col-span-3">
+              <div className="tw-flex tw-flex-col   tw-mb-4 xl:tw-mb-6 tw-col-span-3 ">
                 <div className="tw-text-lg xl:tw-text-xl tw-font-extrabold tw-text-gray-800 tw-mb-2 tw-font-Epilogue-bold">
                   {step.title}
                 </div>
@@ -90,12 +91,18 @@ export default function HowItWorks({ data }) {
                 </div>
               </div> */}
             </div>
+            <div className="tw-absolute tw-top-0 -tw-left-2 tw-w-[100px] -tw-translate-y-1/2 tw-h-[100px] ">
+              <OctagonShapeIcon className="tw-w-full tw-h-full " fill={svgColors[index]} />
+              <span className="tw-absolute tw-top-1/3 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/3 tw-text-[#4B5563] tw-text-2xl tw-font-Epilogue-bold tw-font-extrabold">
+                0{index + 1}
+              </span>
+            </div>
           </div>
         ))}
       </div>
 
       {/* CTA Button */}
-      <div className=" tw-pt-[60px]">
+      <div className=" tw-pt-[60px]-">
         <Link
           href="#uebersicht-smoothie-produkte"
           //   onClick={() => ScrollToDiv('uebersicht-smoothie-produkte')}

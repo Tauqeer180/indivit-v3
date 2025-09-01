@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
+import ComparisonTable from '@/components/ComparisonTable'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.WhyIndivit)
@@ -81,8 +82,9 @@ export default async function WhyIndivit() {
         }}
       />
       <AboutRecipe data={WhyIndivitData?.indivit} color="#f5eac9" />
+      <ComparisonTable />
 
-      <div className="text-center py-5">
+      {/* <div className="text-center py-5">
         <Image
           alt="comparison chart"
           src="/assets/object/Chart.png"
@@ -90,7 +92,7 @@ export default async function WhyIndivit() {
           width={600}
           height={600}
         />
-      </div>
+      </div> */}
       <RecipeBanner />
       <VisionRecipeSection />
     </div>

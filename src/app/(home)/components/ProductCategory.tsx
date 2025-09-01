@@ -48,9 +48,9 @@ export default function ProductCategory({ data = [] }) {
                       {cat?.box_category_benefit_landing_pages?.length > 0 &&
                         JSON.parse(cat?.box_category_benefit_landing_pages[0]?.benefits)?.map(
                           (benefit, idx) => (
-                            <div key={idx} className="tw-flex tw-items-center tw-gap-2">
+                            <div key={idx} className="tw-flex tw-items-center tw-gap-2.5">
                               <span className="tw-bg-white tw-rounded-full tw-w-5 tw-h-5  shadow-theme-sm tw-shadow-dark tw-flex tw-items-center tw-justify-center">
-                                <CheckIcon className="tw-w-5 tw-h-5 tw-text-theme tw-flex-shrink-0" />
+                                <CheckIcon className="tw-w-3 tw-h-3  tw-flex-shrink-0" />
                               </span>
 
                               <span className="tw-text-sm tw-text-gray-600">

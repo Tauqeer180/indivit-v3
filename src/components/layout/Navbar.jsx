@@ -233,7 +233,7 @@ export default function Navbar() {
                                               ? baseURL + `box-category/` + cat?.image
                                               : commonImgs?.boxImg
                                           }
-                                          className="tw-w-full tw-max-h-48"
+                                          className="tw-w-full tw-max-h-48 tw-object-cover"
                                           // height="190px"
                                         />
                                       </Link>
