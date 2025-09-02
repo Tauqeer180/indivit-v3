@@ -15,6 +15,7 @@ import { baseURL, fetcher } from '@/lib/fetcher'
 import Image from 'next/image'
 import { useAppSelector } from '@/redux/hooks'
 import { HeartIcon, UserIcon } from '@/assets/svgIcons'
+import { cn } from '@/lib/utils'
 
 // import waveSvg from "../../assets/svg/wave.svg";
 export default function Navbar() {
@@ -206,44 +207,52 @@ export default function Navbar() {
                         Shop
                       </a>
                       <ul
-                        className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0"
+                        className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0 "
                         aria-labelledby="shopDropdown"
                       >
-                        <div className="containe">
-                          <div className="row mx-0">
+                        <div className="container">
+                          <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-5 lg:tw-py-10 tw-py-6">
                             {/* {JSON.stringify(boxCategories)} */}
                             {boxCategories?.data?.slice(0, 4).map((cat, index) => {
                               return (
                                 <div
                                   key={index}
-                                  className={`col-6 col-lg-3 p-0  `}
+                                  className="tw-rounded-[20px] shadow-theme-lg tw-shadow-[#4B5563]"
                                   style={{
-                                    background: `transparent linear-gradient(180deg, ${cat?.color} 0%, ${cat?.color}33 100%) 0% 0%`,
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundSize: 'padding-box',
+                                    // background: `transparent linear-gradient(180deg, ${cat?.color} 0%, ${cat?.color}33 100%) 0% 0%`,
+                                    // backgroundRepeat: 'no-repeat',
+                                    // backgroundSize: 'padding-box',
+                                    backgroundColor: cat?.color,
                                   }}
                                   //  style={{background: `linear-gradient(to right, red, yellow)`}}
                                 >
-                                  <div className="pt-2">
-                                    <div className="text-center">
+                                  <div className="xl:tw-p-5 lg:tw-p-4 tw-p-3 tw-space-y-[10px]">
+                                    <div className="tw-space-y-7">
                                       <Link href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}>
-                                        <img
+                                        <Image
                                           src={
                                             cat?.image
                                               ? baseURL + `box-category/` + cat?.image
                                               : commonImgs?.boxImg
                                           }
                                           className="tw-w-full tw-max-h-48 tw-object-cover"
+                                          width={285}
+                                          height={260}
                                           // height="190px"
                                         />
                                       </Link>
-                                      <h4 className="pt-4 z-index-10 !tw-mb-0">{cat?.name}</h4>
+                                      <h4 className=" !tw-mb-0 tw-uppercase tw-font-extrabold">
+                                        {cat?.name}
+                                      </h4>
                                     </div>
-                                    <div className="text-center bg-wave position-relative py-md-5 py-3">
+                                    <div className="t">
                                       <Link
                                         href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}
-                                        className={`btn btn-secondary  z-index-10  !tw-px-5 !tw-py-2 !tw-border-none`}
-                                        style={{ backgroundColor: cat?.color }}
+                                        className={cn(
+                                          'btn-outline',
+                                          ' tw-shadow-dark tw-bg-white !tw-py-[10px] tw-text-sm '
+                                        )}
+                                        // style={{ backgroundColor: cat?.color }}
                                       >
                                         {cat?.button_label}
                                       </Link>

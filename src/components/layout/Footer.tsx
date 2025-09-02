@@ -28,7 +28,7 @@ export default async function Footer() {
       <div className="tw-relative">
         <footer className="tw-relative container">
           <div className="">
-            <section className="tw-relative tw-w-full  tw-rounded-3xl tw-overflow-hidden tw-aspect-[1280/520]">
+            <section className="tw-relative tw-w-full  tw-rounded-3xl tw-overflow-hidden sm:tw-aspect-[1280/520]">
               {/* Background Image */}
               <Image
                 src="/assets/img/ftr.png"
@@ -41,10 +41,10 @@ export default async function Footer() {
               <div className="tw-relative  lg:tw-px-10 lg:tw-py-20 md:tw-px-5 md:tw-py-10 tw-p-4 tw-flex tw-flex-col md:tw-flex-row tw-items-start tw-justify-between tw-h-full">
                 <div className="xl:tw-w-1/2 md-5:tw-w-2/3  tw-flex tw-flex-col tw-justify-between tw-h-full">
                   <div>
-                    <h1 className="tw-text-2xl sm:tw-text-3xl md:tw-text-4xl lg:tw-text-5xl tw-font-extrabold tw-font-Epilogue-bold tw-text-gray-900 tw-leading-normal">
+                    <h1 className=" tw-text-lg sm:tw-text-2xl md:tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-font-extrabold tw-font-Epilogue-bold tw-text-gray-900 tw-leading-normal">
                       jetzt Deine Smoothie Kur <br className="tw-hidden lg:-tw-block" /> starten
                     </h1>
-                    <p className="tw-text-gray-700 tw-font-medium md:tw-leading-relaxed tw-font-Epilogue-bold  sm:tw-text-base lg:tw-text-lg lg:tw-pt-5">
+                    <p className="tw-text-gray-700 tw-font-medium md:tw-leading-relaxed tw-font-Epilogue-bold tw-text-xs  xs:tw-text-sm sm:tw-text-base lg:tw-text-lg lg:tw-pt-5">
                       Starten Sie jetzt Ihre transformative Smoothie-Kur und entdecken Sie ein neues
                       Lebensgefühl! Beginnen Sie noch heute Ihre Reise zu mehr Vitalität und
                       natürlicher Schönheit.
