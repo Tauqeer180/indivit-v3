@@ -159,7 +159,7 @@ export default function Navbar() {
       <div className=" tw-bg-light-green tw-bg-gradient-to-r tw-from-light-green tw-via-[#bee9b1] tw-to-[#bce6ae] ">
         <nav
           id="header"
-          className=" tw-duration-500 row tw-z-10   mx-auto fixed-top- navbar navbar-expand-lg   py-0 tw-h-[103px] tw-left-0 tw-right-0"
+          className=" tw-duration-500 row tw-z-20   mx-auto fixed-top- navbar navbar-expand-lg   py-0 tw-h-[103px] tw-left-0 tw-right-0"
         >
           <div className="container">
             <div

@@ -29,7 +29,7 @@ export default function ProductCategory({ data = [] }) {
               {/* Content */}
               <div className="tw-col-span-2 tw-flex tw-flex-col tw-justify-between  tw-h-[-webkit-fill-available] md:tw-gap-4 tw-gap-2">
                 <div>
-                  <h3 className="tw-text-[26px] tw-font-bold tw-font-Epilogue-bold tw-mb-3 tw-text-gray-800 ">
+                  <h3 className="tw-text-[26px] tw-font-bold tw-font-Epilogue-bold tw-mb-3 tw-text-gray-800 tw-uppercase">
                     {cat?.name}
                   </h3>
                   <div

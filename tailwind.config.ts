@@ -8,6 +8,7 @@ const config = {
         "md-5": "868px",
         xs: "576px",
         xxs: "480px",
+        "2xl": "1400px",
       },
       fontFamily: {
         Greycliff: ['Greycliff CF', 'sans-serif'],

@@ -31,7 +31,7 @@ export default function WhyIndivitSection({ data = [] }) {
           {whyData?.heading}
         </h2>
         <p>{whyData?.description}</p>
-        <div className="2xl:tw-container tw-mx-auto tw-grid tw-grid-cols-1 xl:tw-grid-cols-2  tw-gap-8 tw-pt-20">
+        <div className="2xl:tw-container tw-mx-auto tw-grid tw-grid-cols-1 lg:tw-grid-cols-2  tw-gap-8 tw-pt-20">
           {/* Left Column - Image */}
 
           {/* Right Column - Content */}
