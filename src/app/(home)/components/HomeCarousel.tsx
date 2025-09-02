@@ -51,7 +51,7 @@ export default function HomeCarousel({ data, isLoading }) {
                   href={data?.mehr_erfahren_link || '/'}
                   // target="_blank"
                   type="button"
-                  className="btn-outline"
+                  className="btn-outline tw-shadow-[#4B5563]"
                 >
                   Mehr erfahren
                 </Link>

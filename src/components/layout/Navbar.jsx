@@ -210,8 +210,8 @@ export default function Navbar() {
                         className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0 "
                         aria-labelledby="shopDropdown"
                       >
-                        <div className="container">
-                          <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-5 lg:tw-py-10 tw-py-6">
+                        <div className="container !tw-px-4">
+                          <div className="tw-grid  lg:tw-grid-cols-4 2xl:tw-gap-5  tw-gap-4 lg:tw-py-10 tw-py-6">
                             {/* {JSON.stringify(boxCategories)} */}
                             {boxCategories?.data?.slice(0, 4).map((cat, index) => {
                               return (
@@ -226,7 +226,7 @@ export default function Navbar() {
                                   }}
                                   //  style={{background: `linear-gradient(to right, red, yellow)`}}
                                 >
-                                  <div className="xl:tw-p-5 lg:tw-p-4 tw-p-3 tw-space-y-[10px]">
+                                  <div className="2xl:tw-p-5  tw-p-3 tw-space-y-[10px]">
                                     <div className="tw-space-y-7">
                                       <Link href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}>
                                         <Image
@@ -241,7 +241,7 @@ export default function Navbar() {
                                           // height="190px"
                                         />
                                       </Link>
-                                      <h4 className=" !tw-mb-0 tw-uppercase tw-font-extrabold">
+                                      <h4 className=" !tw-mb-0 tw-uppercase tw-font-extrabold -tw-tracking-wider 2xl:tw-text-xl tw-text-lg ">
                                         {cat?.name}
                                       </h4>
                                     </div>
@@ -250,13 +250,13 @@ export default function Navbar() {
                                         href={`/${cat?.slug || cat?.name + '_' + cat?.id}`}
                                         className={cn(
                                           'btn-outline',
-                                          ' tw-shadow-dark tw-bg-white !tw-py-[10px] tw-text-sm '
+                                          ' !tw-shadow-dark tw-bg-white !tw-py-[10px] tw-text-sm !tw-text-dark '
                                         )}
                                         // style={{ backgroundColor: cat?.color }}
                                       >
                                         {cat?.button_label}
                                       </Link>
-                                      <WaveSvg />
+                                      {/* <WaveSvg /> */}
                                     </div>
                                   </div>
                                 </div>
