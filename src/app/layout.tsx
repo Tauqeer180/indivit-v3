@@ -57,6 +57,16 @@ export default function RootLayout({
           name="description"
           content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
         /> */}
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `
+          
+          import {(onCLS, onINP, onLCP)} from 'https://unpkg.com/web-vitals@5?module';
+          onCLS(console.log); onINP(console.log); onLCP(console.log);
+          `,
+          }}
+        ></script>
         <Script
           src="https://x.klarnacdn.net/kp/lib/v1/api.js"
           async
@@ -154,13 +164,14 @@ export default function RootLayout({
           <SpeedInsights />
           <Footer />
         </AllProviders>
-        <script async src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        {/* <script async src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script async src="../assets/js/bootstrap.bundle.min.js"></script>
         <script async src="../assets/js/bootstrap.js"></script>
-        <script async src="../assets/js/main.js"></script>
+        <script async src="../assets/js/main.js"></script> */}
         <Script
           strategy="afterInteractive"
-          async
+          // async
+
           src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         ></Script>
         {/* <Script

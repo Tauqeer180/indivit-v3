@@ -207,7 +207,7 @@ export default function Navbar() {
                         Shop
                       </a>
                       <ul
-                        className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0 "
+                        className="dropdown-menu w-100 flx-width-shop h-auto py-0 shadow border-0 glass-effect "
                         aria-labelledby="shopDropdown"
                       >
                         <div className="container !tw-px-4">

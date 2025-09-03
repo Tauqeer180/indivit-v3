@@ -188,7 +188,7 @@ font-weight: 800;
 .btn-outline:hover{
   color: #4B5563;
   transform: translateY(3px);
-  box-shadow: 2px 2px 0px 1px #4B5563;
+  box-shadow: 2px 2px 0px 1px var(--tw-shadow-color);
 }
 .offcanvas-backdrop {
   display: none !important;
