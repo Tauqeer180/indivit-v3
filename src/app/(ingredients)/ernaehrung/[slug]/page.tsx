@@ -185,7 +185,7 @@ export default async function Page({ params }) {
           <div className="mb-5">
             {relativeSmoothies?.length > 0 && (
               <h3 className=" " data-aos="fade-up" data-aos-duration="1000">
-                Contained in...
+                Rezepte mit {data?.name}
               </h3>
             )}
             {/* {JSON.stringify(relativeSmoothies[0])} */}

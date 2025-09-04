@@ -74,6 +74,7 @@ export default async function Ingredients() {
         breadCrumb={<BreadCrumb name="Smoothie Zutaten" />}
       />
       {/* <!-- hero banner end--> */}
+      
 
       {/* Tabs and Cards Section Start */}
 
