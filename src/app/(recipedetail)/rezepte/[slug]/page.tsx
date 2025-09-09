@@ -43,6 +43,20 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
+export const revalidate = 72000
+export const dynamicParams = true // or false, to 404 on unknown paths
+async function getRecipeList() {
+  const data = await fetcher('get_smoothie', { cache: true, revalidate: 3600 })
+  return data
+}
+export async function generateStaticParams() {
+  const posts = await getRecipeList()
+  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  return posts?.smoothies?.map((post: any) => ({
+    slug: post?.slug || post?.unique_id,
+  }))
+}
+
 export default async function page({ params }: { params: { slug: string } }) {
   const smoothieId = params?.slug // `slug` should match the dynamic folder name
 
@@ -123,19 +137,26 @@ export default async function page({ params }: { params: { slug: string } }) {
           ),
         }}
       />
-      {data?.seo_scheme && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              modifyRecipeSchema(data, [baseURL + 'smoothie/' + data?.smoothie_picture?.picture]),
-              null,
-              2
-            ),
-          }}
-        />
-      )}
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            modifyRecipeSchema(data, [baseURL + 'smoothie/' + data?.smoothie_picture?.picture]),
+            null,
+            2
+          ),
+        }}
+      />
+
+      {/* <div className="!tw-pt-32">
+        <code className="!tw-pt-32">
+          {JSON.stringify(
+            modifyRecipeSchema(data, [baseURL + 'smoothie/' + data?.smoothie_picture?.picture])
+          )}
+        </code>
+      </div>
+      ====================== */}
       {/* {JSON.stringify(data)} */}
       <Content
         smoothiesListing={smoothiesListing}

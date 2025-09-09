@@ -222,9 +222,13 @@ export const generateProductSchema = (product) => ({
   '@context': 'http://schema.org/',
   '@type': 'Product',
   name: product?.name,
-  image: [product?.smoothie_image?.map((e) => baseURL + 'smoothie_box/' + e?.images)],
+  image: product?.smoothie_image?.map((e) => baseURL + 'smoothie_box/' + e?.images),
   description: product?.meta_description,
-
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: product?.ratings,
+    ratingCount: product?.counts,
+  },
   gtin13: '4270003949309',
   brand: {
     '@type': 'Brand',
@@ -233,6 +237,8 @@ export const generateProductSchema = (product) => ({
   offers: {
     '@type': 'Offer',
     url: `${baseURL}/produkte/${product?.slug}`,
+    priceCurrency: 'EUR',
+    price: product?.smoothie_box_descriptions?.[0]?.smoothie_box_size?.price,
     priceSpecification: [
       {
         '@type': 'UnitPriceSpecification',
@@ -319,7 +325,7 @@ export default function SEOSchema({ data }) {
 
   return (
     <>
-      {/* {JSON.stringify(data, null, 2)} */}
+      {/* {JSON.stringify(data?.ratings, null, 2)} */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

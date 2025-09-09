@@ -49,12 +49,12 @@ export default function OrderSummary() {
   const { vibrate } = useVibrate()
   //free shipping = kostenlos
   let total = cartTotal + metadata?.deposit - (metadata?.promoDiscount || 0)
-  let DC = cartTotal > thresholdCost ? 'kostenlos' : basicShipping
+  let DC = cartTotal - (metadata?.promoDiscount || 0) > thresholdCost ? 'kostenlos' : basicShipping
   useEffect(() => {
     // debugger;
     let tempGrandTotal =
       total +
-      (cartTotal > thresholdCost ? 0 : basicShipping) +
+      (cartTotal - (metadata?.promoDiscount || 0) > thresholdCost ? 0 : basicShipping) +
       (!!metadata?.fastShipping ? parseFloat(metadata?.fastShipping) : 0)
     setGrandTotal(tempGrandTotal)
   }, [basicShipping, thresholdCost, fastShipCharges, metadata?.fastShipping, total])

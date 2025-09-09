@@ -46,13 +46,17 @@ export default async function Page() {
   const res = await getFaqData()
   const faqPage = res?.data || {}
   const faq = faqPage?.faqs ? JSON.parse(faqPage?.faqs) : []
-
+  // console.log('res ---------- ', res)
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([...SEOSchema?.Common?.schema, ...SEOSchema?.FAQ?.schema], null, 2),
+          __html: JSON.stringify(
+            [...SEOSchema?.Common?.schema, ...SEOSchema?.FAQ?.schema],
+            null,
+            2
+          ),
         }}
       />
       <HeroBanner
@@ -75,21 +79,6 @@ export default async function Page() {
       <section id="flx-faqs-accordion" className="!tw-pt-10 ">
         <div className="container">
           <div className="accordion" id="accordiion_cont">
-            <div className="tw-gap-4 tw-grid tw-grid-cols-2">
-              {/* <!-- Skeleton for each FAQ item --> */}
-              {res?.data &&
-                Array.from(Array(10))?.map((d, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="tw-p-4 tw-border tw-border-gray-200 tw-rounded-md tw-animate-pulse tw-bg-gray-100"
-                    >
-                      <div className="tw-h-6 tw-w-3/4 tw-bg-gray-300 tw-rounded"></div>
-                      <div className="tw-mt-2 tw-h-4 tw-w-1/4 tw-bg-gray-300 tw-rounded"></div>
-                    </div>
-                  )
-                })}
-            </div>
             <div className="row">
               {/* <!-- colum one --> */}
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 flx-faqs-col">
