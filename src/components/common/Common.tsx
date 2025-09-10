@@ -64,7 +64,7 @@ export function ShowMoreBtn({ show, setShow, list }) {
 export const BreadCrumb = ({ name }) => {
   return (
     <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center">
+      <ol className="breadcrumb lg:tw-justify-center tw-text-sm">
         <li className="breadcrumb-item">
           <Link href="/">Home</Link>
         </li>

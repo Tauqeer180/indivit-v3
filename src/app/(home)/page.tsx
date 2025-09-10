@@ -11,6 +11,8 @@ import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
 
+export const revalidate = 86400
+export const dynamicParams = true
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.Home)
 

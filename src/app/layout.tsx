@@ -154,10 +154,10 @@ export default function RootLayout({
           <SpeedInsights />
           <Footer />
         </AllProviders>
-        <script async src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script async src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script async src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script async src="../assets/js/bootstrap.js"></script>
-        <script async src="../assets/js/main.js"></script>
+        <script async src="../assets/js/bootstrap.min.js"></script>
+        {/* <script async src="../assets/js/main.js"></script> */}
         <Script
           strategy="afterInteractive"
           async
