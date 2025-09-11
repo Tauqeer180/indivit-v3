@@ -420,6 +420,7 @@ export default function Navbar() {
                   data-bs-auto-close="true"
                   aria-expanded="false"
                   aria-labelledby="userDropdown"
+                  aria-label="Benutzerkonto Menü"
                 >
                   <img
                     className="mx-xl-3 mx-2"

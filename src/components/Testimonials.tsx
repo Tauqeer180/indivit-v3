@@ -58,7 +58,13 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
         onClick={() => next()}
         aria-labelledby="testimonial-next"
       >
-        <img height="44px" width="45px" className="img-fluid " alt="testimonial-previous" src={'/assets/object/right.png'} />
+        <img
+          height="44px"
+          width="45px"
+          className="img-fluid "
+          alt="testimonial-previous"
+          src={'/assets/object/right.png'}
+        />
       </button>
     </div>
   )
@@ -90,7 +96,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 //   },
 // ];
 
-export default function Testimonials({ data, isLoading }:{data:any,isLoading?:boolean}) {
+export default function Testimonials({ data, isLoading }: { data: any; isLoading?: boolean }) {
   // const { isLoading, error, data } = useQuery({
   //   queryKey: ["testmonialsListing"],
   //   queryFn: getTestimonials,
@@ -207,7 +213,7 @@ export default function Testimonials({ data, isLoading }:{data:any,isLoading?:bo
           <img
             src={'/assets/NewAssets/svg/orange.png'}
             alt="img1"
-            className="2xl:tw-w-[152px] 2xl:tw-h-52  lg:tw-w-28 lg:tw-h-32 md:tw-w-24 md:tw-h-28 tw-w-20 tw-h-24 "
+            className="2xl:tw-w-[152px] 2xl:tw-h-52  lg:tw-w-28 lg:tw-h-32 md:tw-w-24 md:tw-h-28 tw-w-20 tw-h-24 !tw-aspect-auto"
           />
         </div>
       </div>
