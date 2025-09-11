@@ -71,8 +71,8 @@ export default async function WhyIndivit() {
         }}
       />
 
-      <div className="flx-hero-about !tw-h-auto max-md:!tw-px-4">
-        <p className="text-center pb-2">{res?.main_description}</p>
+      <div className="container !tw-h-auto tw-pt-14">
+        <p className="tw-text-justify pb-2">{res?.main_description}</p>
       </div>
 
       <WhyDetails

@@ -60,6 +60,20 @@ export async function generateMetadata({ params }) {
   }
 }
 
+export const revalidate = 72000
+export const dynamicParams = true // or false, to 404 on unknown paths
+async function getIngredientsData() {
+  const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
+  return data
+}
+export async function generateStaticParams() {
+  const posts = await getIngredientsData()
+  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  return posts?.ingredient?.map((post: any) => ({
+    slug: post?.slug || post?.unique_id,
+  }))
+}
+
 export default async function Page({ params }) {
   const { slug } = params
   const res = await getIngredientById(slug)
@@ -185,7 +199,7 @@ export default async function Page({ params }) {
           <div className="mb-5">
             {relativeSmoothies?.length > 0 && (
               <h3 className=" " data-aos="fade-up" data-aos-duration="1000">
-                Contained in...
+                Rezepte mit {data?.name}
               </h3>
             )}
             {/* {JSON.stringify(relativeSmoothies[0])} */}

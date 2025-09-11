@@ -33,7 +33,7 @@ export default function CartPage() {
       {/* <!-- about section --> */}
       {isEmpty ? (
         <section id="flx-shopping">
-          <div className="container pt-5">
+          <div className="container ">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <Image

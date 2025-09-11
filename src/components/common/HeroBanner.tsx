@@ -45,11 +45,11 @@ export default function HeroBanner({
       </section>
       {breadCrumb && <div className="container tw-block lg:tw-hidden">{breadCrumb}</div>}
       {data?.description && (
-        <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
+        <div className="container tw-pt-14 !tw-h-auto tw-text-justify">
           {data?.markdown ? (
-            <MarkdownDisplay>{data?.description}</MarkdownDisplay>
+            <MarkdownDisplay className="tw-text-justify">{data?.description}</MarkdownDisplay>
           ) : (
-            <p className="text-center pb-2">{data?.description}</p>
+            <p className="text-tw-text-justify pb-2">{data?.description}</p>
           )}
           {data?.description2 && <p className="text-center pb-2">{data?.description2}</p>}
         </div>

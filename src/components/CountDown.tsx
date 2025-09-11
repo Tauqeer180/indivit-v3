@@ -83,6 +83,7 @@ export default function CountDown() {
             <ul
               className="dropdown-menu dropdown-menu-end border-0 shadow position-absolute p-3"
               aria-labelledby="countdown"
+              role="menu"
             >
               <div>
                 <span className="text-muted fs-14" style={{ maxWidth: '100px' }}>

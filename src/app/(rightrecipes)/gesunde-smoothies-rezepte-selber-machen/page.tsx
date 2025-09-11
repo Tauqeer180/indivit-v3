@@ -44,7 +44,7 @@ export async function generateMetadata() {
 const BreadCrumb = ({ name }) => {
   return (
     <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center">
+      <ol className="breadcrumb lg:tw-justify-center tw-text-sm">
         <li className="breadcrumb-item">
           <Link href="/">Home</Link>
         </li>
@@ -94,8 +94,8 @@ export default async function Page() {
       <div className="container tw-block lg:tw-hidden">
         <BreadCrumb name={'Smoothie Rezepte'} />
       </div>
-      <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
-        <p className="text-center pb-2">
+      <div className="container tw-pt-14 !tw-h-auto ">
+        <p className="tw-text-justify pb-2">
           Unsere Smoothie-Rezepte sind nicht nur köstlich, sondern auch eine fantastische
           Möglichkeit, eine schnelle und gesunde Mahlzeit zu sich zu nehmen. Egal, ob Du ein
           Frühstück für unterwegs, einen Snack nach dem Training oder einfach nur eine erfrischende

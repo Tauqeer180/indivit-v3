@@ -73,6 +73,20 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
   }
 }
+
+export const revalidate = 72000
+export const dynamicParams = true // or false, to 404 on unknown paths
+async function getBoxList() {
+  const data = await fetcher('smoothie_box_description', { cache: true, revalidate: 3600 })
+  return data
+}
+export async function generateStaticParams() {
+  const posts = await getBoxList()
+  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  return posts?.data?.map((post: any) => ({
+    slug: post?.slug || post?.unique_id,
+  }))
+}
 export default async function page({ params }: any) {
   let { slug } = params
   const id = slug?.split('_').pop()
@@ -150,7 +164,7 @@ export default async function page({ params }: any) {
               </ol>
             </nav>
           </div>
-          {/* {JSON.stringify(boxData, null, 2)} */}
+          {/* {JSON.stringify(boxData?.smoothie_box_descriptions?.[0], null, 2)} */}
           <div className="row d-flex pt-0 pt-md-3">
             <div className="col-12">
               {boxData?.heading && <h1 className="tw-text-4xl">{boxData?.heading}</h1>}

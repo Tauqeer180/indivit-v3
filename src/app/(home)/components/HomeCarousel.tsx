@@ -68,6 +68,8 @@ export default function HomeCarousel({ data, isLoading }) {
                         // loading="lazy"
                         placeholder="blur"
                         blurDataURL="/assets/blur/1.jpeg"
+                        priority
+                        fetchPriority="high"
                         // blurDataURL={baseURL + 'slider/' + data?.slide_thumbnail}
                       />
                     </div> */}

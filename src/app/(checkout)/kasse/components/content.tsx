@@ -29,7 +29,7 @@ export default function Content() {
   const dispatch = useAppDispatch()
   let isAuthenticated = useAppSelector((state) => state.account?.isAuthenticated)
   const dcCharges = useAppSelector((state) => state.dcCharges)
-const token = useAppSelector((state) => state.account?.token)
+  const token = useAppSelector((state) => state.account?.token)
   let basicShipping = parseFloat(dcCharges?.delivery_cost)
   let thresholdCost = parseFloat(dcCharges?.threshold_cost)
   let fastShipCharges = parseFloat(dcCharges?.additional_cost)
@@ -120,35 +120,12 @@ const token = useAppSelector((state) => state.account?.token)
       data,
       token,
     })
-  const mutation = useMutation({
-    mutationFn: placeOrder,
-    onSuccess: (res) => {
-      console.log('place order response ', res)
-      // Invalidate and refetch
-      // debugger;
-      if (res?.status == 200) {
-        setLoading(false)
-        queryClient.invalidateQueries(['wishListing'])
-        toast.success(res?.message)
-        emptyCart()
-        push(`/meine-bestellung/${res?.data?.order_id}`)
-      } else {
-        toast.error(res?.response?.data?.message)
-        toast.error(res?.message)
-      }
-    },
-    onError: (err) => {
-      toast.error(
-        err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
-      )
-    },
-  })
 
   let selectDate = selectedDate ? selectedDate?.toLocaleDateString('en-CA') : selectedDate
 
   const handleOrder = (smoothie_box_id, payData) => {
     const { payer } = paypalRes
-    mutation.mutate({
+    placeOrder({
       ...formData,
       total_price:
         (paymentType == 1 || paymentType == 2) && parseFloat(metadata.grandTotal) < 1
@@ -192,6 +169,22 @@ const token = useAppSelector((state) => state.account?.token)
       },
       payment_data: payData,
     })
+      .then((res) => {
+        //  setLoading(false)
+        console.log('Place Order Res ', res)
+        queryClient.invalidateQueries(['wishListing'])
+        toast.success(res?.message)
+        emptyCart()
+        push(`/meine-bestellung/${res?.order_id}`)
+      })
+      .catch((err) => {
+        toast.error(
+          err.response.status == 401 ? 'Please Login to Proceed' : err.response.data.message
+        )
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   const payPlaceOrder = (payData) => {

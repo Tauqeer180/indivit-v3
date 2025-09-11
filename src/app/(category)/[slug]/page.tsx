@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const BreadCrumb = ({ name }) => {
   return (
     <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center">
+      <ol className="breadcrumb lg:tw-justify-center tw-text-sm">
         <li className="breadcrumb-item">
           <Link href="/">Home</Link>
         </li>
@@ -132,8 +132,8 @@ export default async function page({ params }: any) {
       <div className="container tw-block lg:tw-hidden">
         <BreadCrumb name={data?.name} />
       </div>
-      <div className="tw-pt-14 !tw-h-auto max-md:tw-px-4 md:!tw-max-w-3xl tw-mx-auto">
-        <p className="text-center pb-2">{data?.detail}</p>
+      <div className="tw-pt-14 !tw-h-auto   container">
+        <p className="tw-text-justify pb-2">{data?.detail}</p>
       </div>
       {/* <!-- hero banner end--> */}
 
