@@ -57,7 +57,7 @@ export default function RootLayout({
           name="description"
           content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
         /> */}
-        {/* <Script
+        <Script
           src="https://x.klarnacdn.net/kp/lib/v1/api.js"
           async
           crossOrigin="anonymous"
@@ -67,10 +67,10 @@ export default function RootLayout({
           src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PAYPAL_CLIENT_ID}&currency=EUR&components=buttons&vault=true`}
           crossOrigin="anonymous"
           strategy="lazyOnload"
-        ></Script> */}
+        ></Script>
         {/* <!-- Google Tag Manager --> */}
 
-        {/* <Script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `(function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -85,16 +85,16 @@ export default function RootLayout({
       })(window, document, "script", "dataLayer", "GTM-MV39GF9C");`,
           }}
           strategy="afterInteractive"
-        ></Script> */}
+        ></Script>
 
         {/* <!-- End Google Tag Manager --> */}
-        {/* <Script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-F8GRTVZY8P"
           strategy="afterInteractive"
-        ></Script> */}
+        ></Script>
 
-        {/* <Script
+        <Script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `(function (c, l, a, r, i, t, y) {
@@ -109,10 +109,10 @@ export default function RootLayout({
       })(window, document, "clarity", "script", "pnnv80bdnp");`,
           }}
           strategy="afterInteractive"
-        ></Script> */}
+        ></Script>
 
         {/* <!-- Google tag (gtag.js) --> */}
-        {/* <Script
+        <Script
           dangerouslySetInnerHTML={{
             __html: ` window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -124,26 +124,26 @@ export default function RootLayout({
           }}
           strategy="afterInteractive"
         >
-        </Script> */}
-        {/* // G-1M0EJW71XL -> mine */}
-        {/* // G-F8GRTVZY8P -> Indivit */}
+          {/* // G-1M0EJW71XL -> mine */}
+          {/* // G-F8GRTVZY8P -> Indivit */}
+        </Script>
         {/* Ahrefs */}
-        {/* <Script
+        <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="bxiC3Mi5zLJKI374h1U02w"
           async
-        ></Script> */}
+        ></Script>
       </head>
       <body className={` antialiased bg-light`}>
         {/* <!-- Google Tag Manager (noscript) --> */}
-        {/* <noscript>
+        <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MV39GF9C"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
-        </noscript> */}
+        </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <AllProviders>
           <ToastContainer />
@@ -158,11 +158,11 @@ export default function RootLayout({
         <script async src="../assets/js/bootstrap.bundle.min.js"></script>
         <script async src="../assets/js/bootstrap.min.js"></script>
         {/* <script async src="../assets/js/main.js"></script> */}
-        {/* <Script
+        <Script
           strategy="afterInteractive"
           async
           src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-        ></Script> */}
+        ></Script>
         {/* <Script
           strategy="afterInteractive"
           async
