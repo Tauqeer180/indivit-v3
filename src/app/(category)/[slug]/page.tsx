@@ -1,7 +1,11 @@
+import { OctagonShapeIcon, TriShapeIcon } from '@/assets/svgIcons'
 import { BoxCard } from '@/components/Cards'
+import { BreadCrumb } from '@/components/common/Common'
+import { H1 } from '@/components/common/Typography'
 import { baseURL, fetcher } from '@/lib/fetcher'
 // import Head from 'next/head'
 import { cookies } from 'next/headers'
+import Image from 'next/image'
 import Link from 'next/link'
 // import { redirect } from 'next/navigation'
 import React from 'react'
@@ -58,20 +62,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-const BreadCrumb = ({ name }) => {
-  return (
-    <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center tw-text-sm">
-        <li className="breadcrumb-item">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="breadcrumb-item active" aria-current="page">
-          {name}
-        </li>
-      </ol>
-    </nav>
-  )
-}
 export default async function page({ params }: any) {
   const { slug } = params
 
@@ -118,98 +108,120 @@ export default async function page({ params }: any) {
       )}
       {/* {JSON.stringify(data)} */}
       {/* <!-- hero banner start--> */}
-      {/* {data?.seo_scheme} */}
-      <section id="flx-hero-section" className="max-xl:after:!tw-bg-none max-lg:before:!tw-bg-none">
-        <div className="container md:!tw-max-w-3xl tw-mx-auto ">
-          <div className="flx-hero-about md:!tw-pt-6 lg:!tw-pt-20 sm:!tw-pt-5 !tw-pt-3 !tw-h-auto">
-            <h1 className="text-center pb-2">{data?.heading}</h1>
-            <div className="tw-hidden lg:tw-block">
+      <div className="tw-bg-[#BFEAB3] tw-pt-[140px] tw-pb-10  tw-relative tw-overflow-hidden">
+        <div className="container">
+          <Image
+            alt="red barries"
+            src="/assets/img/smoothie_list_graphics.png"
+            className="tw-absolute -tw-right-6 xl:-tw-right-10 tw-top-52 tw-object-contain  tw-hidden lg:tw-block tw-w-36 tw-h-24  xl:tw-w-[264px] xl-tw-h-[164px]"
+            width={264}
+            height={180}
+            sizes="(min-width: 1280px) 264px, 164px"
+          />
+          <section className="">
+            <div className="">
               <BreadCrumb name={data?.name} />
             </div>
-          </div>
-        </div>
-      </section>
-      <div className="container tw-block lg:tw-hidden">
-        <BreadCrumb name={data?.name} />
-      </div>
-      <div className="tw-pt-14 !tw-h-auto   container">
-        <p className="tw-text-justify pb-2">{data?.detail}</p>
-      </div>
-      {/* <!-- hero banner end--> */}
+            <div className="tw-pt-5  lg:tw-max-w-[943px]">
+              <H1 className=" ">{data?.heading}</H1>
+              <p className="tw-text-justify pb-2 tw-pt-5 tw-text-lg tw-text-dark">{data?.detail}</p>
+            </div>
+          </section>
 
-      <section id="flx-nav-pils" className="!tw-py-10">
-        <div className="container">
-          <div className="tab-content" id="pills-tabContent">
-            {/* <!-- All tabs setting --> */}
-            <div className="tab-pane fade show active" id="pills-home" role="tabpanel" tabIndex={0}>
-              {/* <!------Our boxes start------> */}
-              <div className="row">
-                {data?.boxes?.filter((withData) => withData?.smoothie_box_descriptions?.length > 0)
-                  ?.length > 0
-                  ? data?.boxes
-                      ?.filter((withData) => withData?.smoothie_box_descriptions?.length > 0)
-                      ?.map((box, index) => {
-                        return (
-                          <div key={index} className="col-12 col-md-4  p-3">
-                            <div
-                              className="  hsn-box-bg"
-                              data-aos="fade-up"
-                              data-aos-duration="1000"
-                            >
-                              <BoxCard data={box} />
+          {/* <!-- hero banner end--> */}
+          <section id="flx-nav-pils" className="!tw-py-10">
+            <div className="">
+              <div className="tab-content" id="pills-tabContent">
+                {/* <!-- All tabs setting --> */}
+                <div
+                  className="tab-pane fade show active"
+                  id="pills-home"
+                  role="tabpanel"
+                  tabIndex={0}
+                >
+                  {/* <!------Our boxes start------> */}
+                  <div className="row">
+                    {data?.boxes?.filter(
+                      (withData) => withData?.smoothie_box_descriptions?.length > 0
+                    )?.length > 0
+                      ? data?.boxes
+                          ?.filter((withData) => withData?.smoothie_box_descriptions?.length > 0)
+                          ?.map((box, index) => {
+                            return (
+                              <div key={index} className="col-12 col-md-4  tw-p-2.5">
+                                <div data-aos="fade-up" data-aos-duration="1000">
+                                  <BoxCard data={box} />
+                                </div>
+                              </div>
+                            )
+                          })
+                      : !data?.custom_product_image && (
+                          <div className="tw-text-center tw-text-3xl">
+                            Geen gegevens gevonden in deze categorie
+                          </div>
+                        )}
+
+                    {data?.custom_product_image && (
+                      <div className="col-12 col-md-4  p-3">
+                        <div className="  hsn-box-bg" data-aos="fade-up" data-aos-duration="1000">
+                          <div className="box-card">
+                            <div className="text-center">
+                              <Link href={`${data?.custom_product_path}`}>
+                                <Image
+                                  src={baseURL + 'box-category/' + data?.custom_product_image}
+                                  className="img-fluid tw-object-contain tw-max-h-[240px]"
+                                  loading="lazy"
+                                  width={366}
+                                  height={240}
+                                  alt="custom Product"
+                                />
+                              </Link>
                             </div>
                           </div>
-                        )
-                      })
-                  : !data?.custom_product_image && (
-                      <div className="tw-text-center tw-text-3xl">
-                        Geen gegevens gevonden in deze categorie
-                      </div>
-                    )}
-
-                {data?.custom_product_image && (
-                  <div className="col-12 col-md-4  p-3">
-                    <div className="  hsn-box-bg" data-aos="fade-up" data-aos-duration="1000">
-                      <div className="box-card">
-                        <div className="text-center">
-                          <Link href={`${data?.custom_product_path}`}>
-                            <img
-                              src={baseURL + 'box-category/' + data?.custom_product_image}
-                              className="img-fluid w-100 max-h-350"
-                              loading="lazy"
-                            />
-                          </Link>
+                          {/* <img src={baseURL+"box-category/"+data?.custom_product_image} /> */}
                         </div>
                       </div>
-                      {/* <img src={baseURL+"box-category/"+data?.custom_product_image} /> */}
-                    </div>
+                    )}
                   </div>
-                )}
-              </div>
-              {/* <!------Our boxes end------> */}
-            </div>
+                  {/* <!------Our boxes end------> */}
+                </div>
 
-            {/* <!--Caffeine tabs setting end --> */}
-          </div>
+                {/* <!--Caffeine tabs setting end --> */}
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-      <div className="flx-hero-about !tw-h-auto max-md:tw-px-4 !tw-py-4">
-        <p className="text-center pb-2">{data?.description}</p>
+      </div>
+      <div className="tw-py-24 tw-bg-[#FAF4D1] tw-relative tw-z-0">
+        <OctagonShapeIcon
+          className="tw-absolute tw-top-7 tw-left-0   tw-opacity-80 tw-rounded-md -tw-z-10"
+          fill="#DCE9C7"
+        />
+        <div className="container">
+          <section className="tw-relative tw-bg-white tw-rounded-[30px]  tw-shadow-lg tw-py-10 xl:tw-py-14 shadow-theme-xl tw-shadow-dark  ">
+            <div className="tw-max-w-[775px] tw-mx-auto tw-text-2xl tw-font-medium tw-text-[#4B5563]">
+              {data?.description}
+            </div>
+          </section>
+        </div>
       </div>
 
-      <div className="tw-bg-theme-orange lg:tw-py-24  tw-py-16 tw-text-white">
+      <div className=" lg:tw-py-24  tw-py-16 ">
         <div className="container">
           <div className=" tw-max-w-3xl tw-mx-auto tw-space-y-4">
             {keySection?.length > 0 &&
               keySection?.map((b, i) => {
                 return (
-                  <div key={i} className="tw-flex tw-items-center lg:tw-gap-8 tw-gap-5">
+                  <div
+                    key={i}
+                    className="tw-flex tw-items-center lg:tw-gap-8 xl:tw-gap-24 tw-gap-5"
+                  >
                     {/* {JSON.stringify(b)} */}
                     <img className="tw-h-10 tw-w-10" src={baseURL + b?.icon} />
                     {/* <div>
                       <hr className="md:tw-w-10 tw-w-6  tw-opacity-100 tw-rounded-full max-xxs:tw-hidden" />
                     </div> */}
-                    <p className="tw-mb-0 tw-text-2xl tw-font-bold">{b?.detail}</p>
+                    <p className="tw-mb-0 tw-text-[22px] tw-font-bold">{b?.detail}</p>
                   </div>
                 )
               })}

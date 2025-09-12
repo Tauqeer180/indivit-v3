@@ -10,6 +10,12 @@ const config = {
         xxs: "480px",
         "2xl": "1400px",
       },
+      borderWidth:{
+        '3':"3px"
+      },
+      padding:{
+"2.5":"10px"
+      },
       fontFamily: {
         Greycliff: ['Greycliff CF', 'sans-serif'],
         Fontspring: ['FONTSPRING DEMO - Regular', 'sans-serif'],

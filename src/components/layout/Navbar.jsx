@@ -157,10 +157,10 @@ export default function Navbar() {
         </Helmet>
       )} */}
       {/* <!-- navbar start --> */}
-      <div className=" tw-bg-light-green tw-bg-gradient-to-r tw-from-light-green tw-via-[#bee9b1] tw-to-[#bce6ae] ">
+      <div className=" tw-bg-light-green tw-bg-gradient-to-r tw-from-light-green tw-via-[#bee9b1] tw-to-[#bce6ae] !tw-h-[103px] ">
         <nav
           id="header"
-          className=" tw-duration-500 row tw-z-20   mx-auto fixed-top- navbar navbar-expand-lg   py-0 tw-h-[103px] tw-left-0 tw-right-0"
+          className=" tw-bg-light-green !tw-border-0 tw-duration-500 row tw-z-20   mx-auto !tw-fixed tw-top-0 navbar navbar-expand-lg   py-0 tw-h-[103px] tw-left-0 tw-right-0"
         >
           <div className="container">
             <div

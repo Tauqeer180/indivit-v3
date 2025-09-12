@@ -63,12 +63,18 @@ export function ShowMoreBtn({ show, setShow, list }) {
 
 export const BreadCrumb = ({ name }) => {
   return (
-    <nav aria-label="breadcrumb" className="px-0">
-      <ol className="breadcrumb lg:tw-justify-center tw-text-sm">
-        <li className="breadcrumb-item">
-          <Link href="/">Home</Link>
+    <nav
+      aria-label="breadcrumb"
+      className="tw-bg-[#EEF9EB] tw-rounded-full tw-border tw-border-b-3 tw-border-r-3 tw-border-[#4B5563] tw-border-solid tw-max-w-fit tw-px-5 tw-py-2.5"
+    >
+      <ol className=" tw-justify-center tw-text-sm !tw-m-0 tw-font-semibold tw-flex tw-list-none tw-px-0 tw-gap-[6px]">
+        <li className="">
+          <Link href="/" className="tw-no-underline tw-text-dark">
+            Home
+          </Link>
         </li>
-        <li className="breadcrumb-item active" aria-current="page">
+        <li className="tw-font-bold">{' >'}</li>
+        <li className="tw-text-theme" aria-current="page">
           {name}
         </li>
       </ol>

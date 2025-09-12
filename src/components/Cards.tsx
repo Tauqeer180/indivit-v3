@@ -80,54 +80,57 @@ export function BoxCard({ data }) {
         />
       </ModalContainer>
       {/* {modalVisible && <ConfirmWishModal setModalVisible={setModalVisible} />} */}
-      <div className="box-card">
+      <div className="tw-relative tw-bg-white tw-rounded-[20px] tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]">
         {boxData?.created_by == 1 && (
           <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
             Customized
           </span>
         )}
-        <button
-          type="button"
-          className="btn btn-light box-wish shadow"
-          onClick={() => handleWishlistBox(data?.unique_id)}
-        >
-          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-          {isLoading ? (
-            <img
-              width="50px"
-              src={'/assets/icon/loader.gif'}
-              className="img-fluid"
-              loading="lazy"
-            />
-          ) : (
-            <Heart filled={IsWishlist(1, data?.id, wishlist)} />
-          )}
-        </button>
-        <div className="text-center">
+
+        <div className="">
           <Link href={`/produkte/${data?.slug || data?.unique_id}`}>
             <Image
               src={
                 boxImages?.length > 0 ? baseURL + 'smoothie_box/' + boxImages[0]?.images : commonImg
               }
-              className="img-fluid w-100 max-h-350 aspect-auto tw-mb-4"
+              className="img-fluid w-100 tw-max-h-[240px] aspect-auto tw-mb-4"
               // fill={true}
-              width={500}
-              height={500}
+              width={366}
+              height={240}
               loading="lazy"
               alt={data?.name}
             />
           </Link>
 
-          <h4 className="flx-hide-title">{data?.name}</h4>
+          <h4 className="flx-hide-title tw-text-xl tw-font-extrabold">{data?.name}</h4>
           <p className="p5 flx-hide-paragh">{data?.smoothie_box_descriptions[0]?.short_detail}</p>
         </div>
-        <div className="flx-overlay-container">
+        <div className="tw-flex tw-items-center tw-gap-6">
           <Link
             href={`/produkte/${data?.slug || data?.unique_id}`}
-            className="btn btn-secondary hsn-box-btn"
+            className="btn-theme !tw-py-3 !tw-px-6"
           >
             Box öffnen
-          </Link>
+          </Link>{' '}
+          <button
+            type="button"
+            className=" shadow-theme-sm tw-w-12 tw-h-12 tw-rounded-full tw-border-b-0 tw-border-r-0 tw-bg-white  tw-border-[#CCCCCC] tw-shadow-[#CCC]"
+            onClick={() => handleWishlistBox(data?.unique_id)}
+          >
+            {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+            {isLoading ? (
+              <Image
+                width={50}
+                height={50}
+                alt="whishlst loader"
+                src={'/assets/icon/loader.gif'}
+                className="img-fluid"
+                loading="lazy"
+              />
+            ) : (
+              <Heart filled={IsWishlist(1, data?.id, wishlist)} />
+            )}
+          </button>
         </div>
       </div>
     </>
@@ -205,34 +208,15 @@ export function RecipeCard({
           okLabel="Klingt gut"
         />
       </ModalContainer>
-      <div>
+      <div className="tw-bg-white tw-rounded-[20px] tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]">
         {data?.created_by == 1 && (
           <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
             Customized
           </span>
         )}
-        <button
-          // type="button"
-          disabled={isLoading}
-          hidden={hideWishIcon}
-          className="btn btn-light flx-heart-wishlist shadow"
-          onClick={() => handleWishlistRecipe(data?.unique_id)}
-        >
-          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-          {isLoading ? (
-            <img
-              width="50px"
-              src={'/assets/icon/loader.gif'}
-              className="img-fluid"
-              loading="lazy"
-            />
-          ) : (
-            <Heart filled={IsWishlist(0, data?.id, wishlist)} />
-          )}
-          {/* <Heart filled={IsWishlist(0, data?.id)} /> */}
-        </button>
-        <div className="text-center">
-          <Link href={action || ''} className="tw-border-none tw-bg-transparent tw-cursor-pointer">
+
+        <div className="">
+          <Link href={action || ''} className="tw-border-none tw-bg-transparent tw-cursor-pointer ">
             <div className="position-relative">
               <Image
                 alt={data?.name}
@@ -243,7 +227,7 @@ export function RecipeCard({
                     ? baseURL + 'smoothie/' + data?.smoothie_picture?.picture
                     : commonImg
                 }
-                className="img-fluid flx-hover-effect max-h-410 w-100"
+                className=" tw-max-h-60 w-100 hover:tw-scale-95 tw-duration-300 tw-object-contain"
                 loading="lazy"
               />
               {isOutofStock && (
@@ -256,16 +240,34 @@ export function RecipeCard({
             </div>
           </Link>
 
-          <h4>{data?.name}</h4>
-          <p className="p5 text-truncate">{data?.headline}</p>
+          <h4 className="tw-text-xl tw-font-extrabold tw-mt-5">{data?.name}</h4>
+          <p className="p5 text-truncate tw-text-sm">{data?.headline}</p>
           {isButton && (
-            <Link
-              href={action}
-              type="button"
-              className="btn btn-secondary hsn-box-btn text-capitalize"
-            >
-              {actionTitle}
-            </Link>
+            <div className="tw-flex tw-items-center tw-gap-6">
+              <Link href={action} type="button" className="btn-theme !tw-py-3 !tw-px-6">
+                {actionTitle}
+              </Link>
+              <button
+                // type="button"
+                disabled={isLoading}
+                hidden={hideWishIcon}
+                className=" shadow-theme-sm tw-w-12 tw-h-12 tw-rounded-full tw-border-b-0 tw-border-r-0 tw-bg-white  tw-border-[#CCCCCC] tw-shadow-[#CCC]"
+                onClick={() => handleWishlistRecipe(data?.unique_id)}
+              >
+                {isLoading ? (
+                  <Image
+                    width={50}
+                    height={50}
+                    alt="whishlst loader"
+                    src={'/assets/icon/loader.gif'}
+                    className="img-fluid"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Heart filled={IsWishlist(0, data?.id, wishlist)} />
+                )}
+              </button>
+            </div>
           )}
         </div>
       </div>
