@@ -1,7 +1,9 @@
 import { baseURL, fetcher } from '@/lib/fetcher'
 import React from 'react'
 import BlogContent from '../../components/BlogContent'
-import TOC from '../../components/TOC'
+// import TOC from '../../components/TOC'
+const TOC = dynamic(() => import('../../components/TOC'), { ssr: false })
+
 import moment from 'moment'
 import 'moment/locale/de'
 import Image from 'next/image'
@@ -10,20 +12,21 @@ import { FABComponent } from '@/components/common/ShareButtons'
 import SEOSchema from '../../components/SEOSchema'
 import { SEOSchema as SEOSchemaJSON } from '@/constant/SEOSchema'
 
-import { CollapseIcon } from '@/assets/svgIcons'
+// import { CollapseIcon } from '@/assets/svgIcons'
+import dynamic from 'next/dynamic'
 // moment.locale('de');
 
 export const dynamicParams = true // or false, to 404 on unknown paths
 
-// export async function generateStaticParams() {
-//   const response = await fetch(`${baseURL}api/client/blogs?page=1&limit=100 }`)
-
-//   const posts = await response?.json()
-//   console.log('posts data => ', posts)
-//   return posts?.data?.data?.map((post) => ({
-//     slug: String(post?.slug),
-//   }))
-// }
+export async function generateStaticParams() {
+  let res = await fetcher('blogs?page=1&limit=12')
+  res = JSON.parse(JSON.stringify(res))
+  // const posts = await response?.json()
+  console.log('posts data => ', res)
+  return res?.data?.data?.map((post) => ({
+    slug: String(post?.slug),
+  }))
+}
 
 // export async function generateStaticParams() {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api/client/blogs?page=1&limit=100`, {

@@ -35,7 +35,7 @@ export const fetcher = async (
     method,
     headers: {
       // 'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      ...(token && { Authorization: `Bearer ${token}` }),
       Accept: 'application/json',
     } as any,
     // cache: cache ? 'force-cache' : 'no-store',
