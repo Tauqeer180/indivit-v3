@@ -115,7 +115,7 @@ export default async function Page() {
           <section className="!tw-pt-10 ">
             <div>
               <Tabs defaultValue="alle">
-                <TabsList className="tw-gap-4 tw-mb-14 tw-flex-wrap !tw-h-auto ">
+                <TabsList className="tw-gap-4 tw-mb-14 tw-flex-wrap !tw-h-auto tw-bg-transparent ">
                   <TabsTrigger value="alle">Alle</TabsTrigger>
                   {categories?.map((categ, index) => {
                     return (
