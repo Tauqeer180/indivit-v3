@@ -113,10 +113,10 @@ export default async function page({ params }: any) {
           <Image
             alt="red barries"
             src="/assets/img/smoothie_list_graphics.png"
-            className="tw-absolute -tw-right-6 xl:-tw-right-10 tw-top-52 tw-object-contain  tw-hidden lg:tw-block tw-w-36 tw-h-24  xl:tw-w-[264px] xl-tw-h-[164px]"
+            className="tw-absolute -tw-right-6 xl:-tw-right-20 tw-top-52 tw-object-contain  tw-hidden lg:tw-block tw-w-36 tw-h-24  xl:tw-w-[264px] xl-tw-h-[164px]"
             width={264}
             height={180}
-            sizes="(min-width: 1280px) 264px, 164px"
+            // sizes="(min-width: 1280px) 264px, 164px"
           />
           <section className="">
             <div className="">

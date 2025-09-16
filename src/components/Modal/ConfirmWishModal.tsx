@@ -26,7 +26,7 @@ export default function ConfirmWishModal({
   }
 
   return (
-    <ModalContext.Provider value={openModal}>
+    <ModalContext.Provider value={{ openModal }}>
       <div className="overlay">
         <div>
           {visible && (

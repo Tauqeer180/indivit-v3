@@ -3,44 +3,49 @@ import React, { useState } from 'react'
 import { shareOnFacebook, shareOnLinkedIn, shareOnTwitter, shareOnWhatsApp } from './utils'
 import { ShareIcon, TwitterIcon } from '@/assets/svgIcons'
 import { cn } from '@/lib/utils'
+import { Link2, Linkedin, LinkedinIcon, LucideLinkedin, X } from 'lucide-react'
+import { buttonVariants } from '../ui/button'
 
 export default function ShareButtons() {
   return (
     <div>
-      <div className="pt-3 flx-social-style">
+      <div className="tw-pt-9 tw-flex tw-gap-3 ">
         {/* <!-- Twitter --> */}
         <button
-          className="btn border-0 p-0 shadow-none "
+          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnTwitter(window.location.href)}
         >
-          <i className="fab fa-twitter"></i>
+          {/* <i className="fab fa-twitter"></i> */}
+          <TwitterIcon />
         </button>
 
         {/* <!-- Instagram --> */}
         <button
-          className="btn border-0 p-0 shadow-none "
+          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnFacebook(window.location.href)}
         >
-          <i className="fab fa-facebook"></i>
+          <i className="fab fa-facebook tw-text-base"></i>
         </button>
         {/* <!-- Linkedin --> */}
         <button
-          className="btn border-0 p-0 shadow-none "
+          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnLinkedIn(window.location.href)}
         >
-          <i className="fab fa-linkedin-in"></i>
+          <i className="fab fa-linkedin-in tw-text-lg"></i>
+          {/* <Linkedin className="!tw-w-6 !tw-h-6" /> */}
         </button>
         <button
-          className="btn border-0 p-0 shadow-none "
+          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnWhatsApp(window.location.href)}
         >
-          <i className="fab fa-whatsapp"></i>
+          <i className="fab fa-whatsapp tw-text-lg"></i>
         </button>
         <button
-          className="btn border border-1 border-dark rounded-circle p-2-4 shadow-none cursor-copy ms-2"
+          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-0 !tw-py-0')}
           onClick={() => navigator.clipboard.writeText(window.location.href)}
         >
-          <i className="fa fa-link"></i>
+          {/* <i className="fa fa-link"></i> */}
+          <Link2 size={24} className="!tw-w-6 !tw-h-6" />
         </button>
       </div>
     </div>

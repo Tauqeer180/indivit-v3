@@ -140,6 +140,10 @@ code {
   box-shadow: 6px 6px 0px 0px var(--tw-shadow-color);
 
 }
+.shadow-theme-md {
+  box-shadow: 3px 3px 0px 0px var(--tw-shadow-color);
+
+}
 .shadow-theme-sm {
   box-shadow: 2px 2px 0px 0px var(--tw-shadow-color);
 

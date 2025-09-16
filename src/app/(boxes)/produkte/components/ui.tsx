@@ -15,6 +15,15 @@ import { IsInCart } from '@/components/common/utils'
 import { useCart } from 'react-use-cart'
 import { toast } from 'react-toastify'
 import { useAppSelector } from '@/redux/hooks'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export function WishlistButton({ boxData }) {
   const token = useAppSelector((state) => state?.account?.token)
@@ -28,6 +37,11 @@ export function WishlistButton({ boxData }) {
   const handleWishlist = (id) => {
     IsWishlist(1, boxData?.id, wishlist) ? setModalVisible(true) : addWishlist({ box_id: id })
   }
+  useEffect(() => {
+    if (isDone) {
+      setModalVisible(false)
+    }
+  }, [isDone])
   return (
     <>
       <ModalContainer isOpen={modalVisible} closeModal={() => setModalVisible(false)}>
@@ -40,8 +54,9 @@ export function WishlistButton({ boxData }) {
         />
       </ModalContainer>
       <button
-        className="btn btn-outline-success shadow-none rounded-pill mb-2"
+        className=" btn-outline tw-bg-transparent tw-shadow-theme !tw-text-theme"
         onClick={() => handleWishlist(boxData?.unique_id)}
+        type="button"
       >
         {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
         {isLoading ? (
@@ -101,21 +116,21 @@ export function PriceSection() {
     <div>
       {selectedSize && (
         <>
-          <span className=" d-flex align-items-baseline">
-            <span className={`fs-3 ${discount && 'text-decoration-line-through'} `}>
+          <span className=" tw-flex tw-items-baseline tw-text-theme">
+            <span className={`tw-text-[26px] ${discount && 'tw-line-through'} `}>
               {formatToGerman2(tempPrice)}
               &nbsp;€
             </span>
             {discount > 0 && (
-              <span className=" fs-3 ms-2">
+              <span className=" tw-text-[26px] tw-ms-2 tw-font-medium">
                 {formatToGerman2(tempPrice - (discount / 100) * tempPrice)}
                 &nbsp;€
               </span>
             )}
           </span>
           {/* Price Section */}
-          <span className=" d-flex align-items-baseline text-muted mb-3">
-            <span className={`${discount && 'text-decoration-line-through'} `}>
+          <span className=" tw-flex align-items-baseline tw-text-muted tw-mb-9">
+            <span className={`${discount && 'tw-line-through'} `}>
               {formatToGerman2(perLitterPrice)}&nbsp;€
             </span>
             {discount && (
@@ -131,7 +146,7 @@ export function PriceSection() {
                 data-bs-toggle="modal"
                 data-bs-target="#VATModal"
                 data-bs-whatever="@getbootstrap"
-                className="text-decoration-underline"
+                className="tw-font-bold "
               >
                 Versand
               </span>
@@ -224,46 +239,44 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
   }
   return (
     <>
-      <select
-        className="form-select flx-selectbox-style bg-transparent"
-        placeholder="Select Box Size"
-        // {...register("box_size", {
-        //   required: true,
-        // })}
-        onChange={(e) => setSelectedSize(e.target.value)}
-      >
-        <option value="">Wähle eine Variante aus</option>
-        {boxDescription
-          ?.sort(
-            (a, b) => parseInt(a?.smoothie_box_size?.size) - parseInt(b?.smoothie_box_size?.size)
-          )
-          ?.map(({ smoothie_box_size }, index) => {
-            return (
-              <option selected={index == 0 ? true : false} key={index} value={smoothie_box_size.id}>
-                {smoothie_box_size.label} ({smoothie_box_size.variant})
-              </option>
+      <Select onChange={(e) => setSelectedSize(e.target.value)}>
+        <SelectTrigger className="w-[180px] !tw-rounded-full tw-h-12 tw-px-5 tw-bg-white shadow-theme-sm tw-border-[#ccc] !tw-border-b-gray-50/70 tw-border-r-gray-50/70 tw-shadow-[#ccc] tw-text-base tw-font-medium">
+          <SelectValue placeholder="Wähle eine Variante aus" />
+        </SelectTrigger>
+        <SelectContent className="tw-bg-white">
+          {boxDescription
+            ?.sort(
+              (a, b) => parseInt(a?.smoothie_box_size?.size) - parseInt(b?.smoothie_box_size?.size)
             )
-          })}
-      </select>
+            ?.map(({ smoothie_box_size }, index) => {
+              return (
+                <SelectItem value={smoothie_box_size.id} key={index}>
+                  {smoothie_box_size.label} ({smoothie_box_size.variant})
+                </SelectItem>
+              )
+            })}
+        </SelectContent>
+      </Select>
       {errors?.box_size?.type === 'required' && (
         <div className="text-danger my-1">* Angabe notwendig</div>
       )}
 
-      <h5 className="pt-4">Das steckt drin</h5>
-      <div className="d-flex">
+      <h5 className="tw-mt-9">Das steckt drin</h5>
+      <div className="tw-flex tw-items-center">
         {selectedSize ? (
-          <button
-            className="flx-selectbox-btn"
+          <Button
+            variant="dark"
+            className=""
             data-bs-toggle="modal"
             data-bs-target="#viewBoxModal"
             data-bs-whatever="@getbootstrap"
           >
             Box öffnen
-          </button>
+          </Button>
         ) : (
-          <button onClick={handleSubmit(handleCart)} className="flx-selectbox-btn">
+          <Button onClick={handleSubmit(handleCart)} className="">
             Box öffnen
-          </button>
+          </Button>
         )}
 
         {Number(boxCategory?.is_customize) === 0 && (
@@ -277,13 +290,16 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
                   ? `/meine-smoothie-box/${boxData?.unique_id}/${selectedBoxData?.smoothie_box_size?.size}`
                   : `/meine-smoothie-box/${boxData?.unique_id}`
             }
-            className={`ms-2 btn flx-selectbox-btncustomize ${
-              selectedBoxData &&
-              parseInt(selectedBoxData?.box_status) !== 0 &&
-              selectedBoxData?.box_status !== null
-                ? 'pe-disable'
-                : ''
-            }`}
+            className={cn(
+              buttonVariants({ variant: 'secondary' }),
+              `ms-2  ${
+                selectedBoxData &&
+                parseInt(selectedBoxData?.box_status) !== 0 &&
+                selectedBoxData?.box_status !== null
+                  ? 'pe-disable'
+                  : ''
+              }`
+            )}
           >
             Customize
           </Link>
@@ -300,20 +316,23 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
       {Number(boxCategory?.is_subscription) === 0 && (
         <>
           <h5 className="pt-4">Wähle eine passende Kaufoption</h5>
-          <button
+          <Button
+            variant="dark"
             onClick={() => handleSubscriptionDiscount(null, false, subscriptionData)}
-            className={` ${subscriptionPlan ? 'flx-selectbox-btncustomize' : 'flx-selectbox-btn'}`}
+            // className={` ${subscriptionPlan ? 'flx-selectbox-btncustomize' : 'flx-selectbox-btn'}`}
           >
             Einmaliger Kauf
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="secondary"
             onClick={() => setSubscriptionPlan(true)}
-            className={`ms-2 ${
-              subscriptionPlan ? 'flx-selectbox-btn' : 'flx-selectbox-btncustomize'
-            }`}
+            className="tw-ms-3"
+            // className={`ms-2 ${
+            //   subscriptionPlan ? 'flx-selectbox-btn' : 'flx-selectbox-btncustomize'
+            // }`}
           >
             Box als Abo
-          </button>
+          </Button>
         </>
       )}
       <form
@@ -347,7 +366,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
             )}{' '}
           </>
         )}
-        <div className="d-flex mt-4 ">
+        <div className="tw-flex tw-items-center tw-mt-9 2xl:tw-gap-5 xl:tw-gap-4 md:tw-gap-3 tw-gap-2 ">
           <button
             disabled={
               selectedBoxData &&
@@ -355,11 +374,11 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
               selectedBoxData?.box_status !== null
             }
             onClick={handleSubmit(handleCart)}
-            className={`flx-selectbox-style bg-theme-success text-white border-0 fw-bold ${
+            className={`btn-theme ${
               selectedBoxData &&
               parseInt(selectedBoxData?.box_status) !== 0 &&
               selectedBoxData?.box_status !== null
-                ? 'pe-disable'
+                ? 'tw-pointer-events-none'
                 : ''
             }`}
             title="derzeit nicht verfügbar"
@@ -371,6 +390,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
             )}
             In den Warenkorb legen
           </button>
+          <WishlistButton boxData={boxData} />
         </div>
       </form>
     </>

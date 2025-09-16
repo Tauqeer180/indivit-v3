@@ -14,7 +14,8 @@ const config = {
         '3':"3px"
       },
       padding:{
-"2.5":"10px"
+"2.5":"10px",
+"0.5":"2px"
       },
       fontFamily: {
         Greycliff: ['Greycliff CF', 'sans-serif'],
@@ -27,7 +28,8 @@ const config = {
         theme: "#81CA00",
         "theme-orange": "#FE6703",
         "light-green": "#C2ECB4",
-        "dark":"#212529"
+        "dark":"#212529",
+        "muted":"#4B5563"
       },
       boxShadow: {
         around: "0 0 25px -5px rgba(0, 0, 0, 0.1)", // Customize as needed

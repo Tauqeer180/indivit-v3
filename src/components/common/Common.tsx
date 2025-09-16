@@ -61,7 +61,7 @@ export function ShowMoreBtn({ show, setShow, list }) {
   )
 }
 
-export const BreadCrumb = ({ name }) => {
+export const BreadCrumb = ({ name, list }: { name: string; list?: any }) => {
   return (
     <nav
       aria-label="breadcrumb"
@@ -69,11 +69,26 @@ export const BreadCrumb = ({ name }) => {
     >
       <ol className=" tw-justify-center tw-text-sm !tw-m-0 tw-font-semibold tw-flex tw-list-none tw-px-0 tw-gap-[6px]">
         <li className="">
-          <Link href="/" className="tw-no-underline tw-text-dark">
+          <Link href="/" className="tw-no-underline tw-text-dark hover:tw-text-theme">
             Home
           </Link>
         </li>
         <li className="tw-font-bold">{' >'}</li>
+        {list &&
+          list?.name &&
+          list?.map((item, index) => (
+            <>
+              <li className="">
+                <Link
+                  href={item?.link || ''}
+                  className="tw-no-underline tw-text-dark hover:tw-text-theme"
+                >
+                  {item?.name}
+                </Link>
+              </li>
+              <li className="tw-font-bold">{' >'}</li>
+            </>
+          ))}
         <li className="tw-text-theme" aria-current="page">
           {name}
         </li>

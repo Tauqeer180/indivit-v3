@@ -1,7 +1,7 @@
 import VATModal from '@/components/Modal/VATModal'
 import { baseURL, fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
-import React from 'react'
+import React, { Suspense } from 'react'
 import BoxUiBanner from '../components/BoxUiBanner'
 import ViewBoxPopup from '../components/ViewBoxPopup'
 import StarRating from '@/components/StarRating'
@@ -16,6 +16,9 @@ import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import SEOSchema, { generateWebPageSchema } from '../components/SEOSchema'
 import Head from 'next/head'
 import Script from 'next/script'
+import { BreadCrumb } from '@/components/common/Common'
+import { H1 } from '@/components/common/Typography'
+import Image from 'next/image'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -95,7 +98,7 @@ export default async function page({ params }: any) {
 
   let subscriptionRes = await fetcher(`subscription/period`, {
     token,
-    // cache: true,
+    cache: true,
     revalidate: 86400,
   })
   let subscriptionData = subscriptionRes?.data
@@ -145,67 +148,58 @@ export default async function page({ params }: any) {
       <ViewBoxPopup />
       <VATModal />
 
-      <section id="flx-hero-boxui">
+      <section className="tw-pt-36 tw-bg-[#bfeab3]">
         <div className="container">
-          <div className="">
-            <nav aria-label="breadcrumb" className="px-0">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="breadcrumb-item">
-                  <Link href={'/' + (boxData?.box_category?.slug || 'produkte')}>
-                    {boxData?.box_category?.name}
-                  </Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  {boxData?.name}
-                </li>
-              </ol>
-            </nav>
-          </div>
-          {/* {JSON.stringify(boxData?.smoothie_box_descriptions?.[0], null, 2)} */}
-          <div className="row d-flex pt-0 pt-md-3">
-            <div className="col-12">
-              {boxData?.heading && <h1 className="tw-text-4xl">{boxData?.heading}</h1>}
+          <section className="">
+            <div className="">
+              <BreadCrumb
+                name={boxData?.name}
+                list={[{ name: boxCategory?.name, link: '/' + boxCategory?.slug }]}
+              />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <div className="carousel-inner pe-0 pe-md-5 ps-0 ps-md-5">
-                <ProductCarousel boxImage={boxImage} />
+            <div className="tw-pt-5  lg:tw-max-w-[1091px]">
+              {boxData?.heading && <H1 className=" ">{boxData?.heading}</H1>}{' '}
+            </div>
+          </section>
+
+          {/* {JSON.stringify(boxData?.smoothie_box_descriptions?.[0], null, 2)} */}
+          <div className="tw-bg-white tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-[22px] xl:tw-gap-8 tw-mt-4 tw-py-14 tw-px-10 tw-rounded-2xl shadow-theme-lg tw-shadow-[#ccc]">
+            <div className="">
+              <div className="carousel-inner tw-bg-theme tw-rounded-2xl tw-p-4">
+                <Suspense fallback={<div className="p-4">Loading profile...</div>}>
+                  <ProductCarousel boxImage={boxImage} />
+                </Suspense>
               </div>
 
               {Number(boxCategory?.is_subscription) === 0 && (
-                <div className="d-flex mt-2 mt-md-4 align-items-center">
-                  <img
+                <div className="tw-flex tw-mt-2 md:tw-mt-4 tw-items-center tw-gap-2 tw-bg-[#DCE9C7] shadow-theme-md tw-shadow-[#ccc] tw-rounded-[20px] tw-py-4 tw-px-3">
+                  <Image
                     className="img-fluid tw-w-10 xxs:tw-w-16 sm:tw-w-20 lg:tw-w-24"
                     src={'/assets/icon/discount.png'}
+                    width={70}
+                    height={50}
+                    alt="discount"
                   />
-                  <div className="ms-2">
-                    <h4 className="mb-0 sm:!tw-text-xl xxs:!tw-text-lg !tw-text-base fw-bold">
+                  <div className="">
+                    <h4 className="tw-mb-0 sm:!tw-text-lg  !tw-text-base fw-bold">
                       Jetzt Smoothie-Abo abschließen
                     </h4>
-                    <div className="tw-text-xs xxs:tw-text-sm text-muted mb-0">
+                    <div className="tw-text-xs xxs:tw-text-sm text-muted tw-mb-0">
                       Abonnement kann jederzeit pausiert oder gekündigt werden
                     </div>
                   </div>
                 </div>
               )}
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className="">
               <div className="text-left">
                 <div className="d-flex align-items-center">
-                  <span className="fs-2 fw-bold">
-                    {/* {boxLoading ? (
-                      <span class=" placeholder-glow d-inline-flex py-1 ">
-                        <span class="placeholder w-200px"></span>
-                      </span>
-                    ) : (
-                    )} */}
-                    {boxData?.name}
-                  </span>
+                  <span className="fs-2 fw-bold">{boxData?.name}</span>
                   {boxDescription?.length > 0 && boxDescription?.[0]?.created_by == 1 && (
                     // Means Created By User
-                    <span className={`badge rounded-pill text-uppercase bg-info ms-2`}>
+                    <span
+                      className={`tw-rounded-full tw-text-sm tw-font-bold tw-text-white tw-px-2 tw-py-0.5 tw-ms-2 tw-uppercase  tw-bg-cyan-400 shadow-theme-sm tw-shadow-dark`}
+                    >
                       {/* Customized */}
                       Maßgeschneidert
                     </span>
@@ -219,17 +213,7 @@ export default async function page({ params }: any) {
                     {boxData?.counts}&nbsp;Bewertungen)
                   </h6>
                 )}
-                {/* {selectedBoxData?.created_by == 0 && (
-                )} */}
-                {/* <button
-                  className="btn btn-success"
-                  onClick={() => dummyMutation.mutate()}
-                >
-                  Dummy Request
-                </button> */}
-                <div>
-                  <WishlistButton boxData={boxData} />
-                </div>
+
                 <AvailabilityBadge boxDescription={boxDescription} />
                 <PriceSection />
                 <BoxForm
