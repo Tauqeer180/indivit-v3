@@ -16,8 +16,8 @@ import { SEOSchema as SEOSchemaJSON } from '@/constant/SEOSchema'
 import dynamic from 'next/dynamic'
 // moment.locale('de');
 
-export const revalidate = 3600 * 4 // Revalidate every 4 hours
-export const dynamicParams = true // or false, to 404 on unknown paths
+// export const revalidate = 3600 * 4 // Revalidate every 4 hours
+// export const dynamicParams = true // or false, to 404 on unknown paths
 
 // export async function generateStaticParams() {
 //   let res = await fetcher('blogs?page=1&limit=5')

@@ -60,8 +60,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export const revalidate = 72000
-export const dynamicParams = true // or false, to 404 on unknown paths
+// export const revalidate = 72000
+// export const dynamicParams = true // or false, to 404 on unknown paths
 async function getIngredientsData() {
   const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
   return data

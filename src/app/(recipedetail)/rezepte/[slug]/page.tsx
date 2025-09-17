@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export const revalidate = 72000
-export const dynamicParams = true // or false, to 404 on unknown paths
+// export const revalidate = 72000
+// export const dynamicParams = true // or false, to 404 on unknown paths
 async function getRecipeList() {
   const data = await fetcher('get_smoothie', { cache: true, revalidate: 3600 })
   return data
