@@ -12,6 +12,7 @@ const config = {
       },
       borderRadius:{"2.5xl":"20px"},
       borderWidth:{
+        '1':'1px',
         '3':"3px"
       },
       padding:{

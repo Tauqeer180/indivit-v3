@@ -41,6 +41,7 @@ import ModalContainer from './Modal/ModalContainer'
 import ConfirmWishModal from './Modal/ConfirmWishModal'
 // import { addWishlistIngredient, addWishlistSmoothie } from '@/services/Wishlist'
 import useCheckStock from '@/hooks/useCheckStock'
+import { cn } from '@/lib/utils'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
 export function BoxCard({ data }) {
@@ -114,7 +115,7 @@ export function BoxCard({ data }) {
           </Link>{' '}
           <button
             type="button"
-            className=" shadow-theme-sm tw-w-12 tw-h-12 tw-rounded-full tw-border-b-0 tw-border-r-0 tw-bg-white  tw-border-[#CCCCCC] tw-shadow-[#CCC]"
+            className="  tw-w-12 tw-h-12 tw-rounded-full tw-border-solid tw-border-b-3 tw-border-r-3 tw-border-t-1 tw-border-l-1 tw-bg-white  tw-border-[#CCCCCC] "
             onClick={() => handleWishlistBox(data?.unique_id)}
           >
             {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
@@ -251,7 +252,7 @@ export function RecipeCard({
                 // type="button"
                 disabled={isLoading}
                 hidden={hideWishIcon}
-                className=" shadow-theme-sm tw-w-12 tw-h-12 tw-rounded-full tw-border-b-0 tw-border-r-0 tw-bg-white  tw-border-[#CCCCCC] tw-shadow-[#CCC]"
+                className="  tw-w-12 tw-h-12 tw-rounded-full tw-border-solid tw-border-b-3 tw-border-r-3 tw-border-t-1 tw-border-l-1 tw-bg-white  tw-border-[#CCCCCC] "
                 onClick={() => handleWishlistRecipe(data?.unique_id)}
               >
                 {isLoading ? (
@@ -264,7 +265,10 @@ export function RecipeCard({
                     loading="lazy"
                   />
                 ) : (
-                  <Heart filled={IsWishlist(0, data?.id, wishlist)} />
+                  <Heart
+                    filled={IsWishlist(0, data?.id, wishlist)}
+                    // className={cn(filled && 'tw-text-theme')}
+                  />
                 )}
               </button>
             </div>
