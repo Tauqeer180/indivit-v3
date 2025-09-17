@@ -16,16 +16,16 @@ import { SEOSchema as SEOSchemaJSON } from '@/constant/SEOSchema'
 import dynamic from 'next/dynamic'
 // moment.locale('de');
 
-// export const revalidate = 3600 * 4 // Revalidate every 4 hours
-// export const dynamicParams = true // or false, to 404 on unknown paths
+export const revalidate = 3600 * 4 // Revalidate every 4 hours
+export const dynamicParams = true // or false, to 404 on unknown paths
 
-// export async function generateStaticParams() {
-//   let res = await fetcher('blogs?page=1&limit=5')
-//   console.log('posts data => ', res)
-//   return res?.data?.data?.map((post) => ({
-//     slug: String(post?.slug),
-//   }))
-// }
+export async function generateStaticParams() {
+  let res = await fetcher('blogs?page=1&limit=5')
+  console.log('posts data => ', res)
+  return res?.data?.data?.map((post) => ({
+    slug: String(post?.slug),
+  }))
+}
 
 // export async function generateStaticParams() {
 //   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api/client/blogs?page=1&limit=100`, {
