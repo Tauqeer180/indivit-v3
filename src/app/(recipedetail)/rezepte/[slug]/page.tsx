@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export const revalidate = 0
+export const revalidate = 72000
 export const dynamicParams = true // or false, to 404 on unknown paths
 async function getRecipeList() {
   const data = await fetcher('get_smoothie', { cache: true, revalidate: 3600 })
@@ -65,7 +65,7 @@ export default async function page({ params }: { params: { slug: string } }) {
   //   Smoothies For Relative Section
   let smoothieData = await fetcher('get_smoothie', {
     token,
-    cache: false,
+    cache: true,
     tags: ['smoothieListing'],
   })
   const smoothiesListing = smoothieData?.smoothies
@@ -73,7 +73,7 @@ export default async function page({ params }: { params: { slug: string } }) {
   let smoothieByIdData
   smoothieByIdData = await fetcher(`r/slug/${smoothieId}`, {
     token,
-    cache: false,
+    cache: true,
     tags: [smoothieId],
   })
   //   if data not available on ID then search Slug
