@@ -10,6 +10,7 @@ const config = {
         xxs: "480px",
         "2xl": "1400px",
       },
+      borderRadius:{"2.5xl":"20px"},
       borderWidth:{
         '3':"3px"
       },
@@ -28,6 +29,7 @@ const config = {
         theme: "#81CA00",
         "theme-orange": "#FE6703",
         "light-green": "#C2ECB4",
+        "tea-green":"#DCE9C7",
         "dark":"#212529",
         "muted":"#4B5563"
       },
