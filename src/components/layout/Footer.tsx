@@ -26,7 +26,7 @@ export default async function Footer() {
       {/* <FooterTop /> */}
       {/* {JSON.stringify(categories)} */}
       <div className="tw-relative">
-        <footer className="tw-relative container">
+        <footer className="tw-relative container tw-z-[1]">
           <div className="">
             <section className="tw-relative tw-w-full  tw-rounded-3xl tw-overflow-hidden sm:tw-aspect-[1280/520]">
               {/* Background Image */}
