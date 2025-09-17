@@ -83,13 +83,13 @@ async function getBoxList() {
   const data = await fetcher('smoothie_box_description', { cache: true, revalidate: 3600 })
   return data
 }
-export async function generateStaticParams() {
-  const posts = await getBoxList()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
-  return posts?.data?.map((post: any) => ({
-    slug: post?.slug || post?.unique_id,
-  }))
-}
+// export async function generateStaticParams() {
+//   const posts = await getBoxList()
+//   // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+//   return posts?.data?.map((post: any) => ({
+//     slug: post?.slug || post?.unique_id,
+//   }))
+// }
 export default async function page({ params }: any) {
   let { slug } = params
   const id = slug?.split('_').pop()

@@ -66,13 +66,13 @@ async function getIngredientsData() {
   const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
   return data
 }
-export async function generateStaticParams() {
-  const posts = await getIngredientsData()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
-  return posts?.ingredient?.map((post: any) => ({
-    slug: post?.slug || post?.unique_id,
-  }))
-}
+// export async function generateStaticParams() {
+//   const posts = await getIngredientsData()
+//   // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+//   return posts?.ingredient?.map((post: any) => ({
+//     slug: post?.slug || post?.unique_id,
+//   }))
+// }
 
 export default async function Page({ params }) {
   const { slug } = params

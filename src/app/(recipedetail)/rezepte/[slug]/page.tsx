@@ -49,13 +49,13 @@ async function getRecipeList() {
   const data = await fetcher('get_smoothie', { cache: true, revalidate: 3600 })
   return data
 }
-export async function generateStaticParams() {
-  const posts = await getRecipeList()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
-  return posts?.smoothies?.map((post: any) => ({
-    slug: post?.slug || post?.unique_id,
-  }))
-}
+// export async function generateStaticParams() {
+//   const posts = await getRecipeList()
+//   // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+//   return posts?.smoothies?.map((post: any) => ({
+//     slug: post?.slug || post?.unique_id,
+//   }))
+// }
 
 export default async function page({ params }: { params: { slug: string } }) {
   const smoothieId = params?.slug // `slug` should match the dynamic folder name
