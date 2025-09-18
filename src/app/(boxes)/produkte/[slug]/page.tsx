@@ -18,6 +18,21 @@ import Head from 'next/head'
 import Script from 'next/script'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
+export const revalidate = 72000
+export const dynamicParams = true // or false, to 404 on unknown paths
+
+// async function getBoxList() {
+//   const data = await fetcher('smoothie_box_description', { cache: true, revalidate: 3600 })
+//   return data
+// }
+export async function generateStaticParams() {
+  const posts = await fetcher('smoothie_box_description')
+  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  return posts?.data?.map((post: any) => ({
+    slug: post?.slug || post?.unique_id,
+  }))
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
   // const decodedSlug = decodeURIComponent(slug)
@@ -74,19 +89,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export const revalidate = 72000
-export const dynamicParams = true // or false, to 404 on unknown paths
-async function getBoxList() {
-  const data = await fetcher('smoothie_box_description', { cache: true, revalidate: 3600 })
-  return data
-}
-export async function generateStaticParams() {
-  const posts = await getBoxList()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
-  return posts?.data?.map((post: any) => ({
-    slug: post?.slug || post?.unique_id,
-  }))
-}
 export default async function page({ params }: any) {
   let { slug } = params
   const id = slug?.split('_').pop()
