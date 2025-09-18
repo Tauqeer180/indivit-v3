@@ -162,12 +162,14 @@ export function RecipeCard({
   hideWishIcon,
   action,
   actionTitle,
+  className,
 }: {
   isButton: boolean
   data: any
   hideWishIcon?: boolean
   action: any
   actionTitle: any
+  className: any
 }) {
   const token = useAppSelector((state) => state?.account?.token)
 
@@ -209,7 +211,12 @@ export function RecipeCard({
           okLabel="Klingt gut"
         />
       </ModalContainer>
-      <div className="tw-bg-white tw-rounded-[20px] tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]">
+      <div
+        className={cn(
+          'tw-bg-white tw-rounded-[20px] tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]',
+          className
+        )}
+      >
         {data?.created_by == 1 && (
           <span className={`badge rounded-pill text-uppercase bg-info position-absolute start-10`}>
             Customized
@@ -217,7 +224,10 @@ export function RecipeCard({
         )}
 
         <div className="">
-          <Link href={action || ''} className="tw-border-none tw-bg-transparent tw-cursor-pointer ">
+          <Link
+            href={action || '#'}
+            className="tw-border-none tw-bg-transparent tw-cursor-pointer "
+          >
             <div className="position-relative">
               <Image
                 alt={data?.name}

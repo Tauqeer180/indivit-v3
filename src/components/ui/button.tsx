@@ -18,6 +18,7 @@ const buttonVariants = cva(
         ghost: 'hover:tw-bg-accent hover:tw-text-accent-foreground',
         link: 'tw-text-primary tw-underline-offset-4 hover:tw-underline',
         dark: 'tw-bg-dark tw-text-white hover:tw-bg-dark/90 shadow-theme-sm !tw-shadow-muted tw-border-0 !tw-rounded-full',
+        none: '!tw-px-0 !tw-py-0 tw-bg-transparent tw-border-none',
       },
       size: {
         default: 'tw-h-10 tw-px-4 tw-py-2',

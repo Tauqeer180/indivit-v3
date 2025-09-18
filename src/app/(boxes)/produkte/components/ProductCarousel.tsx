@@ -31,26 +31,26 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     carouselState: { currentSlide },
   } = rest
   return (
-    <div className=" tw-top-[45%] position-absolute  w-100 ">
+    <div className=" tw-top-[45%] tw-absolute  tw-w-full tw-z-10 ">
       <button
-        className=" btn position-absolute md:-tw-start-12 tw-start-0 px-0 shadow-none"
+        className=" btn tw-absolute md:tw-left-1 tw-left-0 px-0 shadow-none "
         onClick={() => previous()}
       >
         <img
           height="35px"
           width="35px"
-          className="img-fluid  tw-opacity-50 hover:tw-opacity-100 !tw-duration-300"
+          className="img-fluid  tw-opacity-90 hover:tw-opacity-100 !tw-duration-300"
           src={'/assets/object/left.png'}
         />
       </button>
       <button
-        className="btn position-absolute   md:-tw-end-12 tw-end-0 px-0 shadow-none"
+        className="btn tw-absolute   md:tw-right-1 tw-right-0 px-0 shadow-none"
         onClick={() => next()}
       >
         <img
           height="35px"
           width="35px"
-          className="img-fluid   tw-opacity-50 hover:tw-opacity-100 !tw-duration-300"
+          className="img-fluid   tw-opacity-80 hover:tw-opacity-100 !tw-duration-300"
           src={'/assets/object/right.png'}
         />
       </button>
@@ -74,7 +74,7 @@ export default function ProductCarousel({ boxImage }) {
         {boxImage && boxImage?.length > 0 ? (
           boxImage?.map((e, i) => {
             return (
-              <div className={' ' + (i == 0 ? 'active' : '')}>
+              <div className={' tw-p-4' + (i == 0 ? 'active' : '')}>
                 <img
                   src={e?.images && e?.images ? baseURL + 'smoothie_box/' + e?.images : commonImg}
                   className="d-block w-100 max-h-600 img-fluid"

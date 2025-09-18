@@ -4,22 +4,35 @@ import React, { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import { useBoxDetail } from './useBoxDetail'
 import CustomSmoothieDetailPopup from '@/components/CustomSmoothieDetailPopup'
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 
 const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
   const {
     carouselState: { currentSlide },
   } = rest
   return (
-    <div className="carousel-button-group position-absolute  w-100 ">
-      <button
-        className=" btn position-absolute start-0 px-0 shadow-none"
-        onClick={() => previous()}
-      >
-        <img height="114px" width="62px" className="img-fluid " src={'/assets/img/right.png'} />
-      </button>
-      <button className="btn position-absolute end-0 px-0 shadow-none" onClick={() => next()}>
-        <img height="114px" width="62px" className="img-fluid " src={'/assets/img/left.png'} />
-      </button>
+    <div className="tw-absolute tw-top-0 tw-right-0 tw-w-32">
+      <div className="tw-flex tw-items-center tw-gap-6">
+        <Button variant="none" className=" " onClick={() => previous()}>
+          <Image
+            height={35}
+            width={35}
+            className="tw-object-contain tw-invert  tw-rotate-180"
+            src={'/assets/icon/arrow-right-theme.png'}
+            alt="previous btn"
+          />
+        </Button>
+        <Button variant="none" onClick={() => next()}>
+          <Image
+            height={35}
+            width={35}
+            className="tw-object-contain  tw-invert"
+            src={'/assets/icon/arrow-right-theme.png'}
+            alt="next btn"
+          />
+        </Button>
+      </div>
     </div>
   )
 }
@@ -51,21 +64,23 @@ export default function SmoothiesCarousel() {
       {modalData && (
         <CustomSmoothieDetailPopup data={modalData} ingredients={modalData?.smoothie_ingredient} />
       )}
-      <section id="flx-vue-slider">
-        <div className="pt-5">
-          <div className="container-fluid px-0">
-            <div className="flx-vue-width">
-              <h2 className="text-center" data-aos="fade-up" data-aos-duration="1000">
-                {/* thant's in it */}
-                Das steckt drin
-              </h2>
-            </div>
+      <section>
+        <div className="tw-py-28 ">
+          <div className="container tw-relative">
+            <h2
+              className="tw-text-5xl tw-font-extrabold"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              {/* thant's in it */}
+              Das steckt drin
+            </h2>
 
-            <div className=" m-auto position-relative ">
+            <div className=" tw-mt-8 ">
               <Carousel
                 responsive={responsive}
-                itemclassName="px-5"
-                autoPlay={true}
+                itemClass="tw-px-2"
+                autoPlay={false}
                 arrows={false}
                 renderButtonGroupOutside={true}
                 customButtonGroup={<ButtonGroup />}
@@ -81,8 +96,9 @@ export default function SmoothiesCarousel() {
                           data-bs-target="#exampleModal"
                           data-bs-whatever="@getbootstrap"
                           key={index}
+                          className="tw-pb-2"
                         >
-                          <RecipeCard isButton={false} data={smoothie} />
+                          <RecipeCard isButton={false} data={smoothie} className="!tw-bg-tea-green" />
                         </div>
                       )
                     })

@@ -9,7 +9,7 @@ import { useBoxDetail } from './useBoxDetail'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import ConfirmWishModal from '@/components/Modal/ConfirmWishModal'
 import { formatToGerman2 } from '@/utils/germanFormat'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import Link from 'next/link'
 import { IsInCart } from '@/components/common/utils'
 import { useCart } from 'react-use-cart'
@@ -175,9 +175,10 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
     perLitterPrice,
   } = useBoxDetail()
   const {
-    register,
     handleSubmit,
     formState: { errors },
+    control,
+    reset,
   } = useForm()
 
   const handleSubscriptionId = (val) => {
@@ -211,6 +212,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
       image: boxImage[0]?.images,
     })
     toast.success('Deine Box liegt jetzt im Warenkorb')
+    reset()
     // Added to Cart Successfuly
   }
   const handleSubscriptionDiscount = (val, plan) => {
@@ -239,8 +241,8 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
   }
   return (
     <>
-      <Select onChange={(e) => setSelectedSize(e.target.value)}>
-        <SelectTrigger className="w-[180px] !tw-rounded-full tw-h-12 tw-px-5 tw-bg-white shadow-theme-sm tw-border-[#ccc] !tw-border-b-gray-50/70 tw-border-r-gray-50/70 tw-shadow-[#ccc] tw-text-base tw-font-medium">
+      <Select name="boxSize" onValueChange={(e) => setSelectedSize(e)}>
+        <SelectTrigger className="tw-max-w-md !tw-rounded-full tw-h-12 tw-px-5 tw-bg-white shadow-theme-sm tw-border-[#ccc] !tw-border-b-gray-50/70 tw-border-r-gray-50/70 tw-shadow-[#ccc] tw-text-base tw-font-medium">
           <SelectValue placeholder="Wähle eine Variante aus" />
         </SelectTrigger>
         <SelectContent className="tw-bg-white">
@@ -317,14 +319,14 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
         <>
           <h5 className="pt-4">Wähle eine passende Kaufoption</h5>
           <Button
-            variant="dark"
+            variant={subscriptionPlan ? 'secondary' : 'dark'}
             onClick={() => handleSubscriptionDiscount(null, false, subscriptionData)}
             // className={` ${subscriptionPlan ? 'flx-selectbox-btncustomize' : 'flx-selectbox-btn'}`}
           >
             Einmaliger Kauf
           </Button>
           <Button
-            variant="secondary"
+            variant={subscriptionPlan ? 'dark' : 'secondary'}
             onClick={() => setSubscriptionPlan(true)}
             className="tw-ms-3"
             // className={`ms-2 ${
@@ -342,31 +344,41 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
         {Number(boxCategory?.is_subscription) === 0 && (
           <>
             {subscriptionPlan && (
-              <>
-                <select
-                  className="form-select flx-selectbox-style bg-transparent mt-4"
-                  {...register('subscription', {
-                    required: true,
-                    onChange: (e) => handleSubscriptionId(e.target.value),
-                  })}
-                >
-                  <option value="">Lieferintervall</option>
-                  {subscriptionData?.map((d, i) => {
-                    return (
-                      <option key={i} value={d?.id}>
-                        {d?.name}
-                      </option>
-                    )
-                  })}
-                </select>
+              <div className="tw-mt-9">
+                <Controller
+                  name="subscription"
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <Select
+                      value={field.value}
+                      onValueChange={(val) => {
+                        field.onChange(val)
+                        handleSubscriptionId(val) // your custom handler
+                      }}
+                    >
+                      <SelectTrigger className="tw-max-w-md !tw-rounded-full tw-h-12 tw-px-5 tw-bg-white shadow-theme-sm tw-border-[#ccc] !tw-border-b-gray-50/70 tw-border-r-gray-50/70 tw-shadow-[#ccc] tw-text-base tw-font-medium">
+                        <SelectValue placeholder="Lieferintervall" />
+                      </SelectTrigger>
+                      <SelectContent className="tw-bg-white">
+                        {subscriptionData?.map((d, index) => (
+                          <SelectItem value={d?.id?.toString()} key={index}>
+                            {d.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
+                />
+
                 {errors?.subscription?.type === 'required' && (
                   <div className="text-danger my-1">* Angabe notwendig</div>
                 )}
-              </>
+              </div>
             )}{' '}
           </>
         )}
-        <div className="tw-flex tw-items-center tw-mt-9 2xl:tw-gap-5 xl:tw-gap-4 md:tw-gap-3 tw-gap-2 ">
+        <div className="tw-flex tw-flex-wrap tw-items-center tw-mt-9 2xl:tw-gap-5 xl:tw-gap-4 md:tw-gap-3 tw-gap-2 ">
           <button
             disabled={
               selectedBoxData &&

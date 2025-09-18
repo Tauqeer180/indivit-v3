@@ -8,7 +8,11 @@ import StarRating from '@/components/StarRating'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { AvailabilityBadge, BoxForm, PriceSection, WishlistButton } from '../components/ui'
 import ShareButtons from '@/components/common/ShareButtons'
-import ProductCarousel from '../components/ProductCarousel'
+// import ProductCarousel from '../components/ProductCarousel'
+const ProductCarousel = dynamic(() => import('../components/ProductCarousel'), {
+  // This is the key. It prevents the component from being rendered on the server.
+  ssr: false,
+})
 import dynamic from 'next/dynamic'
 import SmoothiesCarousel from '../components/SmoothiesCarousel'
 import Link from 'next/link'
@@ -148,7 +152,7 @@ export default async function page({ params }: any) {
       <ViewBoxPopup />
       <VATModal />
 
-      <section className="tw-pt-36 tw-bg-[#bfeab3]">
+      <section className="tw-pt-36 tw-bg-[#bfeab3] tw-pb-4">
         <div className="container">
           <section className="">
             <div className="">
@@ -165,7 +169,7 @@ export default async function page({ params }: any) {
           {/* {JSON.stringify(boxData?.smoothie_box_descriptions?.[0], null, 2)} */}
           <div className="tw-bg-white tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-[22px] xl:tw-gap-8 tw-mt-4 tw-py-14 tw-px-10 tw-rounded-2xl shadow-theme-lg tw-shadow-[#ccc]">
             <div className="">
-              <div className="carousel-inner tw-bg-theme tw-rounded-2xl tw-p-4">
+              <div className="carousel-inner tw-bg-theme tw-rounded-2xl ">
                 <Suspense fallback={<div className="p-4">Loading profile...</div>}>
                   <ProductCarousel boxImage={boxImage} />
                 </Suspense>
@@ -223,35 +227,7 @@ export default async function page({ params }: any) {
                   subscriptionData={subscriptionData}
                   boxImage={boxImage}
                 />
-                {/* <select
-                  className="form-select flx-selectbox-style bg-transparent"
-                  placeholder="Select Box Size"
-                  // {...register("box_size", {
-                  //   required: true,
-                  // })}
-                  onChange={(e) => setSelectedSize(e.target.value)}
-                >
-                  <option value="">Wähle eine Variante aus</option>
-                  {boxDescription
-                    ?.sort(
-                      (a, b) =>
-                        parseInt(a?.smoothie_box_size?.size) - parseInt(b?.smoothie_box_size?.size)
-                    )
-                    ?.map(({ smoothie_box_size }, index) => {
-                      return (
-                        <option
-                          selected={index == 0 ? true : false}
-                          key={index}
-                          value={smoothie_box_size.id}
-                        >
-                          {smoothie_box_size.label} ({smoothie_box_size.variant})
-                        </option>
-                      )
-                    })}
-                </select>
-                {errors?.box_size?.type === 'required' && (
-                  <p className="text-danger my-1">* Angabe notwendig</p>
-                )} */}
+
                 {/*  */}
                 <ShareButtons />
               </div>
@@ -262,23 +238,7 @@ export default async function page({ params }: any) {
           <MarkdownDisplay>
             {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
           </MarkdownDisplay>
-          {/* <div
-            dangerouslySetInnerHTML={{
-              __html: boxDescription?.length > 0 && boxDescription?.[0]?.detail,
-            }}
-          ></div> */}
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          style={{ background: `linear-gradient(0deg, #FE6703 5%, transparent 5%)` }}
-        >
-          <path
-            fill="#FE6703"
-            fillOpacity="1"
-            d="M0,224L60,224C120,224,240,224,360,197.3C480,171,600,117,720,112C840,107,960,149,1080,165.3C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-          ></path>
-        </svg>
       </section>
 
       {/* Banner Section Start */}
