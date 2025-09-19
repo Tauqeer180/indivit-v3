@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../ui/button'
 
 export default function ConfirmModal({
   action,
@@ -15,14 +16,16 @@ export default function ConfirmModal({
 }) {
   return (
     <>
-      <button
-        className={`btn btn-outline-danger p-10-25 mx-2 rounded-8 shadow-none ${className} `}
+      <Button
+        variant="destructive"
+        className="btn-outline !tw-h-fit"
+        // className={`btn btn-outline-danger p-10-25 mx-2 rounded-8 shadow-none ${className} `}
         data-bs-toggle="modal"
         data-bs-target="#confirmModal"
         type="button"
       >
         Löschen
-      </button>
+      </Button>
 
       {/* <!-- Confirm Popup Modal --> */}
       <div

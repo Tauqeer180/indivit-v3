@@ -75,7 +75,7 @@ export const BreadCrumb = ({ name, list }: { name: string; list?: any }) => {
         </li>
         <li className="tw-font-bold">{' >'}</li>
         {list &&
-          list?.name &&
+          list?.length > 0 &&
           list?.map((item, index) => (
             <>
               <li className="">

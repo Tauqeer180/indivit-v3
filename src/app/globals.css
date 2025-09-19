@@ -147,7 +147,7 @@ a {
 
 }
 .shadow-theme-md {
-  box-shadow: 3px 3px 0px 0px var(--tw-shadow-color);
+  box-shadow: 3px 3px 0px 0px var(--tw-shadow-color) !important;
 
 }
 .shadow-theme-sm {

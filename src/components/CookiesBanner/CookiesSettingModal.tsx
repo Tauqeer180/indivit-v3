@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+'use client'
+import React, { useState } from 'react'
 
-export default function CookiesSettingModal({
-  data,
-  openCookieModal,
-  handleAccept,
-}) {
-  const [selected, setSelected] = useState(0);
-  let inputs = (data && data?.inputs && JSON?.parse(data?.inputs)) || [];
+export default function CookiesSettingModal({ data, openCookieModal, handleAccept }) {
+  const [selected, setSelected] = useState(0)
+  let inputs = (data && data?.inputs && JSON?.parse(data?.inputs)) || []
   return (
     <>
       <div
         className=" position-fixed top-0 bottom-0 w-100 "
         style={{
           zIndex: 999999,
-          overflow: "hidden",
-          backgroundColor: "#00000080",
+          overflow: 'hidden',
+          backgroundColor: '#00000080',
         }}
       >
         <div className="h-100 d-flex align-items-center">
@@ -36,29 +33,27 @@ export default function CookiesSettingModal({
                           <div
                             onClick={() => setSelected(i)}
                             className={`p-0 border-bottom border-top cursor-pointer ${
-                              selected == i
-                                ? " border-dark "
-                                : "bg-secondary-opacity"
+                              selected == i ? ' border-dark ' : 'bg-secondary-opacity'
                             } `}
                           >
                             <div
                               className={`border-start border-5 p-2 ${
-                                selected == i ? "border-success" : "border-none"
+                                selected == i ? 'border-success' : 'border-none'
                               } `}
                             >
                               {d?.field}
                             </div>
                           </div>
-                        );
+                        )
                       })}
                     </div>
                   </div>
                   <div className="col-md-9 pe-md-5">
                     {inputs?.map((d, i) => {
                       return (
-                        <div className={`${selected == i ? "" : "d-none"}`}>
+                        <div className={`${selected == i ? '' : 'd-none'}`}>
                           <div className="fs-6 fw-bold d-flex justify-content-between">
-                            {d?.field}{" "}
+                            {d?.field}{' '}
                             <div class="form-check form-switch">
                               <input
                                 class="form-check-input"
@@ -71,7 +66,7 @@ export default function CookiesSettingModal({
                           </div>
                           <div>{d?.value}</div>
                         </div>
-                      );
+                      )
                     })}
                   </div>
                 </div>
@@ -96,5 +91,5 @@ export default function CookiesSettingModal({
         </div>
       </div>
     </>
-  );
+  )
 }

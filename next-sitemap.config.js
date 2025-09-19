@@ -81,7 +81,20 @@ module.exports = {
           lastmod: new Date().toISOString(),
         })) || []
 
-      const allPaths = [...productPaths, ...recipePaths, ...categoryPaths]
+      // Fetch blogs
+      const blogRes = await fetch('https://admin.indivit.de/api/client/blogs')
+      console.log('blog fetch response status:', blogRes.status)
+      const blogData = await blogRes.json()
+      console.log('blog API data:', blogData?.data?.data?.length, 'blog found')
+      const blogPaths =
+        blogData?.data?.data?.map((blog) => ({
+          loc: `/blog/${blog.slug}`,
+          changefreq: 'daily',
+          priority: 0.7,
+          lastmod: new Date().toISOString(),
+        })) || []
+
+      const allPaths = [...productPaths, ...recipePaths, ...categoryPaths, ...blogPaths]
       console.log('Total generated paths:', allPaths.length)
       return allPaths
     } catch (error) {

@@ -33,7 +33,8 @@ const config = {
         "tea-green":"#DCE9C7",
         "dark":"#212529",
         "muted":"#4B5563",
-        "light-orange":"#faf4d1"
+        "light-orange":"#faf4d1",
+        "green":"#bfeab3",
       },
       boxShadow: {
         around: "0 0 25px -5px rgba(0, 0, 0, 0.1)", // Customize as needed

@@ -1,5 +1,6 @@
 import React from 'react'
 import ToolTip from './ToolTip'
+import { InfoIcon } from 'lucide-react'
 // import "rc-tooltip/assets/bootstrap.css";
 
 interface ProgressBarElementProps {
@@ -68,10 +69,10 @@ export default function ProgressBarElement({
       <div className="row pt-4">
         {ingredient ? (
           <div className="col-6 order-md-0 order-0 col-md-3 d-flex justify-content-md-between justify-content-start align-items-center flx-rdetailed-probar">
-            <p className="fw-bold text-capitalize text-truncate" title={name}>
+            <p className="fw-bold tw-capitalize tw-truncate tw-mb-0" title={name}>
               {name}
             </p>
-            <span className=" ms-md-0 ms-3 mb-3">
+            <span className=" ms-md-0 ms-3">
               <ToolTip
                 title={name}
                 label={
@@ -82,10 +83,11 @@ export default function ProgressBarElement({
                       : ingredientData
                 }
               >
+                {/* <InfoIcon fill="red" stroke="green" /> */}
                 <img
                   src="/assets/icon/allingredientsinfo.png"
                   alt=""
-                  className="img-fluid "
+                  className="img-fluid tw-invert tw-opacity-90"
                   width="18"
                   loading="lazy"
                 />
@@ -101,7 +103,7 @@ export default function ProgressBarElement({
         )}
         <div className="col-12 order-md-1 order-2 col-md-7  flx-rdetailed-probar">
           <div
-            className="progress position-relative"
+            className="progress position-relative !tw-rounded-full !tw-h-5"
             role="progressbar"
             aria-label="Success example"
             aria-valuenow="75"
@@ -109,10 +111,10 @@ export default function ProgressBarElement({
             aria-valuemax="100"
           >
             <div
-              className={'progress-bar '}
+              className={'progress-bar tw-h-5 tw-rounded-full'}
               style={{
                 width: `${parseFloat(value).toFixed(1)}%`,
-                backgroundColor: color ? color : 'green',
+                backgroundColor: color ? color : '#81CA00',
               }}
             ></div>
           </div>

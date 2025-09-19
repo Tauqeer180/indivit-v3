@@ -56,7 +56,7 @@ export default function TasteSection({ data, basiColor, suggest }) {
           data?.sweet > 5.0 ? 5.0 : data?.sweet
         )} / ${formatToGerman1(5.0)}`}
         // if Value Exceeds Convert it to 5.0 Ref 2024-01-27 page 4
-        color={basiColor ? basiColor : sweetColor ? sweetColor : 'green'}
+        color={basiColor ? basiColor : sweetColor ? sweetColor : '#81CA00'}
         suggest={suggest == 'no' ? suggest : ''}
         ingredient={true}
         tasteTool={true}
@@ -68,7 +68,7 @@ export default function TasteSection({ data, basiColor, suggest }) {
         label={`${formatToGerman1(
           data?.sauer > 5.0 ? 5.0 : data?.sauer
         )} / ${formatToGerman1(5.0)}`}
-        color={basiColor ? basiColor : SourColor ? SourColor : 'green'}
+        color={basiColor ? basiColor : SourColor ? SourColor : '#81CA00'}
         suggest={suggest == 'no' ? suggest : ''}
         ingredient={true}
         tasteTool={true}
@@ -80,7 +80,7 @@ export default function TasteSection({ data, basiColor, suggest }) {
         label={`${formatToGerman1(
           data?.bitter > 5.0 ? 5.0 : data?.bitter
         )} / ${formatToGerman1(5.0)}`}
-        color={basiColor ? basiColor : bitterColor ? bitterColor : 'green'}
+        color={basiColor ? basiColor : bitterColor ? bitterColor : '#81CA00'}
         suggest={suggest == 'no' ? suggest : ''}
         ingredient={true}
         tasteTool={true}
@@ -92,7 +92,7 @@ export default function TasteSection({ data, basiColor, suggest }) {
         label={`${formatToGerman1(
           data?.intensity > 5.0 ? 5.0 : data?.intensity
         )} / ${formatToGerman1(5.0)}`}
-        color={basiColor ? basiColor : intensityColor ? intensityColor : 'green'}
+        color={basiColor ? basiColor : intensityColor ? intensityColor : '#81CA00'}
         suggest={suggest == 'no' ? suggest : ''}
         ingredient={true}
         tasteTool={true}
@@ -104,7 +104,7 @@ export default function TasteSection({ data, basiColor, suggest }) {
         label={`${formatToGerman1(
           data?.creaming > 5.0 ? 5.0 : data?.creaming
         )} / ${formatToGerman1(5.0)}`}
-        color={basiColor ? basiColor : creamyColor ? creamyColor : 'green'}
+        color={basiColor ? basiColor : creamyColor ? creamyColor : '#81CA00'}
         suggest={suggest == 'no' ? suggest : ''}
         ingredient={true}
         tasteTool={true}

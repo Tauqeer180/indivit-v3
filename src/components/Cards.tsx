@@ -42,6 +42,7 @@ import ConfirmWishModal from './Modal/ConfirmWishModal'
 // import { addWishlistIngredient, addWishlistSmoothie } from '@/services/Wishlist'
 import useCheckStock from '@/hooks/useCheckStock'
 import { cn } from '@/lib/utils'
+import { ChevronRight } from 'lucide-react'
 let profileIconStyle =
   'lg:tw-w-48 lg:tw-h-48 md:tw-w-40 md:tw-h-40 tw-w-32 tw-h-32 lg:-tw-mt-24 md:-tw-mt-20 -tw-mt-16 tw-rounded-full tw-object-cover tw-object-center tw-border-solid tw-border-[10px] tw-border-white'
 export function BoxCard({ data }) {
@@ -669,9 +670,9 @@ export function IngrListforReci({ data }) {
       <p>
         <Link
           href={`/ernaehrung/${data?.ingredient?.slug || data?.ingredient?.unique_id}`}
-          className="text-dark text-decoration-none hover-green"
+          className="tw-text-dark tw-decoration-transparent hover:!tw-text-theme"
         >
-          {data?.ingredient?.name} &nbsp;
+          <ChevronRight strokeWidth={3} /> {data?.ingredient?.name} &nbsp;
           {formatToGerman1(data?.value_in_percentage)}%
         </Link>
         {statusLabel && parseInt(data?.ingredient_status) != 0 && (
