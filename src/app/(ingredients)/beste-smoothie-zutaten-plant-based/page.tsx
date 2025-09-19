@@ -8,6 +8,7 @@ import { BreadCrumb } from '@/components/common/Common'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 // Ingredients page
 
 async function getIngredientsData() {
@@ -64,128 +65,68 @@ export default async function Ingredients() {
         }}
       />
       {/* <!-- hero banner start--> */}
-      <HeroBanner
-        data={{
-          title: 'Welche Zutaten sind im Smoothie?',
-          description:
-            'Unsere vitalen und lebendigen Smoothie-Zutaten vereinen sich zu einem harmonischen Zusammenspiel von Aromen und Nährstoffen und sind ein köstlicher und erfrischender Genuss für deine Geschmacksnerven und deine Gesundheit. Für jede unserer Zutaten haben wir spannende Informationen für dich zusammengetragen – das sollte dir bei der Auswahl für deinen Smoothie helfen.',
-        }}
-        bgImg=" !tw-bg-mixer"
-        breadCrumb={<BreadCrumb name="Smoothie Zutaten" />}
-      />
-      {/* <!-- hero banner end--> */}
-      
+      <div className="tw-bg-green tw-pb-10">
+        <HeroBanner
+          data={{
+            title: 'Welche Zutaten sind im Smoothie?',
+            description:
+              'Unsere vitalen und lebendigen Smoothie-Zutaten vereinen sich zu einem harmonischen Zusammenspiel von Aromen und Nährstoffen und sind ein köstlicher und erfrischender Genuss für deine Geschmacksnerven und deine Gesundheit. Für jede unserer Zutaten haben wir spannende Informationen für dich zusammengetragen – das sollte dir bei der Auswahl für deinen Smoothie helfen.',
+          }}
+          bgImg=" !tw-bg-mixer"
+          breadCrumb={<BreadCrumb name="Smoothie Zutaten" />}
+        />
+        {/* <!-- hero banner end--> */}
 
-      {/* Tabs and Cards Section Start */}
+        {/* Tabs and Cards Section Start */}
 
-      <section id="flx-nav-pils" className="!tw-pt-10 ">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-12 col-lg-12">
-              <ul
-                className="nav nav-pills mb-5 justify-content-center flx-pils-btn"
-                id="pills-tab"
-                role="tablist"
-              >
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link active"
-                    id="pills-home-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#pills-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="pills-home"
-                    aria-selected="true"
-                  >
-                    Alle
-                  </button>
-                </li>
-
-                {categories?.map((categ) => {
+        <div className="container tw-pt-10">
+          <Tabs defaultValue="alle">
+            <TabsList className="tw-gap-4 tw-mb-14 tw-flex-wrap !tw-h-auto tw-bg-transparent ">
+              <TabsTrigger value="alle">Alle</TabsTrigger>
+              {categories?.map((categ, index) => {
+                return (
+                  <TabsTrigger key={index} value={categ?.name?.toLowerCase() + '-' + categ?.id}>
+                    {categ?.name}
+                  </TabsTrigger>
+                )
+              })}
+            </TabsList>
+            <TabsContent value="alle">
+              <div className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 ">
+                {ingredients?.map((ingred, index) => {
                   return (
-                    <li key={categ?.id} className="nav-item" role="presentation">
-                      <button
-                        className="nav-link"
-                        id="pills-fruit-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target={`#pills-ingredient-${categ.id}`}
-                        type="button"
-                        role="tab"
-                        aria-controls={`pills-ingredient-${categ.id}`}
-                        aria-selected="false"
-                      >
-                        {categ.name}
-                      </button>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className="tab-content" id="pills-tabContent">
-            {/* <!-- All tabs setting --> */}
-            <div
-              className="tab-pane fade show active"
-              id="pills-home"
-              role="tabpanel"
-              aria-labelledby="pills-home-tab"
-              tabIndex={0}
-            >
-              <div className="row g-4">
-                {ingredients?.map((ingred) => {
-                  return (
-                    <div
-                      key={ingred?.id}
-                      className="col-12 col-md-6 col-lg-4"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                    >
+                    <div className="" key={index} data-aos="fade-up" data-aos-duration="1000">
                       <IngredientCard data={ingred} />
                     </div>
                   )
                 })}
               </div>
-            </div>
-            {/* <!-- All tabs setting end --> */}
-            {/* <!-- ingredients tabs setting --> */}
+            </TabsContent>
 
-            {categories?.map((categ) => {
+            {categories?.map((categ, index) => {
               return (
-                <div
-                  key={categ.id}
-                  className="tab-pane fade"
-                  id={`pills-ingredient-${categ.id}`}
-                  role="tabpanel"
-                  //   aria-labelledby="pills-fruit-tab"
-                  tabIndex={categ.id}
-                >
-                  <div className="row g-4">
+                <TabsContent key={index} value={categ?.name?.toLowerCase() + '-' + categ?.id}>
+                  <div className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 " key={index}>
                     {ingredients
                       ?.filter((obj) => obj.category_id == categ.id)
                       .map((ingred) => {
                         return (
-                          <div
-                            key={ingred?.id}
-                            className="col-12 col-md-6 col-lg-4"
-                            data-aos="fade-up"
-                            data-aos-duration="1000"
-                          >
+                          <div key={ingred?.id} data-aos="fade-up" data-aos-duration="1000">
                             <IngredientCard data={ingred} />
                           </div>
                         )
                       })}
                   </div>
-                </div>
+                </TabsContent>
               )
             })}
-          </div>
+          </Tabs>
         </div>
-
-        <div className="container tw-mt-14">
-          <MarkdownDisplay>{IntroText?.ingredient_content_2}</MarkdownDisplay>
-        </div>
-        {/* <div className="d-flex justify-content-center mt-5">
+      </div>
+      <div className="container tw-mt-14">
+        <MarkdownDisplay>{IntroText?.ingredient_content_2}</MarkdownDisplay>
+      </div>
+      {/* <div className="d-flex justify-content-center mt-5">
           <ReactPaginate
             breakLabel="..."
             nextLabel={<i className="fa-solid fa-greater-than"></i>}
@@ -206,7 +147,6 @@ export default async function Ingredients() {
             breakLinkClassName="page-link"
           />
         </div> */}
-      </section>
       {/* Tabs and Cards Section END */}
     </div>
   )

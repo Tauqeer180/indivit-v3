@@ -9,6 +9,7 @@ import { baseURL, fetcher } from '@/lib/fetcher'
 import { useAppSelector } from '@/redux/hooks'
 import { formatToGerman1 } from '@/utils/germanFormat'
 import { IsWishlist } from '@/utils/IsWishlist'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export default function IngredientBasicInfoSection({ data, loading }) {
@@ -43,27 +44,24 @@ export default function IngredientBasicInfoSection({ data, loading }) {
           okLabel="Klingt gut"
         />
       </ModalContainer>
-      <div className="row d-flex  align-items-center">
-        <div className="col-">
-          <div className="d-flex align-items-center">
-            <h1 className=" fs-3 fw-bold">{data?.key_factor_headline}</h1>
-          </div>
-        </div>
-        <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5 ">
-          <div className="text-center">
-            <img
+      <div className="tw-grid tw-grid-cols-2 tw-gap-6 md:tw-gap-10  tw-items-center">
+        <div className="tw-bg-theme tw-aspect-[57/63] tw-rounded-2.5xl">
+          <div className="tw-text-center tw-p-4">
+            <Image
               src={
                 data?.picture
                   ? `${baseURL}/integredient/${data?.picture}`
                   : 'assets/icon/img-icon.png'
               }
-              className="img-fluid flx-rdetailed-animation max-h-460"
+              className="  tw-object-contain"
               alt=""
+              width={570}
+              height={630}
             />
           </div>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <div className="d-flex align-items-center mb-3">
+        <div className="">
+          <div className="tw-flex tw-items-center tw-mb-4">
             <h2 className="fs-2 fw-bolder mb-0">{loading ? <TextSkelton /> : data?.name}</h2>
             {statusLabel && (
               <span className={`badge rounded-pill text-uppercase ms-2 ${statusColor} `}>
@@ -71,22 +69,22 @@ export default function IngredientBasicInfoSection({ data, loading }) {
               </span>
             )}
           </div>
-          <div className="text-left">
+          <div className="text-left tw-font-normal tw-font-Epilogue-bold">
             <div className="tw-mb-4">
-              <span className="fw-bold">Geschmack:</span> &nbsp;
+              <span className="tw-text-lg tw-font-extrabold">Geschmack:</span> &nbsp;
               {/* taste */}
               {loading ? <TextSkelton /> : data?.taste_description}
             </div>
             <div className="tw-mb-4">
-              <span className="fw-bold">Bio:</span> &nbsp;
+              <span className="tw-text-lg tw-font-extrabold">Bio:</span> &nbsp;
               {loading ? <TextSkelton /> : data?.organic_certificate}
             </div>
             <div className="tw-mb-4">
-              <span className="fw-bold">Herkunft:</span> &nbsp;
+              <span className="tw-text-lg tw-font-extrabold">Herkunft:</span> &nbsp;
               {loading ? <TextSkelton /> : data?.origin}
             </div>
             <div className="tw-mb-4">
-              <span className="fw-bold">Energie:</span> &nbsp;
+              <span className="tw-text-lg tw-font-extrabold">Energie:</span> &nbsp;
               {loading ? (
                 <TextSkelton />
               ) : (
@@ -108,7 +106,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
           </div>
 
           <button
-            className="btn btn-outline-success shadow-none rounded-pill"
+            className="btn-outline tw-shadow-theme tw-bg-transparent !tw-text-theme shadow-theme-md"
             onClick={() => handleWishlist(data?.unique_id)}
           >
             {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}

@@ -289,7 +289,7 @@ export function RecipeCard({
     </>
   )
 }
-export function IngredientCard({ data }: { data: any }) {
+export function IngredientCard({ data, className }: { data: any; className: string }) {
   const wishlist = useAppSelector((state) => state?.wishlist)
   let token = useAppSelector((state) => state?.account?.token)
   let addWishlistIngredient = async (d) =>
@@ -321,7 +321,12 @@ export function IngredientCard({ data }: { data: any }) {
           okLabel="Klingt gut"
         />
       </ModalContainer>
-      <div className="card box-card text-center p-4 shadow-sm border-0 hsn-box-bg">
+      <div
+        className={cn(
+          'tw-rounded-2.5xl tw-bg-white shadow-theme-lg tw-shadow-[#ccc] tw-p-7 tw-h-full',
+          className
+        )}
+      >
         {badgeLabel && (
           <div className="ribbon">
             <span className={`ribbon__content  ${badgeColor} `}>{badgeLabel}</span>
@@ -334,44 +339,47 @@ export function IngredientCard({ data }: { data: any }) {
             {statusLabel}
           </span>
         )}
-        <button
-          className="btn btn-light box-wish shadow"
-          onClick={() => handleWishlistIngredient(data?.unique_id)}
-        >
-          {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
-          {isLoading ? (
-            <Image
-              width={50}
-              height={50}
-              alt="loader"
-              src={'/assets/icon/loader.gif'}
-              className="img-fluid"
-              loading="lazy"
-            />
-          ) : (
-            <Heart filled={IsWishlist(2, data?.id, wishlist)} />
-          )}
-        </button>
-        <Link href={`/ernaehrung/${data?.slug || data?.unique_id}`}>
+
+        <Link href={`/ernaehrung/${data?.slug || data?.unique_id}`} className="!tw-w-full tw-block">
           <Image
             src={data?.picture ? baseURL + 'integredient/' + data?.picture : commonImg}
-            className="card-img-top img-fluid"
+            className="tw-object-contain tw-w-full"
             alt={data?.name}
             loading="lazy"
             height={300}
             width={300}
           />
         </Link>
-        <div className="card-body">
-          <h5 className="card-title">{data?.name}</h5>
-          <p className="card-text">{data?.taste_description}</p>
-          <Link
-            href={`/ernaehrung/${data?.slug || data?.unique_id}`}
-            type="button"
-            className="btn btn-primary btn-outline-success"
-          >
-            Mehr erfahren
-          </Link>
+        <div className="">
+          <h5 className="tw-text-xl tw-font-extrabold">{data?.name}</h5>
+          <p className="">{data?.taste_description}</p>
+          <div className="tw-flex tw-items-center tw-gap-6">
+            <Link
+              href={`/ernaehrung/${data?.slug || data?.unique_id}`}
+              type="button"
+              className="btn-theme !tw-py-3 !tw-px-6"
+            >
+              Mehr erfahren
+            </Link>
+            <button
+              className="  tw-w-12 tw-h-12 tw-rounded-full tw-border-solid tw-border-b-3 tw-border-r-3 tw-border-t-1 tw-border-l-1 tw-bg-white  tw-border-[#CCCCCC] "
+              onClick={() => handleWishlistIngredient(data?.unique_id)}
+            >
+              {/* Type  0 => Recipe, 1 => Box , 2=> Ingredient */}
+              {isLoading ? (
+                <Image
+                  width={50}
+                  height={50}
+                  alt="loader"
+                  src={'/assets/icon/loader.gif'}
+                  className="img-fluid"
+                  loading="lazy"
+                />
+              ) : (
+                <Heart filled={IsWishlist(2, data?.id, wishlist)} />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </>

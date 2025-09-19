@@ -1,5 +1,5 @@
 import { IngredientCard, RecipeCard } from '@/components/Cards'
-import { TextSkelton } from '@/components/common/Common'
+import { BreadCrumb, TextSkelton } from '@/components/common/Common'
 import { baseURL, fetcher } from '@/lib/fetcher'
 import Link from 'next/link'
 import AllNutrientsPopup from './AllNutrientsPopup'
@@ -7,6 +7,7 @@ import IngredientBasicInfoSection from './IngredientBasicInfoSection'
 import NutrientsSection from './NutrientsSection'
 import TasteSection from './TasteSection'
 import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import HeroBanner from '@/components/common/HeroBanner'
 
 async function getIngredientById(slug: string): Promise<any> {
   let data
@@ -101,67 +102,66 @@ export default async function Page({ params }) {
       )}
       {/* {JSON.stringify(data?.seo_scheme)} */}
       <AllNutrientsPopup data={data?.nutrients} />
-      <section id="flx-hero-rdetailed">
+      <div className="tw-bg-green tw-pb-10">
+        <HeroBanner
+          data={{ title: data?.key_factor_headline }}
+          breadCrumb={
+            <BreadCrumb
+              name={data?.name}
+              list={[{ name: 'Smoothie Zutaten', link: '/beste-smoothie-zutaten-plant-based' }]}
+            />
+          }
+        />
         <div className="container">
-          <div className="row">
-            <nav aria-label="breadcrumb" className="px-0">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="breadcrumb-item">
-                  <Link href="/beste-smoothie-zutaten-plant-based">Smoothie Zutaten</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  {data ? data?.name : <TextSkelton />}
-                </li>
-              </ol>
-            </nav>
-          </div>
-          <div className="pt-0 pt-md-5">
-            <IngredientBasicInfoSection data={data} loading={!data} />
-          </div>
-        </div>
-      </section>
-      <div className="container">
-        {data?.ingredient_description && (
-          <MarkdownDisplay>{data?.ingredient_description || ''}</MarkdownDisplay>
-        )}
-      </div>
-
-      {/* <!-- progressbar section --> */}
-      <section id="flx-idetailed-probr">
-        <div className="container">
-          <div className="row d-flex g-5">
-            <div className="col-12  col-md-6 ">
-              <div className="row">
-                <div className="col-6 col-md-9">
-                  <span className="fs-3 fw-bold">Was steckt drin?</span>
-                  <span className="fw-normal fs-6"> (pro 250ml) </span>
-                </div>
-                <div className="col-6 col-md-3">
-                  <button
-                    type="button"
-                    className="btn btn-link btn-solid-success-color ps-0"
-                    data-bs-toggle="modal"
-                    data-bs-target="#nutrientsModal"
-                    data-bs-whatever="@getbootstrap"
-                  >
-                    Durchschnittliche Nährwerte
-                  </button>
+          <div className="tw-bg-white shadow-theme-lg tw-shadow-[#ccc] tw-py-10 md:tw-py-[60px] tw-rounded-3xl tw-mt-10 tw-relative tw-z-10">
+            <section>
+              <div className="container">
+                <div className="">
+                  <IngredientBasicInfoSection data={data} loading={!data} />
                 </div>
               </div>
-              <NutrientsSection data={data} ingVal={true} />
-            </div>
-            <div className="col-12  col-md-6 ">
-              <h3>Wie schmeckt’s?</h3>
-              <TasteSection data={data} suggest="no" basiColor={'green'} />
-            </div>
+              <div className="container tw-py-10">
+                {data?.ingredient_description && (
+                  <MarkdownDisplay>{data?.ingredient_description || ''}</MarkdownDisplay>
+                )}
+              </div>
+            </section>
+
+            {/* <!-- progressbar section --> */}
+            <section>
+              <div className="container">
+                <div className="tw-grid md:tw-grid-cols-2 tw-gap-5">
+                  <div className="tw-bg-[#f8f9fa] tw-rounded-2.5xl tw-p-5 ">
+                    <div className="tw-flex tw-items-center  tw-justify-between tw-text-dark">
+                      <div className="">
+                        <span className="tw-text-2xl tw-font-extrabold">Was steckt drin?</span>
+                        <span className="tw-text-base tw-font-semibold"> (pro 250ml) </span>
+                      </div>
+                      <div className="">
+                        <button
+                          type="button"
+                          className="btn btn-link btn-solid-success-color ps-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#nutrientsModal"
+                          data-bs-whatever="@getbootstrap"
+                        >
+                          Durchschnittliche Nährwerte
+                        </button>
+                      </div>
+                    </div>
+                    <NutrientsSection data={data} ingVal={true} />
+                  </div>
+                  <div className="tw-bg-[#f8f9fa] tw-rounded-2.5xl tw-p-5 ">
+                    <h3 className="tw-text-2xl tw-font-extrabold">Wie schmeckt’s?</h3>
+                    <TasteSection data={data} suggest="no" basiColor={'#81CA00'} />
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* <!-- progressbar section --> */}
           </div>
         </div>
-      </section>
-      {/* <!-- progressbar section --> */}
-
+      </div>
       {/* <!-- simple text --> */}
       <section>
         <div className="container">
@@ -194,21 +194,25 @@ export default async function Page({ params }) {
 
       {/* Other Ingredients Start */}
 
-      <section id="flx-other-ingredients">
-        <div className="container">
-          <div className="mb-5">
+      <section className="">
+        <section className="tw-bg-green tw-py-10 md:tw-py-14">
+          <div className=" container">
             {relativeSmoothies?.length > 0 && (
-              <h3 className=" " data-aos="fade-up" data-aos-duration="1000">
+              <h3
+                className="tw-text-5xl tw-font-extrabold "
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 Rezepte mit {data?.name}
               </h3>
             )}
             {/* {JSON.stringify(relativeSmoothies[0])} */}
-            <div className="row pt-4">
+            <div className="tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-5 tw-pt-4">
               {relativeSmoothies?.slice(0, 6)?.map((smooth) => {
                 return (
                   <div
                     key={smooth?.smoothie_id}
-                    className="col-12 col-md-4"
+                    className=""
                     data-aos="fade-up"
                     data-aos-duration="1000"
                   >
@@ -223,26 +227,22 @@ export default async function Page({ params }) {
               })}
             </div>
           </div>
-
+        </section>
+        <section className="tw-py-10 md:tw-py-14">
           {/* <!-- Ingredients --> */}
-          <div className="">
-            <h3>Weitere Zutaten...</h3>
-            <div className="row pt-4 g-4">
+          <div className="container">
+            <h3 className="tw-text-5xl tw-font-extrabold ">Weitere Zutaten...</h3>
+            <div className="tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-3  tw-gap-5 tw-pt-4">
               {relativeIngredients?.map((ingred) => {
                 return (
-                  <div
-                    key={ingred?.id}
-                    className="col-12 col-md-4"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                  >
-                    <IngredientCard data={ingred} />
+                  <div key={ingred?.id} className="" data-aos="fade-up" data-aos-duration="1000">
+                    <IngredientCard data={ingred} className="!tw-bg-light-orange" />
                   </div>
                 )
               })}
             </div>
           </div>
-        </div>
+        </section>
       </section>
     </div>
   )

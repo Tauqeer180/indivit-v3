@@ -139,17 +139,17 @@ export default async function page({ params }) {
       <HeroBanner
         data={{
           title: 'Online Smoothie Mixer',
-          // description: IntroText?.mixer_content_1,
-          // markdown: true,
+          description: IntroText?.mixer_content_1,
+          markdown: true,
         }}
         breadCrumb={<BreadCrumb name="Online Smoothie Mixer" />}
         bgImg=" !tw-bg-mixer"
       />
-      <div className="tw-pt-10 !tw-h-auto   container">
+      {/* <div className="tw-pt-10 !tw-h-auto   container">
         <MarkdownDisplay className="tw-text-justify pb-2">
           {IntroText?.mixer_content_1}
         </MarkdownDisplay>
-      </div>
+      </div> */}
       <SmoothieMixer
         ingredients={ingredients}
         categories={categories}

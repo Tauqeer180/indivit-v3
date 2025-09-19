@@ -16,7 +16,7 @@ export default function NutrientsSection({ data, ingVal }) {
             ? `${formatToGerman1(data?.vitamins)} / ${formatToGerman1(5.0)}`
             : `${formatToGerman1(data?.vitamins)} g / ${formatToGerman1(5.0)}`
         }
-        color="green"
+        color="#81CA00"
         ingredient={true}
         handleIngredientView={data}
         suggest="no"
@@ -31,7 +31,7 @@ export default function NutrientsSection({ data, ingVal }) {
             ? `${formatToGerman1(data?.minerals)} / ${formatToGerman1(5.0)}`
             : `${formatToGerman1(data?.minerals)} g ${formatToGerman1(5.0)}`
         }
-        color="green"
+        color="#81CA00"
         handleIngredientView={data}
         ingredient={true}
         suggest="no"
@@ -44,7 +44,7 @@ export default function NutrientsSection({ data, ingVal }) {
             ? `${formatToGerman1(data?.fibers)} / ${formatToGerman1(5.0)}`
             : `${formatToGerman1(data?.fibers)} g / ${formatToGerman1(5.0)}`
         }
-        color="green"
+        color="#81CA00"
         ingredient={true}
         handleIngredientView={data}
         suggest="no"
@@ -63,7 +63,7 @@ export default function NutrientsSection({ data, ingVal }) {
             ? `${formatToGerman1(data?.other_vital_substance)} / ${formatToGerman1(5.0)}`
             : `${formatToGerman1(data?.other_vital_substance)} g / ${formatToGerman1(5.0)}`
         }
-        color="green"
+        color="#81CA00"
         ingredient={true}
         handleIngredientView={data}
         suggest="no"
@@ -83,7 +83,7 @@ export default function NutrientsSection({ data, ingVal }) {
             ? `${formatToGerman1(data?.fructose_tolerence)} / ${formatToGerman1(5.0)}`
             : `${formatToGerman1(data?.fructose_tolerence)} g / ${formatToGerman1(5.0)}`
         }
-        color="green"
+        color="#81CA00"
         ingredient={true}
         handleIngredientView={data}
         suggest="no"
