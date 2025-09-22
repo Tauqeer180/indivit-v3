@@ -16,6 +16,7 @@ import { SEOSchema as SEOSchemaJSON } from '@/constant/SEOSchema'
 import dynamic from 'next/dynamic'
 // moment.locale('de');
 
+export const revalidate = 3600 * 4 // Revalidate every 4 hours
 export const dynamicParams = true // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
@@ -42,7 +43,6 @@ export async function generateStaticParams() {
 //     slug: String(post?.slug),
 //   }))
 // }
-export const revalidate = 3600 * 4 // Revalidate every 4 hours
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
   const decodedSlug = decodeURIComponent(slug)
