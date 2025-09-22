@@ -66,13 +66,13 @@ export default function ProgressBarElement({
   }
   return (
     <>
-      <div className="row pt-4">
+      <div className="tw-grid tw-grid-cols-12 tw-pt-6 tw-gap-2 tw-items-center">
         {ingredient ? (
-          <div className="col-6 order-md-0 order-0 col-md-3 d-flex justify-content-md-between justify-content-start align-items-center flx-rdetailed-probar">
+          <div className="tw-col-span-6 sm:tw-col-span-3 md:tw-col-span-6 xl:tw-col-span-3 tw-order-1 xl:tw-order-1  tw-flex tw-justify-start sm:tw-justify-between md:tw-justify-start xl:tw-justify-between tw-items-center flx-rdetailed-probar tw-gap-1">
             <p className="fw-bold tw-capitalize tw-truncate tw-mb-0" title={name}>
               {name}
             </p>
-            <span className=" ms-md-0 ms-3">
+            <span className="">
               <ToolTip
                 title={name}
                 label={
@@ -95,13 +95,13 @@ export default function ProgressBarElement({
             </span>
           </div>
         ) : (
-          <div className="col-6 order-md-0 order-0 col-md-2 flx-rdetailed-probar">
+          <div className="tw-col-span-6 sm:tw-col-span-2 md:tw-col-span-6 xl:tw-col-span-2 xl:order-1 tw-order-1 flx-rdetailed-probar">
             <p className="fw-bold text-capitalize text-truncate" title={name}>
               {name}
             </p>
           </div>
         )}
-        <div className="col-12 order-md-1 order-2 col-md-7  flx-rdetailed-probar">
+        <div className="tw-col-span-12 sm:tw-col-span-7 md:tw-col-span-12 xl:tw-col-span-7 xl:tw-order-2 tw-order-3   flx-rdetailed-probar">
           <div
             className="progress position-relative !tw-rounded-full !tw-h-5"
             role="progressbar"
@@ -122,8 +122,8 @@ export default function ProgressBarElement({
             <small>{suggest == 'no' ? '' : title == null ? '' : title}</small>
           </p>
         </div>
-        <div className="col-6 order-md-2 order-1  text-md-start text-end  col-md-2  flx-rdetailed-probar">
-          <p className="fw-bold">{label}</p>
+        <div className="tw-col-span-6 sm:tw-col-span-2 md:tw-col-span-6 xl:tw-col-span-2 tw-order-2 sm:tw-order-3 md:tw-order-2 xl:tw-order-3   tw-text-end sm:tw-text-start md:tw-text-end xl:tw-text-start  flx-rdetailed-probar">
+          <p className="tw-font-bold tw-mb-0">{label}</p>
         </div>
       </div>
     </>

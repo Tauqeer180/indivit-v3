@@ -44,7 +44,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
           okLabel="Klingt gut"
         />
       </ModalContainer>
-      <div className="tw-grid tw-grid-cols-2 tw-gap-6 md:tw-gap-10  tw-items-center">
+      <div className="tw-grid md:tw-grid-cols-2 tw-gap-6 md:tw-gap-10  tw-items-center">
         <div className="tw-bg-theme tw-aspect-[57/63] tw-rounded-2.5xl">
           <div className="tw-text-center tw-p-4">
             <Image
@@ -53,7 +53,7 @@ export default function IngredientBasicInfoSection({ data, loading }) {
                   ? `${baseURL}/integredient/${data?.picture}`
                   : 'assets/icon/img-icon.png'
               }
-              className="  tw-object-contain"
+              className="  tw-object-contain tw-w-full"
               alt=""
               width={570}
               height={630}

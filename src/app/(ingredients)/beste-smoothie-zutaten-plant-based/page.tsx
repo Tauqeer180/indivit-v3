@@ -92,7 +92,7 @@ export default async function Ingredients() {
               })}
             </TabsList>
             <TabsContent value="alle">
-              <div className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 ">
+              <div className=" tw-grid sm:tw-grid-cols-2 md-5:tw-grid-cols-3 tw-gap-5 ">
                 {ingredients?.map((ingred, index) => {
                   return (
                     <div className="" key={index} data-aos="fade-up" data-aos-duration="1000">
@@ -106,7 +106,10 @@ export default async function Ingredients() {
             {categories?.map((categ, index) => {
               return (
                 <TabsContent key={index} value={categ?.name?.toLowerCase() + '-' + categ?.id}>
-                  <div className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 " key={index}>
+                  <div
+                    className=" tw-grid sm:tw-grid-cols-2 md-5:tw-grid-cols-3 tw-gap-5 "
+                    key={index}
+                  >
                     {ingredients
                       ?.filter((obj) => obj.category_id == categ.id)
                       .map((ingred) => {
