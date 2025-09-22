@@ -19,11 +19,11 @@ import dynamic from 'next/dynamic'
 export const dynamicParams = true // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  let res = await fetcher('blogs?page=1&limit=12')
+  let res = await fetcher('allBlogs')
   res = JSON.parse(JSON.stringify(res))
   // const posts = await response?.json()
   console.log('posts data => ', res)
-  return res?.data?.data?.map((post) => ({
+  return res?.blogs?.map((post) => ({
     slug: String(post?.slug),
   }))
 }

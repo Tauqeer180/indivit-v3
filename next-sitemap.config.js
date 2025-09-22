@@ -43,12 +43,12 @@ module.exports = {
     console.log('additionalPaths called')
     try {
       // Fetch products
-      const productRes = await fetch('https://admin.indivit.de/api/client/smoothie_box_description')
+      const productRes = await fetch('https://admin.indivit.de/api/client/allBoxes')
       console.log('Product fetch response status:', productRes.status)
       const productData = await productRes.json()
-      console.log('Product API data:', productData?.data?.length, 'products found')
+      console.log('Product API data:', productData?.boxes?.length, 'products found')
       const productPaths =
-        productData?.data?.map((product) => ({
+        productData?.boxes?.map((product) => ({
           loc: `/produkte/${product.slug}`,
           changefreq: 'daily',
           priority: 0.7,
@@ -56,7 +56,7 @@ module.exports = {
         })) || []
 
       // Fetch recipes
-      const recipeRes = await fetch('https://admin.indivit.de/api/client/get_smoothie')
+      const recipeRes = await fetch('https://admin.indivit.de/api/client/allSmoothies')
       console.log('Recipe fetch response status:', recipeRes.status)
       const recipeData = await recipeRes.json()
       console.log('Recipe API data:', recipeData?.smoothies?.length, 'recipes found')
@@ -82,12 +82,12 @@ module.exports = {
         })) || []
 
       // Fetch blogs
-      const blogRes = await fetch('https://admin.indivit.de/api/client/blogs')
+      const blogRes = await fetch('https://admin.indivit.de/api/client/allBlogs')
       console.log('blog fetch response status:', blogRes.status)
       const blogData = await blogRes.json()
-      console.log('blog API data:', blogData?.data?.data?.length, 'blog found')
+      console.log('blog API data:', blogData?.blogs.length, 'blog found')
       const blogPaths =
-        blogData?.data?.data?.map((blog) => ({
+        blogData?.blogs?.map((blog) => ({
           loc: `/blog/${blog.slug}`,
           changefreq: 'daily',
           priority: 0.7,
