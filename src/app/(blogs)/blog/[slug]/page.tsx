@@ -24,7 +24,7 @@ export async function generateStaticParams() {
   res = JSON.parse(JSON.stringify(res))
   // const posts = await response?.json()
   console.log('blogs data => ', res)
-  if (res?.blogs?.length === 0) {
+  if (!res?.blogs) {
     return []
   }
   return res?.blogs?.map((post) => ({
