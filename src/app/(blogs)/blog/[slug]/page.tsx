@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   let res = await fetcher('allBlogs')
   res = JSON.parse(JSON.stringify(res))
   // const posts = await response?.json()
-  console.log('posts data => ', res)
+  console.log('blogs data => ', res)
   return res?.blogs?.map((post) => ({
     slug: String(post?.slug),
   }))
