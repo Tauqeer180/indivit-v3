@@ -27,7 +27,7 @@ export const dynamicParams = true // or false, to 404 on unknown paths
 // }
 export async function generateStaticParams() {
   const posts = await fetcher('allBoxes')
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  console.log('Boxes in generateStaticParams: ', JSON.stringify(posts))
   return posts?.boxes?.map((post: any) => ({
     slug: post?.slug || post?.unique_id,
   }))

@@ -21,7 +21,7 @@ export const dynamicParams = true // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
   let res = await fetcher('allBlogs')
-  res = JSON.parse(JSON.stringify(res))
+  // res = JSON.parse(JSON.stringify(res))
   // const posts = await response?.json()
   console.log('blogs data => ', res)
   if (!res?.blogs) {

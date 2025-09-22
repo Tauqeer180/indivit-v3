@@ -51,7 +51,7 @@ async function getRecipeList() {
 }
 export async function generateStaticParams() {
   const posts = await getRecipeList()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
+  console.log('Smoothies in generateStaticParams: ', JSON.stringify(posts))
   return posts?.smoothies?.map((post: any) => ({
     slug: post?.slug || post?.unique_id,
   }))
