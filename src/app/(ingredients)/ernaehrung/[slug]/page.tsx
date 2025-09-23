@@ -64,13 +64,13 @@ export async function generateMetadata({ params }) {
 export const revalidate = 72000
 export const dynamicParams = true // or false, to 404 on unknown paths
 async function getIngredientsData() {
-  const data = await fetcher('get_ingredient', { cache: true, revalidate: 3600 })
+  const data = await fetcher('allIngredients', { cache: true, revalidate: 3600 })
   return data
 }
 export async function generateStaticParams() {
   const posts = await getIngredientsData()
-  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts?.ingredient))
-  return posts?.ingredient?.map((post: any) => ({
+  console.log('Posts in generateStaticParams: ', JSON.stringify(posts))
+  return posts?.ingredients?.map((post: any) => ({
     slug: post?.slug || post?.unique_id,
   }))
 }

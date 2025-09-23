@@ -20,9 +20,14 @@ export const revalidate = 3600 * 4 // Revalidate every 4 hours
 export const dynamicParams = true // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {
-  let res = await fetcher('blogs?page=1&limit=5')
-  console.log('posts data => ', res)
-  return res?.data?.data?.map((post) => ({
+  let res = await fetcher('allBlogs')
+  // res = JSON.parse(JSON.stringify(res))
+  // const posts = await response?.json()
+  console.log('blogs data => ', res)
+  if (!res?.blogs) {
+    return []
+  }
+  return res?.blogs?.map((post) => ({
     slug: String(post?.slug),
   }))
 }
