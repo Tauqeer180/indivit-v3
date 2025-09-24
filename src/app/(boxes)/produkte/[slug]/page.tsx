@@ -23,6 +23,7 @@ import Script from 'next/script'
 import { BreadCrumb } from '@/components/common/Common'
 import { H1 } from '@/components/common/Typography'
 import Image from 'next/image'
+import ThreeTage from '@/app/temp/components/3Tage'
 
 // const ProductCarousel = dynamic(() => import("../components/ProductCarousel"), { ssr: false });
 export const revalidate = 72000
@@ -237,11 +238,17 @@ export default async function page({ params }: any) {
           </div>
           <div className="my-4"></div>
           {/* <h5> {boxDescription?.length > 0 && boxDescription?.[0]?.short_detail} </h5> */}
-          <MarkdownDisplay>
-            {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
-          </MarkdownDisplay>
         </div>
       </section>
+      <div>
+        {slug === 'saftkur-3-tage-entgiftungskur' ? (
+          <ThreeTage />
+        ) : (
+          <MarkdownDisplay enableTailwind={true}>
+            {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
+          </MarkdownDisplay>
+        )}
+      </div>
 
       {/* Banner Section Start */}
       {/* {JSON.stringify(boxCategoryBenefits)} */}

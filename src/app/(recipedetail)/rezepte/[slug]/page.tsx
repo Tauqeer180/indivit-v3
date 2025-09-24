@@ -18,6 +18,7 @@ import { H1 } from '@/components/common/Typography'
 import { Button } from '@/components/ui/button'
 import { Pencil, PencilLine } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Fructover1 from '@/app/temp/components/fructover1'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -288,11 +289,14 @@ export default async function page({ params }: { params: { slug: string } }) {
         </div>
       </section>
       <div className="container tw-my-10">
-        {data?.created_by != 1 && (
-          <MarkdownDisplay enableTailwind>
-            {data?.smoothie_recipe_text?.recipe_text}
-          </MarkdownDisplay>
-        )}
+        {data?.created_by != 1 &&
+          (smoothieId === 'fructover-10' ? (
+            <Fructover1 />
+          ) : (
+            <MarkdownDisplay enableTailwind>
+              {data?.smoothie_recipe_text?.recipe_text}
+            </MarkdownDisplay>
+          ))}
       </div>
 
       <Content
