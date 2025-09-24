@@ -241,13 +241,14 @@ export default async function page({ params }: any) {
         </div>
       </section>
       <div>
-        {slug === 'saftkur-3-tage-entgiftungskur' ? (
+        {/* {slug === 'saftkur-3-tage-entgiftungskur' ? (
           <ThreeTage />
         ) : (
-          <MarkdownDisplay enableTailwind={true}>
-            {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
-          </MarkdownDisplay>
-        )}
+          )} */}
+        <MarkdownDisplay enableTailwind={true}>
+          {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
+        </MarkdownDisplay>
+        {/* <ThreeTage /> */}
       </div>
 
       {/* Banner Section Start */}

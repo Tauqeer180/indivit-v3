@@ -67,11 +67,11 @@ export default function CodeEditorPage() {
 
         <div
           className={cn(
-            'tw-w-full tw-p-2 tw-bg-white tw-h-full tw-overflow-auto no-tailwind ',
+            'tw-w-full tw-p-2 tw-bg-white tw-h-full tw-overflow-auto  ',
             !isCollapsed && 'md:tw-w-1/2'
           )}
         >
-          <MarkdownDisplay>{srcDoc}</MarkdownDisplay>
+          <MarkdownDisplay enableTailwind={true}>{srcDoc}</MarkdownDisplay>
         </div>
       </div>
     </>
