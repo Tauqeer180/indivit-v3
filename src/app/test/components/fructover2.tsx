@@ -15,7 +15,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/gZKR1h6v"
+          src="https://i.ibb.co/fV20kg4j/fructover2-1.png"
           alt="Cremiger grüner Smoothie in stylischem Glas mit Gurken- und Papayastreifen als Dekoration"
           title="Grüner Diät-Smoothie aus Gurke und Papaya im Servierglas"
           loading="lazy"
@@ -55,7 +55,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/j95K1rtX"
+          src="https://i.ibb.co/G3bTMWYq/fructover2-2.png"
           alt="Arrangierte Zutaten auf rustikalem Holztisch mit Schneidebrett"
           title="Gurke, Papaya, Pfirsich und Avocado auf Holzuntergrund arrangiert"
           loading="lazy"
@@ -145,7 +145,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/39szWknt"
+          src="https://i.ibb.co/8nbgDTKp/fructover2-3.png"
           alt="Frische Früchte und Gemüse aufgeschnitten auf Küchenbrett"
           title="Papaya, Pfirsich und Gurke in groben Stücken als Vorbereitung"
           loading="lazy"
@@ -193,7 +193,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/sdJczFzZ"
+          src="https://i.ibb.co/C5RXxFMN/fructover2-4.png"
           alt="Hochleistungsmixer beim Verarbeiten der Zutaten"
           title="Mixer in Aktion – grüne Smoothie-Masse wird cremig verarbeitet"
           loading="lazy"
@@ -220,7 +220,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/Wbymk28"
+          src="https://i.ibb.co/9HcfrjFV/fructover2-5.png"
           alt="Serviertes Smoothie-Glas mit Papaya-Herz und Gurkenscheiben garniert"
           title="Serviervorschlag mit liebevoller Garnitur und essbaren Blüten"
           loading="lazy"
@@ -274,7 +274,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/ZR9q5yHk"
+          src="https://i.ibb.co/kgRZSJKR/fructover2-6.png"
           alt="Vergleich der Nährwerte pro Portion als übersichtliche Grafik"
           title="Fructover 2.0 im Nährwertvergleich auf einen Blick"
           loading="lazy"
@@ -394,7 +394,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/nG9YFc1"
+          src="https://i.ibb.co/rjYzV6p/Gemini-Generated-Image-yyv9zayyv9zayyv9.png"
           alt="Getrocknete Papayakerne in Gewürzmühle"
           title="DIY Papaya-Pfeffer aus selbst getrockneten Kernen"
           loading="lazy"
@@ -441,7 +441,7 @@ export default function FructOver() {
 
       <p>
         <img
-          src="https://ibb.co/Tqq1smZD"
+          src="https://i.ibb.co/SX12pRrd/fructover2-8.png"
           alt="Individuell konfigurierbare Smoothie-Flaschen"
           title="Fertig portionierte Indivit Smoothies im Kühlschrank"
           loading="lazy"
