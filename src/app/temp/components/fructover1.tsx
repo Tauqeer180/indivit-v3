@@ -6,27 +6,29 @@ export default function Fructover1() {
       {/* Page wrapper & base theme */}
       <div className="tw-space-y-8 tw-bg-[#F3F8EE] tw-px-4 sm:tw-px-6 lg:tw-px-8 tw-py-8 tw-text-gray-800">
         {/* Intro block */}
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-center">
-          <p className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 tw-leading-7 tw-border tw-border-emerald-50">
-            Du suchst nach einem k&ouml;stlichen Himbeer-Smoothie, der trotz Fructoseintoleranz oder
-            Low-Carb-Ern&auml;hrung funktioniert? Unser Fructover 1.0 kombiniert Himbeeren, Brokkoli
-            und Avocado zu einem kalorienarmen Power-Drink mit nur 2,8g Fructose pro Portion.
-            Perfekt als Snack bei Fructoseintoleranz oder f&uuml;r alle, die bewusst Kohlenhydrate
-            reduzieren m&ouml;chten. Erfahre, wie du ihn einfach selbst mixen kannst &ndash; oder
-            spare Zeit &amp; Geld mit Indivits HPP-Smoothies!
-          </p>
-          <p className="tw-rounded-2xl tw-overflow-hidden tw-shadow-sm tw-border tw-border-emerald-50 tw-bg-white">
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-center tw-px-0 md:tw-px-7">
+          <div className="md:tw-col-span-2  tw-rounded-2xl tw-border tw-bg-white tw-h-full tw-flex tw-items-center tw-p-6 shadow-theme-lg tw-shadow-theme">
+            <p>
+              Du suchst nach einem k&ouml;stlichen Himbeer-Smoothie, der trotz Fructoseintoleranz
+              oder Low-Carb-Ern&auml;hrung funktioniert? Unser Fructover 1.0 kombiniert Himbeeren,
+              Brokkoli und Avocado zu einem kalorienarmen Power-Drink mit nur 2,8g Fructose pro
+              Portion. Perfekt als Snack bei Fructoseintoleranz oder f&uuml;r alle, die bewusst
+              Kohlenhydrate reduzieren m&ouml;chten. Erfahre, wie du ihn einfach selbst mixen kannst
+              &ndash; oder spare Zeit &amp; Geld mit Indivits HPP-Smoothies!
+            </p>
+          </div>
+          <div className="shadow-theme-lg tw-shadow-theme tw-rounded-md">
             <img
               title="Fructover 1.0 Smoothie &ndash; Genuss bei Fructoseintoleranz"
               src="https://i.ibb.co/XxJmbZ4v/fructover-1-01.png"
               alt="Cremiger pinker Smoothie im Glas mit frischen Himbeeren und Avocado-Scheiben garniert"
-              className="tw-w-full tw-h-auto"
+              className="tw-object-contain tw-rounded-lg"
               loading="lazy"
             />
-          </p>
+          </div>
         </div>
 
-        <p className="tw-italic tw-text-emerald-700">
+        <p className="tw-italic ">
           Perfekte Kombination aus Geschmack und Vertr&auml;glichkeit &ndash; ideal bei
           fructosearmer Ern&auml;hrung
         </p>
@@ -34,21 +36,21 @@ export default function Fructover1() {
         <div className="tw-h-2 tw-bg-[#FFF3C6] tw-rounded-full"></div>
 
         {/* Why section card */}
-        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 tw-border tw-border-yellow-100">
-          <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800 tw-mb-3">
+        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 tw-border tw-border-yellow-100 tw-mx-0 md:tw-mx-7">
+          <h2 className="tw-text-2xl tw-font-extrabold  tw-mb-3">
             Warum dieser Low Carb Smoothie &uuml;berzeugt
           </h2>
           <p className="tw-leading-7">
             Dieser <strong>Himbeer Smoothie</strong> vereint aromatische{' '}
             <a
-              className="tw-text-emerald-700 tw-underline tw-underline-offset-4 hover:tw-text-emerald-800"
+              className=" tw-underline tw-underline-offset-4 hover:"
               href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
             >
               Himbeeren
             </a>{' '}
             mit n&auml;hrstoffreichem{' '}
             <a
-              className="tw-text-emerald-700 tw-underline tw-underline-offset-4 hover:tw-text-emerald-800"
+              className=" tw-underline tw-underline-offset-4 hover:"
               href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
             >
               Brokkoli
@@ -62,22 +64,20 @@ export default function Fructover1() {
         </div>
 
         {/* Zutaten */}
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-stretch">
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-stretch tw-px-0 md:tw-px-7">
           {/* Image Card */}
-          <div className=" tw-rounded-2xl shadow-theme-lg tw-shadow-theme tw-border tw-border-light-green tw-flex tw-items-center tw-justify-center tw-h-[460px]">
-            <div className="tw-bg-light-orange/60 tw-rounded-xl tw-p-2 tw-flex tw-items-center tw-justify-center tw-w-full tw-h-full">
-              <img
-                title="Alle Fructover-Zutaten auf einen Blick"
-                src="https://i.ibb.co/xbTxWHF/fructover-1-02.png"
-                alt="Zutaten f&uuml;r Smoothie auf rustikalem Holzbrett mit Mixer im Hintergrund"
-                className="tw-max-w-[85%] tw-max-h-[100%] tw-object-contain tw-rounded-lg"
-                loading="lazy"
-              />
-            </div>
+          <div className=" tw-rounded-2xl shadow-theme-lg tw-shadow-theme tw-flex tw-items-center tw-justify-center tw-h-[460px]">
+            <img
+              title="Alle Fructover-Zutaten auf einen Blick"
+              src="https://i.ibb.co/xbTxWHF/fructover-1-02.png"
+              alt="Zutaten f&uuml;r Smoothie auf rustikalem Holzbrett mit Mixer im Hintergrund"
+              className="tw-w-full tw-max-w-[100px] tw-h-full tw-max-h-[460px] tw-object-cover tw-rounded-lg"
+              loading="lazy"
+            />
           </div>
 
           {/* Table Card */}
-          <div className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl tw-shadow-around tw-border tw-border-light-green tw-flex tw-flex-col">
+          <div className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl  tw-flex tw-flex-col">
             <div className="tw-h-2 tw-bg-theme tw-rounded-t-2xl"></div>
 
             <div className="tw-px-6 tw-pt-5">
@@ -100,7 +100,7 @@ export default function Fructover1() {
                 </thead>
 
                 <tbody className="[&>tr>td]:tw-px-4 [&>tr>td]:tw-py-3">
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className=" tw-border tw-border-green tw-rounded-lg">
                     <td>
                       Bio-
                       <a
@@ -131,7 +131,7 @@ export default function Fructover1() {
                     <td>Tiefk&uuml;hlvariante bevorzugen</td>
                   </tr>
 
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className=" tw-border tw-border-green tw-rounded-lg">
                     <td>
                       Bio-
                       <a
@@ -159,7 +159,7 @@ export default function Fructover1() {
                     <td>Auf weichen Stielansatz achten</td>
                   </tr>
 
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className=" tw-border tw-border-green tw-rounded-lg">
                     <td>
                       <a
                         className="tw-text-theme tw-underline hover:tw-text-dark"
@@ -178,9 +178,9 @@ export default function Fructover1() {
         </div>
 
         {/* STEP 1 */}
-        <section className="tw-bg-tea-green tw-rounded-3xl tw-border tw-border-light-green tw-shadow-around tw-p-5 md:tw-p-7">
-          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-5 tw-items-center">
-            <div className="tw-col-span-1 md:tw-col-span-3 tw-mb-6 md:tw-mb-0">
+        <section className=" tw-rounded-3xl  tw-p-5 md:tw-p-7">
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-5 tw-items-stretch tw-gap-8">
+            <div className="tw-col-span-1 md:tw-col-span-3 tw-mb-6 md:tw-mb-0 tw-justify-center tw-h-auto tw-flex tw-flex-col tw-bg-white tw-rounded-2xl tw-p-6 shadow-theme-lg tw-shadow-theme">
               <h3 className="tw-text-xl md:tw-text-2xl tw-font-extrabold tw-text-theme tw-mb-4">
                 1. Vorbereitung <span className="tw-text-muted tw-font-medium">(5 Minuten)</span>
               </h3>
@@ -215,9 +215,8 @@ export default function Fructover1() {
                 </li>
               </ul>
             </div>
-            {/* Image (separate styled box + smaller image) */}
+
             <div className="md:tw-col-span-2 tw-rounded-2xl tw-border shadow-theme-lg tw-shadow-theme">
-              {/* inner box keeps fixed but responsive height; image stays smaller */}
               <img
                 src="https://i.ibb.co/nN002mpG/fructover1-3.png"
                 alt="Himbeeren im Sieb unter Wasser"
@@ -228,66 +227,71 @@ export default function Fructover1() {
           </div>
         </section>
 
-        {/* STEP 2 */}
-        <section className="tw-rounded-3xl tw-border-2 tw-border-dashed tw-border-light-green tw-bg-light-green tw-shadow-around tw-p-5 md:tw-p-7">
-          <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-items-center">
-            {/* Image box (separate + responsive) */}
-            <div className="tw-rounded-2xl tw-flex tw-items-center tw-justify-center shadow-theme-lg tw-shadow-theme">
-              {/* inner plate gives fixed-but-responsive height so image stays small */}
+        {/* STEP 2 Schichtweise einfüllen*/}
+        <section className=" tw-rounded-3xl tw-items-stretch tw-p-5 md:tw-p-7">
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-5 tw-gap-8 tw-items-stretch ">
+            <div className="md:tw-col-span-2 tw-rounded-2xl tw-border shadow-theme-lg tw-shadow-theme">
               <img
                 src="https://i.ibb.co/ZzzBVjmQ/fructover-1-04.png"
                 alt="Schichten im Glas"
-                className="tw-object-contain tw-rounded-xl"
+                className="tw-object-contain tw-rounded-lg"
                 loading="lazy"
               />
             </div>
 
-            {/* Text */}
-            <div className="tw-flex tw-flex-col tw-justify-end tw-items-end">
-              <h3 className="tw-text-xl md:tw-text-2xl tw-font-extrabold tw-text-dark tw-mb-3">
-                2. Schichtweise einfüllen
+            {/* TEXT RIGHT */}
+            <div className="tw-col-span-1 md:tw-col-span-3 tw-mb-6 md:tw-mb-0 tw-justify-center tw-h-auto tw-flex tw-flex-col tw-bg-white tw-rounded-2xl tw-p-6 shadow-theme-lg tw-shadow-theme">
+              <h3 className="tw-text-xl md:tw-text-2xl tw-font-extrabold tw-text-theme tw-mb-4">
+                2. Schichtweise <span className="tw-text-muted tw-font-medium">einfüllen</span>
               </h3>
-              <ul className="tw-list-disc tw-pl-5 tw-space-y-3 tw-text-dark">
-                <li>
-                  <a
-                    className="tw-text-theme tw-underline"
-                    href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
-                  >
-                    Kokoswasser
-                  </a>
-                  &nbsp;und&nbsp;
-                  <a
-                    className="tw-text-theme tw-underline"
-                    href="https://indivit.de/ernaehrung/wahl-gesundes-bestes-wasser"
-                  >
-                    Quellwasser
-                  </a>
-                  &nbsp;zuerst
+
+              <ul className="tw-list-disc tw-space-y-3 tw-text-dark">
+                <li className="tw-marker:tw-text-theme">
+                  <span className="tw-flex tw-flex-wrap tw-items-baseline tw-gap-x-1 tw-gap-y-1">
+                    <a
+                      className="!tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
+                    >
+                      Kokoswasser
+                    </a>
+                    <span>und</span>
+                    <a
+                      className="!tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/wahl-gesundes-bestes-wasser"
+                    >
+                      Quellwasser
+                    </a>
+                    <span>zuerst</span>
+                  </span>
                 </li>
-                <li>
-                  <a
-                    className="tw-text-theme tw-underline"
-                    href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
-                  >
-                    Avocado
-                  </a>
-                  &nbsp;und&nbsp;
-                  <a
-                    className="tw-text-theme tw-underline"
-                    href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
-                  >
-                    Himbeeren
-                  </a>
-                  &nbsp;folgen
+                <li className="tw-marker:tw-text-theme">
+                  <span className="tw-flex tw-flex-wrap tw-items-baseline tw-gap-x-1 tw-gap-y-1">
+                    <a
+                      className="!tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
+                    >
+                      Avocado
+                    </a>
+                    <span>und</span>
+                    <a
+                      className="!tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
+                    >
+                      Himbeeren
+                    </a>
+                    <span>folgen</span>
+                  </span>
                 </li>
-                <li>
-                  <a
-                    className="tw-text-theme tw-underline"
-                    href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
-                  >
-                    Brokkoli
-                  </a>
-                  &nbsp;zuoberst platzieren
+                <li className="tw-marker:tw-text-theme">
+                  <span className="tw-flex tw-flex-wrap tw-items-baseline tw-gap-x-1 tw-gap-y-1">
+                    <a
+                      className="!tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
+                    >
+                      Brokkoli
+                    </a>
+                    <span>zuoberst platzieren</span>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -295,10 +299,10 @@ export default function Fructover1() {
         </section>
 
         {/* STEPS 3 & 4 */}
-        <section className="tw-rounded-3xl tw-bg-tea-green tw-border tw-border-light-green tw-shadow-around tw-p-5 md:tw-p-7">
-          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
+        <section className="tw-rounded-3xl tw-p-5 md:tw-p-7">
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 ">
             {/* Step 3 */}
-            <div className="tw-bg-white tw-rounded-2xl tw-border tw-border-light-green tw-shadow-around tw-p-5 tw-flex tw-flex-col">
+            <div className="tw-bg-white tw-rounded-2xl  tw-p-5 tw-flex tw-flex-col shadow-theme-lg tw-shadow-theme">
               <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
                 <span className="tw-inline-flex tw-h-7 tw-w-7 tw-rounded-full tw-bg-theme tw-text-white tw-items-center tw-justify-center tw-text-sm tw-font-bold">
                   3
@@ -323,13 +327,10 @@ export default function Fructover1() {
                   auf 250ml auffüllen
                 </li>
               </ol>
-              <div className="tw-pt-3">
-                <div className="tw-h-1 tw-bg-theme tw-rounded-full tw-w-1/2"></div>
-              </div>
             </div>
 
             {/* Step 4 */}
-            <div className="tw-bg-white tw-rounded-2xl tw-border tw-border-light-green tw-shadow-around tw-p-5 tw-flex tw-flex-col">
+            <div className="tw-bg-white tw-rounded-2xl  tw-p-5 tw-flex tw-flex-col shadow-theme-lg tw-shadow-theme">
               <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
                 <span className="tw-inline-flex tw-h-7 tw-w-7 tw-rounded-full tw-bg-theme tw-text-white tw-items-center tw-justify-center tw-text-sm tw-font-bold">
                   4
@@ -349,18 +350,15 @@ export default function Fructover1() {
                   garnieren
                 </li>
               </ul>
-              <div className="tw-pt-3">
-                <div className="tw-h-1 tw-bg-theme tw-rounded-full tw-w-1/2"></div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Nutrition (text left, table right) */}
-        <section className="tw-p-5 md:tw-p-8">
+        <section className="tw-p-0 md:tw-p-8">
           <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 tw-items-start">
             {/* LEFT: heading + description + footnote */}
-            <div className=" tw-rounded-3xl tw-border !tw-border-theme tw-shadow-around tw-bg-white tw-p-6 tw-mb-6 md:tw-mb-0">
+            <div className=" tw-rounded-3xl tw-border !tw-border-theme tw-bg-white tw-p-6 tw-mb-6 md:tw-mb-0">
               <div className="tw-flex tw-items-center tw-gap-3 tw-mb-3">
                 <span className="tw-inline-flex tw-h-9 tw-w-9 tw-rounded-xl tw-bg-theme tw-text-white tw-items-center tw-justify-center tw-text-lg">
                   📊
@@ -374,7 +372,7 @@ export default function Fructover1() {
               </p>
 
               {/* small highlight card (optional) */}
-              <div className="tw-hidden md:tw-block tw-bg-light-orange tw-rounded-2xl tw-border tw-border-light-green tw-p-4 tw-text-dark tw-mb-3 ">
+              <div className="tw-hidden md:tw-block tw-bg-light-orange tw-rounded-2xl  tw-p-4 tw-text-dark tw-mb-3 ">
                 <p className="tw-p-0 tw-m-0">
                   Reich an <strong>Ballaststoffen</strong> und <strong>Vitamin&nbsp;C</strong> –
                   ideal f&uuml;r eine leichte, vertr&auml;gliche Trinkmahlzeit.
@@ -388,7 +386,7 @@ export default function Fructover1() {
 
             {/* RIGHT: table */}
             <div>
-              <div className="tw-rounded-2xl tw-border tw-border-light-green tw-shadow-around tw-overflow-hidden">
+              <div className="tw-rounded-2xl  tw-overflow-hidden">
                 {/* top accent */}
                 <div className="tw-h-2 tw-bg-theme"></div>
 
@@ -411,7 +409,7 @@ export default function Fructover1() {
                         </td>
                         <td className="tw-px-4 tw-py-3 tw-border-b tw-border-light-green">5%</td>
                       </tr>
-                      <tr className="tw-bg-tea-green/60">
+                      <tr className="/60">
                         <td className="tw-px-4 tw-py-3 tw-border-b tw-border-light-green">
                           Ballaststoffe
                         </td>
@@ -425,7 +423,7 @@ export default function Fructover1() {
                         <td className="tw-px-4 tw-py-3 tw-border-b tw-border-light-green">86mg</td>
                         <td className="tw-px-4 tw-py-3 tw-border-b tw-border-light-green">84%</td>
                       </tr>
-                      <tr className="tw-bg-tea-green/60">
+                      <tr className="/60">
                         <td className="tw-px-4 tw-py-3 tw-border-b tw-border-light-green">
                           Vitamin K
                         </td>
@@ -447,136 +445,156 @@ export default function Fructover1() {
           </div>
         </section>
 
-        {/* Expert tip */}
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-center">
-          <div className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6">
-            <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800">
-              💡 Mixer-Expertentipp
+        {/*  Mixer-Expertentipp Expert tip */}
+
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-stretch tw-px-0 md:tw-px-7">
+          <div className="md:tw-col-span-2  tw-rounded-2xl tw-border tw-bg-white tw-p-6 tw-space-y-2 shadow-theme-lg tw-shadow-theme tw-justify-center tw-h-auto tw-flex tw-flex-col">
+            <span className="tw-inline-flex tw-h-9 tw-w-9 tw-rounded-xl tw-bg-theme tw-text-white tw-items-center tw-justify-center">
+              💡
+            </span>
+            <h2 className="tw-text-2xl tw-font-extrabold tw-text-dark tw-m-0">
+              Mixer-Expertentipp
             </h2>
-            <p className="tw-mt-2">
-              &raquo;Nutze immer Mixer mit <strong>Titan-Messern</strong> und mindestens 1000 Watt
-              Leistung. Nur so werden Himbeerkerne vollst&auml;ndig zerkleinert und die
-              fettl&ouml;slichen Vitamine aus der{' '}
+            <p>
+              »Nutze immer Mixer mit <strong>Titan-Messern</strong> und mindestens 1000 Watt
+              Leistung. Nur so werden Himbeerkerne vollständig zerkleinert und die fettlöslichen
+              Vitamine aus der{' '}
               <a
-                className="tw-text-emerald-700 tw-underline"
+                className="tw-text-theme tw-underline"
                 href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
               >
                 Avocado
               </a>{' '}
-              optimal freigesetzt.&laquo;
+              optimal freigesetzt.«
             </p>
           </div>
-          <p className="tw-rounded-2xl tw-overflow-hidden tw-shadow-sm tw-border tw-border-emerald-50 tw-bg-white">
+          <div className="shadow-theme-lg tw-shadow-theme tw-rounded-xl">
             <img
-              title="Titanmesser-Mixer f&uuml;r cremige Konsistenz"
+              title="Titanmesser-Mixer für cremige Konsistenz"
               src="https://i.ibb.co/45gN6WL/fructover-1-05.png"
               alt="Hochleistungsmixer mit fertigem Smoothie im Glas daneben"
-              className="tw-w-full tw-h-auto"
+              className="tw-object-contain tw-rounded-xl"
               loading="lazy"
             />
-          </p>
+          </div>
         </div>
 
         {/* Diet needs */}
-        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6 tw-space-y-4">
-          <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800">
-            🌿 Ideal bei besonderen Ern&auml;hrungsbed&uuml;rfnissen
-          </h2>
+        <section className="tw-rounded-3xl tw-bg-white  tw-p-5 md:tw-p-8">
+          <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-center">
+            <div>
+              <h2 className=" tw-text-xl md:tw-text-2xl tw-font-extrabold tw-text-dark tw-flex tw-flex-wrap tw-items-center tw-gap-2">
+                <span className="tw-inline-flex tw-h-8 tw-w-8 tw-rounded-lg tw-bg-theme tw-text-white tw-items-center tw-justify-center">
+                  🌿
+                </span>
+                <span> Ideal bei besonderen Ernährungsbedürfnissen</span>
+              </h2>
+              <div>
+                <h3 className="tw-text-lg tw-font-bold tw-text-dark">
+                  Für <strong>Fructoseintoleranz Ernährung</strong>
+                </h3>
+                <p className="tw-leading-7 tw-text-dark">
+                  Diese Zutatenkombination berücksichtigt besondere Ernährungsbedürfnisse:
+                  <br />{' '}
+                  <strong>
+                    <a
+                      className="tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
+                    >
+                      Himbeeren
+                    </a>
+                  </strong>
+                  : Natürlich fructosearm (2,4g/100g)
+                  <br />-{' '}
+                  <strong>
+                    <a
+                      className="tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
+                    >
+                      Avocado
+                    </a>
+                  </strong>
+                  : Fructosefreie Fettquelle
+                  <br />-{' '}
+                  <strong>
+                    <a
+                      className="tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
+                    >
+                      Brokkoli
+                    </a>
+                  </strong>
+                  : Ballaststoffe unterstützen Verdauung
+                  <br />-{' '}
+                  <strong>
+                    <a
+                      className="tw-text-theme tw-underline"
+                      href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
+                    >
+                      Kokoswasser
+                    </a>
+                  </strong>
+                  : Natürlich elektrolytreich
+                </p>
+              </div>
+              <div>
+                <h3 className="tw-text-lg tw-font-bold tw-text-dark">
+                  Als <strong>Low Calorie Smoothie</strong>
+                </h3>
+                <ul className="tw-list-disc tw-pl-5 tw-space-y-1 tw-text-dark">
+                  <li>Unter 100kcal pro Portion</li>
+                  <li>10,4g Ballaststoffe für langanhaltende Sättigung</li>
+                  <li>Perfekt als Mahlzeitenersatz</li>
+                </ul>
+              </div>
+            </div>
+            {/* LEFT: Image card */}
+            <div className=" tw-rounded-2xl tw-p-3 ">
+              <img
+                title="Smoothie als Frühstücks-Alternative – nährstoffreich und sättigend"
+                src="https://i.ibb.co/jkyVQNW5/fructover-1-06.png"
+                alt="Himbeer-Smoothie mit Haferflocken als Frühstück serviert"
+                className="tw-w-full tw-max-w-[100px] tw-h-full tw-max-h-[460px] tw-object-cover tw-rounded-lg"
+                loading="lazy"
+              />
+            </div>
 
-          <h3 className="tw-text-lg tw-font-bold tw-text-emerald-800">
-            F&uuml;r <strong>Fructoseintoleranz Ern&auml;hrung</strong>
-          </h3>
-          <p className="tw-leading-7">
-            Diese Zutatenkombination ber&uuml;cksichtigt besondere Ern&auml;hrungsbed&uuml;rfnisse:
-            <br />-{' '}
-            <strong>
-              <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
-              >
-                Himbeeren
-              </a>
-            </strong>
-            : Nat&uuml;rlich fructosearm (2,4g/100g)
-            <br />-{' '}
-            <strong>
-              <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
-              >
-                Avocado
-              </a>
-            </strong>
-            : Fructosefreie Fettquelle
-            <br />-{' '}
-            <strong>
-              <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
-              >
-                Brokkoli
-              </a>
-            </strong>
-            : Ballaststoffe unterst&uuml;tzen Verdauung
-            <br />-{' '}
-            <strong>
-              <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
-              >
-                Kokoswasser
-              </a>
-            </strong>
-            : Nat&uuml;rlich elektrolytreich
-          </p>
+            {/* RIGHT: Text content */}
+            <div className=" tw-space-y-5">
+              <div>
+                <h3 className="tw-text-lg tw-font-bold tw-text-dark">
+                  Wie integriere ich den Smoothie in meine Ernährung?
+                </h3>
+                <p className="tw-text-dark">
+                  Ideale Einsatzbereiche:
+                  <br />- Frühstücksersatz mit Haferflocken
+                  <br />- Post-Workout-Erfrischung
+                  <br />- Dessert-Alternative
+                </p>
+              </div>
 
-          <h3 className="tw-text-lg tw-font-bold tw-text-emerald-800">
-            Als <strong>Low Calorie Smoothie</strong>
-          </h3>
-          <ul className="tw-list-disc tw-pl-5 tw-space-y-1">
-            <li>Unter 100kcal pro Portion</li>
-            <li>10,4g Ballaststoffe f&uuml;r langanhaltende S&auml;ttigung</li>
-            <li>Perfekt als Mahlzeitenersatz</li>
-          </ul>
-
-          <h3 className="tw-text-lg tw-font-bold tw-text-emerald-800">
-            Wie integriere ich den Smoothie in meine Ern&auml;hrung?
-          </h3>
-          <p>
-            Ideale Einsatzbereiche:
-            <br />- Fr&uuml;hst&uuml;cksersatz mit Haferflocken
-            <br />- Post-Workout-Erfrischung
-            <br />- Dessert-Alternative
-          </p>
-
-          <p className="tw-rounded-2xl tw-overflow-hidden tw-shadow-sm">
-            <img
-              title="Smoothie als Fr&uuml;hst&uuml;cks-Alternative &ndash; n&auml;hrstoffreich und s&auml;ttigend"
-              src="https://i.ibb.co/KcGrvdj3/fructover-1-06.png"
-              alt="Himbeer-Smoothie mit Haferflocken als Fr&uuml;hst&uuml;ck serviert"
-              className="tw-w-full tw-h-auto"
-              loading="lazy"
-            />
-          </p>
-
-          <h3 className="tw-text-lg tw-font-bold tw-text-emerald-800">
-            Allgemein: Was essen bei Fructoseintoleranz?
-          </h3>
-          <p>
-            Wichtige Aspekte f&uuml;r deinen Speiseplan:
-            <br />
-            1. Fructosegehalt pro Portion beachten
-            <br />
-            2. Gleichzeitige Aufnahme von Glukose optimieren
-            <br />
-            3. Ballaststoffanteil erh&ouml;hen
-          </p>
-        </div>
+              <div>
+                <h3 className="tw-text-lg tw-font-bold tw-text-dark">
+                  Allgemein: Was essen bei Fructoseintoleranz?
+                </h3>
+                <p className="tw-text-dark">
+                  Wichtige Aspekte für deinen Speiseplan:
+                  <br />
+                  1. Fructosegehalt pro Portion beachten
+                  <br />
+                  2. Gleichzeitige Aufnahme von Glukose optimieren
+                  <br />
+                  3. Ballaststoffanteil erhöhen
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Time vs self-making */}
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 tw-items-start">
-          <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6">
-            <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800">
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-8 tw-items-stretch tw-px-0 md:tw-px-7">
+          <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 shadow-theme-lg tw-shadow-theme tw-justify-center tw-h-auto tw-flex tw-flex-col">
+            <h2 className="tw-text-2xl tw-font-extrabold ">
               🕒 Zeitersparnis vs. Selbstherstellung
             </h2>
             <p className="tw-mt-2">
@@ -585,155 +603,153 @@ export default function Fructover1() {
               <br />- <strong>Sofort verzehrfertig</strong> in 4-Wochen-Haltbarkeit durch
               HPP-Verfahren
               <br />- <strong>Individualisierbar</strong> im{' '}
-              <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/smoothie-mixen-ideen"
-              >
+              <a className=" tw-underline" href="https://indivit.de/smoothie-mixen-ideen">
                 Online Smoothie Mixer
               </a>
               <br />- <strong>Ohne Ger&auml;teinvest</strong> von &uuml;ber 1000&euro; f&uuml;r
               Profi-Mixer
             </p>
           </div>
-          <p className="tw-rounded-2xl tw-overflow-hidden tw-shadow-sm tw-border tw-border-emerald-50 tw-bg-white">
+
+          <div className="shadow-theme-lg tw-shadow-theme tw-rounded-xl">
             <img
               title="Versandfertige Indivit Smoothies &ndash; HPP-verarbeitet"
               src="https://i.ibb.co/gY8VnMx/fructover-1-07.png"
               alt="Smoothieflaschen in Versandkarton auf Tisch"
-              className="tw-w-full tw-h-auto"
+              className="tw-object-contain tw-rounded-xl"
               loading="lazy"
             />
-          </p>
+          </div>
         </div>
 
-        {/* Variations */}
-        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6">
-          <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800">
-            🔄 Variationsm&ouml;glichkeiten
-          </h2>
-          <ul className="tw-list-disc tw-pl-5 tw-space-y-1 tw-mt-2">
-            <li>
-              <strong>F&uuml;r Sportler</strong>: +5g Hanfprotein
-            </li>
-            <li>
-              <strong>Extra-Cremig</strong>: 1 TL{' '}
+        <div className="tw-bg-white tw-shadow-sm tw-rounded-2xl tw-items-center tw-p-6 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6 tw-px-0 md:tw-px-7 tw-mb-10">
+          {/* Variations */}
+          <div className="">
+            <h2 className="tw-text-2xl tw-font-extrabold ">🔄 Variationsm&ouml;glichkeiten</h2>
+            <ul className="tw-list-disc tw-pl-5 tw-space-y-1 tw-mt-2">
+              <li>
+                <strong>F&uuml;r Sportler</strong>: +5g Hanfprotein
+              </li>
+              <li>
+                <strong>Extra-Cremig</strong>: 1 TL{' '}
+                <a
+                  className=" tw-underline"
+                  href="https://indivit.de/ernaehrung/gesundes-mandelmus-pflanzliche-proteinquelle"
+                >
+                  Mandelmus
+                </a>{' '}
+                hinzuf&uuml;gen
+              </li>
+              <li>
+                <strong>Fructosearm</strong>:{' '}
+                <a
+                  className=" tw-underline"
+                  href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
+                >
+                  Himbeeren
+                </a>{' '}
+                durch Heidelbeeren ersetzen
+              </li>
+            </ul>
+            <p className="tw-mt-3">
+              Probier auch unsere Schwesterrezepte{' '}
               <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/gesundes-mandelmus-pflanzliche-proteinquelle"
+                className=" tw-underline"
+                href="https://indivit.de/rezepte/gurken-smoothie-zum-abnehmen"
               >
-                Mandelmus
+                Fructover 2.0
               </a>{' '}
-              hinzuf&uuml;gen
-            </li>
-            <li>
-              <strong>Fructosearm</strong>:{' '}
+              und{' '}
               <a
-                className="tw-text-emerald-700 tw-underline"
-                href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
+                className=" tw-underline"
+                href="https://indivit.de/rezepte/pfirsich-smoothie-fructoseintoleranz-ernaehrung"
               >
-                Himbeeren
+                Fructover 3.0
               </a>{' '}
-              durch Heidelbeeren ersetzen
-            </li>
-          </ul>
-          <p className="tw-mt-3">
-            Probier auch unsere Schwesterrezepte{' '}
-            <a
-              className="tw-text-emerald-700 tw-underline"
-              href="https://indivit.de/rezepte/gurken-smoothie-zum-abnehmen"
-            >
-              Fructover 2.0
-            </a>{' '}
-            und{' '}
-            <a
-              className="tw-text-emerald-700 tw-underline"
-              href="https://indivit.de/rezepte/pfirsich-smoothie-fructoseintoleranz-ernaehrung"
-            >
-              Fructover 3.0
-            </a>{' '}
-            aus!
-          </p>
-        </div>
+              aus!
+            </p>
+          </div>
 
-        {/* Shopping guide */}
-        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6">
-          <h2 className="tw-text-2xl tw-font-extrabold tw-text-emerald-800">
-            🛍️ Einkaufsguide f&uuml;r beste Qualit&auml;t
-          </h2>
-          <table className="tw-w-full tw-text-left tw-border-separate tw-border-spacing-y-2 tw-mt-3">
-            <thead>
-              <tr className="tw-bg-emerald-600 tw-text-white">
-                <th className="tw-font-semibold tw-px-4 tw-py-3 tw-rounded-l-lg">Zutat</th>
-                <th className="tw-font-semibold tw-px-4 tw-py-3 tw-rounded-r-lg">Tipp</th>
-              </tr>
-            </thead>
-            <tbody className="[&>tr]:tw-bg-emerald-50 [&>tr]:tw-rounded-lg [&>tr>td]:tw-px-4 [&>tr>td]:tw-py-3 [&>tr]:tw-border [&>tr]:tw-border-emerald-100">
-              <tr>
-                <td>
-                  <strong>
-                    Bio-
-                    <a
-                      className="tw-text-emerald-700 tw-underline"
-                      href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
-                    >
-                      Himbeeren
-                    </a>
-                  </strong>
-                </td>
-                <td>TK-Beutel auf Eiskristalle pr&uuml;fen - Indiz f&uuml;r Schockfrostung</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Bio-
-                    <a
-                      className="tw-text-emerald-700 tw-underline"
-                      href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
-                    >
-                      Brokkoli
-                    </a>
-                  </strong>
-                </td>
-                <td>Nur feste, dunkelgr&uuml;ne R&ouml;schen verwenden</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Bio-
-                    <a
-                      className="tw-text-emerald-700 tw-underline"
-                      href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
-                    >
-                      Kokoswasser
-                    </a>
-                  </strong>
-                </td>
-                <td>pH-Wert 5-5,4 zeigt frische Verarbeitung</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>
-                    Bio-
-                    <a
-                      className="!tw-text-theme tw-underline"
-                      href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
-                    >
-                      Avocado
-                    </a>
-                  </strong>
-                </td>
-                <td>Schale sollte unter Druck leicht nachgeben</td>
-              </tr>
-            </tbody>
-          </table>
+          {/* Shopping guide */}
+          <div className="tw-bg-white tw-rounded-2xl shadow-theme-lg tw-shadow-theme tw-p-6">
+            <h2 className="tw-text-2xl tw-font-extrabold ">
+              🛍️ Einkaufsguide f&uuml;r beste Qualit&auml;t
+            </h2>
+            <table className="tw-w-full tw-text-left tw-border-separate tw-border-spacing-y-2 tw-mt-3">
+              <thead>
+                <tr className="tw-bg-emerald-600 tw-text-white">
+                  <th className="tw-font-semibold tw-px-4 tw-py-3 tw-rounded-l-lg">Zutat</th>
+                  <th className="tw-font-semibold tw-px-4 tw-py-3 tw-rounded-r-lg">Tipp</th>
+                </tr>
+              </thead>
+              <tbody className="[&>tr]:tw-bg-emerald-50 [&>tr]:tw-rounded-lg [&>tr>td]:tw-px-4 [&>tr>td]:tw-py-3 [&>tr]:tw-border [&>tr]:tw-border-emerald-100">
+                <tr>
+                  <td>
+                    <strong>
+                      Bio-
+                      <a
+                        className=" tw-underline"
+                        href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
+                      >
+                        Himbeeren
+                      </a>
+                    </strong>
+                  </td>
+                  <td>TK-Beutel auf Eiskristalle pr&uuml;fen - Indiz f&uuml;r Schockfrostung</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Bio-
+                      <a
+                        className=" tw-underline"
+                        href="https://indivit.de/ernaehrung/abnehmen-mit-gemuese-brokkoli-kalorienarm"
+                      >
+                        Brokkoli
+                      </a>
+                    </strong>
+                  </td>
+                  <td>Nur feste, dunkelgr&uuml;ne R&ouml;schen verwenden</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Bio-
+                      <a
+                        className=" tw-underline"
+                        href="https://indivit.de/ernaehrung/kokoswasser-und-elektrolyte-getraenk-wirkung"
+                      >
+                        Kokoswasser
+                      </a>
+                    </strong>
+                  </td>
+                  <td>pH-Wert 5-5,4 zeigt frische Verarbeitung</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>
+                      Bio-
+                      <a
+                        className="!tw-text-theme tw-underline"
+                        href="https://indivit.de/ernaehrung/avocado-gesund-kaloriengehalt-analyse"
+                      >
+                        Avocado
+                      </a>
+                    </strong>
+                  </td>
+                  <td>Schale sollte unter Druck leicht nachgeben</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* CTA / footer visuals */}
-        <div className="tw-bg-white tw-rounded-2xl tw-shadow-sm tw-border tw-border-emerald-50 tw-p-6 tw-space-y-4">
+        <div className="tw-bg-white tw-rounded-2xl tw-p-6 tw-space-y-4">
           <p>
             💡 <strong>Wusstest du?</strong> Dieser Smoothie ist Teil unserer{' '}
             <a
-              className="tw-text-emerald-700 tw-underline"
+              className=" tw-underline"
               href="https://indivit.de/trinkmahlzeit-snack-fuer-unterwegs"
             >
               Trinkmahlzeiten
@@ -742,7 +758,7 @@ export default function Fructover1() {
             mehr Infos zu <strong>welche Lebensmittel bei Fructoseintoleranz</strong> geeignet sind,
             schau in unserer{' '}
             <a
-              className="tw-text-emerald-700 tw-underline"
+              className=" tw-underline"
               href="https://indivit.de/ernaehrung/kalorienarme-himbeeren-gesundheitsvorteile"
             >
               Himbeer-Warenkunde
@@ -761,30 +777,27 @@ export default function Fructover1() {
           </p>
 
           <div className="tw-bg-[#FFF3C6] tw-rounded-2xl tw-p-6">
-            <p className="tw-font-semibold tw-text-emerald-900">Entdecke unsere Vielfalt</p>
+            <p className="tw-font-semibold ">Entdecke unsere Vielfalt</p>
             <p className="tw-mt-1">
               Im{' '}
-              <a className="tw-text-emerald-800 tw-underline" href="https://indivit.de">
+              <a className=" tw-underline" href="https://indivit.de">
                 Indivit Online Shop
               </a>{' '}
               findest du:
               <br />✅ Individuell{' '}
-              <a
-                className="tw-text-emerald-800 tw-underline"
-                href="https://indivit.de/smoothie-mixen-ideen"
-              >
+              <a className=" tw-underline" href="https://indivit.de/smoothie-mixen-ideen">
                 konfigurierbare Smoothies
               </a>
               <br />✅ Komplettpakete f&uuml;r{' '}
               <a
-                className="tw-text-emerald-800 tw-underline"
+                className=" tw-underline"
                 href="https://indivit.de/saftkur-erfahrung-mit-intervallfasten"
               >
                 Intervallfasten
               </a>
               <br />✅ Praktische{' '}
               <a
-                className="tw-text-emerald-800 tw-underline"
+                className=" tw-underline"
                 href="https://indivit.de/trinkmahlzeit-snack-fuer-unterwegs"
               >
                 Trinkmahlzeiten
