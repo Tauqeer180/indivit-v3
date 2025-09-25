@@ -14,7 +14,7 @@ function Fructover() {
 
       <p>
         <img
-          src="https://ibb.co/35TQmScN"
+          src="https://i.ibb.co/SDtPtzSK/Fructover3-1.png"
           alt="Cremiger Pfirsich Smoothie im Glas mit frischer Minze"
           title="Erfrischender Pfirsich Smoothie für Fructoseintoleranz"
           loading="lazy"
@@ -33,7 +33,7 @@ function Fructover() {
       <h2>🥤 Was essen bei Fructoseintoleranz? Die Zutaten im Überblick</h2>
       <p>
         <img
-          src="https://ibb.co/sdV2bFjR"
+          src="https://i.ibb.co/67Wmr4Yw/Gemini-Generated-Image-spx49ispx49ispx4.png"
           alt="Alle Smoothie-Zutaten arrangiert auf Holz mit Mixer im Hintergrund"
           title="Zutaten für fructosearmen Smoothie auf einen Blick"
           loading="lazy"
@@ -155,7 +155,7 @@ function Fructover() {
 
       <p>
         <img
-          src="https://ibb.co/tM6Jnbhs"
+          src="https://i.ibb.co/fVYWqXW6/Fructover3-3.png"
           alt="Pfirsich wird geschnitten und Spinat gewaschen in Vorbereitung"
           title="Zutatenvorbereitung für den fructosearmen Smoothie"
           loading="lazy"
@@ -199,7 +199,7 @@ function Fructover() {
 
       <p>
         <img
-          src="https://ibb.co/1fqZ1kPZ"
+          src="https://i.ibb.co/QFpXRs5X/fructover-3-4.png"
           alt="Schichten von Smoothie-Zutaten im Mixer vor dem Mixen"
           title="Zutaten im Hochleistungsmixer – Schichtung vor dem Mixprozess"
           loading="lazy"
@@ -233,7 +233,7 @@ function Fructover() {
 
       <p>
         <img
-          src="fructover-3.0-smoothie-genuss-im-glas.jpg"
+          src="https://i.ibb.co/WWCcpDTd/fructover-3-5.png"
           alt="Smoothie im gekühlten Glas mit Minze und Mandelsplittern"
           title="Serviervorschlag für einen sommerlichen Pfirsich Smoothie"
           loading="lazy"
@@ -281,7 +281,7 @@ function Fructover() {
       <p>*Basierend auf EU-Referenzwerten für einen durchschnittlichen Erwachsenen</p>
       <p>
         <img
-          src="fructover-3.0-naehrwertanalyse-smoothie.jpg"
+          src="https://i.ibb.co/fVgDwVdz/fructover-3-6.png"
           alt="Farblich hervorgehobene Nährwerttabelle mit Fokus auf Vitamine"
           title="Nährwertanalyse des Pfirsich Smoothies"
           loading="lazy"
@@ -328,7 +328,7 @@ function Fructover() {
 
       <p>
         <img
-          src="fructover-3.0- indivit-ernaehrungsberatung.jpg"
+          src="https://i.ibb.co/676L6SPL/fructover-3-7.png"
           alt="Expertin erklärt fructosearme Ernährung am Bildschirm"
           title="Ernährungsberatung zur Fructoseintoleranz bei Indivit"
           loading="lazy"
@@ -470,7 +470,7 @@ function Fructover() {
 
       <p>
         <img
-          src="fructover-3.0-indivit-smoothies-kuehlregal.jpg"
+          src="https://i.ibb.co/DDCZZZXM/fructover-3-8.png"
           alt="Smoothieflaschen von Indivit ordentlich im Kühlregal"
           title="Fertige Smoothies von Indivit im Bio-Kühlregal"
           loading="lazy"

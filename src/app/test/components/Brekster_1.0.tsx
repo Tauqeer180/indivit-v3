@@ -14,7 +14,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/xKGKbmXF"
+          src="https://i.ibb.co/JR1bdfyR/brekster-1-1.png"
           alt="Cremiger grüner Smoothie im Glas mit Avocado-Deko"
           title="Grüner Avocado Smoothie – proteinreiches Frühstück im Glas"
           loading="lazy"
@@ -50,7 +50,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/Z6gYLX9b"
+          src="https://i.ibb.co/pBz8FyKf/brekster-1-2.png"
           alt="Alle Smoothie-Zutaten arrangiert auf rustikalem Holztisch"
           title="Übersicht der Zutaten für den Avocado Smoothie"
           loading="lazy"
@@ -151,7 +151,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/2GJMTBc"
+          src="https://i.ibb.co/5h4sY2NW/brekster-1-3.png"
           alt="Hände beim Mixvorgang eines grünen Smoothies im Hochleistungsmixer"
           title="Zubereitung im Mixer – cremig durch 30.000 U/min"
           loading="lazy"
@@ -219,7 +219,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/G4VG1Jhx"
+          src="https://i.ibb.co/6RYxb97x/brekster-1-4.png"
           alt="Infografik der wichtigsten Nährwerte pro Portion"
           title="Nährstoffübersicht: Was steckt im Smoothie?"
           loading="lazy"
@@ -284,7 +284,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/nqRxNYRY"
+          src="https://i.ibb.co/DHybq3QF/brekster-1-5.png"
           alt="Smoothie Bowl mit dekorativen Toppings wie Granatapfel und Kokos"
           title="Smoothie Bowl Variante – gesund und schön dekoriert"
           loading="lazy"
@@ -373,7 +373,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/xSqq2Yh7"
+          src="https://i.ibb.co/HptPkn2x/brekster-1-6.png"
           alt="Indivit Smoothieflasche neben frischen Zutaten"
           title="Indivit Smoothie – fertig gemischt und nährstoffreich"
           loading="lazy"
@@ -425,7 +425,7 @@ function Brekster() {
 
       <p>
         <img
-          src="https://ibb.co/7J7hyfrp"
+          src="https://i.ibb.co/nM1D34fJ/brekster-1-7.png"
           alt="Bio-Avocados auf einem Marktstand in Spanien mit Umwelt-Hinweisen"
           title="Nachhaltige Bio-Avocados aus Spanien"
           loading="lazy"
@@ -473,7 +473,7 @@ function Brekster() {
 
       <p>
         <img
-          src="brekster-1.0-smoothie-online-bestellen.jpg"
+          src="https://i.ibb.co/bxz7qXz/brekster-1-8.png"
           alt="Smoothie-Glas vor Laptop mit Bestellseite"
           title="Avocado Smoothie online bestellen – direkt geliefert"
           loading="lazy"
