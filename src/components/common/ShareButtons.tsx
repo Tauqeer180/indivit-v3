@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import { shareOnFacebook, shareOnLinkedIn, shareOnTwitter, shareOnWhatsApp } from './utils'
-import { ShareIcon, TwitterIcon } from '@/assets/svgIcons'
+import { FacebookIcon, LinkedinIcon, ShareIcon, TwitterIcon, WhatsappIcon } from '@/assets/svgIcons'
 import { cn } from '@/lib/utils'
-import { Link2, Linkedin, LinkedinIcon, LucideLinkedin, X } from 'lucide-react'
+import { Link, Link2 } from 'lucide-react'
 import { buttonVariants } from '../ui/button'
 
 export default function ShareButtons() {
@@ -21,31 +21,34 @@ export default function ShareButtons() {
 
         {/* <!-- Instagram --> */}
         <button
-          className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
+          className={cn(
+            buttonVariants({ variant: 'dark' }),
+            'tw-w-10 tw-h-10 !tw-px-4 tw-text-4xl'
+          )}
           onClick={() => shareOnFacebook(window.location.href)}
         >
-          <i className="fab fa-facebook tw-text-base"></i>
+          <FacebookIcon />
         </button>
         {/* <!-- Linkedin --> */}
         <button
           className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnLinkedIn(window.location.href)}
         >
-          <i className="fab fa-linkedin-in tw-text-lg"></i>
+          <LinkedinIcon />
           {/* <Linkedin className="!tw-w-6 !tw-h-6" /> */}
         </button>
         <button
           className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-4')}
           onClick={() => shareOnWhatsApp(window.location.href)}
         >
-          <i className="fab fa-whatsapp tw-text-lg"></i>
+          <WhatsappIcon />
         </button>
         <button
           className={cn(buttonVariants({ variant: 'dark' }), 'tw-w-10 tw-h-10 !tw-px-0 !tw-py-0')}
           onClick={() => navigator.clipboard.writeText(window.location.href)}
         >
           {/* <i className="fa fa-link"></i> */}
-          <Link2 size={24} className="!tw-w-6 !tw-h-6" />
+          <Link2 size={18} className="!tw-w-6 !tw-h-6" />
         </button>
       </div>
     </div>
@@ -77,21 +80,21 @@ export const FABComponent = () => {
             bg: 'tw-bg-black',
           },
           {
-            icon: <i className="fab fa-linkedin-in"></i>,
+            icon: <LinkedinIcon />,
             action: shareOnLinkedIn,
             bg: 'tw-bg-[#0077b5]',
           },
           {
-            icon: <i className="fab fa-whatsapp"></i>,
+            icon: <WhatsappIcon />,
             action: shareOnWhatsApp,
             bg: 'tw-bg-[#25d366]',
           },
           {
-            icon: <i className="fab fa-facebook"></i>,
+            icon: <FacebookIcon />,
             action: shareOnFacebook,
             bg: 'tw-bg-[#4267b2]',
           },
-          { icon: <i className="fa fa-link"></i>, action: copyLink, bg: 'tw-bg-purple-500' },
+          { icon: <Link size={18} />, action: copyLink, bg: 'tw-bg-purple-500' },
         ].map((item, index) => (
           <li
             key={index}

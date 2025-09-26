@@ -245,14 +245,17 @@ export default async function page({ params }: any) {
           <ThreeTage />
         ) : (
           )} */}
-        <MarkdownDisplay enableTailwind={true}>
-          {boxDescription?.length > 0 && boxDescription?.[0]?.detail}
-        </MarkdownDisplay>
+        {boxData?.page_builder && (
+          <MarkdownDisplay enableTailwind={true}>
+            {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}
+            {boxData?.page_builder?.html_content_with_prefixes}
+          </MarkdownDisplay>
+        )}
         {/* <ThreeTage /> */}
       </div>
 
       {/* Banner Section Start */}
-      {/* {JSON.stringify(boxCategoryBenefits)} */}
+      {/* {JSON.stringify(boxData?.page_builder?.html_content_with_prefixes)} */}
       <BoxUiBanner
         // data={benefitsData?.data}
         benefits={boxCategoryBenefits?.benefits && JSON.parse(boxCategoryBenefits?.benefits)}

@@ -7,6 +7,7 @@ import session from '@/services/session'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
 import { fetcher } from '@/lib/fetcher'
+import { EyeIcon, EyeOffIcon, KeyRound, MailOpen } from 'lucide-react'
 export default function SignupForm() {
   const [loading, setLoading] = useState(false)
   const [isVisibile, setIsVisibile] = useState(false)
@@ -138,8 +139,8 @@ export default function SignupForm() {
         <label className="form-label" htmlFor="typeEmailX">
           E-Mail
         </label>
-        <div className="flx-login-icons pb-3">
-          <i className="fa fa-solid fa-envelope-open flx-icon"></i>
+        <div className="flx-login-icons pb-3 tw-relative">
+          <MailOpen size={20} className="tw-absolute  tw-left-3 tw-top-3 tw-text-theme" />{' '}
           <input
             type="email"
             id="typeEmailX"
@@ -158,8 +159,8 @@ export default function SignupForm() {
         <label className="form-label" htmlFor="typePasswordX">
           Passwort
         </label>
-        <div className="flx-login-icons pb-4 position-relative">
-          <i className="fa fa-solid fa-key flx-icon"></i>
+        <div className="flx-login-icons pb-4 tw-relative">
+          <KeyRound size={20} className="tw-absolute  tw-left-3 tw-top-3 tw-text-theme" />
           <input
             type={isVisibile ? 'text' : 'password'}
             id="typePasswordX"
@@ -174,12 +175,18 @@ export default function SignupForm() {
               minLength: 6,
             })}
           />
-          <i
-            className={`fa fa-solid  ${
-              isVisibile ? 'fa-eye' : 'fa-eye-slash'
-            }  flx-icon top-0 end-0 cursor-pointer text-black-50  `}
-            onClick={() => setIsVisibile(!isVisibile)}
-          ></i>
+          {isVisibile ? (
+            <EyeIcon
+              className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+              onClick={() => setIsVisibile(!isVisibile)}
+            />
+          ) : (
+            <EyeOffIcon
+              className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+              onClick={() => setIsVisibile(!isVisibile)}
+            />
+          )}
+
           {errors?.password?.type === 'Angabe notwendig' && (
             <p className="text-danger my-1">* Angabe notwendig</p>
           )}
@@ -191,8 +198,8 @@ export default function SignupForm() {
           {/* Confirm Password */}
           Passwort bestätigen
         </label>
-        <div className="flx-login-icons pb-4 position-relative">
-          <i className="fa fa-solid fa-key flx-icon"></i>
+        <div className="flx-login-icons pb-4 tw-relative">
+          <KeyRound size={20} className="tw-absolute  tw-left-3 tw-top-3 tw-text-theme" />{' '}
           <input
             type={isVisibile ? 'text' : 'password'}
             id="typePasswordX"
@@ -205,12 +212,17 @@ export default function SignupForm() {
               minLength: 6,
             })}
           />
-          <i
-            className={`fa fa-solid  ${
-              isVisibile ? 'fa-eye' : 'fa-eye-slash'
-            }  flx-icon top-0 end-0 cursor-pointer text-black-50`}
-            onClick={() => setIsVisibile(!isVisibile)}
-          ></i>
+          {isVisibile ? (
+            <EyeIcon
+              className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+              onClick={() => setIsVisibile(!isVisibile)}
+            />
+          ) : (
+            <EyeOffIcon
+              className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+              onClick={() => setIsVisibile(!isVisibile)}
+            />
+          )}
           {errors?.password_confirmation?.type === 'Angabe notwendig' && (
             <p className="text-danger my-1">* Angabe notwendig</p>
           )}

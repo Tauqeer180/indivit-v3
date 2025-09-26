@@ -5,6 +5,7 @@ import { loginAction } from '@/redux/account'
 import { fetchWishlist } from '@/redux/wishlist'
 import session from '@/services/session'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { EyeClosed, EyeIcon, EyeOffIcon, KeyRound, MailOpen } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -136,8 +137,11 @@ export default function LoginCard({
                     <label className="form-label" htmlFor="typeEmailX">
                       E-Mail
                     </label>
-                    <div className="flx-login-icons pb-3">
-                      <i className="fa fa-solid fa-envelope-open flx-icon"></i>
+                    <div className="flx-login-icons pb-3 tw-relative">
+                      <MailOpen
+                        size={20}
+                        className="tw-absolute  tw-left-3 tw-top-3 tw-text-theme"
+                      />
                       <input
                         type="email"
                         id="typeEmailX"
@@ -160,8 +164,11 @@ export default function LoginCard({
                     <label className="form-label" htmlFor="typePasswordX">
                       Passwort
                     </label>
-                    <div className="flx-login-icons pb-3 position-relative ">
-                      <i className="fa fa-solid fa-key flx-icon"></i>
+                    <div className="flx-login-icons pb-3 tw-relative ">
+                      <KeyRound
+                        size={20}
+                        className="tw-absolute  tw-left-3 tw-top-3 tw-text-theme"
+                      />
                       <input
                         type={isVisible ? 'text' : 'password'}
                         id="typePasswordX"
@@ -174,13 +181,18 @@ export default function LoginCard({
                           minLength: 6,
                         })}
                       />
-                      <i
-                        className={`fa fa-solid  ${
-                          isVisible ? 'fa-eye' : 'fa-eye-slash'
-                        }  flx-icon top-0 end-0 cursor-pointer text-black-50  `}
-                        style={{ color: 'var(--green)' }}
-                        onClick={() => setIsVisibile(!isVisible)}
-                      ></i>
+                      {isVisible ? (
+                        <EyeIcon
+                          className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+                          onClick={() => setIsVisibile(!isVisible)}
+                        />
+                      ) : (
+                        <EyeOffIcon
+                          className="tw-text-black/50 tw-absolute tw-right-3 tw-top-3"
+                          onClick={() => setIsVisibile(!isVisible)}
+                        />
+                      )}
+
                       <button className="btn position-absolute top-0 end-0"></button>
                       {errors?.password?.type === 'required' && (
                         <p className="text-danger my-1">* Angabe notwendig</p>

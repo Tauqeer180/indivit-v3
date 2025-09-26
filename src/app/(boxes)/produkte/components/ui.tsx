@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/select'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { Check } from 'lucide-react'
 
 export function WishlistButton({ boxData }) {
   const token = useAppSelector((state) => state?.account?.token)
@@ -386,7 +387,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
               selectedBoxData?.box_status !== null
             }
             onClick={handleSubmit(handleCart)}
-            className={`btn-theme ${
+            className={`btn-theme tw-gap-1 ${
               selectedBoxData &&
               parseInt(selectedBoxData?.box_status) !== 0 &&
               selectedBoxData?.box_status !== null
@@ -395,11 +396,7 @@ export function BoxForm({ boxDescription, boxCategory, boxData, subscriptionData
             }`}
             title="derzeit nicht verfügbar"
           >
-            {IsInCart(boxData?.unique_id) && (
-              <span className="btn-label">
-                <i className="fa fa-check"></i>&nbsp;
-              </span>
-            )}
+            {IsInCart(boxData?.unique_id) && <Check />}
             In den Warenkorb legen
           </button>
           <WishlistButton boxData={boxData} />

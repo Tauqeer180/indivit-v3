@@ -13,6 +13,7 @@ import CustomBoxCard from './CustomBoxCard'
 import ModalContainer from '@/components/Modal/ModalContainer'
 import LoginCard from '@/app/(auth)/components/LoginCard'
 import Loader from '@/components/common/Loader'
+import { Search } from 'lucide-react'
 
 export default function CustomBox({
   boxSize,
@@ -311,11 +312,12 @@ export default function CustomBox({
                         {/* In your box (Select Smoothie) */}
                         Wähle aus allen verfügbaren Smoothies
                       </h6>
-                      <div className="flx-input-icons">
-                        <i
+                      <div className="flx-input-icons tw-relative">
+                        <Search className="tw-text-theme tw-absolute tw-top-4 tw-left-3" />
+                        {/* <i
                           className="fa fa-light fa-magnifying-glass icon"
                           // style="color: #329200;"
-                        ></i>
+                        ></i> */}
                         <input
                           type="search"
                           className="form-control rounded"
