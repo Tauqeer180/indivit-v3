@@ -164,7 +164,7 @@ export default function Navbar() {
         >
           <div className="container">
             <div
-              className="offcanvas offcanvas-end position-lg-initial transform-lg-none border-lg-none col-lg-5 py-2 lg:!tw-bg-transparent lg:!tw-px-0 tw-bg-white"
+              className="offcanvas offcanvas-end position-lg-initial transform-lg-none border-lg-none col-lg-5 py-2 !tw-bg-transparent lg:!tw-px-0 "
               tabIndex="-1"
               id="offcanvasRight"
               aria-labelledby="offcanvasRightLabel"
@@ -192,7 +192,7 @@ export default function Navbar() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="d-lg-flex offcanvas-body p-lg-0">
+              <div className="d-lg-flex offcanvas-body p-lg-0 ">
                 {/* <!-- Dropdown menu start shop--> */}
                 <div id="navbarExampleOnHover" className="mx-2">
                   <ul className="navbar-nav">
@@ -211,7 +211,7 @@ export default function Navbar() {
                         aria-labelledby="shopDropdown"
                       >
                         <div className="container !tw-px-4">
-                          <div className="tw-grid  lg:tw-grid-cols-4 2xl:tw-gap-5  tw-gap-4 lg:tw-py-10 tw-py-6">
+                          <div className="tw-grid  sm:tw-grid-cols-2 lg:tw-grid-cols-4 2xl:tw-gap-5  tw-gap-4 lg:tw-py-10 tw-py-6">
                             {/* {JSON.stringify(boxCategories)} */}
                             {boxCategories?.data?.slice(0, 4).map((cat, index) => {
                               return (

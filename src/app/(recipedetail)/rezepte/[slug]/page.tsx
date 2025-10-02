@@ -289,14 +289,20 @@ export default async function page({ params }: { params: { slug: string } }) {
         </div>
       </section>
       <div className="container tw-my-10">
-        {data?.created_by != 1 &&
+        {data?.page_builder && (
+          <MarkdownDisplay enableTailwind={true}>
+            {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}
+            {data?.page_builder?.html_content_with_prefixes}
+          </MarkdownDisplay>
+        )}
+        {/* {data?.created_by != 1 &&
           (smoothieId === 'fructover-10' ? (
             <Fructover1 />
           ) : (
             <MarkdownDisplay enableTailwind>
               {data?.smoothie_recipe_text?.recipe_text}
             </MarkdownDisplay>
-          ))}
+          ))} */}
       </div>
 
       <Content
