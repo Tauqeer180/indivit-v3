@@ -288,7 +288,7 @@ export default async function page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </section>
-      <div className="container tw-my-10">
+      <div className="">
         {data?.page_builder && (
           <MarkdownDisplay enableTailwind={true}>
             {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}
