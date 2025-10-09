@@ -82,9 +82,9 @@ a {
 .markdown p {
   margin-bottom: 0px !important;
 }
-.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+/* .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
  margin-bottom: 0px !important;
-}
+} */
 .markdown table td, .markdown table th {
   border: 1px solid #ddd;
   padding: 8px;
