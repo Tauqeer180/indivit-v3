@@ -1,14 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import 'react-multi-carousel/lib/styles.css'
-// import "bootstrap/dist/js/bootstrap.js";
 import 'aos/dist/aos.css'
-// import "aos/dist/aos.js";
 import '../assets/css/countdown.css'
 import '../assets/css/purged/purged-bootstrap.css'
 import '../assets/css/purged/purged-style.css'
-import '../assets/fontawesome/css/all.min.css'
-// import "./App.css";
+import '../assets/fontawesome/css/all.min.css' // Use minified version
 import { ToastContainer } from 'react-toastify'
 import Footer from '@/components/layout/Footer'
 import Navbar from '@/components/layout/Navbar'
@@ -17,6 +14,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import AllProviders from '../providers/AllProviders'
 import CookiesComponent from '@/components/CookiesBanner/Cookies'
 import Script from 'next/script'
+
 export const metadata: Metadata = {
   title: 'Indivit: Gesunde Smoothies & Clean Eating für individuelle Ziele | Bio',
   description:
@@ -50,19 +48,14 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* <meta
-          name="description"
-          content="Entdecke gesunde Bio-Smoothies für Clean Eating, Intervallfasten & Genuss. Jetzt im Smoothie-Test deinen besten Mix finden & gratis Versand sichern!"
-        /> */}
         <script
           type="module"
           dangerouslySetInnerHTML={{
             __html: `
-          
-          import {(onCLS, onINP, onLCP)} from 'https://unpkg.com/web-vitals@5?module';
+          import {onCLS, onINP, onLCP} from 'https://unpkg.com/web-vitals@5?module';
           onCLS(console.log); onINP(console.log); onLCP(console.log);
           `,
           }}
@@ -78,8 +71,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="lazyOnload"
         ></Script>
-        {/* <!-- Google Tag Manager --> */}
-
         <Script
           dangerouslySetInnerHTML={{
             __html: `(function (w, d, s, l, i) {
@@ -90,20 +81,16 @@ export default function RootLayout({
           dl = l != "dataLayer" ? "&l=" + l : "";
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefor;
-        e(j, f);
+        f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-MV39GF9C");`,
           }}
           strategy="afterInteractive"
         ></Script>
-
-        {/* <!-- End Google Tag Manager --> */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-F8GRTVZY8P"
           strategy="afterInteractive"
         ></Script>
-
         <Script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -120,8 +107,6 @@ export default function RootLayout({
           }}
           strategy="afterInteractive"
         ></Script>
-
-        {/* <!-- Google tag (gtag.js) --> */}
         <Script
           dangerouslySetInnerHTML={{
             __html: ` window.dataLayer = window.dataLayer || [];
@@ -129,15 +114,10 @@ export default function RootLayout({
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-F8GRTVZY8P");`,
           }}
           strategy="afterInteractive"
-        >
-          {/* // G-1M0EJW71XL -> mine */}
-          {/* // G-F8GRTVZY8P -> Indivit */}
-        </Script>
-        {/* Ahrefs */}
+        ></Script>
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="bxiC3Mi5zLJKI374h1U02w"
@@ -145,7 +125,6 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={` antialiased bg-light`}>
-        {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MV39GF9C"
@@ -154,7 +133,6 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-        {/* <!-- End Google Tag Manager (noscript) --> */}
         <AllProviders>
           <ToastContainer />
           <Navbar />
@@ -164,21 +142,10 @@ export default function RootLayout({
           <SpeedInsights />
           <Footer />
         </AllProviders>
-        {/* <script async src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script async src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script async src="../assets/js/bootstrap.js"></script>
-        <script async src="../assets/js/main.js"></script> */}
         <Script
           strategy="afterInteractive"
-          // async
-
           src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         ></Script>
-        {/* <Script
-          strategy="afterInteractive"
-          async
-          src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        ></Script> */}
       </body>
     </html>
   )
