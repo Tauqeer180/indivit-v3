@@ -12,7 +12,7 @@ export default function PageContent() {
             fill="#DCE9C7"
           />
           <section className="tw-relative tw-bg-white tw-rounded-[30px]  tw-shadow-lg tw-pt-10 xl:tw-pt-14 shadow-theme-xl tw-shadow-dark tw-overflow-hidden ">
-            <h1 className="tw-text-xl tw-max-w-3xl tw-mx-auto  tw-text-muted tw-text-center md:tw-text-left tw-mb-10">
+            <h1 className="max-md:tw-text-justify tw-text-base md:tw-text-lg lg:tw-text-xl max-lg:tw-px-6 tw-max-w-3xl tw-mx-auto  tw-text-muted tw-text-center md:tw-text-left tw-mb-10">
               Ob als <strong className="tw-text-dark">Low Carb Frühstück</strong>, schneller Snack
               oder nährstoffreiche Hauptmahlzeit – mit diesen{' '}
               <strong className="tw-text-dark">gesunden Smoothie Rezepten</strong> verwandelst du
@@ -20,21 +20,19 @@ export default function PageContent() {
               <strong className="tw-text-dark">Smoothies selber machst</strong>, die nicht nur
               lecker schmecken, sondern deinen Körper mit Vitaminen und Ballaststoffen versorgen.
             </h1>
-            <div className="tw-flex tw-justify-center md:tw-justify-start ">
-              <Image
-                src="https://live.staticflickr.com/4186/34619402661_5265242c76_b.jpg"
-                alt="Smoothie-Zutaten mit Obst und Gemüse"
-                className="tw-rounded-lg  tw-w-full"
-                width={1000}
-                height={500}
-              />
-            </div>
+            <Image
+              src="https://live.staticflickr.com/4186/34619402661_5265242c76_b.jpg"
+              alt="Smoothie-Zutaten mit Obst und Gemüse"
+              className="tw-rounded-lg  tw-w-full tw-h-auto tw-object-contain"
+              width={1024}
+              height={379}
+            />
           </section>
         </div>
       </div>
       <div className=" tw-p-4  tw-mb-6 tw-mx-auto tw-max-w-4xl ">
         <span className="tw-text-5xl tw-mr-2 tw-mb-6">🍃</span>
-        <h2 className="tw-text-5xl tw-font-bold  tw-mb-4 tw-leading-tight">
+        <h2 className=" 2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl   tw-font-bold  tw-mb-4 tw-leading-tight">
           Grüne Smoothie Rezepte: <br className="tw-hidden lg:tw-block" /> Power aus dem Mixer
         </h2>
 
@@ -120,7 +118,7 @@ export default function PageContent() {
         </div>
         <div className="tw-mt-14">
           <span className="tw-text-5xl tw-mr-2 tw-mb-6">🍓</span>
-          <h2 className="tw-text-5xl tw-font-bold  tw-mb-4 tw-leading-tight">
+          <h2 className="2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl   tw-font-bold  tw-mb-4 tw-leading-tight">
             Fruchtige Smoothie Rezepte <br className="tw-hidden lg:tw-block" /> zum Abnehmen{' '}
           </h2>
 
@@ -168,7 +166,7 @@ export default function PageContent() {
 
         <div className="tw-mt-14">
           <span className="tw-text-5xl tw-mr-2">🥥</span>{' '}
-          <h2 className="tw-text-5xl tw-font-bold tw-text-dark tw-mb-4">
+          <h2 className="2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl    tw-font-bold tw-text-dark tw-mb-4">
             Low Carb Rezepte:
             <br className="tw-hidden md:tw-block" /> Schlank genießen
           </h2>
@@ -211,7 +209,7 @@ export default function PageContent() {
         <div className="tw-mt-14">
           {' '}
           <span className="tw-text-5xl tw-mr-2">✨</span>
-          <h2 className="tw-text-5xl tw-font-bold tw-text-dark tw-mb-4">
+          <h2 className="2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl    tw-font-bold tw-text-dark tw-mb-4">
             5 Profi-Tipps für perfekte Smoothies
           </h2>
           <div className="tw-bg-[#FAF4D1] tw-text-lg tw-bg-[#] tw-p-7 tw-rounded-2.5xl shadow-theme-lg tw-shadow-[#ccc] tw-mb-4">
@@ -252,7 +250,7 @@ export default function PageContent() {
 
         <div className="tw-mt-14">
           <span className="tw-text-5xl tw-mr-2">❓</span>
-          <h2 className="tw-text-5xl tw-font-bold tw-text-dark tw-mb-4">
+          <h2 className="2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl    tw-font-bold tw-text-dark tw-mb-4">
             Häufige Fragen zu Smoothie <br className="tw-hidden md:tw-block" /> Rezepten
           </h2>
           <div className="tw-bg-tea-green tw-text-lg tw-p-7 tw-rounded-2.5xl shadow-theme-lg tw-shadow-[#ccc]">
@@ -316,7 +314,7 @@ export default function PageContent() {
 
         <div className="tw-mt-14">
           <span className="tw-text-5xl tw-mr-2">🥤</span>
-          <h2 className="tw-text-5xl tw-font-bold tw-text-dark tw-mb-4">
+          <h2 className="2xl:tw-text-5xl xl:tw-text-4xl tw-text-3xl    tw-font-bold tw-text-dark tw-mb-4">
             Unsere Top-3 Smoothie-Basen zum Selbermixen
           </h2>
           <div className="tw-bg-[#FAF4D1] tw-text-lg tw-bg-[#] tw-p-7 tw-rounded-2.5xl shadow-theme-lg tw-shadow-[#ccc] tw-mb-4">

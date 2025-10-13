@@ -52,6 +52,14 @@ const config = {
   corePlugins: {
     preflight: false,
   },
+  safelist: [
+    {
+      pattern: /(text|bg|grid|gap|flex|justify|items|p|m|col|row)-(.)+/,
+    },
+    {
+      pattern: /^(sm|md|lg|xl):/,
+    },
+  ],
 };
 
 export default config

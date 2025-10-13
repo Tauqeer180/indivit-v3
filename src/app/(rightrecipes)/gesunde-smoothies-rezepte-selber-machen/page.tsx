@@ -1,10 +1,7 @@
-import { RecipeCard, SkeltonCard } from '@/components/Cards'
-import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
+import { RecipeCard } from '@/components/Cards'
 import { fetcher } from '@/lib/fetcher'
 import { cookies } from 'next/headers'
-import Link from 'next/link'
 import React from 'react'
-import IntroText from '@/constant/IntroText.json'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
@@ -12,7 +9,6 @@ import { BreadCrumb } from '@/components/common/Common'
 import { H1 } from '@/components/common/Typography'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import Image from 'next/image'
-import { OctagonShapeIcon } from '@/assets/svgIcons'
 import PageContent from './pageContent'
 // Right Recipes Page
 
@@ -128,7 +124,7 @@ export default async function Page() {
                   })}
                 </TabsList>
                 <TabsContent value="alle">
-                  <div className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 ">
+                  <div className=" tw-grid tw-grid-cols-1 xs:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 ">
                     {smoothies?.map((smooth, index) => {
                       return (
                         <div className="" key={index} data-aos="fade-up" data-aos-duration="1000">
@@ -148,7 +144,7 @@ export default async function Page() {
                   return (
                     <TabsContent key={index} value={categ?.name?.toLowerCase() + '-' + categ?.id}>
                       <div
-                        className=" tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 "
+                        className=" tw-grid tw-grid-cols-1 xs:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 "
                         key={index}
                       >
                         {smoothies

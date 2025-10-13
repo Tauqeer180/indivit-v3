@@ -4,8 +4,8 @@ import React from 'react'
 export default function CustomizeSection() {
   return (
     <div className="tw-py-24 tw-bg-[#DCE9C7] tw-relative tw-z-0">
-      <OctagonShapeIcon className="tw-absolute tw-top-7 tw-left-0   tw-opacity-80 tw-rounded-md -tw-z-10" />
-      <TriShapeIcon className="tw-absolute tw-top-0 tw-right-0 -tw-translate-y-full  -tw-z-10" />
+      <OctagonShapeIcon className="tw-absolute tw-top-7 tw-left-0   tw-opacity-80 tw-rounded-md -tw-z-10 max-sm:tw-h-60" />
+      <TriShapeIcon className="tw-absolute tw-top-0 tw-right-0 -tw-translate-y-full  -tw-z-10 max-sm:tw-max-h-40" />
       <div className="container">
         <section className="tw-relative tw-bg-lime-500 tw-rounded-[30px]  tw-shadow-lg tw-text-center tw-py-10 shadow-theme-xl tw-shadow-dark  ">
           {/* <!-- Background shape --> */}

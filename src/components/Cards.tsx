@@ -214,7 +214,7 @@ export function RecipeCard({
       </ModalContainer>
       <div
         className={cn(
-          'tw-bg-white tw-rounded-[20px] tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]',
+          'tw-bg-white tw-rounded-[20px] tw-p-4 md:tw-p-5 xl:tw-p-[30px] shadow-theme-lg tw-shadow-[#CCC]',
           className
         )}
       >
@@ -255,7 +255,7 @@ export function RecipeCard({
           <h4 className="tw-text-xl tw-font-extrabold tw-mt-5">{data?.name}</h4>
           <p className="p5 text-truncate tw-text-sm">{data?.headline}</p>
           {isButton && (
-            <div className="tw-flex tw-items-center tw-gap-6">
+            <div className="tw-flex tw-items-center xl:tw-gap-6 lg:tw-gap-5 tw-gap-4">
               <Link href={action} type="button" className="btn-theme !tw-py-3 !tw-px-6">
                 {actionTitle}
               </Link>

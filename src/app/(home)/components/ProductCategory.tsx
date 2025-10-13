@@ -25,7 +25,7 @@ export default function ProductCategory({ data = [] }) {
           {data?.map((cat, index) => (
             <div
               key={index}
-              className="tw-group tw-items-end tw-grid tw-grid-cols-3 group-hover:tw-grid-cols-1 tw-gap-4 tw-shadow-lg 2xl:tw-p-[30px] xl:tw-p-6 lg:tw-px-20 lg:tw-py-10 tw-px-10 tw-py-8 tw-rounded-2xl shadow-theme-lg tw-shadow-[#CCCCCC]"
+              className="tw-group tw-items-end tw-grid tw-grid-cols-1 sm:tw-grid-cols-3 group-hover:tw-grid-cols-1 tw-gap-4 tw-shadow-lg 2xl:tw-p-[30px] xl:tw-p-6 lg:tw-px-20 lg:tw-py-10 tw-px-10 tw-py-8 tw-rounded-2xl shadow-theme-lg tw-shadow-[#CCCCCC]"
               style={{ backgroundColor: cat?.color }}
             >
               {/* Content */}
