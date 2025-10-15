@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run purge-css && next build",
     "start": "next start",
     "postbuild": "next-sitemap",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "purge-css": "node scripts/purge-css.js"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.3.0",

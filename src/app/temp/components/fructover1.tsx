@@ -5,7 +5,7 @@ export default function Fructover1() {
     <>
       <div className="tw-space-y-8 tw-bg-[#F3F8EE] tw-px-4 sm:tw-px-6 lg:tw-px-8 tw-py-8 tw-text-gray-800">
         {/* Intro block */}
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6 tw-items-center">
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-col-span-2  tw-gap-6 tw-items-center">
           <p className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 tw-leading-7 tw-border tw-border-emerald-50">
             Du suchst nach einem k&ouml;stlichen Himbeer-Smoothie, der trotz Fructoseintoleranz oder
             Low-Carb-Ern&auml;hrung funktioniert? Unser Fructover 1.0 kombiniert Himbeeren, Brokkoli
