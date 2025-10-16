@@ -14,7 +14,7 @@ export default function HomeCarousel({ data, isLoading }) {
   return (
     <div
       className="home-hero-bg- position-relative tw-bg-cover tw-bg-center tw-bg-no-repeat "
-      style={{ backgroundImage: "url('/assets/NewAssets/img/hero-bg.png')" }}
+      style={{ backgroundImage: "url('/assets/NewAssets/img/hero-bg.avif')" }}
     >
       <section
         // id="flx-here-section"
