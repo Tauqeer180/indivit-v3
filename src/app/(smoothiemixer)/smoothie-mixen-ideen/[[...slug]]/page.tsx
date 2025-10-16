@@ -122,7 +122,7 @@ export default async function page({ params }) {
   })
   const smoothieRecipes = recipeData?.smoothies || []
   return (
-    <div>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -136,28 +136,31 @@ export default async function page({ params }) {
       {/* {JSON.stringify(token, smoothieByIdData)} */}
       <TasteInfoModal />
       <FeedbackInfoModal />
-      <HeroBanner
-        data={{
-          title: 'Online Smoothie Mixer',
-          description: IntroText?.mixer_content_1,
-          markdown: true,
-        }}
-        breadCrumb={<BreadCrumb name="Online Smoothie Mixer" />}
-        bgImg=" !tw-bg-mixer"
-      />
-      {/* <div className="tw-pt-10 !tw-h-auto   container">
+      <div className="tw-bg-light-green">
+        <HeroBanner
+          data={{
+            title: 'Online Smoothie Mixer',
+            description: IntroText?.mixer_content_1,
+            markdown: true,
+          }}
+          breadCrumb={<BreadCrumb name="Online Smoothie Mixer" />}
+          bgImg=" !tw-bg-mixer"
+          className="md:!tw-max-w-4xl"
+        />
+        {/* <div className="tw-pt-10 !tw-h-auto   container">
         <MarkdownDisplay className="tw-text-justify pb-2">
           {IntroText?.mixer_content_1}
         </MarkdownDisplay>
       </div> */}
-      <SmoothieMixer
-        ingredients={ingredients}
-        categories={categories}
-        smoothieData={smoothieData}
-        id={id}
-        smoothieByIdData={smoothieByIdData}
-        smoothieRecipes={smoothieRecipes}
-      />
+        <SmoothieMixer
+          ingredients={ingredients}
+          categories={categories}
+          smoothieData={smoothieData}
+          id={id}
+          smoothieByIdData={smoothieByIdData}
+          smoothieRecipes={smoothieRecipes}
+        />
+      </div>
       <div className="container">
         <MarkdownDisplay>{IntroText?.mixer_content_2}</MarkdownDisplay>
       </div>
@@ -170,6 +173,6 @@ export default async function page({ params }) {
       <br />
       <br /> */}
       {/* {JSON.stringify(smoothieData)} */}
-    </div>
+    </>
   )
 }

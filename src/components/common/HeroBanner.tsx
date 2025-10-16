@@ -3,15 +3,18 @@ import React from 'react'
 import { MarkdownDisplay } from './MarkdownDisplay'
 import { H1 } from './Typography'
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
 
 export default function HeroBanner({
   data,
   bgImg,
   breadCrumb,
+  className,
 }: {
   data: DataProps
   bgImg?: string
   breadCrumb?: React.ReactNode
+  className?: string
 }) {
   return (
     <div className="tw-pt-36 tw-bg-green tw-relative tw-overflow-hidden">
@@ -28,7 +31,7 @@ export default function HeroBanner({
         <div className="">
           {breadCrumb}
                   </div>
-        <div className="tw-pt-5  lg:tw-max-w-[1091px]">
+        <div className={cn("tw-pt-5  lg:tw-max-w-[1091px]", className)}>
           <H1 className=" ">{data?.title}</H1>
 
           {data?.title2 && (

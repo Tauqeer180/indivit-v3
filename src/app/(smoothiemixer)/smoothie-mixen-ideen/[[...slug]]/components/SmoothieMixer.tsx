@@ -25,8 +25,8 @@ import { ScrollIntoview } from '@/components/common/Common'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/common/Loader'
 import { revalidateByTag } from '@/app/actions/revalidate-action'
-let boxShadowClass =
-  'tw-bg-white tw-p-2 tw-rounded-xl tw-border tw-border-solid tw-border-gray-100 hover:tw-shadow-around hover:tw-border-transparent'
+import { cn } from '@/lib/utils'
+let boxShadowClass = 'tw-bg-white tw-p-2 tw-rounded-xl '
 
 export default function SmoothieMixer({
   ingredients,
@@ -674,16 +674,16 @@ export default function SmoothieMixer({
                   </div>
                 </div>
               </div>
-              <div className={`col-xs-12 col-sm-12 col-md-6 col-lg-6 ${boxShadowClass}`}>
-                <div className="d-flex flex-wrap justify-content-between tw-items-center">
-                  <h3 className="tw-m-0">Zutatenauswahl</h3>
+              <div
+                className={`col-xs-12 col-sm-12 col-md-6 col-lg-6 shadow-theme-lg tw-shadow-muted ${boxShadowClass}`}
+              >
+                <div className="tw-flex tw-flex-wrap tw-justify-between tw-items-center">
+                  <h3 className="tw-m-0 tw-font-Epilogue-bold tw-font-bold">Zutatenauswahl</h3>
                   {/* Add ingredients */}
                   <button
                     type="button"
                     disabled={isLowQty || limitDisable}
-                    className={`btn btn-primary btn-outline-success ${
-                      isLowQty ? 'pe-disable' : ''
-                    } `}
+                    className={` btn-outline tw-shadow-theme tw-bg-transparent ${isLowQty ? 'pe-disable' : ''} `}
                     data-bs-toggle="modal"
                     data-bs-target="#ingredientSelectionModal"
                     data-bs-whatever="@getbootstrap"
@@ -739,7 +739,7 @@ export default function SmoothieMixer({
                       {/* You didn't add any ingredients */}
                       <button
                         type="button"
-                        className="btn btn-primary btn-solid-success"
+                        className="btn-theme tw-mx-auto"
                         data-bs-toggle="modal"
                         data-bs-target="#ingredientSelectionModal"
                         data-bs-whatever="@getbootstrap"
@@ -763,10 +763,12 @@ export default function SmoothieMixer({
           <div className="row d-flex pt-5 pt-md-5">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-5">
               {/* Taste Section  */}
-              <div className={boxShadowClass}>
+              <div className={cn(boxShadowClass, 'shadow-theme-lg tw-shadow-muted tw-py-7')}>
                 <div className="d-flex flex-wrap justify-content-between">
                   <div className="d-flex justify-content-start">
-                    <h3>Wie schmeckt mein Smoothie?</h3>
+                    <h3 className=" tw-font-Epilogue-bold tw-font-extrabold">
+                      Wie schmeckt mein Smoothie?
+                    </h3>
                     <button
                       className="btn pt-2 mt-0 me-0 shadow-none d-flex align-items-start"
                       data-bs-toggle="modal"
@@ -824,7 +826,7 @@ export default function SmoothieMixer({
                   </div>
                 )}
               </div>
-              <div className={boxShadowClass + ` tw-mt-4`}>
+              <div className={boxShadowClass + ` tw-mt-4 shadow-theme-lg tw-shadow-muted tw-py-7`}>
                 <FeedbackSection
                   feedback={feedback}
                   ingredients={ingredients}
@@ -837,8 +839,11 @@ export default function SmoothieMixer({
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 pt-5">
-              <div id="suggestedIngredients" className={boxShadowClass}>
-                <h3>Mischvorschläge</h3>
+              <div
+                id="suggestedIngredients"
+                className={cn(boxShadowClass, 'shadow-theme-lg tw-shadow-muted tw-py-7')}
+              >
+                <h3 className="tw-font-Epilogue-bold tw-font-extrabold">Mischvorschläge</h3>
                 <ul
                   className="nav nav-pills mb-5 justify-content-center flx-pils-btn"
                   id="pills-tab"
@@ -969,7 +974,7 @@ export default function SmoothieMixer({
                 </div>
               </div>
 
-              <div className={boxShadowClass + ` tw-mt-4`}>
+              <div className={boxShadowClass + ` tw-mt-4 shadow-theme-lg tw-shadow-muted tw-py-7`}>
                 <h3>Fertige Rezepte</h3>
                 <ul
                   className="nav nav-pills mb-5 justify-content-center flx-pils-btn"
