@@ -4,10 +4,14 @@ import 'react-multi-carousel/lib/styles.css'
 // import "bootstrap/dist/js/bootstrap.js";
 import 'aos/dist/aos.css'
 // import "aos/dist/aos.js";
-import '../assets/css/style.css'
 import '../assets/css/countdown.css'
-import '../assets/css/bootstrap.css'
+// import '../assets/css/style.css'
+// import '../assets/css/bootstrap.css'
 import '../assets/fontawesome/css/all.css'
+// Use purged CSS files
+import '../assets/css/purged-bootstrap.css'
+import '../assets/css/purged-style.css'
+// import '../assets/css/purged-all.css' // Use minified
 // import "./App.css";
 import { ToastContainer } from 'react-toastify'
 import Footer from '@/components/layout/Footer'

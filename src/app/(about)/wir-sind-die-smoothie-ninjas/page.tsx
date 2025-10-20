@@ -60,21 +60,24 @@ export default async function Page() {
           __html: JSON.stringify(SEOSchema?.About?.schema, null, 2),
         }}
       />
+
       <div>
-        <HeroBanner
-          data={{
-            title: aboutData?.data?.[0].main__title,
-            description: aboutData?.data?.[0]?.main_description,
-          }}
-          breadCrumb={<BreadCrumb name="Über Indivit" />}
-          bgImg=" !tw-bg-about"
-        />
-        <AboutDetails
-          data={{
-            title: aboutData?.data?.[0]?.section_heading,
-            description: aboutData?.data?.[0].section_description,
-          }}
-        />
+        <div className="tw-bg-light-green">
+          <HeroBanner
+            data={{
+              title: aboutData?.data?.[0].main__title,
+              description: aboutData?.data?.[0]?.main_description,
+            }}
+            breadCrumb={<BreadCrumb name="Über Indivit" />}
+            // bgImg=" !tw-bg-about"
+          />
+          <AboutDetails
+            data={{
+              title: aboutData?.data?.[0]?.section_heading,
+              description: aboutData?.data?.[0].section_description,
+            }}
+          />
+        </div>
         <AboutRecipe data={AboutJSON?.about} color="#F8F9FA" />
         <VisionRecipeSection />
       </div>

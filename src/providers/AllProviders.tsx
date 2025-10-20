@@ -1,9 +1,11 @@
 'use client'
-// import "bootstrap/dist/js/bootstrap.js";
+// import 'bootstrap/dist/js/bootstrap.js'
 // import "aos/dist/aos.js";
 import('bootstrap/js/dist/modal.js')
 import('bootstrap/js/dist/dropdown.js')
 import('bootstrap/js/dist/offcanvas.js')
+import('bootstrap/js/dist/collapse.js')
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
 import AOS from 'aos'

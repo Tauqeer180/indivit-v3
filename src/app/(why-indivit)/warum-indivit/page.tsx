@@ -10,6 +10,7 @@ import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
 import ComparisonTable from '@/components/ComparisonTable'
+import HeroBanner from '@/components/common/HeroBanner'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.WhyIndivit)
@@ -64,23 +65,23 @@ export default async function WhyIndivit() {
           ),
         }}
       />
-      <WhyIndivitHero
-        data={{
-          title: res?.main_title,
-          description: res?.main_description,
-        }}
-      />
+      <div className="tw-bg-light-green">
+        <HeroBanner
+          data={{
+            title: res?.main_title,
+            description: res?.main_description,
+          }}
+          // bgImg=" !tw-bg-faq"
+        />
+        
 
-      <div className="container !tw-h-auto tw-pt-14">
-        <p className="tw-text-justify pb-2">{res?.main_description}</p>
+        <WhyDetails
+          data={{
+            title: res?.section_heading,
+            description: res?.section_description,
+          }}
+        />
       </div>
-
-      <WhyDetails
-        data={{
-          title: res?.section_heading,
-          description: res?.section_description,
-        }}
-      />
       <AboutRecipe data={WhyIndivitData?.indivit} color="#f5eac9" />
       <ComparisonTable />
 
