@@ -100,7 +100,7 @@ export default async function Page({ params }) {
           }}
         />
       )}
-      {/* {JSON.stringify(data?.seo_scheme)} */}
+      {/* {JSON.stringify(data)} */}
       <AllNutrientsPopup data={data?.nutrients} />
       <div className="tw-bg-green tw-pb-10">
         <HeroBanner
@@ -181,14 +181,20 @@ export default async function Page({ params }) {
                   </a>
                 )}{' '}
               </h3>
-              {data?.bottom_detail && (
+              {/* {data?.bottom_detail && (
                 <MarkdownDisplay>{data?.bottom_detail || ''}</MarkdownDisplay>
-              )}
+              )} */}
 
               {/* <p>{data?.ingredient_category?.detail}</p> */}
             </div>
           </div>
         </div>
+        {data?.page_builder && (
+          <MarkdownDisplay enableTailwind={true}>
+            {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}
+            {data?.page_builder?.html_content_with_prefixes}
+          </MarkdownDisplay>
+        )}
       </section>
       {/* Simple Text End */}
 
