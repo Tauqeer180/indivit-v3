@@ -11,6 +11,7 @@ import { MarkdownDisplay } from '@/components/common/MarkdownDisplay'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
+import RichContentMixer from './RichContent'
 // Smoothie Mixer
 
 export async function generateMetadata() {
@@ -161,18 +162,10 @@ export default async function page({ params }) {
           smoothieRecipes={smoothieRecipes}
         />
       </div>
-      <div className="container">
+      <RichContentMixer />
+      {/* <div className="container">
         <MarkdownDisplay>{IntroText?.mixer_content_2}</MarkdownDisplay>
-      </div>
-      {/* {JSON.stringify(ingredientData)} */}
-      {/* Smoothie Mixer
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br /> */}
-      {/* {JSON.stringify(smoothieData)} */}
+      </div> */}
     </>
   )
 }

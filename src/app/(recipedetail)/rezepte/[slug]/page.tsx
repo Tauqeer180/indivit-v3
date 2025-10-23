@@ -289,6 +289,9 @@ export default async function page({ params }: { params: { slug: string } }) {
         </div>
       </section>
       <div className="">
+        {/* {JSON.stringify(data?.page_builder?.html_content_with_prefixes)
+          .replace(/\\n/g, '\n')
+          .replace(/\\"/g, '"')} */}
         {data?.page_builder && (
           <MarkdownDisplay enableTailwind={true}>
             {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}

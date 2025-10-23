@@ -164,31 +164,33 @@ export default async function Page({ params }) {
       </div>
       {/* <!-- simple text --> */}
       <section>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h3>
-                {data?.name} stellt sich selbst vor{' '}
-                {data?.external_link && (
-                  <a
-                    className="p-2 fs-4"
-                    href={data?.external_link}
-                    target="_blank"
-                    rel="noopener"
-                    title="External Refernce"
-                  >
-                    <i className="fas fa-link text-theme-success"></i>
-                  </a>
-                )}{' '}
-              </h3>
-              {/* {data?.bottom_detail && (
+        {data?.external_link && (
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h3>
+                  {data?.name} stellt sich selbst vor{' '}
+                  {data?.external_link && (
+                    <a
+                      className="p-2 fs-4"
+                      href={data?.external_link}
+                      target="_blank"
+                      rel="noopener"
+                      title="External Refernce"
+                    >
+                      <i className="fas fa-link text-theme-success"></i>
+                    </a>
+                  )}{' '}
+                </h3>
+                {/* {data?.bottom_detail && (
                 <MarkdownDisplay>{data?.bottom_detail || ''}</MarkdownDisplay>
               )} */}
 
-              {/* <p>{data?.ingredient_category?.detail}</p> */}
+                {/* <p>{data?.ingredient_category?.detail}</p> */}
+              </div>
             </div>
           </div>
-        </div>
+        )}
         {data?.page_builder && (
           <MarkdownDisplay enableTailwind={true}>
             {/* {boxDescription?.length > 0 && boxDescription?.[0]?.detail} */}
