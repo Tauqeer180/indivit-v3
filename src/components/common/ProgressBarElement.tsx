@@ -66,7 +66,7 @@ export default function ProgressBarElement({
   }
   return (
     <>
-      <div className="tw-grid tw-grid-cols-12 tw-pt-6 tw-gap-2 tw-items-center">
+      <div className="tw-grid tw-grid-cols-12 tw-pt-6 tw-gap-2 tw-items-start">
         {ingredient ? (
           <div className="tw-col-span-6 sm:tw-col-span-3 md:tw-col-span-6 xl:tw-col-span-3 tw-order-1 xl:tw-order-1  tw-flex tw-justify-start sm:tw-justify-between md:tw-justify-start xl:tw-justify-between tw-items-center flx-rdetailed-probar tw-gap-1">
             <p className="fw-bold tw-capitalize tw-truncate tw-mb-0" title={name}>

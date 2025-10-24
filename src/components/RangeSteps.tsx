@@ -28,8 +28,8 @@ export default function RangeSteps({ onChange, value, data }) {
               id={`customTooltip-${data?.name}-${i}`}
               onClick={() => handleChange(i)}
               className={`border-theme-success position-relative w-100 ${
-                i == 0 && " rounded-start"
-              }  ${i == 4 && "rounded-end"} ${
+                i == 0 && " tw-rounded-s-full"
+              }  ${i == 4 && "tw-rounded-e-full"} ${
                 value >= i && "bg-theme-success"
               }`}
               style={{ height: "20px" }}

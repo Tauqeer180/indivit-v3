@@ -35,7 +35,7 @@ export default function FeedbackSection({
             <button
               type="button"
               disabled={feedbackLoading}
-              className="btn btn-primary btn-solid-success"
+              className="btn-theme"
               onClick={handleFeedBack}
             >
               {feedbackLoading ? (
@@ -99,7 +99,7 @@ export default function FeedbackSection({
           <p>Wir haben noch kein Feedback zu deinem Smoothie, da er leer ist.</p>
           <button
             type="button"
-            className="btn btn-primary btn-solid-success"
+            className="btn-theme"
             data-bs-toggle="modal"
             data-bs-target="#ingredientSelectionModal"
             data-bs-whatever="@getbootstrap"

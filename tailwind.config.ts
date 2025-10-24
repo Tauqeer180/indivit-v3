@@ -6,6 +6,7 @@ const config = {
     extend: {
       screens: {
         "md-5": "868px",
+        "sm-5": "704px",
         xs: "576px",
         xxs: "480px",
         "2xl": "1400px",

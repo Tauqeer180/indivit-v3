@@ -26,6 +26,7 @@ import { useRouter } from 'next/navigation'
 import Loader from '@/components/common/Loader'
 import { revalidateByTag } from '@/app/actions/revalidate-action'
 import { cn } from '@/lib/utils'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 let boxShadowClass = 'tw-bg-white tw-p-2 tw-rounded-xl '
 
 export default function SmoothieMixer({
@@ -605,7 +606,7 @@ export default function SmoothieMixer({
               <div className="col-sm-5 col-8 float-right mt-0">
                 <input
                   type="text"
-                  className="form-control rounded-8 p-10"
+                  className="form-control !tw-rounded-full p-10"
                   id="name"
                   placeholder="Wie heißt dein Smoothie? *"
                   {...register('name', {
@@ -617,7 +618,7 @@ export default function SmoothieMixer({
               <div className="col-sm-4 col-auto d-sm-block d-none float-right mt-0">
                 <input
                   type="text"
-                  className="form-control rounded-8 p-10"
+                  className="form-control !tw-rounded-full p-10"
                   id="headline"
                   placeholder="Notiz/Beschreibung "
                   {...register('headline')}
@@ -642,7 +643,7 @@ export default function SmoothieMixer({
                     limitDisable
                   }
                   onClick={handleSubmit(onSubmit)}
-                  className={`btn btn-solid-success w-100 ${
+                  className={`btn-theme w-100 ${
                     !selectedData?.length ||
                     isLowQty ||
                     Math.ceil(totalShare) < 100 ||
@@ -661,7 +662,7 @@ export default function SmoothieMixer({
             <div className="row  pt-5 pt-md-5">
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                 <div className="text-center position-relative min-h-blender ">
-                  <div className="w-100 position-absolute">
+                  <div className="tw-w-full tw-h-full position-absolute">
                     <BgSmoothieMixer filled={color} />
                     <div
                       className="z-index-10 position-absolute top-0 start-0 end-0 "
@@ -739,7 +740,7 @@ export default function SmoothieMixer({
                       {/* You didn't add any ingredients */}
                       <button
                         type="button"
-                        className="btn-theme tw-mx-auto"
+                        className="btn-theme tw-mx-auto "
                         data-bs-toggle="modal"
                         data-bs-target="#ingredientSelectionModal"
                         data-bs-whatever="@getbootstrap"
@@ -816,7 +817,7 @@ export default function SmoothieMixer({
                     </p>
                     <button
                       type="button"
-                      className="btn btn-primary btn-solid-success"
+                      className="btn-theme"
                       data-bs-toggle="modal"
                       data-bs-target="#ingredientSelectionModal"
                       data-bs-whatever="@getbootstrap"
@@ -845,7 +846,7 @@ export default function SmoothieMixer({
               >
                 <h3 className="tw-font-Epilogue-bold tw-font-extrabold">Mischvorschläge</h3>
                 <ul
-                  className="nav nav-pills mb-5 justify-content-center flx-pils-btn"
+                  className="tw-list-none tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-gap-2 md:tw-gap-3 xl:tw-gap-4 tw-pb-5"
                   id="pills-tab"
                   role="tablist"
                 >
@@ -853,7 +854,7 @@ export default function SmoothieMixer({
                     return (
                       <li key={i} className="nav-item" role="presentation">
                         <button
-                          className={`nav-link btn-sm ${suggestedTab == i ? 'active' : ''}  `}
+                          className={` !tw-py-2 !tw-px-4 ${suggestedTab == i ? 'btn-theme ' : 'btn-outline tw-bg-transparent'}  `}
                           onClick={() => setSuggestedTab(i)}
                         >
                           {tab}
@@ -894,7 +895,7 @@ export default function SmoothieMixer({
                             </p>
                             <button
                               type="button"
-                              className="btn btn-primary btn-solid-success"
+                              className="btn-theme tw-mx-auto"
                               data-bs-toggle="modal"
                               data-bs-target="#ingredientSelectionModal"
                               data-bs-whatever="@getbootstrap"
@@ -908,7 +909,7 @@ export default function SmoothieMixer({
                             <button
                               type="button"
                               disabled={feedbackLoading}
-                              className="btn btn-primary btn-solid-success"
+                              className="btn-theme"
                               onClick={handleFeedBack}
                             >
                               {feedbackLoading ? (
@@ -975,87 +976,66 @@ export default function SmoothieMixer({
               </div>
 
               <div className={boxShadowClass + ` tw-mt-4 shadow-theme-lg tw-shadow-muted tw-py-7`}>
-                <h3>Fertige Rezepte</h3>
-                <ul
-                  className="nav nav-pills mb-5 justify-content-center flx-pils-btn"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li className="nav-item" role="presentation">
-                    <button
-                      className="nav-link btn-sm"
-                      data-bs-toggle="pill"
-                      data-bs-target="#recommended-recipes"
-                      type="button"
-                      role="tab"
-                      aria-controls="recommended-recipes"
-                      aria-selected="false"
-                    >
-                      Vorschläge
-                    </button>
-                  </li>
-                  <li className="nav-item" role="presentation">
-                    <button
-                      className="nav-link btn-sm active"
-                      data-bs-toggle="pill"
-                      data-bs-target="#all-recipes"
-                      type="button"
-                      role="tab"
-                      aria-controls="all-recipes"
-                      aria-selected="false"
-                    >
-                      Alle
-                    </button>
-                  </li>
-                </ul>
-                <div className="pb-5 row  max-h-300 overflow-auto">
-                  <div className="tab-content" id="pills-tabContent">
-                    <div className="tab-pane fade show" id="recommended-recipes" role="tabpanel">
-                      <div className="row">
-                        {selectedData?.length > 0 ? (
-                          smoothieRecipes
-                            ?.filter((obj) =>
-                              obj.smoothie_categories.some((d) => d.category_id == mostFrequent)
-                            )
-                            ?.map((d, i) => {
-                              return (
-                                <div key={i}>
-                                  <SmoothieSelectListCard data={d} />
-                                </div>
-                              )
-                            })
-                        ) : (
-                          <div>
-                            <p>
-                              Wir können noch keine sinnvollen Vorschläge generieren, da dein
-                              Smoothie leer ist.
-                            </p>
-                            <button
-                              type="button"
-                              className="btn btn-primary btn-solid-success"
-                              data-bs-toggle="modal"
-                              data-bs-target="#ingredientSelectionModal"
-                              data-bs-whatever="@getbootstrap"
-                            >
-                              Zutat hinzufügen
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="tab-pane fade show active" id="all-recipes" role="tabpanel">
-                      <div className="row">
-                        {smoothieRecipes?.map((d, i) => {
+                <h3 className="tw-font-Epilogue-bold tw-font-extrabold  tw-mb-4">
+                  Fertige Rezepte
+                </h3>
+                <Tabs defaultValue="alle">
+                  <TabsList className="tw-gap-2 tw-mx-auto md:tw-gap-3 lg:tw-gap-4 tw-mb-14 tw-flex-wrap !tw-h-auto tw-bg-transparent ">
+                    {['Vorschläge', 'Alle']?.map((categ, index) => {
+                      return (
+                        <TabsTrigger
+                          className="data-[state=active]:tw-bg-theme data-[state=active]:tw-text-white "
+                          key={index}
+                          value={categ?.toLowerCase()}
+                        >
+                          {categ}
+                        </TabsTrigger>
+                      )
+                    })}
+                  </TabsList>
+
+                  <TabsContent value="vorschläge" className="tw-max-h-[300px] tw-overflow-auto">
+                    {selectedData?.length > 0 ? (
+                      smoothieRecipes
+                        ?.filter((obj) =>
+                          obj.smoothie_categories.some((d) => d.category_id == mostFrequent)
+                        )
+                        ?.map((d, i) => {
                           return (
                             <div key={i}>
                               <SmoothieSelectListCard data={d} />
                             </div>
                           )
-                        })}
+                        })
+                    ) : (
+                      <div className="tw-pb-4">
+                        <p>
+                          Wir können noch keine sinnvollen Vorschläge generieren, da dein Smoothie
+                          leer ist.
+                        </p>
+                        <button
+                          type="button"
+                          className="btn-theme"
+                          data-bs-toggle="modal"
+                          data-bs-target="#ingredientSelectionModal"
+                          data-bs-whatever="@getbootstrap"
+                        >
+                          Zutat hinzufügen
+                        </button>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    )}
+                  </TabsContent>
+
+                  <TabsContent value="alle" className="tw-max-h-[300px] tw-overflow-auto">
+                    {smoothieRecipes?.map((d, i) => {
+                      return (
+                        <div key={i}>
+                          <SmoothieSelectListCard data={d} />
+                        </div>
+                      )
+                    })}
+                  </TabsContent>
+                </Tabs>
               </div>
             </div>
           </div>

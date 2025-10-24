@@ -47,7 +47,7 @@ export function ShowMoreBtn({ show, setShow, list }) {
         <div className="tw-text-center tw-block md:tw-hidden tw-pb-4">
           <button
             onClick={() => setShow((prev) => !prev)}
-            className="tw-bg-theme tw-font-bold tw-rounded-3xl tw-border-0 tw-text-white tw-p-x-2 tw-py-1 tw-text-xs"
+            className="tw-bg-theme tw-font-bold tw-rounded-3xl tw-border-0 tw-text-white tw-p-x-2 tw-py-1 tw-text-xs shadow-theme-md tw-shadow-muted"
           >
             {
               show

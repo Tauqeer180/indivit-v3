@@ -117,10 +117,10 @@ export default function MixerSelectionModal({
             </div>
 
             <div className="modal-body pt-0">
-              <div className="row">
-                <div className="col-12 col-md-6 col-lg-6">
+              <div className="">
+                <div className="tw-grid sm-5:tw-grid-cols-2 tw-gap-4 sm-5:tw-gap-0 mb-4">
                   <select
-                    className="form-control form-select p-10 rounded-8 text-muted"
+                    className="form-control form-select tw-px-2  tw-h-11 max-sm-5:!tw-rounded-r-full !tw-rounded-l-full text-muted"
                     onChange={(e) => handleFilter(e.target.value)}
                   >
                     <option value="">Alle</option>
@@ -132,16 +132,17 @@ export default function MixerSelectionModal({
                       )
                     })}
                   </select>
-                </div>
-                <div className="col-12 col-md-6 col-lg-6">
-                  <div className="input-group mb-3">
-                    <span className="input-group-text bg-transparent" id="basic-addon1">
+                  <div className="input-group mb-3 tw-h-11 !tw-rounded-r-full">
+                    <span
+                      className="input-group-text bg-transparent !tw-rounded-l-full sm-5:!tw-rounded-l-none tw-h-11"
+                      id="basic-addon1"
+                    >
                       <i className="fa fa-light fa-magnifying-glass p-2 tw-text-theme "></i>
                     </span>
 
                     <input
                       type="search"
-                      className="form-control  shadow-none p-2"
+                      className="form-control  shadow-none p-2 !tw-rounded-r-full"
                       placeholder="Suche nach Zutaten…"
                       aria-label="Search"
                       aria-describedby="search-addon"
@@ -149,6 +150,8 @@ export default function MixerSelectionModal({
                     />
                   </div>
                 </div>
+                {/* <div className="col-12 col-md-6 col-lg-6"></div>
+                <div className="col-12 col-md-6 col-lg-6"></div> */}
 
                 {/* <hr /> */}
                 {intro && intro?.text && (
@@ -277,7 +280,7 @@ export default function MixerSelectionModal({
             <div className="modal-footer justify-content-center tw-sticky tw-bottom-0 !tw-rounded-b-3xl tw-bg-white  tw-shadow-inner">
               <button
                 type="button"
-                className="btn btn-primary btn-outline-success text-capitalize"
+                className="btn-outline tw-shadow-muted tw-bg-white"
                 // data-bs-toggle="modal"
                 // data-bs-target="#exampleModal"
                 // data-bs-whatever="@getbootstrap"
@@ -285,11 +288,7 @@ export default function MixerSelectionModal({
               >
                 Jetzt nicht
               </button>
-              <button
-                type="button"
-                className="btn btn-primary btn-solid-success"
-                onClick={handleSubmit}
-              >
+              <button type="button" className="btn-theme" onClick={handleSubmit}>
                 Speichern
               </button>
             </div>

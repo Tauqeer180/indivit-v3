@@ -24,6 +24,7 @@ export const BgSmoothieMixer = ({ filled }) => {
       xmlns="http://www.w3.org/2000/svg"
       // width="607.47"
       // height="625.809"
+      className="tw-w-full tw-h-full"
       viewBox="0 0 607.47 625.809"
     >
       <path
