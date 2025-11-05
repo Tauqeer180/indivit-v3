@@ -69,7 +69,7 @@ async function getIngredientsData() {
 }
 export async function generateStaticParams() {
   const posts = await getIngredientsData()
-  console.log('Posts in generateStaticParams: ', JSON.stringify(posts))
+  // console.log('Posts in generateStaticParams: ', JSON.stringify(posts))
   return posts?.ingredients?.map((post: any) => ({
     slug: post?.slug || post?.unique_id,
   }))
@@ -102,7 +102,7 @@ export default async function Page({ params }) {
       )}
       {/* {JSON.stringify(data)} */}
       <AllNutrientsPopup data={data?.nutrients} />
-      <div className="tw-bg-green tw-pb-10">
+      <div className="tw-bg-theme-green tw-pb-10">
         <HeroBanner
           data={{ title: data?.key_factor_headline }}
           breadCrumb={
@@ -203,7 +203,7 @@ export default async function Page({ params }) {
       {/* Other Ingredients Start */}
 
       <section className="">
-        <section className="tw-bg-green tw-py-10 md:tw-py-14">
+        <section className="tw-bg-theme-green tw-py-10 md:tw-py-14">
           <div className=" container">
             {relativeSmoothies?.length > 0 && (
               <h3

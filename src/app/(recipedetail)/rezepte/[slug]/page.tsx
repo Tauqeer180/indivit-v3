@@ -167,7 +167,7 @@ export default async function page({ params }: { params: { slug: string } }) {
           ),
         }}
       />
-      <section className="tw-pt-36 tw-bg-green tw-pb-14">
+      <section className="tw-pt-36 tw-bg-theme-green tw-pb-14">
         <div className="container">
           <section className="">
             <div className="">

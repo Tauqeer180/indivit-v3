@@ -99,12 +99,18 @@ export function Content({ smoothiesListing, data, relative_boxes, benefitsData }
           isHeading={false}
         />
         {/* <!-- progressbar section --> */}
-        <section className="tw-bg-green">
+        <section className="tw-bg-theme-green">
           <div className="container">
             <div className="tw-grid md:tw-grid-cols-2 tw-py-24 tw-items-end tw-gap-10">
               <div className="tw-bg-white tw-rounded-2.5xl tw-p-7 shadow-theme-lg tw-shadow-[#ccc]">
-                <h3 className="tw-text-2xl tw-font-extrabold tw-text-dark">Wie schmeckt der Smoothie?</h3>
-                <TasteSection data={data?.smoothie_recipe_taste} suggest="no" basiColor={'#81CA00'} />
+                <h3 className="tw-text-2xl tw-font-extrabold tw-text-dark">
+                  Wie schmeckt der Smoothie?
+                </h3>
+                <TasteSection
+                  data={data?.smoothie_recipe_taste}
+                  suggest="no"
+                  basiColor={'#81CA00'}
+                />
               </div>
               <div className="tw-bg-white tw-rounded-2.5xl tw-p-7 shadow-theme-lg tw-shadow-[#ccc]">
                 <div className=" ">

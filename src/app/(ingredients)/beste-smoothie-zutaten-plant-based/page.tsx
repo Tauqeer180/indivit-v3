@@ -65,7 +65,7 @@ export default async function Ingredients() {
         }}
       />
       {/* <!-- hero banner start--> */}
-      <div className="tw-bg-green tw-pb-10">
+      <div className="tw-bg-theme-green tw-pb-10">
         <HeroBanner
           data={{
             title: 'Welche Zutaten sind im Smoothie?',

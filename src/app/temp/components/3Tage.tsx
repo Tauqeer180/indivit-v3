@@ -226,7 +226,7 @@ export default function ThreeTage() {
         </div>
       </div>
 
-      <div class="tw-bg-green tw-py-9">
+      <div class="tw-bg-theme-green tw-py-9">
         <div class="container">
           <h2 class="tw-text-4xl tw-font-extrabold tw-text-center">
             <strong>Detox Smoothie Kur im Detail: Das steckt drin</strong>
@@ -400,7 +400,7 @@ export default function ThreeTage() {
           </div>
         </div>
       </div>
-      <div class="tw-bg-green tw-py-9 ">
+      <div class="tw-bg-theme-green tw-py-9 ">
         <div class="container md:!tw-max-w-4xl">
           <div class="tw-grid tw-gap-6">
             <h2 class=" tw-font-extrabold ">

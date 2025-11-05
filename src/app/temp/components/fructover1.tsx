@@ -3,7 +3,7 @@ import React from 'react'
 export default function Fructover1() {
   return (
     <>
-      <div className="tw-space-y-8 tw-bg-[#F3F8EE] tw-px-4 sm:tw-px-6 lg:tw-px-8 tw-py-8 tw-text-gray-800">
+      <div className="tw-space-y-8 tw-bg-[#F3F8EE]  tw-px-4 sm:tw-px-6 lg:tw-px-8 tw-py-8 tw-text-gray-800">
         {/* Intro block */}
         <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-col-span-2  tw-gap-6 tw-items-center">
           <p className="md:tw-col-span-2 tw-bg-white tw-rounded-2xl tw-shadow-sm tw-p-6 tw-leading-7 tw-border tw-border-emerald-50">
@@ -99,7 +99,7 @@ export default function Fructover1() {
                 </thead>
 
                 <tbody className="[&>tr>td]:tw-px-4 [&>tr>td]:tw-py-3">
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className="tw-bg-tea-green tw-border tw-border-theme-green tw-rounded-lg">
                     <td>
                       Bio-
                       <a
@@ -116,7 +116,7 @@ export default function Fructover1() {
                     </td>
                   </tr>
 
-                  <tr className="tw-bg-light-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className="tw-bg-light-green tw-border tw-border-theme-green tw-rounded-lg">
                     <td>
                       Bio-
                       <a
@@ -130,7 +130,7 @@ export default function Fructover1() {
                     <td>Tiefk&uuml;hlvariante bevorzugen</td>
                   </tr>
 
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className="tw-bg-tea-green tw-border tw-border-theme-green tw-rounded-lg">
                     <td>
                       Bio-
                       <a
@@ -144,7 +144,7 @@ export default function Fructover1() {
                     <td>Ungezuckert &amp; naturbelassen</td>
                   </tr>
 
-                  <tr className="tw-bg-light-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className="tw-bg-light-green tw-border tw-border-theme-green tw-rounded-lg">
                     <td>
                       <a
                         className="tw-text-theme tw-underline hover:tw-text-dark"
@@ -158,7 +158,7 @@ export default function Fructover1() {
                     <td>Auf weichen Stielansatz achten</td>
                   </tr>
 
-                  <tr className="tw-bg-tea-green tw-border tw-border-green tw-rounded-lg">
+                  <tr className="tw-bg-tea-green tw-border tw-border-theme-green tw-rounded-lg">
                     <td>
                       <a
                         className="tw-text-theme tw-underline hover:tw-text-dark"

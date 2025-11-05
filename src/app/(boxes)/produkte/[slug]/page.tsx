@@ -155,7 +155,7 @@ export default async function page({ params }: any) {
       <ViewBoxPopup />
       <VATModal />
 
-      <section className="tw-pt-36 tw-bg-green tw-pb-4">
+      <section className="tw-pt-36 tw-bg-theme-green tw-pb-4">
         <div className="container">
           <section className="">
             <div className="">

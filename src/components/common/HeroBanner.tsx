@@ -17,21 +17,21 @@ export default function HeroBanner({
   className?: string
 }) {
   return (
-    <div className="tw-pt-36 tw-bg-green tw-relative tw-overflow-hidden">
+    <div className="tw-pt-36 tw-bg-theme-green tw-relative tw-overflow-hidden">
       {/* <!-- hero banner start--> */}
       <section className="container">
-        {bgImg && <Image
-                    alt="red barries"
-                    src="/assets/img/smoothie_list_graphics.png"
-                    className="tw-absolute -tw-right-6 xl:-tw-right-20 tw-top-52 tw-object-contain  tw-hidden lg:tw-block tw-w-36 tw-h-24  xl:tw-w-[264px] xl-tw-h-[164px]"
-                    width={264}
-                    height={180}
-                    // sizes="(min-width: 1280px) 264px, 164px"
-                  />}
-        <div className="">
-          {breadCrumb}
-                  </div>
-        <div className={cn("tw-pt-5  lg:tw-max-w-[1091px]", className)}>
+        {bgImg && (
+          <Image
+            alt="red barries"
+            src="/assets/img/smoothie_list_graphics.png"
+            className="tw-absolute -tw-right-6 xl:-tw-right-20 tw-top-52 tw-object-contain  tw-hidden lg:tw-block tw-w-36 tw-h-24  xl:tw-w-[264px] xl-tw-h-[164px]"
+            width={264}
+            height={180}
+            // sizes="(min-width: 1280px) 264px, 164px"
+          />
+        )}
+        <div className="">{breadCrumb}</div>
+        <div className={cn('tw-pt-5  lg:tw-max-w-[1091px]', className)}>
           <H1 className=" ">{data?.title}</H1>
 
           {data?.title2 && (
