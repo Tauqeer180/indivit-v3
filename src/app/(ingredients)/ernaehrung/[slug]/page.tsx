@@ -203,39 +203,41 @@ export default async function Page({ params }) {
       {/* Other Ingredients Start */}
 
       <section className="">
-        <section className="tw-bg-theme-green tw-py-10 md:tw-py-14">
-          <div className=" container">
-            {relativeSmoothies?.length > 0 && (
-              <h3
-                className="tw-text-5xl tw-font-extrabold "
-                data-aos="fade-up"
-                data-aos-duration="1000"
-              >
-                Rezepte mit {data?.name}
-              </h3>
-            )}
-            {/* {JSON.stringify(relativeSmoothies[0])} */}
-            <div className="tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-5 tw-pt-4">
-              {relativeSmoothies?.slice(0, 6)?.map((smooth) => {
-                return (
-                  <div
-                    key={smooth?.smoothie_id}
-                    className=""
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                  >
-                    <RecipeCard
-                      isButton={true}
-                      data={smooth?.smoothie}
-                      actionTitle="Mehr anzeigen"
-                      action={`/rezepte/${smooth?.smoothie?.slug || smooth?.smoothie?.unique_id}`}
-                    />
-                  </div>
-                )
-              })}
+        {relativeSmoothies?.length > 0 && (
+          <section className="tw-bg-theme-green tw-py-10 md:tw-py-14">
+            <div className=" container">
+              {relativeSmoothies?.length > 0 && (
+                <h3
+                  className="tw-text-5xl tw-font-extrabold "
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  Rezepte mit {data?.name}
+                </h3>
+              )}
+              {/* {JSON.stringify(relativeSmoothies[0])} */}
+              <div className="tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-5 tw-pt-4">
+                {relativeSmoothies?.slice(0, 6)?.map((smooth) => {
+                  return (
+                    <div
+                      key={smooth?.smoothie_id}
+                      className=""
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                    >
+                      <RecipeCard
+                        isButton={true}
+                        data={smooth?.smoothie}
+                        actionTitle="Mehr anzeigen"
+                        action={`/rezepte/${smooth?.smoothie?.slug || smooth?.smoothie?.unique_id}`}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
         <section className="tw-py-10 md:tw-py-14">
           {/* <!-- Ingredients --> */}
           <div className="container">

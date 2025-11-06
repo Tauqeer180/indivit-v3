@@ -8,6 +8,7 @@ import IntroText from '@/constant/IntroText.json'
 import { getSEOData } from '@/services/common'
 import { SWRKeys } from '@/constant/SWRKeys'
 import { SEOSchema } from '@/constant/SEOSchema'
+import HeroBanner from '@/components/common/HeroBanner'
 
 export async function generateMetadata() {
   const { data } = await getSEOData(SWRKeys?.BlogList)
@@ -51,26 +52,28 @@ export default async function Page() {
           __html: JSON.stringify(SEOSchema?.Blogs?.schema, null, 2),
         }}
       />
-      <BlogsHero
-        data={{
-          title: 'Smoothie Wissen',
-          description:
-            'Entdecken Sie eine köstliche Auswahl an frisch gemixten Smoothies bei unserem Online-Händler. Passen Sie jede Mischung mit unserem Mixer individuell an Ihren Geschmack an. Von belebenden Fruchtmischungen bis hin zu cremigen Genüssen – unsere Smoothies sind ein köstliches Abenteuer, das auf Sie wartet!',
-        }}
-        breadCrumb={<BreadCrumb name="Smoothie Wissen" />}
-      />
+      <div className="tw-bg-[#BFEAB3]  tw-pb-10  ">
+        <HeroBanner
+          data={{
+            title: 'Smoothie Wissen',
+            description: IntroText?.blog_content_1,
+            // 'Entdecken Sie eine köstliche Auswahl an frisch gemixten Smoothies bei unserem Online-Händler. Passen Sie jede Mischung mit unserem Mixer individuell an Ihren Geschmack an. Von belebenden Fruchtmischungen bis hin zu cremigen Genüssen – unsere Smoothies sind ein köstliches Abenteuer, das auf Sie wartet!',
+          }}
+          breadCrumb={<BreadCrumb name="Smoothie Wissen" />}
+        />
 
-      <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
-        <MarkdownDisplay>{IntroText?.blog_content_1}</MarkdownDisplay>
-      </div>
-      <div className="tw-max-w-7xl tw-mt-10 tw-px-4  tw-mx-auto tw-grid 2xl:tw-grid-cols-4 md:tw-grid-cols-3 tw-grid-cols-2 tw-gap-4">
-        {res?.data?.data?.map((blog, index) => {
-          return (
-            <div key={index}>
-              <BlogCard data={blog} />
-            </div>
-          )
-        })}
+        {/* <div className="md:!tw-max-w-3xl tw-mx-auto tw-pt-14 !tw-h-auto max-md:!tw-px-4">
+          <MarkdownDisplay>{IntroText?.blog_content_1}</MarkdownDisplay>
+        </div> */}
+        <div className="tw-max-w-7xl tw-mt-10 tw-px-4  tw-mx-auto tw-grid 2xl:tw-grid-cols-4 md:tw-grid-cols-3 tw-grid-cols-2 tw-gap-4">
+          {res?.data?.data?.map((blog, index) => {
+            return (
+              <div key={index}>
+                <BlogCard data={blog} />
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       <div className="container tw-my-14">

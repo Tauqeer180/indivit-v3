@@ -760,7 +760,7 @@ export function BlogCard({ data }) {
   // let slug = title_slug?.concat(`_${data?.id}`);
   return (
     <>
-      <figure className="tw-rounded-xl tw-shadow md:tw-p-0 tw-rounded-b-xl max-sm:tw-max-w-[90vw]">
+      <figure className="tw-rounded-xl shadow-theme-lg tw-shadow-[#ccc] md:tw-p-0 tw-rounded-b-xl max-sm:tw-max-w-[90vw] tw-bg-white">
         <Link href={`/blog/${data?.slug}`}>
           <Image
             width={405}
